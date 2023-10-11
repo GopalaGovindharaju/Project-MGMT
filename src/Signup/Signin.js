@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './signin.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -17,6 +17,24 @@ function Signin() {
   const [exPassword, setExPassword] = useState('');
   const [exUserId, setExUserId] = useState('');
   const navigate = useNavigate();
+  
+
+  const [isauthorized, setIsAuthorized] = useState(
+    localStorage.getItem("isauthorized") || ""
+  );
+  const [isSigned, setIsSigned] = useState(
+    localStorage.getItem("isSigned") === "true" ? true : false
+  );
+  
+
+  useEffect(() => {
+    localStorage.setItem("isauthorized", isauthorized);
+  }, [isauthorized]);
+
+  useEffect(() => {
+    localStorage.setItem("isSigned", isSigned.toString());
+  }, [isSigned]);
+  
 
   const handleSignupClick = () => {
     setUserFormsClass('bounceLeft');
@@ -26,8 +44,8 @@ function Signin() {
     setUserFormsClass('bounceRight');
   };
 
-  const handleNavigation = (role) => {
-    switch (role) {
+  const handleNavigation = () => {
+    switch (isauthorized) {
       case 'admin':
         navigate('/admin');
         break;
@@ -38,9 +56,15 @@ function Signin() {
         navigate('/staff');
         break;
       default:
-        break;
+        alert("not an valid Role")
     }
   }
+  useEffect(() => {
+    if (isSigned && isauthorized) {
+      handleNavigation();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSigned, isauthorized]);
 
   const handleLogin = (event) => {
 	event.preventDefault();
@@ -52,8 +76,12 @@ function Signin() {
   axios
     .post("http://127.0.0.1:8000/login/",data)
     .then((response) => {
-      console.log(response.data);
-      handleNavigation(response.data);
+      if (!response.data) {
+        alert("User Can't Found");
+      } else {
+        setIsSigned(true);
+        setIsAuthorized(response.data);
+      }
       setExPassword('');
       setExUserId('');
     })
@@ -79,8 +107,13 @@ function Signin() {
     .post("http://127.0.0.1:8000/login/signin/", data)
     .then((response) => {
       console.log(response.data);
-      handleNavigation(response.data);
       setUserFormsClass('bounceRight');
+      if (!response.data) {
+        alert("User Can't Found");
+      } else {
+        setIsSigned(true);
+        setIsAuthorized(response.data);
+      }
       setNewUserName('');
       setNewUserId('');
       setNewPassword('');
