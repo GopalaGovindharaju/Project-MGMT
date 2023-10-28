@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'promgmt',
     'corsheaders',
     'rest_framework',
-    
+    'projectdetails',
+    'guidelist',
+    'studentlist',
+    'teamdetail',
 ]
 
 MIDDLEWARE = [

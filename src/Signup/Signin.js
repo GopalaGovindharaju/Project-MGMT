@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './signin.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import UserInfoContext from '../UsenInfoContext';
 
 
 function Signin() {
@@ -17,6 +18,7 @@ function Signin() {
   const [exPassword, setExPassword] = useState('');
   const [exUserId, setExUserId] = useState('');
   const navigate = useNavigate();
+  const { setUserInfo } = useContext(UserInfoContext);
   
 
   const [isauthorized, setIsAuthorized] = useState(
@@ -43,6 +45,21 @@ function Signin() {
   const handleLoginClick = () => {
     setUserFormsClass('bounceRight');
   };
+
+  useEffect(() => {
+    // Load user information from local storage on component mount
+    const storedUserInfo = JSON.parse(localStorage.getItem('userInfo'));
+    const storedIsAuthorized = localStorage.getItem('isauthorized');
+    const storedIsSigned = localStorage.getItem('isSigned') === 'true';
+
+    if (storedIsSigned && storedIsAuthorized && storedUserInfo) {
+      setIsSigned(true);
+      setIsAuthorized(storedIsAuthorized);
+      setUserInfo(storedUserInfo);
+      navigate('/'); // Redirect to the appropriate route after login
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleNavigation = () => {
     switch (isauthorized) {
@@ -80,7 +97,10 @@ function Signin() {
         alert("User Can't Found");
       } else {
         setIsSigned(true);
-        setIsAuthorized(response.data);
+        setIsAuthorized(response.data.Role);
+        setUserInfo(response.data);
+        console.log(response.data)
+        localStorage.setItem('userInfo', JSON.stringify(response.data));
       }
       setExPassword('');
       setExUserId('');
@@ -109,10 +129,13 @@ function Signin() {
       console.log(response.data);
       setUserFormsClass('bounceRight');
       if (!response.data) {
-        alert("User Can't Found");
+        alert("User Can't Found or not Registered");
       } else {
+        console.log(response.data)
         setIsSigned(true);
-        setIsAuthorized(response.data);
+        setIsAuthorized(response.data.Role);
+        setUserInfo(response.data);
+        localStorage.setItem('userInfo', JSON.stringify(response.data));
       }
       setNewUserName('');
       setNewUserId('');

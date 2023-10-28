@@ -1,6 +1,9 @@
 from .models import Signin
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from promgmt.serializers import SigninSerializer
+from guidelist.models import GuideList
+from studentlist.models import StudentList
 
 @api_view(['POST'])
 def create_employee(request):
@@ -13,9 +16,16 @@ def create_employee(request):
         Password = data.get('Password')
         Email = data.get('Email')
         Batch_No = data.get('Batch_No')
-        Role = data.get('Role')
         Year = data.get('Year')
         Staff_Incharge = data.get('Staff_Incharge')
+
+        if(Role != 'admin'):
+            if(Role == 'staff'):
+                if not GuideList.objects.filter(Reg_No=User_Id).exists():
+                    return Response('')
+            if(Role == 'student'):
+                if not StudentList.objects.filter(Reg_No=User_Id).exists():
+                    return Response('')
 
         user_detail = Signin(
             User_Name=User_Name,
@@ -26,9 +36,10 @@ def create_employee(request):
             Year=Year,
             Staff_Incharge=Staff_Incharge,
         )
+        user_info = {'User_Id' :User_Id, 'Role' : Role, 'Name' : User_Name, 'Email' : Email, 'Batch_No' : Batch_No, 'Staff_Incharge' : Staff_Incharge, 'Year' : Year}
         user_detail.set_password(Password)
         user_detail.save()
-        return Response(Role)
+        return Response(user_info)
     else:
         return Response("Can't Sign up")
     
@@ -45,9 +56,23 @@ def validate_employee(request):
 
             if user.check_password(ExPassword):
                 Role = user.Role
-                return Response(Role)
+                Name = user.User_Name
+                Email = user.Email
+                Batch_no = user.Batch_No
+                Staff_incharge = user.Staff_Incharge
+                Year = user.Year
+                User_Id = user.User_ID
+                user_info = {'User_Id' :User_Id, 'Role' : Role, 'Name' : Name, 'Email' : Email, 'Batch_No' : Batch_no, 'Staff_Incharge' : Staff_incharge, 'Year' : Year}
+                return Response(user_info)
             else:
                 return Response('ma')
         except Signin.DoesNotExist:
-            return Response('fa')
+            return Response('')
+
+@api_view(['GET'])
+def student_profile(request):
+    data = Signin.objects.all()
+    serial = SigninSerializer(data,many=True)
+    return Response(serial.data)
+
 
