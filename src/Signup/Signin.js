@@ -19,6 +19,18 @@ function Signin() {
   const [exUserId, setExUserId] = useState('');
   const navigate = useNavigate();
   const { setUserInfo } = useContext(UserInfoContext);
+  const [guideList, setGuideList] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/guide/getlist/')
+      .then(response => {
+        setGuideList(response.data.Names);
+        console.log(response.data.Names)
+      })
+      .catch(error => {
+        console.error('Error fetching guide list:', error);
+      });
+  }, []);
   
 
   const [isauthorized, setIsAuthorized] = useState(
@@ -268,9 +280,11 @@ function Signin() {
                       <div className="forms_field">
                       <select className="forms_field-select" value={selectedStaffIncharge} style={{width:'230px', marginTop:'13px'}} onChange={handleStaffInchargeChange} required>
                          <option value="" disabled>Select Staff Incharge</option>
-                         <option value="XXXXXX">XXXXXX</option>
-                         <option value="YYYYYY">YYYYYY</option>
-                         <option value="ZZZZZ">ZZZZZ</option>
+                         {guideList.map((guide, index) => (
+    <option key={index} value={guide}>
+      {guide}
+    </option>
+  ))}
                       </select>
                      </div>
                      <div className="forms_field">

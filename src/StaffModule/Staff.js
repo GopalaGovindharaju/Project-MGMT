@@ -37,6 +37,7 @@ function Staff() {
     const data = {
       Name: studentName,
       Reg_No: studentRegNo,
+      Project_Guide: userInfo.Name,
     }
     console.log(data)
     axios.post('http://localhost:8000/student/add/', data)
@@ -81,11 +82,7 @@ function Staff() {
 
   const colorLoop = projects.map((project, index) => {
     const colorPair = colorPairs[index % colorPairs.length];
-    const numberOfTrueReviews = Object.keys(project)
-    .filter(key => key.startsWith('Review_') && project[key])
-    .length;
-  const progressPercentage = numberOfTrueReviews * 25; 
-    return { ...project, ...colorPair,progressPercentage: `${progressPercentage}%`};
+    return { ...project, ...colorPair};
   });
 
   
@@ -171,19 +168,19 @@ function Staff() {
             <h2>Add a New Student</h2>
             <form>
             <div className="form-group row">
-    <label htmlFor="inputPassword" className="col-sm-2 col-form-label">Name</label>
-    <div className="col-sm-10">
-      <input type="text" value={studentName} className="form-control" onChange={handleStudentName} id="inputPassword" placeholder="Name"/>
+    <label htmlFor="inputPassword" className="col-sm-4 col-form-label">Project title</label>
+    <div className="col-sm-8">
+      <input type="text" value={studentName} className="form-control" onChange={handleStudentName} id="inputPassword" placeholder="Title"/>
     </div>
   </div>
   <div className="form-group row">
-    <label htmlFor="inputPassword" className="col-sm-2 col-form-label">RegNo</label>
-    <div className="col-sm-10">
+    <label htmlFor="inputPassword" className="col-sm-4 col-form-label">Team Lead RegNo</label>
+    <div className="col-sm-8">
       <input type="text" value={studentRegNo} className="form-control" id="inputPassword" onChange={handleStudentRegNo} placeholder="RegNo"/>
     </div>
   </div>
-  <button type="button" className="btn btn-primary" onClick={handleStudentSubmission}>Add</button>
-<button type="button" className="btn btn-primary" onClick={closeGuidePopup}>Cancel</button>
+  <button type="button" style={{marginTop:"10px"}} className="btn btn-primary" onClick={handleStudentSubmission}>Add</button>
+<button type="button" style={{marginTop:"10px"}} className="btn btn-primary" onClick={closeGuidePopup}>Cancel</button>
 </form>
 
           </div>
@@ -260,10 +257,10 @@ function Staff() {
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
-                          style={{width: project.progressPercentage, backgroundColor: project.textColor }}
+                          style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
                         ></span>
                       </div>
-                      <p className="box-progress-percentage">{project.progressPercentage}</p>
+                      <p className="box-progress-percentage">{Math.round(project.Review)}%</p>
                     </div>
                     <div className="project-box-footer">
                       <div className="participants">

@@ -2,6 +2,7 @@ from .models import Project
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from projectdetails.projectserial import ProjectSerializer
+from rest_framework import status
 
 from django.db.models import Q
 
@@ -63,3 +64,26 @@ def get_student_detail(request):
         serializer = ProjectSerializer(student)
 
         return Response(serializer.data)
+    
+@api_view(['POST'])
+def update_review(request):
+    if request.method == 'POST':
+        data = request.data
+        lead_RegNo = data.get('lead_RegNo')
+        Progress = data.get('Progress')
+
+        try:
+            # Assuming you have a model named 'YourModel' with fields 'Lead_Regno' and 'Review'
+            records = Project.objects.filter(lead_RegNo=lead_RegNo)
+            for record in records:
+                # Assuming 'Review' is a numeric field, adjust accordingly
+                record.Review = Progress
+                record.save()
+
+            return Response({'message': 'Review status updated successfully'}, status=status.HTTP_200_OK)
+        except Project.DoesNotExist:
+            return Response({'message': 'Records not found'}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({'message': f'Error: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    return Response({'message': 'Invalid request method'}, status=status.HTTP_400_BAD_REQUEST)

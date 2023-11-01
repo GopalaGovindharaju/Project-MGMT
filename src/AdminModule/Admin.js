@@ -82,11 +82,8 @@ function Admin() {
 
   const colorLoop = projects.map((project, index) => {
     const colorPair = colorPairs[index % colorPairs.length];
-    const numberOfTrueReviews = Object.keys(project)
-    .filter(key => key.startsWith('Review_') && project[key])
-    .length;
-  const progressPercentage = numberOfTrueReviews * 25; 
-    return { ...project, ...colorPair,progressPercentage: `${progressPercentage}%` };
+    
+    return { ...project, ...colorPair };
   });
 
   
@@ -256,10 +253,10 @@ function Admin() {
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
-                          style={{width: project.progressPercentage, backgroundColor: project.textColor }}
+                          style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
                         ></span>
                       </div>
-                      <p className="box-progress-percentage">{project.progressPercentage}</p>
+                      <p className="box-progress-percentage">{Math.round(project.Review)}%</p>
                     </div>
                     <div className="project-box-footer">
                       <div className="participants">

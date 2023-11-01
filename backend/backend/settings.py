@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'guidelist',
     'studentlist',
     'teamdetail',
+    'projectstatus',
 ]
 
 MIDDLEWARE = [

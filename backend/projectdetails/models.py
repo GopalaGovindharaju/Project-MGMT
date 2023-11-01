@@ -5,11 +5,8 @@ class Project(models.Model):
     Project_Guide = models.CharField(max_length=100)
     Title = models.CharField(max_length=150)
     lead_RegNo = models.CharField(max_length=50,unique=True)
-    Review_0 = models.BooleanField(default=False)
-    Review_1 = models.BooleanField(default=False)
-    Review_2 = models.BooleanField(default=False)
-    Review_3 = models.BooleanField(default=False)
     Last_Updated = models.DateField()
+    Review = models.IntegerField(default=0)
 
     def __str__(self):
         return self.Batch_No
