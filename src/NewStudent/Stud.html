@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Management</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="Stud.css">
+
+</head>
+<body>
+
+  <header>
+    <h1>Project Management System</h1>
+  </header>
+  
+  <nav>
+    <div class="navbar-options">
+      <a href="#" class="navbar-option" onclick="showForm('review0')">Review 0</a>
+      <a href="#" class="navbar-option" onclick="showForm('review1')">Review 1</a>
+      <a href="#" class="navbar-option" onclick="showForm('review2')">Review 2</a>
+      <a href="#" class="navbar-option" onclick="showForm('review3')">Review 3</a>
+    </div>
+  </nav>
+
+  
+    <div id="review0Form" class="form-container">
+ <form onsubmit="submitForm('review0')">
+  <table>
+    <tr>
+      <td><label for="projectTitle">Project Title</label></td>
+      <td><input type="text" id="projectTitle" name="projectTitle" class="form-control reduced-size" required></td>
+	  <td><div>//to be confirmed by guide or HOD</div><td>
+    </tr>
+    <tr>
+      <td><label for="abstract">Abstract Document Submission</label></td>
+      <td><input type="file" id="abstract" name="abstract" class="form-control-file reduced-size" accept=".pdf, .doc, .docx" required></td>
+	  <td><div>//to be confirmed by guide or HOD</div><td>
+
+    </tr>
+    <tr>
+      <td><label for="basePaper">Base Paper Document Submission</label></td>
+      <td><input type="file" id="basePaper" name="basePaper" class="form-control-file reduced-size" accept=".pdf, .doc, .docx" required></td>
+  	  <td><div>//to be confirmed by guide or HOD</div><td>
+
+    </tr>
+    <tr>
+      <td><label for="ppt">PPT Document Submission</label></td>
+      <td><input type="file" id="ppt" name="ppt" class="form-control-file reduced-size" accept=".ppt, .pptx" required></td>
+      <td><div>//to be confirmed by guide or HOD</div><td>
+
+    </tr>
+  </table>
+
+  <button type="submit" class="btn btn-success" style="width: 50%;">Submit</button>
+</form>
+
+
+<style>
+  .reduced-size {
+    font-size: 12px; /* Adjust the font size as needed */
+    /* You can add more styling properties here if necessary */
+  }
+</style>
+
+    </div>
+
+    <div id="studentDetails" class="student-details">
+      <!-- Student details will be dynamically populated here -->
+    </div>
+
+    <button class="next-review-button" onclick="nextReviewPage()">Next Review Page</button>
+  </div>
+  
+<div class="chatbot-container">
+  <div class="chatbox">
+    <div class="chat-messages" id="chatMessages">
+      <!-- Chat messages will be dynamically populated here -->
+    </div>
+    <div class="user-input">
+      <input type="text" id="userInput" placeholder="Type your message...">
+      <input type="file" id="fileInput" accept="video/*, image/*, audio/*" style="margin-right: 5px;">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+  <button onclick="downloadChats()" style="margin-top: 10px;">Download Chats</button>
+</div>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <script>
+  function showForm(review) {
+      const form = document.getElementById(review + 'Form');
+      form.style.display = 'block';
+      form.classList.add('active');
+      document.getElementById('studentDetails').innerHTML = ''; // Clear previous student details
+    }
+
+    function submitForm(review) {
+      event.preventDefault(); // Prevent form submission for demonstration
+      const form = document.getElementById(review + 'Form');
+      const studentDetails = getStudentDetails(); // Retrieve student details (you need to implement this function)
+      displayStudentDetails(studentDetails);
+    }
+
+function getStudentDetails() {
+  return [
+    { id: 1, name: 'John Doe', team: 'Team A' },
+    { id: 2, name: 'Jane Smith', team: 'Team B' },
+    { id: 3, name: 'John Doe', team: 'Team C' },
+    { id: 4, name: 'Alice Johnson', team: 'Team A' },
+    { id: 5, name: 'Bob Williams', team: 'Team B' },
+    { id: 6, name: 'John Doe', team: 'Team D' },
+    // Add more student details as needed
+  ];
+}
+
+    function displayStudentDetails(studentDetails) {
+      const studentDetailsContainer = document.getElementById('studentDetails');
+      studentDetails.forEach(student => {
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.name = 'studentCheckbox';
+        checkbox.value = student.name;
+
+        const label = document.createElement('label');
+        label.appendChild(checkbox);
+        label.appendChild(document.createTextNode(` ${student.name} - ${student.team}`));
+
+        studentDetailsContainer.appendChild(label);
+        studentDetailsContainer.appendChild(document.createElement('br'));
+      });
+    }
+
+    function nextReviewPage() {
+      // Add logic to navigate to the next review page
+      alert('Navigating to the next review page. Implement this function as needed.');
+    }
+	function downloadChats() {
+  const chatMessagesContainer = document.getElementById('chatMessages');
+  const chatMessages = chatMessagesContainer.innerHTML;
+
+  const blob = new Blob([chatMessages], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'chat_history.txt';
+  document.body.appendChild(a);
+  a.click();
+
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+  function sendMessage() {
+  const userInput = document.getElementById('userInput').value;
+  const fileInput = document.getElementById('fileInput');
+  
+  // Check if there is a file selected
+  if (fileInput.files.length > 0) {
+    const file = fileInput.files[0];
+    
+    // Handle different file types (you may want to enhance this based on your requirements)
+    const fileType = file.type.startsWith('video') ? 'video' :
+                     file.type.startsWith('image') ? 'image' :
+                     file.type.startsWith('audio') ? 'audio' : 'file';
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const message = createMessage(userInput, fileType, e.target.result);
+      displayMessage(message);
+    };
+
+    reader.readAsDataURL(file);
+  } else {
+    const message = createMessage(userInput);
+    displayMessage(message);
+  }
+
+  document.getElementById('userInput').value = '';
+  fileInput.value = ''; // Clear the file input
+}
+
+function createMessage(text, fileType = null, fileData = null) {
+  const message = {
+    text: text,
+    fileType: fileType,
+    fileData: fileData,
+    timestamp: new Date().toLocaleTimeString(),
+  };
+  return message;
+}
+
+function displayMessage(message) {
+  const chatMessagesContainer = document.getElementById('chatMessages');
+  const messageDiv = document.createElement('div');
+  messageDiv.className = 'message';
+
+  if (message.fileType) {
+    const mediaElement = document.createElement(message.fileType);
+    mediaElement.src = message.fileData;
+    mediaElement.controls = true;
+    messageDiv.appendChild(mediaElement);
+  }
+
+  const textElement = document.createElement('p');
+  textElement.textContent = message.text;
+
+  const timestampElement = document.createElement('span');
+  timestampElement.className = 'timestamp';
+  timestampElement.textContent = message.timestamp;
+
+  messageDiv.appendChild(textElement);
+  messageDiv.appendChild(timestampElement);
+
+  chatMessagesContainer.appendChild(messageDiv);
+  chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight; // Scroll to the bottom
+}
+
+function downloadChats() {
+  const chatMessagesContainer = document.getElementById('chatMessages');
+  const chatMessages = chatMessagesContainer.innerHTML;
+
+  const blob = new Blob([chatMessages], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'chat_history.txt';
+  document.body.appendChild(a);
+  a.click();
+
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+ function uploadDocument(projectId) {
+      const fileInput = document.getElementById(`fileInput${projectId}`);
+      const documentsList = document.getElementById(`documents${projectId}`);
+      const file = fileInput.files[0];
+
+      if (file) {
+        const listItem = document.createElement('li');
+        listItem.className = 'document-item';
+        listItem.textContent = file.name;
+
+        documentsList.appendChild(listItem);
+        fileInput.value = ''; // Clear the file input after uploading
+      }
+    }
+
+  </script>
+
+</body>
+</html>
