@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react'
 import './main.css'
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
+import Navb from './Navb';
+import Review from './Review';
+import Chat from './Chat';
+
 
 function Main() {
     const navigate = useNavigate();
@@ -348,159 +352,14 @@ function Main() {
       });
   }, [checkedRowCount, lastRowNumber, permanentLeadRegNo, setProgress]);
 
-      
+    
   return (
     <div>
-       <nav class="navbar navbar-expand-lg navbar-dark" id="navi">
-        <div class="container-fluid">
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-link">
-                <label id='h4'>Student Profile</label>
-              </li>
-            </ul>
-              <form class="d-flex">
-                <button class="custom-btn btn-3" value="Log Out" onClick={handleLogout}><span>Log Out</span></button>
-              </form>
-          </div>
-        </div>
-      </nav>
+      <Navb handleLogout={handleLogout}/>
+      <Review/>
+      <Chat/>
       
-      <div id='cen'>
-        <h1><i><b>{projectData.Title}</b></i></h1>
-      </div>
-      <div className='row' id='cen2'>
-        <div className='col'>
-          <div className='row'>
-            <div className='col d-flex flex-row-reverse'>
-              <h5>Project Guide:</h5>
-            </div>
-            <div className='col d-flex flex-row'>
-              <li id='i1'>{projectData.Project_Guide}</li>
-            </div>
-          </div>
-        </div>
-        <div class="container" className='col'>
-        <input type="radio" class="radio" name="progress" value="twentyfive" id="twentyfive"/>
-        <input type="radio" class="radio" name="progress" value="fifty" id="fifty"/>
-        <input type="radio" class="radio" name="progress" value="seventyfive" id="seventyfive"/>
-        <input type="radio" class="radio" name="progress" value="onehundred" id="onehundred"/>
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" aria-valuemin="0" aria-valuemax="100" style={{ width: `${Math.round(progress)}%` }}>{Math.round(progress)}%</div>
-          </div>
-        </div>
-        <div className='col'>
-          <div className='row'>
-        <div className='col d-flex flex-row-reverse'>
-          <h5>Team Member:</h5>
-        </div>
-        <div className='col d-flex flex-row'>
-          <ol>
-            <li><label>{leadName}-{perLedRegno}</label>
-            <button className="add-btn" title="New Member" value="New Menber" onClick={addTeamMember}>
-      <img
-          src={process.env.PUBLIC_URL + '/add.png'}
-          alt="External Icon"
-          width="22"
-          height="22"
-        />
-      </button>
-      {isAddingMember && (
-        <div className="guide-popup">
-          <div className="guide-popup-content">
-            <h2>Add a New Team Member</h2>
-            <form>
-            <div className="form-group row">
-    <label htmlFor="inputPassword" className="col-sm-2 col-form-label">Name</label>
-    <div className="col-sm-10">
-      <input type="text" value={memberName} className="form-control" onChange={handleMemberName} id="inputPassword" placeholder="Name"/>
-    </div>
-  </div>
-  <div className="form-group row">
-    <label htmlFor="inputPassword" className="col-sm-2 col-form-label">RegNo</label>
-    <div className="col-sm-10">
-      <input type="text" value={memberRegNo} className="form-control" id="inputPassword" onChange={handleMemberRegNo} placeholder="RegNo"/>
-    </div>
-  </div>
-  <button type="button" className="btn btn-primary" onClick={handleMemberSubmission}>Add</button>
-<button type="button" className="btn btn-primary" onClick={closeMemberPopup}>Cancel</button>
-</form>
-
-          </div>
-        </div>
-      )}</li>
-            {teamList.map((member, index) => (
-      <li key={index}>
-        {member}
-      </li>
-    ))}
-          </ol>
-        </div>
-        </div></div>
-      </div>
-      
-<div className='row'>
-<div className='col d-flex flex-row '>
-  <h5 id='ac' style={{paddingLeft:'103px'}}>Academic Year: 2020-2024</h5>
-</div>
-<div className='col' style={{paddingLeft:'193px'}}>
-  <h5>Batch No: {projectData.Batch_No}</h5>
-</div>
-
-</div>
-<div className='status-table'>
-<table class="table" id="t1">
-  <thead>
-    <tr>
-      <th scope="col">S.no</th>
-      <th scope="col">Date of Meeting</th>
-      <th scope="col">Work Completed</th>
-      <th scope="col">Work to be completed</th>
-      <th scope="col">REVIEW</th>
-    </tr>
-  </thead>
-  <tbody>
-  {tableData.map((row, index) => (
-  <tr key={row.Row_No}>
-    <td>{index + 1}</td>
-    <td>{row.Date_Of_Meeting}</td>
-    <td>{row.Work_Completed}</td>
-    <td>{row.Work_To_Be_Completed}</td>
-    <td>
-      <input
-        type="checkbox"
-        name={`review-${row.Row_No}`}
-        checked={row.Review}
-        onChange={() => handleReviewChange(row.Row_No)}
-        disabled={isauthorized === 'student'} // Pass the Row_No here
-      />
-    </td>
-  </tr>
-))}
-
-  {addingNewRow && (
-    <tr>
-      <td></td>
-      <td>
-        <input type="text" name="date" value={newRow.date} onChange={handleInputChange} />
-      </td>
-      <td>
-        <input type="text" name="workCompleted" value={newRow.workCompleted} onChange={handleInputChange} />
-      </td>
-      <td>
-        <input type="text" name="workToBeCompleted" value={newRow.workToBeCompleted} onChange={handleInputChange} />
-      </td>
-      <td>
-        <button className="add-row-btn"  onClick={handleSaveNewRow} >
-          Save
-        </button>
-      </td>
-    </tr>
-  )}
-</tbody>
-</table></div>
-<button className='add-row-btn' disabled={isauthorized === 'staff'} onClick={handleAddRow}>Add</button>
-
+     
     </div>
   );
 }

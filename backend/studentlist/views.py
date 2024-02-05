@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from teamdetail.models import Team
 from projectdetails.models import Project
+from django.utils import timezone
 
 @api_view(['POST'])
 def add_student(request):
@@ -25,6 +26,7 @@ def add_student(request):
             update_data = {
                 'Project_Guide': Project_Guide,
                 'Title': Name,
+                'Last_Updated':timezone.now(),
                 # Add more fields and values as needed
             }
 

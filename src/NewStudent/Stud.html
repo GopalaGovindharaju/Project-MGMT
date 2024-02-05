@@ -11,59 +11,11 @@
 <body>
 
   <header>
-    <h1>Project Management System</h1>
+    <h1>Project Management  </h1>
   </header>
   
-  <nav>
-    <div class="navbar-options">
-      <a href="#" class="navbar-option" onclick="showForm('review0')">Review 0</a>
-      <a href="#" class="navbar-option" onclick="showForm('review1')">Review 1</a>
-      <a href="#" class="navbar-option" onclick="showForm('review2')">Review 2</a>
-      <a href="#" class="navbar-option" onclick="showForm('review3')">Review 3</a>
-    </div>
-  </nav>
 
-  
-    <div id="review0Form" class="form-container">
- <form onsubmit="submitForm('review0')">
-  <table>
-    <tr>
-      <td><label for="projectTitle">Project Title</label></td>
-      <td><input type="text" id="projectTitle" name="projectTitle" class="form-control reduced-size" required></td>
-	  <td><div>//to be confirmed by guide or HOD</div><td>
-    </tr>
-    <tr>
-      <td><label for="abstract">Abstract Document Submission</label></td>
-      <td><input type="file" id="abstract" name="abstract" class="form-control-file reduced-size" accept=".pdf, .doc, .docx" required></td>
-	  <td><div>//to be confirmed by guide or HOD</div><td>
-
-    </tr>
-    <tr>
-      <td><label for="basePaper">Base Paper Document Submission</label></td>
-      <td><input type="file" id="basePaper" name="basePaper" class="form-control-file reduced-size" accept=".pdf, .doc, .docx" required></td>
-  	  <td><div>//to be confirmed by guide or HOD</div><td>
-
-    </tr>
-    <tr>
-      <td><label for="ppt">PPT Document Submission</label></td>
-      <td><input type="file" id="ppt" name="ppt" class="form-control-file reduced-size" accept=".ppt, .pptx" required></td>
-      <td><div>//to be confirmed by guide or HOD</div><td>
-
-    </tr>
-  </table>
-
-  <button type="submit" class="btn btn-success" style="width: 50%;">Submit</button>
-</form>
-
-
-<style>
-  .reduced-size {
-    font-size: 12px; /* Adjust the font size as needed */
-    /* You can add more styling properties here if necessary */
-  }
-</style>
-
-    </div>
+ 
 
     <div id="studentDetails" class="student-details">
       <!-- Student details will be dynamically populated here -->

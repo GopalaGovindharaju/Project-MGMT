@@ -1,4 +1,7 @@
+.label1 {
+margin-left: 0;
 
+}
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -15,7 +18,10 @@ header {
   margin-bottom: 20px;
   border-bottom: 2px solid #fff;
 }
-
+.reduced-size {
+  font-size: 12px; /* Adjust the font size as needed */
+  /* You can add more styling properties here if necessary */
+}
 .container {
   max-width: 800px;
   margin: 20px auto;
@@ -53,7 +59,7 @@ header {
 }
 
 .form-container {
-  display: none;
+  
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 8px;
@@ -70,6 +76,7 @@ form {
 
 label {
   margin-bottom: 10px;
+ 
   font-weight: bold;
   color: #007bff; /* Change label text color */
 
@@ -164,8 +171,7 @@ nav {
 }
 
 .navbar-option:hover {
- color: #007bff;
- background-color: #0056b3; /* Add a background color on hover */
+ /* Add a background color on hover */
  border-radius: 4px; /* Add rounded corners on hover */
 }
 .chatbot-container {
