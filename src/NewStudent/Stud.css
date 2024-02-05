@@ -1,90 +1,24 @@
-.label1 {
-margin-left: 0;
-
-}
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-  transition: background-color 0.3s ease;
-}
-
-header {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #fff;
-}
-.reduced-size {
-  font-size: 12px; /* Adjust the font size as needed */
-  /* You can add more styling properties here if necessary */
-}
-.container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-  background-color: #f8f9fa; /* Change the background color */
-
-}
-
-.options {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #ccc;
-}
-
-.option {
-  flex: 1;
-  padding: 15px;
-  text-align: center;
-  background-color: #4CAF50;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.option:hover {
-  background-color: #45a049;
-  transform: scale(1.05);
-}
-
-.form-container {
-  
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  border: 2px solid #007bff; /* Add a border to the form container */
-
-}
 
 form {
   display: flex;
   flex-direction: column;
 }
-
-label {
-  margin-bottom: 10px;
- 
+.form-container{
+    margin-top: 40px;
+}
+.label1 {
+  font-size: 18px;
   font-weight: bold;
-  color: #007bff; /* Change label text color */
-
+  color: #020406;
+  display: block;
+  margin-bottom: 5px;
+  text-align: left; /* Add this line to align the text to the left */
+  margin-left: 30px;
 }
 
 input[type="text"],
 input[type="file"],
-input[type="checkbox"]
+
  button[type="submit"]
 {
   margin-bottom: 20px;
@@ -93,20 +27,9 @@ input[type="checkbox"]
 margin-bottom: 20px; /* Adjust the margin for spacing */
 }
 
-.static-student-details {
-border-collapse: collapse;
-width: 100%; /* Make the table fill the container width */
-}
 
-.static-student-details th, .static-student-details td {
-border: 1px solid #ddd;
-padding: 8px;
-text-align: left;
-}
 
-.static-student-details th {
-background-color: #f2f2f2;
-}
+
 button[type="submit"] {
   padding: 12px;
   background-color: #007bff;
@@ -129,98 +52,3 @@ button[type="submit"]:hover {
   display: block;
   transform: scale(1);
 }
-
-.student-details {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.next-review-button {
-  margin-top: 20px;
-  padding: 12px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.next-review-button:hover {
-  background-color: #45a049;
-}
-
-nav {
-  background-color: #333;
-  padding: 10px 0;
-}
-
-.navbar-options {
-  display: flex;
-  justify-content: space-around;
-}
-
-.navbar-option {
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.navbar-option:hover {
- /* Add a background color on hover */
- border-radius: 4px; /* Add rounded corners on hover */
-}
-.chatbot-container {
-margin-top: 20px;
-padding: 20px;
-background-color: #fff;
-border-radius: 8px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-width:800px;
-
-}
-
-.chatbox {
-display: flex;
-flex-direction: column;
-height: 400px; /* Adjust the height as needed */
-overflow-y: auto;
-}
-
-.chat-messages {
-flex: 1;
-padding: 10px;
-overflow-y: auto;
-}
-
-.user-input {
-display: flex;
-margin-top: 10px;
-}
-
-input[type="text"] {
-flex: 1;
-padding: 8px;
-border: 1px solid #ddd;
-border-radius: 4px;
-margin-right: 5px;
-}
-
-button {
-padding: 8px 12px;
-background-color: #007bff;
-color: #fff;
-border: none;
-border-radius: 4px;
-cursor: pointer;
-}
-
-button:hover {
-background-color: #0056b3;
-}
-
-

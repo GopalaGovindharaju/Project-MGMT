@@ -1,6 +1,5 @@
 import React from 'react'
-import './main.css'
-import '../NewStudent/Stud.css'
+import './Navb.css'
 function Navb({handleLogout}) {
  
   return (
