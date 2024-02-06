@@ -1,0 +1,78 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;500&display=swap');
+
+/* Custom Button */
+.custom-btn {
+  width: 200px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 2px 15px ;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background-color:#00c3ff;
+  cursor: pointer;
+ 
+ 
+  display: inline-block;
+ 
+  outline: none;
+}
+
+.custom-btn:hover {
+  transform: translateY(-2px);
+
+}
+
+/* Header */
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 66px;
+  line-height: 66px;
+  color: #fff;
+  background-color: #00c3ff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.header__logo {
+  font-weight: 700;
+  padding: 0 25px;
+  float: left;
+}
+
+.menu {
+  float: left;
+}
+
+.menu a {
+  padding: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: #c5cae9;
+}
+
+/* Responsive */
+@media only screen and (max-width: 768px) {
+  /* Add responsive styles here */
+}
+
+/* Move submit review button below yes/no option */
+.submit-review {
+  margin-top: 20px; /* Adjust margin as needed */
+  text-align: center;
+  
+}
+
+.chitra{
+  border: 1px  solid black;
+  margin-top: 10px;
+
+}
+
+

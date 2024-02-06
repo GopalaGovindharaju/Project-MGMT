@@ -3,7 +3,7 @@ import './main.css'
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Navb from './Navb';
-import Review from './Review';
+import Review2 from './Review2';
 import Studlist from './Studlist';
 import Chatbox from './Chatbox';
 import Banner from './Banner';
@@ -361,7 +361,7 @@ function Main() {
       <Banner/>
       <Navb handleLogout={handleLogout}/>
       
-      <Review/>
+      <Review2/>
       <Chatbox/>
       <Nextreview/>
     </div>
