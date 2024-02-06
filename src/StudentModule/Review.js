@@ -6,7 +6,7 @@ function Review() {
   return (
     <div id="review0Form" className="form-container">
       <form>
-        <table>
+        <table><thead><tr><th>Tasks</th><th>Submission</th><th>Conformation</th></tr></thead>
           <tbody>
             <tr>
               <td><label htmlFor="projectTitle" className='label1'>Project Title</label></td>

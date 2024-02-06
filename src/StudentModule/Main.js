@@ -8,6 +8,8 @@ import Studlist from './Studlist';
 import Chatbox from './Chatbox';
 import Banner from './Banner';
 import Nextreview from './Nextreview';
+import Schedule from './Schedule';
+import Review3 from './Review3';
 
 
 function Main() {
@@ -360,10 +362,12 @@ function Main() {
     <div style={{ overflowY: 'auto', height: '100vh' }}>
       <Banner/>
       <Navb handleLogout={handleLogout}/>
-      
-      <Review/>
+      <Schedule/>
+     
+      <Review3/>
       <Chatbox/>
       <Nextreview/>
+      
     </div>
   );
 }
