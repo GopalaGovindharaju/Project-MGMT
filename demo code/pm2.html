@@ -1,0 +1,187 @@
+<!-- review1.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review 1 Submission</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+
+	form {
+  width: 500px; /* Adjust width as needed */
+  margin: 0 auto; /* Center the form horizontally */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-control-file {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Button styling */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #3e8e41; /* Darker green on hover */
+}
+
+/* Optional spacing for larger forms */
+label + label {
+  margin-top: 15px;
+}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      transition: background-color 0.3s ease;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="file"] {
+      margin-bottom: 20px;
+    }
+
+    button[type="submit"] {
+      padding: 12px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+	.options {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+	.option {
+      flex: 1;
+      padding: 15px;
+      text-align: center;
+      background-color: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .option:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+	.form-container.active {
+      display: block;
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Review 1 Submission</h1>
+  </header>
+	
+  <div class="container">
+   <div class="options">
+      <a href="#" class="option" onclick="showForm('review0')">Review 0</a>
+      <a href="#" class="option" onclick="showForm('review1')">Review 1</a>
+      <a href="#" class="option" onclick="showForm('review2')">Review 2</a>
+      <a href="#" class="option" onclick="showForm('review3')">Review 3</a>
+    </div>
+    <form onsubmit="submitReview1Form()">
+      <label for="abstract">Abstract Document Submission</label>
+      <input type="file" id="abstract" name="abstract" class="form-control-file" accept=".pdf, .doc, .docx" required>
+
+      <label for="moduleDetails">Module Details Submission</label>
+      <input type="file" id="moduleDetails" name="moduleDetails" class="form-control-file" accept=".pdf, .doc, .docx" required>
+
+      <label for="architecturePicture">Architecture Picture Submission</label>
+      <input type="file" id="architecturePicture" name="architecturePicture" class="form-control-file" accept=".jpg, .jpeg, .png" required>
+
+      <label for="literatureSurvey">Literature Survey Submission</label>
+      <input type="file" id="literatureSurvey" name="literatureSurvey" class="form-control-file" accept=".pdf, .doc, .docx" required>
+
+      <label for="moduleTypes">Module Types Submission</label>
+      <input type="file" id="moduleTypes" name="moduleTypes" class="form-control-file" accept=".pdf, .doc, .docx" required>
+
+     
+
+      <button type="submit" class="btn btn-success btn-block">Submit Review 1</button>
+    </form>
+
+	
+	<button type="submit" onclick="submitReview1Form(); event.preventDefault(); window.location.href='review2.html'" class="btn btn-success btn-block">Submit & Next Review (Review 2)</a>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <script>
+    function submitReview1Form() {
+      event.preventDefault(); // Prevent form submission for demonstration
+      // Handle form submission for Review 1 as needed
+      alert('Review 1 form submitted. Implement this function as needed.');
+    }
+  </script>
+
+</body>
+</html>

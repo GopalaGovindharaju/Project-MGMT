@@ -1,0 +1,23 @@
+nav {
+    background-color: #333;
+    padding: 10px 0;
+  }
+  
+  .navbar-options {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .navbar-option {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-option:hover {
+   /* Add a background color on hover */
+   border-radius: 4px; /* Add rounded corners on hover */
+   background-color: #45a049;
+  }
+  

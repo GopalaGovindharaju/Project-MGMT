@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review 2 Submission</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    /* Body Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      margin-bottom: 20px;
+    }
+
+    /* Container Styles */
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    /* Options Styles */
+    .options {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .option {
+      flex: 1;
+      padding: 15px;
+      text-align: center;
+      background-color: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .option:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+
+    /* Form Styles */
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="file"] {
+      margin-bottom: 20px;
+    }
+
+    button[type="submit"] {
+      padding: 12px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    /* Slider Styles */
+    .slider-container {
+      padding: 20px;
+      padding-top: 30px;
+      width: 80%; /* Adjust the width as needed */
+      margin: auto;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      margin-bottom: 20px;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 15px; /* Increase the height for a larger bar */
+      border-radius: 8px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+
+    input[type="range"]:hover {
+      opacity: 1;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 30px; /* Increase the thumb size */
+      height: 30px; /* Increase the thumb size */
+      border-radius: 50%;
+      background: #007bff;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 30px; /* Increase the thumb size */
+      height: 30px; /* Increase the thumb size */
+      border-radius: 50%;
+      background: #007bff;
+      cursor: pointer;
+    }
+
+    .slider-thumb-value {
+      font-size: 16px; /* Increase the font size for the percentage text */
+      text-align: center;
+      background-color: #007bff;
+      color: #fff;
+      margin-top: -25px;
+      width: 40px;
+      padding: 5px;
+      border-radius: 8px;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Review 2 Submission</h1>
+  </header>
+
+  <div class="container">
+    <div class="options">
+      <a href="#" class="option" onclick="showForm('review0')">Review 0</a>
+      <a href="#" class="option" onclick="showForm('review1')">Review 1</a>
+      <a href="#" class="option" onclick="showForm('review2')">Review 2</a>
+      <a href="#" class="option" onclick="showForm('review3')">Review 3</a>
+    </div>
+
+    <div class="slider-container">
+      <input type="range" id="slider" min="0" max="100" step="1" value="50" oninput="updateSliderValue(this.value)">
+      <div id="sliderValue" class="slider-thumb-value">50%</div>
+    </div>
+
+    <form onsubmit="submitReview2Form()">
+      <label for="screenshots">Upload Project Screenshots</label>
+      <input type="file" id="screenshots" name="screenshots" class="form-control-file" accept=".jpg, .jpeg, .png" required>
+
+      <button type="submit" class="btn btn-success btn-block">Submit Review 2</button>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <script>
+    function submitReview2Form() {
+      event.preventDefault(); // Prevent form submission for demonstration
+      // Handle form submission for Review 2 as needed
+      alert('Review 2 form submitted. Implement this function as needed.');
+    }
+  </script>
+
+  <script>
+    // Simulate progress on page load
+    document.addEventListener("DOMContentLoaded", function() {
+      updateProgress(75); // Set the initial progress value (75% in this case)
+    });
+
+    // Function to update progress bar and text
+    function updateProgress(percentage) {
+      var completionBar = document.getElementById('completionBar');
+      var completionText = document.getElementById('completionText');
+
+      completionBar.style.width = percentage + '%';
+      completionText.textContent = 'Project Completion: ' + percentage + '%';
+    }
+
+    function updateSliderValue(value) {
+      document.getElementById('sliderValue').innerText = value + '%';
+    }
+  </script>
+
+</body>
+</html>

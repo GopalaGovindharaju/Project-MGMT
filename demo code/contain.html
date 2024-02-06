@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Document Storage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      border-bottom: 2px solid #fff;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .project {
+      margin-bottom: 20px;
+    }
+
+    .project-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .document-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .document-item {
+      margin-bottom: 10px;
+    }
+
+    .upload-document {
+      margin-top: 10px;
+    }
+
+    input[type="file"] {
+      margin-top: 5px;
+    }
+
+    button {
+      padding: 8px 12px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Project Document Storage</h1>
+  </header>
+
+  <div class="container">
+    <div class="project" id="project1">
+      <div class="project-title">Project 1</div>
+      <ul class="document-list" id="documentsProject1">
+        <!-- Documents for Project 1 will be dynamically populated here -->
+      </ul>
+      <div class="upload-document">
+        <input type="file" id="fileInputProject1">
+        <button onclick="uploadDocument('project1')">Upload Document</button>
+      </div>
+    </div>
+
+    <div class="project" id="project2">
+      <div class="project-title">Project 2</div>
+      <ul class="document-list" id="documentsProject2">
+        <!-- Documents for Project 2 will be dynamically populated here -->
+      </ul>
+      <div class="upload-document">
+        <input type="file" id="fileInputProject2">
+        <button onclick="uploadDocument('project2')">Upload Document</button>
+      </div>
+    </div>
+
+    <!-- Add more project sections as needed -->
+
+  </div>
+
+  <script>
+    function uploadDocument(projectId) {
+      const fileInput = document.getElementById(`fileInput${projectId}`);
+      const documentsList = document.getElementById(`documents${projectId}`);
+      const file = fileInput.files[0];
+
+      if (file) {
+        const listItem = document.createElement('li');
+        listItem.className = 'document-item';
+        listItem.textContent = file.name;
+
+        documentsList.appendChild(listItem);
+        fileInput.value = ''; // Clear the file input after uploading
+      }
+    }
+  </script>
+
+</body>
+
+</html>
