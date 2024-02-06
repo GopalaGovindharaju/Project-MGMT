@@ -8,7 +8,7 @@ const Review3 = () => {
         All modules must be implemented in both the frontend and backend. Ensure that all implementations are completed thoroughly and adhere to the specified requirements.
       </p>
       <form>
-        <table className="table table-bordered">
+        <table className="table table-bordered"><thead><tr><th>Tasks</th><th>Submission</th><th>Conformation</th></tr></thead>
           <tbody>
             <tr>
               <td>
@@ -86,7 +86,7 @@ const Review3 = () => {
         </table>
         
 
-        <button type="submit" className="btn btn-primary btn-block">Submit Review 3</button>
+        <button type="submit" className="btn btn-success" style={{ width: '20%' }}>Submit</button>
       </form>
     </div>
   );

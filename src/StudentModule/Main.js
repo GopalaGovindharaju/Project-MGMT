@@ -10,6 +10,7 @@ import Banner from './Banner';
 import Nextreview from './Nextreview';
 import Schedule from './Schedule';
 import Review3 from './Review3';
+import Review from './Review';
 
 
 function Main() {
@@ -363,7 +364,7 @@ function Main() {
       <Banner/>
       <Navb handleLogout={handleLogout}/>
       
-     
+      <Review/>
       <Chatbox/>
       <Nextreview/>
       
