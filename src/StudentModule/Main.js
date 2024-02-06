@@ -3,7 +3,7 @@ import './main.css'
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Navb from './Navb';
-import Review from './Review';
+import Review2 from './Review2';
 import Studlist from './Studlist';
 import Chatbox from './Chatbox';
 import Banner from './Banner';
@@ -362,9 +362,8 @@ function Main() {
     <div style={{ overflowY: 'auto', height: '100vh' }}>
       <Banner/>
       <Navb handleLogout={handleLogout}/>
-      <Schedule/>
+      
      
-      <Review3/>
       <Chatbox/>
       <Nextreview/>
       
