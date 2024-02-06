@@ -2,7 +2,8 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../NewStudent/Stud.css'
 
-function Review() {
+function Review({setReview1Active}) {
+
   return (
     <div id="review0Form" className="form-container">
       <form>
@@ -30,7 +31,7 @@ function Review() {
             </tr>
           </tbody>
         </table>
-        <button type="submit" className="btn btn-success" style={{ width: '50%' }}>Submit</button>
+        <button type="submit" className="btn btn-success">Submit</button>
       </form>
     </div>
   );

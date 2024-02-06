@@ -6,9 +6,13 @@
 }
 
 .labletd{
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-align: left;
+    font-size: 18px;
+  font-weight: bold;
+  color: #020406;
+  display: block;
+  margin-bottom: 5px;
+  text-align: left; /* Add this line to align the text to the left */
+  margin-left: 30px;
 }
 
 .labeltd{

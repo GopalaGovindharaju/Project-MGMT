@@ -10,10 +10,6 @@ class ReviewForm extends React.Component {
   render() {
     return (
       <div>
-        <header>
-          <h1>Review 1 Submission</h1>
-        </header>
-        
         <form className="container1" onSubmit={this.submitReview1Form}>
           <table>
             <thead>

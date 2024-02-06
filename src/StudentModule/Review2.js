@@ -22,9 +22,6 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1>Review 2 Submission</h1>
-      </header>
       <div className="container">
         
         

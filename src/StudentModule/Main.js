@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import './main.css'
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import Navb from './Navb';
-import Review2 from './Review2';
-import Studlist from './Studlist';
 import Chatbox from './Chatbox';
 import Banner from './Banner';
-import Nextreview from './Nextreview';
-<<<<<<< HEAD
-import Review1 from './Review1';
-=======
 import Schedule from './Schedule';
-import Review3 from './Review3';
->>>>>>> 006a57d449db1b78a3189103b9ced193797fb6fb
+
 
 
 function Main() {
@@ -364,13 +357,11 @@ function Main() {
     
   return (
     <div style={{ overflowY: 'auto', height: '100vh' }}>
-      <Banner/>
-      <Navb handleLogout={handleLogout}/>
-      
-     
+      <Banner handleLogout={handleLogout}/>
+      <Navb/>
+      <Schedule/>
+      <Outlet/>
       <Chatbox/>
-      <Nextreview/>
-      
     </div>
   );
 }
