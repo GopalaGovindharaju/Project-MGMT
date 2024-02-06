@@ -1,0 +1,70 @@
+.form-container {
+    margin: 20px;
+  }
+  
+  .table {
+    width: 100%;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .small {
+    font-size: 80%;
+  }
+  
+  .btn-block {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .form-container {
+    margin: 20px;
+  }
+  
+  .table {
+    width: 100%;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .small {
+    font-size: 80%;
+  }
+  
+  .btn-block {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .record-video {
+    width: 100%;
+  }
+  .record-video {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .record-video:hover {
+    background-color: #4CAF50;
+  }
+  .label2{
+    margin-left: 10px;
+  }

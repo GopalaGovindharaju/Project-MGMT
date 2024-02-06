@@ -7,7 +7,7 @@ function Review({setReview1Active}) {
   return (
     <div id="review0Form" className="form-container">
       <form>
-        <table>
+        <table><thead><tr><th>Tasks</th><th>Submission</th><th>Conformation</th></tr></thead>
           <tbody>
             <tr>
               <td><label htmlFor="projectTitle" className='label1'>Project Title</label></td>
@@ -31,7 +31,7 @@ function Review({setReview1Active}) {
             </tr>
           </tbody>
         </table>
-        <button type="submit" className="btn btn-success" style={{ width: '50%' }}>Submit</button>
+        <button type="submit" className="btn btn-success">Submit</button>
       </form>
     </div>
   );
