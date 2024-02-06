@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './main.css'
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import Navb from './Navb';
 import Review from './Review';
@@ -8,6 +8,9 @@ import Studlist from './Studlist';
 import Chatbox from './Chatbox';
 import Banner from './Banner';
 import Nextreview from './Nextreview';
+import Review1 from './Review1';
+import Review2 from './Review2';
+import Review3 from './Review3';
 
 
 function Main() {
@@ -358,12 +361,10 @@ function Main() {
     
   return (
     <div style={{ overflowY: 'auto', height: '100vh' }}>
-      <Banner/>
-      <Navb handleLogout={handleLogout}/>
-      
-      <Review/>
+      <Banner handleLogout={handleLogout}/>
+      <Navb/>
+      <Outlet/>
       <Chatbox/>
-      <Nextreview/>
     </div>
   );
 }
