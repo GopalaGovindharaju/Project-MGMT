@@ -8,6 +8,7 @@ import Studlist from './Studlist';
 import Chatbox from './Chatbox';
 import Banner from './Banner';
 import Nextreview from './Nextreview';
+import Review1 from './Review1';
 
 
 function Main() {
@@ -361,7 +362,7 @@ function Main() {
       <Banner/>
       <Navb handleLogout={handleLogout}/>
       
-      <Review/>
+      <Review1/>
       <Chatbox/>
       <Nextreview/>
     </div>

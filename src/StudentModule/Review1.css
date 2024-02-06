@@ -1,0 +1,32 @@
+.container1{
+    width: 80%;
+    margin:auto;
+    padding-top: 10px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);;
+}
+
+.labletd{
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.labeltd{
+    margin-bottom: 20px;
+}
+
+.form-control-file{
+    border: 1px solid rgb(196, 196, 196);
+    padding: 5px;
+}
+
+.tablehead{
+    padding-bottom: 30px;
+}
+
+.subbtn{
+    width: 200px;
+    margin-left: 400px;
+    height: 45px;
+    align-items: center;
+}
