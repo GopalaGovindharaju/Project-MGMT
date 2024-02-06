@@ -15,30 +15,11 @@ form {
   margin-left: 30px;
 }
 
-input[type="text"],
-input[type="file"],
- button[type="submit"]
-{
-  margin-bottom: 20px;
-}
 .student-list-container {
 margin-bottom: 20px; /* Adjust the margin for spacing */
 }
 
-button[type="submit"] {
-  padding: 12px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 140px;
-}
 
-button[type="submit"]:hover {
-  background-color: #45a049;
-}
 
 .options:hover .option {
   transform: scale(1.05);

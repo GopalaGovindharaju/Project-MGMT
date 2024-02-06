@@ -5,8 +5,9 @@ function Banner({handleLogout}) {
   return (
     <div>
     <header>
+    <h4 className='batchno'>A-01</h4>
     <h1>Student Page </h1>
-    <button class="custom-btn btn-3" value="Log Out" onClick={handleLogout}><span>Log Out</span></button>
+    <button  id='logoutbtn' onClick={handleLogout}>Log Out</button>
     </header>
     </div>
   )

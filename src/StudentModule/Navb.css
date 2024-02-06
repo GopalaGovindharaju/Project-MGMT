@@ -13,13 +13,14 @@ nav {
     text-decoration: none;
     cursor: pointer;
     transition: color 0.3s ease;
-    border: none;
     background-color: #333;
+    border-radius: 8px;
+    padding: 5px;
   }
   
   #navbar-option:hover {
-   /* Add a background color on hover */
-   border-radius: 4px; /* Add rounded corners on hover */
-   background-color: #45a049;
+   border-radius: 10px;
+   background-color:dimgrey;
+
   }
   
