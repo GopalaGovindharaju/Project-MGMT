@@ -360,15 +360,10 @@ function Main() {
     <div style={{ overflowY: 'auto', height: '100vh' }}>
       <Banner/>
       <Navb handleLogout={handleLogout}/>
-      <Studlist/>
+      
       <Review/>
       <Chatbox/>
       <Nextreview/>
-      
-      
-   
-      
-     
     </div>
   );
 }

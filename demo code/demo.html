@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Member Review Page</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<style>
+.table {
+  width: 100%;
+}
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    color: #007bff;
+    text-align: center;
+  }
+
+  hr {
+    background-color: #007bff;
+    height: 2px;
+  }
+
+  .row {
+    margin-bottom: 20px;
+  }
+
+  .form-label {
+    font-weight: bold;
+    color: #495057;
+  }
+
+  .form-control {
+    border-radius: 8px;
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  .table th,
+  .table td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+  }
+
+  .table th {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  .table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  textarea,
+  input[type="number"] {
+    width: 100%;
+    border-radius: 8px;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  #submitBtn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #submitBtn:hover {
+    background-color: #0056b3;
+  }
+  		.options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .option {
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .option:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+  }
+</style>
+
+
+</style>
+</head>
+
+<body>
+  <div class="container mt-5">
+  
+    <h1>Project Review - Panel Member</h1>
+    <hr>
+	<div class="options">
+      <a href="#" class="option" onclick="showForm('review0')">Review 0</a>
+      <a href="#" class="option" onclick="showForm('review1')">Review 1</a>
+      <a href="#" class="option" onclick="showForm('review2')">Review 2</a>
+      <a href="#" class="option" onclick="showForm('review3')">Review 3</a>
+    </div>
+    <div class="row mb-3">
+      <div class="col-sm-3">
+        <label for="teamFilter" class="form-label">Filter by Team ID:</label>
+        <input type="text" class="form-control" id="teamFilter" placeholder="Enter Team ID">
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Team ID</th>
+          <th>Project Name</th>
+          <th>Review</th>
+          <th>Marks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span id="teamID-1">1</span></td>
+          <td>Innovation X</td>
+          <td>
+            <textarea class="form-control" id="review-1" rows="3"></textarea>
+          </td>
+          <td>
+            <input type="number" class="form-control" id="marks-1" min="0" max="100">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-primary" id="submitBtn">Submit Reviews</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script>
+    // Your JavaScript code to handle filtering, data population, and submission goes here
+  </script>
+</body>
+</html>

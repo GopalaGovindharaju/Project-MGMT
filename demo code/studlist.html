@@ -1,0 +1,53 @@
+import React from 'react'
+import './Studlist.css'
+
+function Studlist() {
+  return (
+    
+      <div id="review0Form" className="form-container">
+      <div className="row">
+        <div className="col-md-4">
+          {/* Left side: Batch Number */}
+          <div className="left-panel">
+            <h1>A01</h1>
+          </div>
+        </div>
+
+        <div className="col-md-4">
+          {/* Right side: Student List */}
+          <div className="middle">
+            <h2>Student List</h2>
+            <ul className="student-list">
+              <li className="student-list-item">John Doe</li>
+              <li className="student-list-item">Jane Smith</li>
+              <li className="student-list-item">Alice Johnson</li>
+              {/* Add more students as needed */}
+            </ul>
+          </div>
+        </div>
+        <div className="col-md-4">
+        <div className="right-panel">
+            <h1><div>Guide Name</div></h1>
+            </div>
+        </div>
+
+      </div>
+
+      {/* Your existing form */}
+      <form>
+        <table>
+          <tbody>
+            <tr>
+              <td><label htmlFor="projectTitle" className='label1'>Project Title</label></td>
+              <td><div>PROJECT TITLE HAS TO BE DISPLAYED HERE AFTER PROJECT TITLE CONFIRMATION</div></td>
+            </tr>
+            {/* ... (rest of your form) */}
+          </tbody>
+        </table>
+      </form>
+    </div>
+
+  )
+}
+
+export default Studlist

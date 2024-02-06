@@ -1,4 +1,3 @@
-
 form {
   display: flex;
   flex-direction: column;
@@ -18,7 +17,6 @@ form {
 
 input[type="text"],
 input[type="file"],
-
  button[type="submit"]
 {
   margin-bottom: 20px;
@@ -26,9 +24,6 @@ input[type="file"],
 .student-list-container {
 margin-bottom: 20px; /* Adjust the margin for spacing */
 }
-
-
-
 
 button[type="submit"] {
   padding: 12px;
