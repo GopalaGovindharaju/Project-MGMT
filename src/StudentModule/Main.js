@@ -5,11 +5,11 @@ import axios from 'axios';
 import Navb from './Navb';
 import Chatbox from './Chatbox';
 import Banner from './Banner';
-import Schedule from './Schedule';
 import Review from './Review';
 import Review3 from './Review3';
 import Review2 from './Review2';
 import Review1 from './Review1';
+
 
 function Main() {
     const navigate = useNavigate();
@@ -367,6 +367,7 @@ function Main() {
       <Review3/>
       <Outlet/>
       <Chatbox/>
+      
       
     </div>
   );

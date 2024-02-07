@@ -4,7 +4,7 @@ import './Review3.css'; // Make sure to import your CSS file
 const Review3 = () => {
   return (
     <div className="form-container">
-      <h1>Project Status Update</h1>
+      <h1 className='titles'>Project Status Update</h1>
          <p className="description">
         All modules must be implemented in both the frontend and backend. Ensure that all implementations are completed thoroughly and adhere to the specified requirements.
       </p>

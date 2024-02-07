@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../NewStudent/Stud.css'
 
-function Review() {
+function Review({ setReview1Active }) {
 
   return (
     <div id="review0Form" className="form-container">

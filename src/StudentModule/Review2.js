@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <div className="container1">
-      <h1>Project Status Update</h1>
+      <h1 className='titles'>Project Status Update</h1>
       <p className="description">
       The project must reach an 80% completion milestone, with meticulous attention to detail and strict adherence to the specified requirements. It is imperative that all implementations are thoroughly executed to ensure comprehensive fulfillment of the project's objectives.      </p>
         <form onSubmit={submitReview2Form}>
