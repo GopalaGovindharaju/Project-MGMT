@@ -134,7 +134,7 @@ body {
 
 
 
-a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, td, textarea, th, ul {
+a,  code, div, img, input, label, li, p, pre, select, span, svg, table, td, textarea, th, ul {
     -webkit-border-radius: 0!important;
     -moz-border-radius: 0!important;
     border-radius: 0!important;

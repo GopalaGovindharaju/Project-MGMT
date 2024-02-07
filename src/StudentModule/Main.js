@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import './main.css'
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import Navb from './Navb';
-import Review2 from './Review2';
-import Studlist from './Studlist';
 import Chatbox from './Chatbox';
 import Banner from './Banner';
-import Nextreview from './Nextreview';
 import Schedule from './Schedule';
-import Review3 from './Review3';
 import Review from './Review';
-
+import Review3 from './Review3';
+import Review2 from './Review2';
 
 function Main() {
     const navigate = useNavigate();
@@ -361,13 +358,11 @@ function Main() {
     
   return (
     <div style={{ overflowY: 'auto', height: '100vh' }}>
-      <Banner/>
-      <Navb handleLogout={handleLogout}/>
-      
-      <Review/>
+      <Banner handleLogout={handleLogout}/>
+      <Navb/>
+      <Review3/>
+      <Outlet/>
       <Chatbox/>
-      <Nextreview/>
-      
     </div>
   );
 }

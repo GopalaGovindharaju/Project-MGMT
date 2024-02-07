@@ -8,7 +8,7 @@ const Review3 = () => {
         All modules must be implemented in both the frontend and backend. Ensure that all implementations are completed thoroughly and adhere to the specified requirements.
       </p>
       <form>
-        <table className="table table-bordered"><thead><tr><th>Tasks</th><th>Submission</th><th>Conformation</th></tr></thead>
+        <table ><thead><tr><th>Tasks</th><th>Submission</th><th>Conformation</th></tr></thead>
           <tbody>
             <tr>
               <td>

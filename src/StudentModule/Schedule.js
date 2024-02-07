@@ -12,7 +12,7 @@ function Schedule() {
       <p>Time: <strong>10:00 AM</strong></p>
     </div>
     <div class="footer">
-      <p>Thank you for your hard work and preparation. If you have any questions, please contact your guide or HOD.</p>
+      <p>If you have any questions, please contact your guide or HOD.</p>
     </div>
   </div>
     </div>

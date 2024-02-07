@@ -1,5 +1,6 @@
 .form-container {
     margin: 20px;
+    border: none;
   }
   
   .table {
@@ -29,6 +30,7 @@
   
   .table {
     width: 100%;
+    border: none;
   }
   
   .form-group {
