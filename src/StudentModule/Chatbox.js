@@ -12,11 +12,11 @@ function Chatbox() {
       </div>
       <div class="user-input">
         <input type="text" id="userInput" placeholder="Type your message..."/>
-        <input type="file" id="fileInput" accept="video/*, image/*, audio/*" style={{marginRight: '5px'}}/>
-        <button onclick="sendMessage()">Send</button>
+        <input type="file" id="fileInput" accept="video/*, image/*, audio/*" style={{marginRight: '5px', marginTop:'15px'}}/>
+        <button className="btn btn-success" onclick="sendMessage()" style={{height:'35px', marginTop:'10px'}}>Send</button>
       </div>
     </div>
-    <button onclick="downloadChats()" style={{ marginTop: '10px' }}>Download Chats</button>
+    <button className="btn btn-success" onclick="downloadChats()" style={{ marginTop: '20px' }}>Download Chats</button>
   </div>
   
   
