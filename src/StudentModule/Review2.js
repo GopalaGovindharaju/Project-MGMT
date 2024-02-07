@@ -22,53 +22,56 @@ function App() {
 
   return (
     <div className="App">
-      <div className="container">
-        
-        
-        
+      <div className="container1">
+      <h1>Project Status Update</h1>
+      <p className="description">
+      The project must reach an 80% completion milestone, with meticulous attention to detail and strict adherence to the specified requirements. It is imperative that all implementations are thoroughly executed to ensure comprehensive fulfillment of the project's objectives.      </p>
         <form onSubmit={submitReview2Form}>
         <table>
-          <thead>
+          <thead >
             <tr>
-              <th>TASK</th>
-              <th>ACTION</th>
-              <th>CONFORMATION</th>
-
+              <th >TASK</th>
+              <th >ACTION</th>
+              <th >STATUS</th>
+             
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><label htmlFor="abstract"className='label1' >Upload Project Screenshots</label></td>
-              <td><input type="file" id="abstract" name="abstract" className="form-control-file reduced-size" accept=".gif , .png , .jpeg" required/></td>
-              <td><div>to be confirmed by guide or HOD</div></td>
+              <td><label htmlFor="abstract"className='label2' >Upload Project Screenshots</label></td>
+              <td><input type="file" id="abstract" name="abstract" className="arrange" accept=".gif , .png , .jpeg" required/></td>
+              <td><div> to be confirmed by guide and HOD</div></td>
             </tr>
             <tr>
-              <td><label htmlFor="basePaper" className='label1'>Upload Your Rough Report Of The Project</label></td>
-              <td><input type="file" id="basePaper" name="basePaper" className="form-control-file reduced-size" accept=".pdf, .doc, .docx" required/></td>
-              <td><div>to be confirmed by guide or HOD</div></td>
+              <td><label htmlFor="basePaper" className='label2'>Upload Your Rough Report Of The Project</label></td>
+              <td><input type="file" id="basePaper" name="basePaper" className="arrange" accept=".pdf, .doc, .docx" required/></td>
+              <td><div> to be confirmed by guide and HOD</div></td>
             </tr>
             <tr>
-              <td><label htmlFor="ppt" className='label1'>Upload Your PPT</label></td>
-              <td><input type="file" id="ppt" name="ppt" className="form-control-file reduced-size" accept=".ppt, .pptx" required/></td>
-              <td><div>to be confirmed by guide or HOD</div></td>
+              <td><label htmlFor="ppt" className='label2'>Upload Your PPT</label></td>
+              <td><input type="file" id="ppt" name="ppt" className="arrange" accept=".ppt, .pptx" required/></td>
+              <td><div> to be confirmed by guide and HOD</div></td>
             </tr>
           </tbody>
         </table>
-          <label htmlFor="yesNoQuestion">Do You Publish Your Project</label>
+        <div>
+          <label htmlFor="yesNoQuestion"style={{marginTop:'30px'}}>Do You Publish Your Project</label>
           <br/>
           <select  className='chitra'       id="yesNoQuestion" value={answer} onChange={handleAnswerChange} required>
             <option value="">Please select</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
           </select>
+          </div>
           <form onSubmit={submitReview2Form}>
   
-  <div className="submit-review">
-    <button type="submit" className="custom-btn">Submit Review 2</button>
-  </div>
+          <button type="submit" className="btn btn-success"style={{width:'20%'}}>Submit</button>
+
 </form>
 
         </form>
+        <button type="submit" className="btn btn-success"style={{width:'20%', marginLeft:'20px;'}}>Next (Review-2)</button>
+
       </div>
     </div>
   );

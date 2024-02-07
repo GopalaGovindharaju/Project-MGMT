@@ -12,16 +12,18 @@
   font-weight: 500;
   background-color:#00c3ff;
   cursor: pointer;
- 
- 
   display: inline-block;
- 
   outline: none;
 }
-
+h1 {
+  color: #333;
+}
 .custom-btn:hover {
   transform: translateY(-2px);
 
+}
+.arrange{
+  margin-top: 20px;
 }
 
 /* Header */
@@ -74,5 +76,8 @@
   margin-top: 10px;
 
 }
+.label2{
 
+ margin-top: 20px;
+}
 
