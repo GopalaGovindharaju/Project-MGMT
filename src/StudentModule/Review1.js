@@ -10,13 +10,13 @@ class ReviewForm extends React.Component {
   render() {
     return (
       <div>
-        <form className="container1" onSubmit={this.submitReview1Form}>
+        <form className="form-container" onSubmit={this.submitReview1Form}>
           <table>
             <thead>
                 <tr>
-                    <th className='tablehead'><b>TASKS</b></th>
-                    <th className='tablehead'><b>ACTION</b></th>
-                    <th className='tablehead'><b>STATUS</b></th>
+                    <th className='tablehead'>TASKS</th>
+                    <th className='tablehead'>ACTION</th>
+                    <th className='tablehead'>STATUS</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,11 +50,16 @@ class ReviewForm extends React.Component {
                 <td><input type="file" id="moduleTypes" name="moduleTypes" className="label4" accept=".pdf, .doc, .docx" required /></td>
                 <td><label className='labeltd'>To be confirmed by Guide or HOD</label></td>
               </tr>
+              <tr>
+                <td><button type="submit" className="btn btn-success"style={{width:'35%', marginRight:'10%'}}>Submit</button></td>
+                <td></td>
+                <td><button type="submit" className="btn btn-success"style={{width:'48%'}}>Next (Review-2)</button></td>
+              </tr>
             </tbody>
           </table>
-          <button type="submit" className="btn btn-success"style={{width:'20%'}}>Submit</button>
+          
         </form>
-        <button type="submit" className="btn btn-success"style={{width:'20%'}}>Next (Review-2)</button>
+        
       </div>
     );
   }

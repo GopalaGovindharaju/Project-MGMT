@@ -80,7 +80,9 @@ h1 {
 
 }
 .label2{
-
  margin-top: 20px;
 }
 
+.tablehead{
+  margin-left: -100%;
+}

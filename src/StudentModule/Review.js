@@ -29,11 +29,14 @@ function Review({ setReview1Active }) {
               <td><input type="file" id="ppt" name="ppt" className="abform" accept=".ppt, .pptx" required/></td>
               <td><div> to be confirmed by guide and HOD</div></td>
             </tr>
+            <tr><td><button type="submit" className="btn btn-success"style={{width:'35%', marginLeft:'-20%'}}>Submit</button></td>
+            <td></td>
+              <td><button type="submit" className="btn btn-success"style={{width:'45%'}}>Next (Review-1)</button></td>
+            </tr>
           </tbody>
         </table>
-        <button type="submit" className="btn btn-success"style={{width:'20%'}}>Submit</button>
       </form>
-      <button type="submit" className="btn btn-success"style={{width:'20%'}}>Next (Review-1)</button>
+      
 
     </div>
   );

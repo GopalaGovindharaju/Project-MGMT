@@ -26,13 +26,13 @@ function App() {
       <h1 className='titles'>Project Status Update</h1>
       <p className="description">
       The project must reach an 80% completion milestone, with meticulous attention to detail and strict adherence to the specified requirements. It is imperative that all implementations are thoroughly executed to ensure comprehensive fulfillment of the project's objectives.      </p>
-        <form onSubmit={submitReview2Form}>
+        <form className='form-container' onSubmit={submitReview2Form}>
         <table>
           <thead >
             <tr>
-              <th >TASK</th>
-              <th >ACTION</th>
-              <th >STATUS</th>
+              <th>TASKS</th>
+              <th>ACTION</th>
+              <th>STATUS</th>
              
             </tr>
           </thead>
@@ -63,14 +63,20 @@ function App() {
             <option value="no">No</option>
           </select>
           </div>
+          <table>
+            <tr>
+              <td><button type="submit" className="btn btn-success"style={{width:'31%', marginright:'20px'}}>Submit</button></td> 
+              <td></td>
+              <td><button type="submit" className="btn btn-success"style={{width:'20%', marginLeft:'60%'}}>Next (Review-3)</button></td>
+            </tr>
+          </table>
           <form onSubmit={submitReview2Form}>
   
-          <button type="submit" className="btn btn-success"style={{width:'20%'}}>Submit</button>
+          
 
 </form>
 
         </form>
-        <button type="submit" className="btn btn-success"style={{width:'20%', marginLeft:'20px;'}}>Next (Review-2)</button>
 
       </div>
     </div>
