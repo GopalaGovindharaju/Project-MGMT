@@ -1,26 +1,30 @@
 /* Banner.css */
 
 header {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center; /* Center vertically within the header */
+    background-color: #333;
+    color:rgb(244, 238, 238);
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px
 }
 
-h1 {
-  text-align: center;
-  /* Remove default margin for h1 */
+.batchno{
+  border-radius: 8px;
+  border: 2px solid rgb(244, 238, 238);
+  padding: 10px;
+  color: rgb(244, 238, 238);
+  margin-bottom: 0px; 
 }
-
-.custom-btn {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
+ 
+#logoutbtn{
+  width: 100px;
+  height: 40px;
+  color:  rgb(244, 238, 238);
+  border: 2px solid  rgb(244, 238, 238);
+  font-weight: 700;
+  border-radius: 10px;
+  margin-top: 10px;
 }
-
-/* Additional styling for the "Log Out" button if needed */

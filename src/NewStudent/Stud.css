@@ -16,12 +16,6 @@ form {
   margin-left: 30px;
 }
 
-input[type="text"],
-input[type="file"]
-{
-  margin-bottom: 20px;
-}
-
 .student-list-container {
 margin-bottom: 20px; /* Adjust the margin for spacing */
 }
