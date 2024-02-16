@@ -24,7 +24,8 @@ function App() {
       <Routes>
         <Route path='*' element={<Signin/>}></Route>
         <Route path='/student' element={<Student/>}>
-          <Route path='Review0' element={<Review/>}/>
+          <Route index element={<Review/>} />
+          <Route path='Review0' element={<Review />} />
           <Route path='Review1' element={<Review1/>}/>
           <Route path='Review2' element={<Review2/>}/>
           <Route path='Review3' element={<Review3/>}/>

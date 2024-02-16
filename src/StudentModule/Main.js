@@ -361,10 +361,6 @@ function Main() {
     <div style={{ overflowY: 'auto', height: '100vh' }}>
       <Banner handleLogout={handleLogout}/>
       <Navb/>
-<<<<<<< HEAD
-      
-=======
->>>>>>> f1ed3bf0c6ffe3bfdd972f15643224bb36745eff
       <Outlet/>
       <Chatbox/>
       
