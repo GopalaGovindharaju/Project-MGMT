@@ -1,0 +1,8 @@
+.guide-info, .student-info{
+    text-align: left;
+    padding: 10px 10px 0px 10px;
+}
+.admin-body-left{
+    overflow: auto;
+    height: 90vh;
+}

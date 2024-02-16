@@ -3,12 +3,12 @@
 import React from 'react';
 import './Banner.css';
 
-function Banner({ handleLogout }) {
+function Banner({ handleLogout, batchNo, moduleName }) {
   return (
     <div>
     <header>
-    <h4 className='batchno'>A-01</h4>
-    <h1 style={{color:'#FFFFFF'}}>Student Page </h1>
+    <h4 className='batchno'>{batchNo}</h4>
+    <h1 style={{color:'#FFFFFF'}}>{moduleName} </h1>
     <button  id='logoutbtn' onClick={handleLogout}>Log Out</button>
     </header>
     </div>
