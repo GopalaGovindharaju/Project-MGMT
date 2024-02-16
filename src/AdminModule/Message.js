@@ -97,7 +97,12 @@ function Message() {
           Dec, 11
         </p>
       </div>
+      
     </div>
+    <label for="userInput">Message   :</label>
+<input type="text" id="userInput" name="userInput" placeholder='Type your Messages Here'></input><br></br>
+<button type="button" class="btn btn-primary" style={{marginRight:'30px'}}>Send</button>
+
   </div>
 </div>
     </div>

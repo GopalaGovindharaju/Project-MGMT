@@ -25,4 +25,36 @@ nav {
    background-color:dimgrey;
 
   }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+  }
+  
+  .review-schedule-container {
+    display: none;
+    padding: 20px;
+    background-color: #f1f1f1;
+  }
+  
+  .review-schedule-container h2 {
+    color: #333;
+  }
+  
+  .datetime-info p {
+    margin-bottom: 5px;
+  }
+  
+  .footer {
+    margin-top: 20px;
+    color: #777;
+  }
   

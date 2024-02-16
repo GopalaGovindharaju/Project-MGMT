@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './style.css';
 import UserInfoContext from '../UsenInfoContext';
 import axios from 'axios';
-
+import Message  from './Message';
 
 function Admin() {
 
@@ -273,9 +273,9 @@ function Admin() {
 
 
   </div>
-</div>{/*
+</div>
 <Message/>
-*/}
+
 </div>
 </div>
     </div>
