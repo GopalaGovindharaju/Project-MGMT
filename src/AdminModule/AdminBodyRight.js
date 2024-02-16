@@ -1,10 +1,11 @@
 import React from 'react'
-import Navb from '../StudentModule/Navb'
+import AdminNavB from './AdminNavB'
+
 
 function AdminBodyRight() {
   return (
     <div>
-      <Navb/>
+      <AdminNavB/>
     </div>
   )
 }
