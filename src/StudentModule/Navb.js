@@ -2,11 +2,9 @@ import './Navb.css';
 import { Link } from 'react-router-dom';
 
 function Navb() {
-
-
   return (
-    <div>
-      <nav>
+    <div >
+      <nav >
         <div className="navbar-options">
         <Link to='Review0' id='navbar-option'>Review 0</Link>
         <Link to='Review1' id='navbar-option'>Review 1</Link>

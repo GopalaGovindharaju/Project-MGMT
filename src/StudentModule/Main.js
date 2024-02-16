@@ -6,8 +6,10 @@ import Navb from './Navb';
 import Chatbox from './Chatbox';
 import Banner from './Banner';
 import Schedule from './Schedule';
-
-
+import Review from './Review';
+import Review3 from './Review3';
+import Review2 from './Review2';
+import Review1 from './Review1';
 
 function Main() {
     const navigate = useNavigate();
@@ -359,9 +361,13 @@ function Main() {
     <div style={{ overflowY: 'auto', height: '100vh' }}>
       <Banner handleLogout={handleLogout}/>
       <Navb/>
-      <Schedule/>
+      <Review/>
+      <Review1/>
+      <Review2/>
+      <Review3/>
       <Outlet/>
       <Chatbox/>
+      
     </div>
   );
 }

@@ -1,5 +1,6 @@
 .form-container {
     margin: 20px;
+    border: none;
   }
   
   .table {
@@ -29,6 +30,7 @@
   
   .table {
     width: 100%;
+    border: none;
   }
   
   .form-group {
@@ -66,5 +68,11 @@
     background-color: #4CAF50;
   }
   .label2{
-    margin-left: 10px;
+    font-size: 18px;
+  font-weight: bold;
+  color: #020406;
+  display: block;
+  margin-bottom: 5px;
+  text-align: left; /* Add this line to align the text to the left */
+  margin-left: 30px;
   }

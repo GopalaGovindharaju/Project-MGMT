@@ -3,10 +3,9 @@ body {
   background-color: #f8f9fa;
   margin: 0;
   padding: 0;
- 
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  
 }
 
 .schedule-container {

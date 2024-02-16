@@ -1,12 +1,12 @@
 .container1{
-    width: 80%;
+    width: 100%;
     margin:auto;
     padding-top: 10px;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);;
 }
 
 .labletd{
-    font-size: 18px;
+  font-size: 18px;
   font-weight: bold;
   color: #020406;
   display: block;
@@ -17,6 +17,7 @@
 
 .labeltd{
     margin-bottom: 20px;
+    margin-left: 0;
 }
 
 .form-control-file{
@@ -25,12 +26,16 @@
 }
 
 .tablehead{
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 }
 
-.subbtn{
-    width: 200px;
-    margin-left: 400px;
-    height: 45px;
-    align-items: center;
-}
+
+.label4 {
+    font-size: 18px;
+    color: #020406;
+    margin-bottom: 5px;
+    text-align: left; /* Add this line to align the text to the left */
+    margin-left: 100px;
+    margin-top: 20px;
+  }
+  

@@ -4,11 +4,12 @@ import './Review3.css'; // Make sure to import your CSS file
 const Review3 = () => {
   return (
     <div className="form-container">
+      <h1>Project Status Update</h1>
          <p className="description">
         All modules must be implemented in both the frontend and backend. Ensure that all implementations are completed thoroughly and adhere to the specified requirements.
       </p>
       <form>
-        <table className="table table-bordered">
+        <table ><thead><tr><th>TASKS</th><th>ACTION</th><th>STATUS</th></tr></thead>
           <tbody>
             <tr>
               <td>
@@ -18,7 +19,7 @@ const Review3 = () => {
               </td>
               <td>
                 <div className="form-group">
-                  <input type="file" id="video" name="video" className="form-control-file" accept="video/*" required />
+                  <input type="file" id="video" name="video" className="" accept="video/*" required />
                 </div>
               </td>
               <td>
@@ -35,7 +36,7 @@ const Review3 = () => {
               </td>
               <td>
                 <div className="form-group">
-                  <input type="file" id="screenshots" name="screenshots[]" className="form-control-file" accept=".jpg, .jpeg, .png" multiple required />
+                  <input type="file" id="screenshots" name="screenshots[]" className="" accept=".jpg, .jpeg, .png" multiple required />
                   
                 </div>
               </td>
@@ -53,7 +54,7 @@ const Review3 = () => {
               </td>
               <td>
                 <div className="form-group">
-                  <input type="file" id="documentation" name="documentation" className="form-control-file" accept=".jpg, .jpeg, .png" multiple required />
+                  <input type="file" id="documentation" name="documentation" className="" accept=".jpg, .jpeg, .png" multiple required />
                   
                 </div>
               </td>
@@ -71,7 +72,7 @@ const Review3 = () => {
               </td>
               <td>
                 <div className="form-group">
-                  <input type="file" id="ppt" name="ppt" className="form-control-file" accept=".jpg, .jpeg, .png" multiple required />
+                  <input type="file" id="ppt" name="ppt" className="" accept=".jpg, .jpeg, .png" multiple required />
                   
                   
                 </div>
@@ -82,11 +83,15 @@ const Review3 = () => {
                 </div>
               </td>
             </tr>
+            <tr>
+              <td><button type="submit" className="btn btn-success" style={{ width: '35%', marginRight:'10%' }}>Submit</button></td>
+            </tr>
+
           </tbody>
         </table>
         
 
-        <button type="submit" className="btn btn-primary btn-block">Submit Review 3</button>
+        
       </form>
     </div>
   );
