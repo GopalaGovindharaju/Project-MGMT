@@ -10,6 +10,8 @@ import Review from './StudentModule/Review';
 import Review1 from './StudentModule/Review1';
 import Review2 from './StudentModule/Review2';
 import Review3 from './StudentModule/Review3';
+import Guide from './StaffModule/Guide';
+
 
 function App() {
 
@@ -22,7 +24,7 @@ function App() {
     <div className="App">
       <UserInfoContext.Provider value={{ userInfo, setUserInfo }}>
       <Routes>
-        <Route path='*' element={<Signin/>}></Route>
+        <Route path='*' element={<Guide/>}></Route>
         <Route path='/student' element={<Student/>}>
           <Route index element={<Review/>} />
           <Route path='Review0' element={<Review />} />

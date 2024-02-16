@@ -49,7 +49,7 @@ const Review3 = () => {
             <tr>
               <td>
                 <div className="form-group">
-                  <label htmlFor="documentation"className='label2'>documentation</label>
+                  <label htmlFor="documentation"className='label2'>Documentation</label>
                 </div>
               </td>
               <td>
@@ -67,7 +67,7 @@ const Review3 = () => {
             <tr>
               <td>
                 <div className="form-group">
-                  <label htmlFor="ppt"className='label2'>PPT</label>
+                  <label htmlFor="ppt"className='label2'>PPT Document Submission</label>
                 </div>
               </td>
               <td>

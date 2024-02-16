@@ -359,8 +359,9 @@ function Main() {
     
   return (
     <div style={{ overflowY: 'auto', height: '100vh' }}>
-      <Banner handleLogout={handleLogout}/>
+      <Banner handleLogout={handleLogout} batchNo={'A-01'} moduleName={'Student Page'}/>
       <Navb/>
+
       <Outlet/>
       <Chatbox/>
       

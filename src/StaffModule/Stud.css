@@ -1,0 +1,15 @@
+.full-width {
+    width: 100%;
+  }
+  
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #000; /* Add your preferred border color and style */
+  }
+  
+  .custom-table th, .custom-table td {
+    border: 1px solid #000; /* Add your preferred border color and style */
+    padding: 8px; /* Add padding for better spacing */
+  }
+  
