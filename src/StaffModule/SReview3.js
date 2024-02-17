@@ -12,7 +12,7 @@ function SReview3() {
               <th>STATUS</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody >
             <tr>
               <td>Upload Project Demo (Video)</td>
               <td>
@@ -22,7 +22,7 @@ function SReview3() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" >
                   Reject
                 </button>
               </td>
@@ -36,8 +36,7 @@ function SReview3() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
@@ -50,8 +49,7 @@ function SReview3() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" > Reject
                 </button>
               </td>
             </tr>
@@ -64,8 +62,7 @@ function SReview3() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" >  Reject
                 </button>
               </td>
             </tr>

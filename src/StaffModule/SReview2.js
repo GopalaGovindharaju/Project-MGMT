@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import './Review0.css';
 
 
 function SReview2() {
@@ -29,7 +30,7 @@ function SReview2() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" >  
                   Reject
                 </button>
               </td>
@@ -43,7 +44,7 @@ function SReview2() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" > 
                   Reject
                 </button>
               </td>
@@ -57,7 +58,7 @@ function SReview2() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" > 
                   Reject
                 </button>
               </td>
@@ -75,7 +76,7 @@ function SReview2() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" >
                   Reject
                 </button>
               </td>

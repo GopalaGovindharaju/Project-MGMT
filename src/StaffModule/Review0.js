@@ -1,15 +1,15 @@
 import React from 'react';
-import './Review0.css'
+import './Review0.css';
 
 function Review0() {
   return (
     <div>
-      <div class="container mt-5">
-        <table class="table">
+      <div className="container mt-5">
+        <table className="table">
           <thead>
             <tr>
               <th>TASKS</th>
-              <th>ACTION</th>
+              <th className="table-column" >ACTION</th>
               <th>STATUS</th>
             </tr>
           </thead>
@@ -17,41 +17,39 @@ function Review0() {
             <tr>
               <td>Project Title</td>
               <td>
-                <input type="text" class="form-control reduced-size" disabled />
+                <input type="text" className="form-control reduced-size" disabled />
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" className="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
             <tr>
               <td>Abstract Document Submission</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" className="formss" accept=".pdf, .doc, .docx" disabled />
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" className="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
             <tr>
               <td>Base Paper Document Submission</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" className="formss" accept=".pdf, .doc, .docx" disabled />
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" className="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" >
                   Reject
                 </button>
               </td>
@@ -59,26 +57,24 @@ function Review0() {
             <tr>
               <td>PPT Document Submission</td>
               <td>
-                <input type="file" class="formss" accept=".ppt, .pptx" disabled />
+                <input type="file" className="formss" accept=".ppt, .pptx" disabled />
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" className="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
             <tr>
-              <td colspan="2"></td>
+              <td colSpan="2"></td>
               <td>
-                <button type="submit" class="btn btn-success" style={{ width: "100%" }}>
+                <button type="submit" className="btn btn-success" style={{ width: "100%" }}>
                   Forward To HOD
                 </button>
               </td>
             </tr>
-            
           </tbody>
         </table>
 

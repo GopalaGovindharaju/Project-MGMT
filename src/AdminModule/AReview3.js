@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import './AdminBody.css';
+
 
 function AReview3() {
   return (
@@ -22,8 +24,7 @@ function AReview3() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
@@ -36,8 +37,7 @@ function AReview3() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
@@ -50,8 +50,7 @@ function AReview3() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
@@ -64,8 +63,7 @@ function AReview3() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
@@ -73,7 +71,7 @@ function AReview3() {
               <td colspan="2"></td>
               <td>
                 <button type="submit" class="btn btn-success" style={{ width: "100%" }}>
-                Forward To HOD
+                Permission Granted
                 </button>
               </td>
             </tr>

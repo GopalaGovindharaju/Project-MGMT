@@ -1,5 +1,6 @@
 import React from 'react';
 import '../StaffModule/Review0.css';
+import './AdminBody.css';
 
 function AReview0() {
   return (
@@ -9,11 +10,11 @@ function AReview0() {
           <thead>
             <tr>
               <th>TASKS</th>
-              <th>ACTION</th>
+              <th  className="table-column">ACTION</th>
               <th>STATUS</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody >
             <tr>
               <td>Project Title</td>
               <td>
@@ -23,7 +24,7 @@ function AReview0() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" >
                   Reject
                 </button>
               </td>
@@ -31,42 +32,39 @@ function AReview0() {
             <tr>
               <td>Abstract Document Submission</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" class="" accept=".pdf, .doc, .docx" disabled />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
             <tr>
               <td>Base Paper Document Submission</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" class="" accept=".pdf, .doc, .docx" disabled />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
             <tr>
               <td>PPT Document Submission</td>
               <td>
-                <input type="file" class="formss" accept=".ppt, .pptx" disabled />
+                <input type="file" class="" accept=".ppt, .pptx" disabled />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
@@ -74,7 +72,7 @@ function AReview0() {
               <td colspan="2"></td>
               <td>
                 <button type="submit" class="btn btn-success" style={{ width: "100%" }}>
-                  Forward To HOD
+                Permission Granted
                 </button>
               </td>
             </tr>

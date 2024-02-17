@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './AdminBody.css';
 
 function AReview1() {
   return (
@@ -8,7 +9,7 @@ function AReview1() {
           <thead>
             <tr>
               <th>TASKS</th>
-              <th>ACTION</th>
+              <th >ACTION</th>
               <th>STATUS</th>
             </tr>
           </thead>
@@ -22,8 +23,7 @@ function AReview1() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
@@ -36,8 +36,7 @@ function AReview1() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
@@ -50,8 +49,7 @@ function AReview1() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" > Reject
                 </button>
               </td>
             </tr>
@@ -64,8 +62,7 @@ function AReview1() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
@@ -78,8 +75,7 @@ function AReview1() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
@@ -92,8 +88,7 @@ function AReview1() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
-                  Reject
+                <button type="button" className="negative btn btn-danger ml-2" > Reject
                 </button>
               </td>
             </tr>
@@ -102,7 +97,7 @@ function AReview1() {
               <td colspan="2"></td>
               <td>
                 <button type="submit" class="btn btn-success" style={{ width: "100%" }}>
-                Forward To HOD
+                Permission Granted
                 </button>
               </td>
             </tr>

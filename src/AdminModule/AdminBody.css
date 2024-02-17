@@ -6,3 +6,6 @@
     overflow: auto;
     height: 90vh;
 }
+.table-column {
+    width:95%; /* Adjust the width as needed */
+  }

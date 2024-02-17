@@ -8,11 +8,11 @@ function StaffReview1() {
           <thead>
             <tr>
               <th>TASKS</th>
-              <th>ACTION</th>
+              <th >ACTION</th>
               <th>STATUS</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody >
             <tr>
               <td>Abstract Document Submission</td>
               <td>
@@ -22,7 +22,7 @@ function StaffReview1() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" >       
                   Reject
                 </button>
               </td>
@@ -36,7 +36,7 @@ function StaffReview1() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" >    
                   Reject
                 </button>
               </td>
@@ -50,7 +50,7 @@ function StaffReview1() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" > 
                   Reject
                 </button>
               </td>
@@ -64,7 +64,7 @@ function StaffReview1() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" > 
                   Reject
                 </button>
               </td>
@@ -78,7 +78,7 @@ function StaffReview1() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" > 
                   Reject
                 </button>
               </td>
@@ -92,7 +92,7 @@ function StaffReview1() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" class="btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" >
                   Reject
                 </button>
               </td>
