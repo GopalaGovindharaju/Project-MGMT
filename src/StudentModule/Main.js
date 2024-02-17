@@ -3,12 +3,9 @@ import './main.css'
 import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import Navb from './Navb';
-import Chatbox from './Chatbox';
 import Banner from './Banner';
-import Review from './Review';
-import Review3 from './Review3';
-import Review2 from './Review2';
-import Review1 from './Review1';
+import Chatmsg from './Chatmsg';
+
 
 
 function Main() {
@@ -362,7 +359,9 @@ function Main() {
       <Banner handleLogout={handleLogout} batchNo={"A-01"} moduleName={"Student Page"}/>
       <Navb/>
       <Outlet/>
-      <Chatbox/>
+      <div className='Chatmsg'>
+        <Chatmsg/>
+      </div>
       
       
     </div>

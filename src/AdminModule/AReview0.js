@@ -9,9 +9,9 @@ function AReview0() {
         <table class="table">
           <thead>
             <tr>
-              <th>TASKS</th>
+              <th className='col-3'>TASKS</th>
               <th  className="table-column">ACTION</th>
-              <th>STATUS</th>
+              <th className='col-3'>STATUS</th>
             </tr>
           </thead>
           <tbody >

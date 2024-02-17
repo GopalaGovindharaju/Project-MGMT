@@ -1,0 +1,84 @@
+.msg-container{
+    padding: 0px 10px 0px 10px;
+    width: 30%;
+    position: absolute;
+    right: 10px;
+    bottom: -444px;
+    background-color: rgba(208, 226, 188, 0.979);
+    overflow-y: auto;
+    height: 77vh;
+    border-radius: 8px;
+    transition: bottom 0.3s ease;
+}
+
+.msg-up-icon :hover{
+    bottom: 10px;
+    background-color: blue;
+}
+
+.msg-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.msg-headsticky{
+    padding-top: 10px;
+    padding-bottom: 3px;
+    position: sticky;
+    top: 0;
+    background-color: rgba(208, 226, 188, 0.979);
+    z-index: 3;
+}
+
+.stud-name{
+    padding-top: 8px;
+    padding-left: 5px;
+}
+
+.stud-msg{
+    font-size: 13px;
+    text-align: left;
+    margin-bottom: 0px;
+    color: black;
+}
+
+.date-time{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.stud-msg1{
+    font-size: 12px;
+    margin-bottom: 0px;
+}
+
+.stud-msg2{
+    font-size: 12px;
+    margin-bottom: 0px;
+}
+
+#stud-logo1{
+    border-radius: 20px;
+    width: 45px;
+}
+
+#footer-inp-msg{
+    position: sticky;
+    bottom: 0;
+    z-index: 3;
+    background-color: rgba(208, 226, 188, 0.979);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.one-msg{
+    margin-left: 45px;
+    border: 1px solid rgb(235, 230, 230);
+    border-radius: 10px;
+    padding: 5px;
+    background-color: white;
+    margin-bottom: 4px;
+}
+
