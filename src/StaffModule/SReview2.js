@@ -2,22 +2,12 @@ import React,{useState} from 'react'
 
 
 function SReview2() {
-    const [sliderValue, setSliderValue] = useState(50);
     const [answer, setAnswer] = useState('');
-  
-    const updateSliderValue = (value) => {
-      setSliderValue(value);
-    };
   
     const handleAnswerChange = (event) => {
       setAnswer(event.target.value);
     };
   
-    const submitReview2Form = (event) => {
-      event.preventDefault();
-      // Handle form submission for Review 2 as needed
-      alert('Review 2 form submitted. Implement this function as needed.');
-    };
   return (
     <div>
       <div class="container mt-5">

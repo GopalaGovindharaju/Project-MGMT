@@ -16,6 +16,10 @@ import Review0 from './StaffModule/Review0';
 import StaffReview1 from './StaffModule/StaffReview1';
 import SReview2 from './StaffModule/SReview2';
 import SReview3 from './StaffModule/SReview3';
+import AReview0 from './AdminModule/AReview0';
+import AReview1 from './AdminModule/AReview1';
+import AReview2 from './AdminModule/AReview2';
+import AReview3 from './AdminModule/AReview3';
 
 function App() {
 
@@ -44,6 +48,13 @@ function App() {
           <Route path='SReview3' element={<SReview3/>}/>
         </Route>
         <Route path='/staff' element={<Staff/>}></Route>
+        <Route path='/adminVerification' element={<AdminVerification/>}>
+        <Route index element={<AReview0/>} />
+        <Route path='AReview0' element={<AReview0/>} />
+          <Route path='AReview1' element={<AReview1/>}/>
+          <Route path='AReview2' element={<AReview2/>}/>
+          <Route path='AReview3' element={<AReview3/>}/>
+        </Route>
         <Route path='/admin' element={<Admin/>}></Route>
       </Routes>
       </UserInfoContext.Provider>

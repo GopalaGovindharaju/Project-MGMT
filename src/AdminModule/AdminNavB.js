@@ -6,10 +6,10 @@ function AdminNavB() {
     <div >
       <nav >
         <div className="navbar-options">
-        <Link to='Review0' id='navbar-option'>Review 0</Link>
-        <Link to='Review1' id='navbar-option'>Review 1</Link>
-        <Link to='Review2' id='navbar-option'>Review 2</Link>
-        <Link to='Review3' id='navbar-option'>Review 3</Link>
+        <Link to='AReview0' id='navbar-option'>Review 0</Link>
+        <Link to='AReview1' id='navbar-option'>Review 1</Link>
+        <Link to='AReview2' id='navbar-option'>Review 2</Link>
+        <Link to='AReview3' id='navbar-option'>Review 3</Link>
         </div>
       </nav>
     </div>
