@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import UserInfoContext from '../UsenInfoContext';
 import './staff.css'
+import ReviewDateForTeams from './ReviewDateForTeams';
 
 function Staff() {
   const [isAddingGuide, setIsAddingGuide] = useState(false);
@@ -213,10 +214,11 @@ function Staff() {
   <div className="app-content">
     <div className="app-sidebar">
     </div>
-    <div className="projects-section container-fluid">
+    <div className='col-8'>
+    <div className="projects-section container-fluid ">
       <div className="projects-section-header">
         <p>Projects</p>
-        <p className="time">{currentDate}</p>
+      
       </div>
       <div className="projects-section-line">
         <div className="projects-status">
@@ -232,6 +234,10 @@ function Staff() {
             <span className="status-number">62</span>
             <span className="status-type">Total Projects</span>
           </div>
+          <div> 
+             <p className="time">{currentDate}</p>
+             </div>
+ 
         </div>
       </div>
       <div className="overflow-auto" id='project-boxes'>
@@ -271,17 +277,30 @@ function Staff() {
                       </div>
                     </div>
                   </div>
+                  
                 </div>
+                
               ))}
 
 
 
   </div>
-</div>{/*
+</div> 
+</div>
+<div className='col-4'style={{border:'1px solid #000'}}>
+<div className="schedule-container">
+  <h3><center>Review Schedule</center></h3>
+  <ReviewDateForTeams/>
+  <ReviewDateForTeams/>
+  <ReviewDateForTeams/>
+  <ReviewDateForTeams/>
+  </div>
+  </div>{/*
 <Message/>
 */}
 </div>
 </div>
+
     </div>
   )
 }
