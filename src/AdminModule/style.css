@@ -828,3 +828,50 @@ button, a {
 
 
 /* Add any additional styles for your form elements as needed */
+
+.summ-container{
+  background-color: white;
+  margin: 2px;
+  padding: 10px;
+}
+
+.summ-title{
+  position: sticky;
+  z-index: 3;
+  top: 0;
+  background-color:white;
+  padding-top: 10px;
+  padding-bottom: 3px;
+}
+
+.summ-content{
+  border-radius: 8px;
+  background-color: white;
+  height: calc(100vh - 150px);
+  padding: 0px 10px 10px 10px;
+  overflow-y: auto;
+}
+
+.summ-content-title{
+  margin-top: 20px;
+  text-align: left;
+}
+
+.summ-content-body{
+  font-size: 15px;
+  color: black;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+.sys-archi{
+  width: 80%;
+}
+
+.summ-modules{
+  text-align: left;
+}
+
+.exp-outcome-images{
+  width: 60%;
+}

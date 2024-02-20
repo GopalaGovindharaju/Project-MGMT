@@ -5,6 +5,7 @@ import axios from 'axios';
 import Navb from './Navb';
 import Banner from './Banner';
 import Chatmsg from './Chatmsg';
+import Chatmsg1 from './Chatmsg1';
 
 
 
@@ -353,15 +354,17 @@ function Main() {
       });
   }, [checkedRowCount, lastRowNumber, permanentLeadRegNo, setProgress]);
 
+  const [isTabOpen, setIsTabOpen] = useState(false);
+
+
     
   return (
-    <div style={{ overflowY: 'auto', height: '100vh' }}>
+    <div style={{ overflowY: 'hidden', height: '100vh', position:'relative' }}>
       <Banner handleLogout={handleLogout} batchNo={"A-01"} moduleName={"Student Page"}/>
       <Navb/>
       <Outlet/>
-      <div className='Chatmsg'>
-        <Chatmsg/>
-      </div>
+      <Chatmsg setIsTabOpen={setIsTabOpen}/>
+      {isTabOpen && <Chatmsg1/> }
       
       
     </div>
