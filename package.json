@@ -14,6 +14,7 @@
     "html-docx-js": "^0.3.1",
     "jquery": "^3.7.1",
     "md5": "^2.3.0",
+    "mdb-ui-kit": "^7.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",

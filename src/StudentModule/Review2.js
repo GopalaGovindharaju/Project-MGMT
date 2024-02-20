@@ -30,9 +30,9 @@ function App() {
         <table>
           <thead >
             <tr>
-              <th className="text-center">TASKS</th>
-              <th className="text-center">ACTION</th>
-              <th className="text-center">STATUS</th>
+              <th>TASKS</th>
+              <th>ACTION</th>
+              <th>STATUS</th>
              
             </tr>
           </thead>
