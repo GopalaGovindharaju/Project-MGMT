@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../NewStudent/Stud.css';
 import ReviewSchedule from './ReviewSchedule';
 
-function Review({  }) {
+function Review({}) {
 
   return (
     <div id="review0Form" className="form-container" style={{position:'relative'}}>

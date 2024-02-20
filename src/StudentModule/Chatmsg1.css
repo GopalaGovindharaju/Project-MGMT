@@ -1,4 +1,7 @@
 .msgs1{
   position: absolute;
-  margin-top: 500px;
+  bottom: 0;
+  margin-bottom: 0.5%;
+  left:49%;
+  background-color: rgb(5, 14, 5);
 }
