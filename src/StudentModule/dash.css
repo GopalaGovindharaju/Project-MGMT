@@ -112,7 +112,7 @@ body {
   min-height: 460px;
 }
 
-a, code, div, img, input, label, li, p, pre, select, span, svg, table, td, textarea, th, ul {
+a, code, img, input, label, li, p, pre, select, span, svg, table, td, textarea, th, ul {
     -webkit-border-radius: 0!important;
     -moz-border-radius: 0!important;
     border-radius: 0!important;

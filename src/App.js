@@ -20,7 +20,9 @@ import AReview0 from './AdminModule/AReview0';
 import AReview1 from './AdminModule/AReview1';
 import AReview2 from './AdminModule/AReview2';
 import AReview3 from './AdminModule/AReview3';
+import Summary from './AdminModule/Summary';
 import PanelMember from './PanelMember/PanelMember';
+
 
 function App() {
 
@@ -50,7 +52,8 @@ function App() {
         </Route>
         <Route path='/staff' element={<Staff/>}></Route>
         <Route path='/adminVerification' element={<AdminVerification/>}>
-        <Route index element={<AReview0/>} />
+        <Route index element={<Summary/>} />
+        <Route path='Summary' element={<Summary/>}/>
         <Route path='AReview0' element={<AReview0/>} />
           <Route path='AReview1' element={<AReview1/>}/>
           <Route path='AReview2' element={<AReview2/>}/>

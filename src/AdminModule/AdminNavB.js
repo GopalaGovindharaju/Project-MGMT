@@ -6,6 +6,7 @@ function AdminNavB() {
     <div >
       <nav >
         <div className="navbar-options">
+        <Link to='Summary' id='navbar-option'>Summary</Link>
         <Link to='AReview0' id='navbar-option'>Review 0</Link>
         <Link to='AReview1' id='navbar-option'>Review 1</Link>
         <Link to='AReview2' id='navbar-option'>Review 2</Link>
