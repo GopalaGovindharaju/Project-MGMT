@@ -1,5 +1,8 @@
 import React from 'react'
-import Sysarchi from './Grooming recommendation software.png'
+import Sysarchi from './Proj-Images/Grooming recommendation software.png'
+import Outcome1 from './Proj-Images/ex-outcomes1.jpeg'
+import Outcome2 from './Proj-Images/ex-outcomes2.jpeg'
+import Outcome3 from './Proj-Images/ex-outcomes3.jpeg'
 
 function Summary() {
   return (
@@ -49,6 +52,9 @@ function Summary() {
         
         <div className='summ-abstract'>
           <h5 className='summ-content-title'>EXPECTED OUTCOMES</h5>
+            <img src={Outcome1} className='exp-outcome-images'/>
+            <img src={Outcome2} className='exp-outcome-images'/>
+            <img src={Outcome3} className='exp-outcome-images'/>
           
         </div>  
 
