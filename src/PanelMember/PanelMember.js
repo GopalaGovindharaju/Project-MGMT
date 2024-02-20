@@ -89,7 +89,7 @@ function PanelMember({handleLogout})
                       <textarea
                         value={remarks[person]}
                         onChange={(e) => handleRemarksChange(person, e)}
-                        style={{ resize: 'vertical', width: '100%', minHeight: '50px', border: 'none' }}
+                        style={{ resize: 'vertical', width: '100%', minHeight: '50px' }}
                       />
                     </td>
                     <td>
