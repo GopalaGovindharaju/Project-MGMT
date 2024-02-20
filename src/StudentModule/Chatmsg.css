@@ -6,7 +6,7 @@
     bottom: -444px;
     background-color: rgba(208, 226, 188, 0.979);
     overflow-y: auto;
-    height: 77vh;
+    height: 70vh;
     border-radius: 8px;
     transition: bottom 0.3s ease;
 }

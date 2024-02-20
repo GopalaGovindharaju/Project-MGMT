@@ -24,7 +24,7 @@ function Chatmsg({setIsTabOpen}) {
     const handleButtonClick = () => {
         setIsTabOpen(true);
       };
-
+      
   return (
     <div className='msg-container'>
         <div className='msg-child'>
