@@ -21,6 +21,8 @@ import AReview1 from './AdminModule/AReview1';
 import AReview2 from './AdminModule/AReview2';
 import AReview3 from './AdminModule/AReview3';
 import Summary from './AdminModule/Summary';
+import PanelMember from './PanelMember/PanelMember';
+
 
 function App() {
 
@@ -58,6 +60,7 @@ function App() {
           <Route path='AReview3' element={<AReview3/>}/>
         </Route>
         <Route path='/admin' element={<Admin/>}></Route>
+        <Route path='/panel' element={<PanelMember/>}></Route>
       </Routes>
       </UserInfoContext.Provider>
     </div>
