@@ -1,5 +1,8 @@
 import React from 'react'
-import Sysarchi from './Grooming recommendation software.png'
+import Sysarchi from './Proj-Images/Grooming recommendation software.png'
+import Outcome1 from './Proj-Images/ex-outcomes1.jpeg'
+import Outcome2 from './Proj-Images/ex-outcomes2.jpeg'
+import Outcome3 from './Proj-Images/ex-outcomes3.jpeg'
 
 function Summary() {
   return (
@@ -49,10 +52,49 @@ function Summary() {
         
         <div className='summ-abstract'>
           <h5 className='summ-content-title'>EXPECTED OUTCOMES</h5>
-          
+            <img src={Outcome1} className='exp-outcome-images'/><hr/>
+            <img src={Outcome2} className='exp-outcome-images'/><hr/>
+            <img src={Outcome3} className='exp-outcome-images'/><hr/>    
         </div>  
 
-        
+        <div className='summ-abstract'>
+          <h5 className='summ-content-title'>BASE PAPER</h5>
+          <p className='summ-content-body'>
+            Click Here to view Base Paper - <li>https://ieeexplore.ieee.org/abstract/document/10276139</li>
+          </p>
+        </div>
+
+        <div className='summ-abstract'>
+          <h5 className='summ-content-title'>PAPER PUBLICATION DETAILS</h5>
+          <p className='summ-content-body'>
+          2023 International Conference on Network, Multimedia and Information Technology (NMITCON),<br/> Bengaluru, India, 2023, pp. 1-8 <br/>
+          <b>doi: 10.1109/NMITCON58196.2023.10276139.</b>
+          </p>
+        </div>
+
+        <div className='summ-abstract'>
+          <h5 className='summ-content-title'>DEMO</h5>
+          <p className='summ-content-body'>
+            Click here to view Demo video of the project - <br/>
+            https://hellothisismyprojectdemovideo
+          </p>
+        </div>   
+
+        <div className='summ-abstract'>
+          <h5 className='summ-content-title'>DOCUMENTATION DOWNLOAD</h5>
+          <p className='summ-content-body'>
+            Click here to download project documentation<br/>
+            https://hellothisismyprojectdemovideo
+          </p>
+        </div>
+
+        <div className='summ-abstract'>
+          <h5 className='summ-content-title'>PPT DOWNLOAD</h5>
+          <p className='summ-content-body'>
+            Click here to download project PPT<br/>
+            https://hellothisismyprojectdemovideo
+          </p>
+        </div>
 
 
       </div>

@@ -827,7 +827,7 @@ button, a {
 /* Add any additional styles for your form elements as needed */
 
 .summ-container{
-  background-color:#4A4A4A;
+  background-color: white;
   margin: 2px;
   padding: 10px;
 }
@@ -949,4 +949,7 @@ button, a {
 
 .admin-notification-buttons:hover, .admin-notification-buttons1:hover{
   text-shadow: 0 0 10px rgba(51, 0, 255, 0.5);
+}
+.exp-outcome-images{
+  width: 60%;
 }

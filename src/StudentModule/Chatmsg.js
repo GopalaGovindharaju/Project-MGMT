@@ -4,8 +4,9 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import './Chatmsg.css'
+import Chatmsg1 from './Chatmsg1';
 
-function Chatmsg() {
+function Chatmsg({setIsTabOpen}) {
 
     const [upIcon,setUpicon] = useState(true);
     const messageToggle = () => {
@@ -19,6 +20,10 @@ function Chatmsg() {
             Openup.style.bottom = '-444px';
         }
     }
+
+    const handleButtonClick = () => {
+        setIsTabOpen(true);
+      };
 
   return (
     <div className='msg-container'>
@@ -41,7 +46,7 @@ function Chatmsg() {
         <div className='msgs'>
             <div class="input-group">
                <div class="input-group-prepend">
-                    <button class="btn btn-success" id='stud-logo1'>MG</button>
+                    <button class="btn btn-success" onClick={handleButtonClick} id='stud-logo1'>MG</button>
                 </div>
                 <h6 className='stud-name'>Gopu</h6>
             </div>

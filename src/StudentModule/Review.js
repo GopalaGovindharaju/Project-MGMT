@@ -3,18 +3,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../NewStudent/Stud.css';
 import ReviewSchedule from './ReviewSchedule';
 
-function Review({ setReview1Active }) {
-  const [isReviewScheduleVisible, setReviewScheduleVisible] = useState(false);
+function Review({}) {
 
-  const toggleReviewSchedule = () => {
-    setReviewScheduleVisible(!isReviewScheduleVisible);
-  };
   return (
-    <div id="review0Form" className="form-container">
+    <div id="review0Form" className="form-container" style={{position:'relative'}}>
       <form>
-        <table><thead><tr><th>TASKS</th><th>ACTION</th><th>STATUS <button type="button" className="small" onClick={toggleReviewSchedule}>
-                  <b>i</b>
-                </button></th></tr></thead>
+        <table><thead><tr>
+          <th className="text-center" >TASKS</th>
+        <th className="text-center">ACTION</th>
+        <th className="text-center">STATUS </th>
+        </tr>
+        </thead>
           <tbody>
             <tr>
               <td><label htmlFor="projectTitle" className='label1'>Project Title</label></td>
@@ -42,7 +41,6 @@ function Review({ setReview1Active }) {
             </tr>
           </tbody>
         </table>
-        {isReviewScheduleVisible && <ReviewSchedule/>}
       </form>
       
       

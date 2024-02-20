@@ -7,6 +7,7 @@ function Verify() {
     <div >
       <nav >
         <div className="navbar-options">
+        <Link to='Summary' id='navbar-option'>Summary</Link>
         <Link to='SReview0' id='navbar-option'>Review 0</Link>
         <Link to='SReview1' id='navbar-option'>Review 1</Link>
         <Link to='SReview2' id='navbar-option'>Review 2</Link>
