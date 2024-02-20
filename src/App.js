@@ -44,8 +44,9 @@ function App() {
           <Route path='Review3' element={<Review3/>}/>
         </Route>
         <Route path='/guide' element={<Guide/>}>
-        <Route index element={<Review0/>} />
-        <Route path='SReview0' element={<Review0/>} />
+        <Route index element={<Summary/>} />
+        <Route path='Summary' element={<Summary/>}/>
+          <Route path='SReview0' element={<Review0/>} />
           <Route path='SReview1' element={<StaffReview1/>}/>
           <Route path='SReview2' element={<SReview2/>}/>
           <Route path='SReview3' element={<SReview3/>}/>
