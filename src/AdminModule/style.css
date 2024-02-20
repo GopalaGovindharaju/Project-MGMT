@@ -847,7 +847,7 @@ button, a {
 .summ-content{
   border-radius: 8px;
   background-color: white;
-  height: 76vh;
+  height: calc(100vh - 150px);
   padding: 0px 10px 10px 10px;
   overflow-y: auto;
 }
