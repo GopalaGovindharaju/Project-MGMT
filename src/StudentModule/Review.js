@@ -3,8 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../NewStudent/Stud.css';
 import ReviewSchedule from './ReviewSchedule';
 
-function Review({ setReview1Active }) {
-  const [isReviewScheduleVisible, setReviewScheduleVisible] = useState(false);
+function Review({}) {
 
   const toggleReviewSchedule = () => {
     setReviewScheduleVisible(!isReviewScheduleVisible);
