@@ -5,15 +5,10 @@ import ReviewSchedule from './ReviewSchedule';
 
 function Review({}) {
 
-  const toggleReviewSchedule = () => {
-    setReviewScheduleVisible(!isReviewScheduleVisible);
-  };
   return (
     <div>
       <form>
-        <table><thead><tr><th>TASKS</th><th>ACTION</th><th>STATUS <button type="button" className="small" onClick={toggleReviewSchedule}>
-                  <b>i</b>
-                </button></th></tr></thead>
+        <table><thead><tr><th>TASKS</th><th>ACTION</th><th>STATUS </th></tr></thead>
           <tbody>
             <tr>
               <td><label htmlFor="projectTitle" className='label1'>Project Title</label></td>
@@ -41,7 +36,6 @@ function Review({}) {
             </tr>
           </tbody>
         </table>
-        {isReviewScheduleVisible && <ReviewSchedule/>}
       </form>
       
       
