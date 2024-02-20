@@ -10,7 +10,7 @@ function Review({ setReview1Active }) {
     setReviewScheduleVisible(!isReviewScheduleVisible);
   };
   return (
-    <div id="review0Form" className="form-container" style={{position:'relative'}}>
+    <div>
       <form>
         <table><thead><tr><th>TASKS</th><th>ACTION</th><th>STATUS <button type="button" className="small" onClick={toggleReviewSchedule}>
                   <b>i</b>

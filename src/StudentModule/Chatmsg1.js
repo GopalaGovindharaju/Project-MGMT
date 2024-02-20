@@ -1,4 +1,5 @@
 import React from 'react'
+import './Chatmsg1.css'
 
 function Chatmsg1() {
   return (
