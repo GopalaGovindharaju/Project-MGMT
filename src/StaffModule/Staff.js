@@ -1,66 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import UserInfoContext from '../UsenInfoContext';
+import React, { useEffect, useState } from 'react'
 import './staff.css'
 import ReviewDateForTeams from './ReviewDateForTeams';
 import Chatmsg from '../StudentModule/Chatmsg';
 import Chatmsg1 from '../StudentModule/Chatmsg1';
 
 function Staff() {
-  const [isAddingGuide, setIsAddingGuide] = useState(false);
-  const [studentName, setStudentName] = useState('');
-  const [studentRegNo, setStudentRegNo] = useState('');
-  const [guideList, setGuideList] = useState([]);
-  const [selectedBatchNo, setSelectedBatchNo] = useState('');
   const [isTabOpen, setIsTabOpen] = useState(false);
-
-  const openGuidePopup = () => {
-    setIsAddingGuide(true);
-  };
-
-  const closeGuidePopup = () => {
-    setIsAddingGuide(false);
-  };
-
-  useEffect(() => {
-    console.log(userInfo.Name)
-    axios.post('http://localhost:8000/allteams/batch/',{'guide_name': userInfo.Name})
-      .then(response => {
-        setGuideList(response.data.Batch_No);
-        console.log(response.data.Batch_No)
-      })
-      .catch(error => {
-        console.error('Error fetching guide list:', error);
-      });
-  }, []);
-  
-
-  const handleStudentSubmission = () => {
-    // Perform axios request to add the new guide
-    const data = {
-      Name: studentName,
-      Reg_No: studentRegNo,
-      Project_Guide: userInfo.Name,
-    }
-    console.log(data)
-    axios.post('http://localhost:8000/student/add/', data)
-      .then(response => {
-        // Handle success, e.g., close the modal and refresh data
-        closeGuidePopup();
-        // You might want to fetch data again to update the projects list
-      })
-      .catch(error => {
-        alert('Error adding guide:', error);
-        closeGuidePopup();
-      });
-  };
-
   const [projects, setProjects] = useState([]);
-
-  const { userInfo } = useContext(UserInfoContext);
-
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [currentDate, setCurrentDate] = useState('');
   
 
   const handleTheme = () => {
@@ -76,41 +24,12 @@ function Staff() {
     { backgroundColor: '', textColor: '#096c86' },
   
   ];
-
-  const handleStudentName = (e) => {
-    setStudentName(e.target.value)
-  }
-  const handleStudentRegNo = (e) => {
-    setStudentRegNo(e.target.value)
-  }
-
   const colorLoop = projects.map((project, index) => {
     const colorPair = colorPairs[index % colorPairs.length];
     return { ...project, ...colorPair};
   });
 
-  
-  const [currentDate, setCurrentDate] = useState('');
-
   useEffect(() => {
-    const apiUrl = selectedBatchNo
-    ? `http://localhost:8000/allteams/bat/?batch=${selectedBatchNo}&name=${userInfo.Name}`
-    : `http://localhost:8000/allteams/bat/?name=${userInfo.Name}`;
-
-    const postData = {
-      User_Id: userInfo.User_Id, // Replace with the actual user id
-      // Other data you want to send...
-    };
-
-  axios.get(apiUrl, postData)
-    .then(response => {
-      setProjects(response.data);
-      console.log(response.data)
-    })
-    .catch(error => {
-      console.error('Error fetching project data:', error);
-    });
-
     const formatDate = (date) => {
       const options = { month: 'long', day: 'numeric' };
       return new Intl.DateTimeFormat('en-US', options).format(date);
@@ -118,22 +37,50 @@ function Staff() {
     const today = new Date();
     const formattedDate = formatDate(today);
     setCurrentDate(formattedDate);
-  }, [selectedBatchNo]);
-
-
-
-  const isauthorized = localStorage.getItem("isauthorized");
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (isauthorized !== "staff") {
-      navigate("/");
+    const data = [{
+      Lead_RegNo:'23',
+      Title: "hello",
+      Project_Guide:"indu"
+    },
+    {
+      Lead_RegNo:'23',
+      Title: "hello",
+      Project_Guide:"indu"
+    },
+    {
+      Lead_RegNo:'23',
+      Title: "hello",
+      Project_Guide:"indu"
+    },
+    {
+      Lead_RegNo:'23',
+      Title: "hello",
+      Project_Guide:"indu"
+    },
+    {
+      Lead_RegNo:'23',
+      Title: "hello",
+      Project_Guide:"indu"
+    },
+    {
+      Lead_RegNo:'23',
+      Title: "hello",
+      Project_Guide:"indu"
+    },
+    {
+      Lead_RegNo:'23',
+      Title: "hello",
+      Project_Guide:"indu"
+    },
+    {
+      Lead_RegNo:'23',
+      Title: "hello",
+      Project_Guide:"indu"
     }
+      
+    ]
+    setProjects(data);
   }, []);
-  const handleLogout = (event) => {
-    localStorage.setItem("isSigned", "false");
-    localStorage.setItem("isauthorized", "");
-    navigate("/");
-  };
   return (
     <div>
       <div className="app-container">
@@ -143,22 +90,15 @@ function Staff() {
       <p className="app-name">MGMT</p>
       <select
   className="form-select"
-  value={selectedBatchNo}
-  onChange={(e) => setSelectedBatchNo(e.target.value)}
   aria-label="Default select example"
 >
   <option value="" defaultValue>
     Filter By Batch Number
   </option>
-  {guideList.map((guide, index) => (
-    <option key={index} value={guide}>
-      {guide}
-    </option>
-  ))}
 </select>
     </div>
     <div className="app-header-right">
-    <button className="add-btn" title="New Student" value="New Guide" onClick={openGuidePopup}>
+    <button className="add-btn" title="New Student" value="New Guide">
       <img
           src={process.env.PUBLIC_URL + '/add.png'}
           alt="External Icon"
@@ -166,37 +106,13 @@ function Staff() {
           height="22"
         />
       </button>
-      {isAddingGuide && (
-        <div className="guide-popup">
-          <div className="guide-popup-content">
-            <h2>Add a New Student</h2>
-            <form>
-            <div className="form-group row">
-    <label htmlFor="inputPassword" className="col-sm-4 col-form-label">Project title</label>
-    <div className="col-sm-8">
-      <input type="text" value={studentName} className="form-control" onChange={handleStudentName} id="inputPassword" placeholder="Title"/>
-    </div>
-  </div>
-  <div className="form-group row">
-    <label htmlFor="inputPassword" className="col-sm-4 col-form-label">Team Lead RegNo</label>
-    <div className="col-sm-8">
-      <input type="text" value={studentRegNo} className="form-control" id="inputPassword" onChange={handleStudentRegNo} placeholder="RegNo"/>
-    </div>
-  </div>
-  <button type="button" style={{marginTop:"10px"}} className="btn btn-primary" onClick={handleStudentSubmission}>Add</button>
-<button type="button" style={{marginTop:"10px"}} className="btn btn-primary" onClick={closeGuidePopup}>Cancel</button>
-</form>
-
-          </div>
-        </div>
-      )}
       <button title="Switch Theme" className={`mode-switch ${isDarkMode ? 'active' : ''}`} onClick={handleTheme}>
         <svg className="moon" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" width="24" height="24" viewBox="0 0 24 24">
           <defs></defs>
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
         </svg>
       </button>
-      <button className="add-btn" title="Log Out" value="Log Out" onClick={handleLogout}>
+      <button className="add-btn" title="Log Out" value="Log Out">
       <img
           src={process.env.PUBLIC_URL + '/power.png'}
           alt="External Icon"
@@ -206,7 +122,7 @@ function Staff() {
       </button>
       <button className="profile-btn">
         <img src={process.env.PUBLIC_URL + '/profile.png'} />
-        <span>{userInfo.Name}</span>
+        <span>name</span>
       </button>
     </div>
     <button className="messages-btn">
@@ -241,7 +157,7 @@ function Staff() {
       </div>
       <div className="overflow-auto" id='project-boxes'>
       {colorLoop.map((project) => (
-            <div className="project-box-wrapper" key={project.lead_RegNo} onClick={() => navigate(`/student?leadRegNo=${project.lead_RegNo}`)}>
+            <div className="project-box-wrapper" key={project.lead_RegNo}>
               <div className="project-box" style={{ backgroundColor: project.backgroundColor }}>
                     <div className="project-box-header">
                       <span>{currentDate}</span>
