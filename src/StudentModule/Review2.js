@@ -65,7 +65,7 @@ function App() {
           </div>
           <table>
             <tr>
-              <td><button type="submit" className="btn btn-success"style={{width:'31%', marginright:'20px'}}>Submit</button></td> 
+              <td><button type="submit" className="btn btn-success"style={{width:'31%', marginLeft:'20%'}}>Submit</button></td> 
               <td></td>
               <td><button type="submit" className="btn btn-success"style={{width:'20%', marginLeft:'60%'}}>Next (Review-3)</button></td>
             </tr>

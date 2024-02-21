@@ -8,8 +8,8 @@ function Review({}) {
   return (
     <div>
       <form>
-        <table><thead><tr>
-        <th className='text-center'>TASKS</th>
+        <table style={{margin:'20px'}}><thead><tr>
+        <th className='text-center' >TASKS</th>
         <th className='text-center'>ACTION</th>
         <th className='text-center'>STATUS </th></tr></thead>
           <tbody>
@@ -33,7 +33,7 @@ function Review({}) {
               <td><input type="file" id="ppt" name="ppt" className="abform" accept=".ppt, .pptx" required/></td>
               <td><div> to be confirmed by guide and HOD</div></td>
             </tr>
-            <tr><td><button type="submit" className="btn btn-success"style={{width:'35%', marginLeft:'0%'}}>Submit</button></td>
+            <tr><td><button type="submit" className="btn btn-success"style={{width:'35%', marginLeft:'20%'}}>Submit</button></td>
             <td></td>
               <td><button type="submit" className="btn btn-success"style={{width:'45%'}}>Next (Review-1)</button></td>
             </tr>

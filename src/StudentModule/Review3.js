@@ -87,7 +87,7 @@ const Review3 = () => {
               </td>
             </tr>
             <tr>
-              <td><button type="submit" className="btn btn-success" style={{ width: '35%', marginRight:'10%' }}>Submit</button></td>
+              <td><button type="submit" className="btn btn-success" style={{ width: '35%', marginLeft:'20%' }}>Submit</button></td>
             </tr>
 
           </tbody>
