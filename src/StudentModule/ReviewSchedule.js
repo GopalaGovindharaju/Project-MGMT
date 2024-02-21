@@ -4,6 +4,7 @@ import './Schedule.css';
 
 function ReviewSchedule() {
   return (
+    <div style={{ maxHeight: '100vh', overflowY: 'scroll' }}>
     <div className="review-schedule-container">
       <h2>Review Schedule</h2>
       {/* Add your review schedule content here */}
@@ -15,6 +16,7 @@ function ReviewSchedule() {
       <div className="footer">
         <p>If you have any questions, please contact your guide or HOD.</p>
       </div>
+    </div>
     </div>
   );
 }

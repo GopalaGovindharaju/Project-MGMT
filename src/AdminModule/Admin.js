@@ -6,6 +6,8 @@ import axios from 'axios';
 import Message  from './Message';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import Chatmsg from '../StudentModule/Chatmsg';
+import Chatmsg1 from '../StudentModule/Chatmsg1';
 
 function Admin() {
 
@@ -14,6 +16,7 @@ function Admin() {
   const [guideRegNo, setGuideRegNo] = useState('');
   const [guideList, setGuideList] = useState([]);
   const [selectedGuide, setSelectedGuide] = useState('');
+  const [isTabOpen, setIsTabOpen] = useState(false);
 
   const openGuidePopup = () => {
     setIsAddingGuide(true);
@@ -443,6 +446,8 @@ function Admin() {
           </div>
         </div>
       </div>
+      <Chatmsg setIsTabOpen={setIsTabOpen}/>
+      {isTabOpen && <Chatmsg1 setIsTabOpen={setIsTabOpen}/> }
     </div>
   );
 }
