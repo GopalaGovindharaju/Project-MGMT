@@ -337,81 +337,7 @@ button, a {
   color: var(--link-color-active);
 }
 
-.messages-section {
-  flex-shrink: 0;
-  padding-bottom: 32px;
-  background-color: var(--projects-section);
-  margin-left: 24px;
-  flex: 1;
-  width: 100%;
-  border-radius: 30px;
-  position: relative;
-  overflow: auto;
-  transition: all 300ms cubic-bezier(0.19, 1, 0.56, 1);
-}
-.messages-section .messages-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 3;
-  border: none;
-  background-color: transparent;
-  color: var(--main-color);
-  display: none;
-}
-.messages-section.show {
-  transform: translateX(0);
-  opacity: 1;
-  margin-left: 0;
-}
-.messages-section .projects-section-header {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  padding: 32px 24px 0 24px;
-  background-color: var(--projects-section);
-}
 
-.message-box {
-  border-top: 1px solid var(--message-box-border);
-  padding: 16px;
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-}
-.message-box:hover {
-  background-color: var(--message-box-hover);
-  border-top-color: var(--link-color-hover);
-}
-.message-box:hover + .message-box {
-  border-top-color: var(--link-color-hover);
-}
-.message-box img {
-  border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 40px;
-  height: 40px;
-}
-
-.message-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-.message-header .name {
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 700;
-  color: var(--main-color);
-  margin: 0;
-}
-
-.message-content {
-  padding-left: 16px;
-  width: 100%;
-}
 
 .star-checkbox input {
   opacity: 0;
@@ -438,17 +364,7 @@ button, a {
   transition: 0.2s;
 }
 
-.message-line {
-  font-size: 14px;
-  line-height: 20px;
-  margin: 8px 0;
-  color: var(--secondary-color);
-  opacity: 0.7;
-}
-.message-line.time {
-  text-align: right;
-  margin-bottom: 0;
-}
+
 
 #project-boxes {
   display: flex;
@@ -503,20 +419,7 @@ button, a {
   background-color: transparent;
   border: none;
   flex-shrink: 0;
-  /*&:after, &:before {
-    content: '';
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--main-color);
-    opacity: .8;
-    left: 50%;
-    transform: translatex(-50%);
-  }
 
-  &:before { top: 0;}
-  &:after { bottom: 0; }*/
 }
 
 .more-wrapper {

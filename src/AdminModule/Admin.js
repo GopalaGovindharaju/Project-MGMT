@@ -1,9 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
 import './style.css';
-import UserInfoContext from '../UsenInfoContext';
-import axios from 'axios';
-import Message  from './Message';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Chatmsg from '../StudentModule/Chatmsg';
@@ -11,63 +7,19 @@ import Chatmsg1 from '../StudentModule/Chatmsg1';
 
 function Admin() {
 
-  const [isAddingGuide, setIsAddingGuide] = useState(false);
-  const [guideName, setGuideName] = useState('');
-  const [guideRegNo, setGuideRegNo] = useState('');
-  const [guideList, setGuideList] = useState([]);
-  const [selectedGuide, setSelectedGuide] = useState('');
-  const [isTabOpen, setIsTabOpen] = useState(false);
-
-  const openGuidePopup = () => {
-    setIsAddingGuide(true);
-  };
-
-  const closeGuidePopup = () => {
-    setIsAddingGuide(false);
-  };
-
-  useEffect(() => {
-    axios.get('http://localhost:8000/guide/getlist/')
-      .then(response => {
-        setGuideList(response.data.Names);
-        console.log(response.data.Names)
-      })
-      .catch(error => {
-        console.error('Error fetching guide list:', error);
-      });
-  }, []);
-  
-
-  const handleGuideSubmission = () => {
-    // Perform axios request to add the new guide
-    const data = {
-      Name: guideName,
-      Reg_No: guideRegNo,
-    }
-    console.log(data)
-    axios.post('http://localhost:8000/guide/add/', data)
-      .then(response => {
-        // Handle success, e.g., close the modal and refresh data
-        closeGuidePopup();
-        // You might want to fetch data again to update the projects list
-      })
-      .catch(error => {
-        alert('Error adding guide:', error);
-        closeGuidePopup();
-      });
-  };
-
+  const [currentDate, setCurrentDate] = useState('');
   const [projects, setProjects] = useState([]);
-
-  const { userInfo } = useContext(UserInfoContext);
-
+  const [isTabOpen, setIsTabOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const [years, setYears] = useState([]);
   
+
+
 
   const handleTheme = () => {
     document.documentElement.classList.toggle('dark');
     setIsDarkMode((prevMode) => !prevMode);
-
   }
   const colorPairs = [
     { backgroundColor: '#e9e7fd', textColor: '#4f3ff0' },
@@ -78,37 +30,13 @@ function Admin() {
   
   ];
 
-  const handleGuideName = (e) => {
-    setGuideName(e.target.value)
-  }
-  const handleGuideRegNo = (e) => {
-    setGuideRegNo(e.target.value)
-  }
-
   const colorLoop = projects.map((project, index) => {
     const colorPair = colorPairs[index % colorPairs.length];
     
     return { ...project, ...colorPair };
   });
 
-  
-  const [currentDate, setCurrentDate] = useState('');
-
   useEffect(() => {
-    const apiUrl = selectedGuide
-    ? `http://localhost:8000/allteams/?guide=${selectedGuide}`
-    : 'http://localhost:8000/allteams/';
-
-  axios.get(apiUrl)
-    .then(response => {
-      setProjects(response.data);
-      console.log("project")
-      console.log(response.data)
-    })
-    .catch(error => {
-      console.error('Error fetching project data:', error);
-    });
-
     const formatDate = (date) => {
       const options = { month: 'long', day: 'numeric' };
       return new Intl.DateTimeFormat('en-US', options).format(date);
@@ -116,28 +44,62 @@ function Admin() {
     const today = new Date();
     const formattedDate = formatDate(today);
     setCurrentDate(formattedDate);
-  }, [selectedGuide]);
- 
-  const isauthorized = localStorage.getItem("isauthorized");
-  const navigate = useNavigate();
-  const handleLogout = (event) => {
-    localStorage.setItem("isSigned", "false");
-    localStorage.setItem("isauthorized", "");
-    navigate("/");
-  };
+    const data = [{
+      Lead_RegNo:'23',
+      Title: "hello",
+      Project_Guide:"indu"
+    },
+    {
+      Lead_RegNo:'23',
+      Title: "hello",
+      Project_Guide:"indu"
+    },
+    {
+      Lead_RegNo:'23',
+      Title: "hello",
+      Project_Guide:"indu"
+    },
+    {
+      Lead_RegNo:'23',
+      Title: "hello",
+      Project_Guide:"indu"
+    },
+    {
+      Lead_RegNo:'23',
+      Title: "hello",
+      Project_Guide:"indu"
+    },
+    {
+      Lead_RegNo:'23',
+      Title: "hello",
+      Project_Guide:"indu"
+    },
+    {
+      Lead_RegNo:'23',
+      Title: "hello",
+      Project_Guide:"indu"
+    },
+    {
+      Lead_RegNo:'23',
+      Title: "hello",
+      Project_Guide:"indu"
+    }
+      
+    ]
+    setProjects(data);
+  }, []);
 
-  const searchFilter = (e) => {
-    setProjects(projects.filter(f => f.Title.toLowerCase().includes(e.target.value)))
-  }
-
-  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-  const [years, setYears] = useState([]);
-  
   useEffect(() => {
     const startYear = 2022;
     const yearRange = Array.from({ length: currentYear - startYear + 1 }, (_, index) => startYear + index);
     setYears(yearRange);
   }, []);
+
+  const searchFilter = (e) => {
+    setProjects(projects.filter(f => f.Title.toLowerCase().includes(e.target.value)));
+  }
+
+
   
   return (
     <div>
@@ -160,18 +122,13 @@ function Admin() {
             </div>
             <select
               className="form-select"
-              value={selectedGuide}
-              onChange={(e) => setSelectedGuide(e.target.value)}
+          
               aria-label="Default select example"
             >
               <option value="" defaultValue>
                 Filter By Guide
               </option>
-              {guideList.map((guide, index) => (
-                <option key={index} value={guide}>
-                  {guide}
-                </option>
-              ))}
+              
             </select>
           </div>
           <div className="app-header-right">
@@ -179,7 +136,6 @@ function Admin() {
               className="add-btn"
               title="New Guide"
               value="New Guide"
-              onClick={openGuidePopup}
             >
               <img
                 src={process.env.PUBLIC_URL + "/add.png"}
@@ -188,65 +144,7 @@ function Admin() {
                 height="22"
               />
             </button>
-            {isAddingGuide && (
-              <div className="guide-popup">
-                <div className="guide-popup-content">
-                  <h2>Add a New Guide</h2>
-                  <form>
-                    <div className="form-group row">
-                      <label
-                        htmlFor="inputPassword"
-                        className="col-sm-2 col-form-label"
-                      >
-                        Name
-                      </label>
-                      <div className="col-sm-10">
-                        <input
-                          type="text"
-                          value={guideName}
-                          className="form-control"
-                          onChange={handleGuideName}
-                          id="inputPassword"
-                          placeholder="Name"
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group row">
-                      <label
-                        htmlFor="inputPassword"
-                        className="col-sm-2 col-form-label"
-                      >
-                        RegNo
-                      </label>
-                      <div className="col-sm-10">
-                        <input
-                          type="text"
-                          value={guideRegNo}
-                          className="form-control"
-                          id="inputPassword"
-                          onChange={handleGuideRegNo}
-                          placeholder="RegNo"
-                        />
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      className="btn btn-primary"
-                      onClick={handleGuideSubmission}
-                    >
-                      Add
-                    </button>
-                    <button
-                      type="button"
-                      className="btn btn-primary"
-                      onClick={closeGuidePopup}
-                    >
-                      Cancel
-                    </button>
-                  </form>
-                </div>
-              </div>
-            )}
+           
             <button
               title="Switch Theme"
               className={`mode-switch ${isDarkMode ? "active" : ""}`}
@@ -271,7 +169,7 @@ function Admin() {
               className="add-btn"
               title="Log Out"
               value="Log Out"
-              onClick={handleLogout}
+             
             >
               <img
                 src={process.env.PUBLIC_URL + "/power.png"}
@@ -282,25 +180,10 @@ function Admin() {
             </button>
             <button className="profile-btn">
               <img src={process.env.PUBLIC_URL + "/profile.png"} />
-              <span>{userInfo.Name}</span>
+              <span>Name</span>
             </button>
           </div>
-          <button className="messages-btn">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="feather feather-message-circle"
-            >
-              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-            </svg>
-          </button>
+  
         </div>
         <div className="app-content">
           <div className="app-sidebar"></div>
@@ -330,9 +213,7 @@ function Admin() {
                 <div
                   className="project-box-wrapper"
                   key={project.lead_RegNo}
-                  onClick={() =>
-                    navigate(`/student?leadRegNo=${project.lead_RegNo}`)
-                  }
+                 
                 >
                   <div
                     className="project-box"
@@ -440,9 +321,10 @@ function Admin() {
             </div>
           </div>
         </div>
-      </div>
-      <Chatmsg setIsTabOpen={setIsTabOpen}/>
+        <Chatmsg setIsTabOpen={setIsTabOpen}/>
       {isTabOpen && <Chatmsg1 setIsTabOpen={setIsTabOpen}/> }
+      </div>
+     
     </div>
   );
 }
