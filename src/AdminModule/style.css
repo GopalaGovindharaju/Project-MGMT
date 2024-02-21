@@ -467,6 +467,7 @@ button, a {
   border-radius: 30px;
   padding: 16px;
   background-color: var(--main-color-card);
+  height: 100%;
 }
 .project-box-header {
   display: flex;
