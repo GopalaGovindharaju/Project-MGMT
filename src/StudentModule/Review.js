@@ -1,9 +1,7 @@
-import React,{useState}from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../NewStudent/Stud.css';
-import ReviewSchedule from './ReviewSchedule';
 
-function Review({}) {
+function Review() {
 
   return (
     <div>
