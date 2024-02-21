@@ -52,7 +52,7 @@ class ReviewForm extends React.Component {
                 <td><label className='labeltd'>To be confirmed by Guide or HOD</label></td>
               </tr>
               <tr>
-                <td><button type="submit" className="btn btn-success"style={{width:'35%', marginRight:'10%'}}>Submit</button></td>
+                <td><button type="submit" className="btn btn-success"style={{width:'35%', marginLeft:'20%'}}>Submit</button></td>
                 <td></td>
                 <td><button type="submit" className="btn btn-success"style={{width:'48%'}}>Next (Review-2)</button></td>
               </tr>

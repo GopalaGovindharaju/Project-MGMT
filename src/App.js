@@ -22,6 +22,10 @@ import AReview2 from './AdminModule/AReview2';
 import AReview3 from './AdminModule/AReview3';
 import Summary from './AdminModule/Summary';
 import PanelMember from './PanelMember/PanelMember';
+import PanelBody from './PanelMember/PanelBody';
+import PanelBody1 from './PanelMember/PanelBody1';
+import PanelBody3 from './PanelMember/PanelBody3';
+import PanelBody2 from './PanelMember/PanelBody2';
 
 
 function App() {
@@ -55,14 +59,20 @@ function App() {
         <Route path='/staff' element={<Staff/>}></Route>
         <Route path='/adminVerification' element={<AdminVerification/>}>
         <Route index element={<Summary/>} />
-        <Route path='Summary' element={<Summary/>}/>
-        <Route path='AReview0' element={<AReview0/>} />
+          <Route path='Summary' element={<Summary/>}/>
+          <Route path='AReview0' element={<AReview0/>} />
           <Route path='AReview1' element={<AReview1/>}/>
           <Route path='AReview2' element={<AReview2/>}/>
           <Route path='AReview3' element={<AReview3/>}/>
         </Route>
         <Route path='/admin' element={<Admin/>}></Route>
-        <Route path='/panel' element={<PanelMember/>}></Route>
+        <Route path='/panel' element={<PanelMember/>}>
+          <Route index element={<PanelBody/>} />
+          <Route path='PReview0' element={<PanelBody/>} />
+          <Route path='PReview1' element={<PanelBody1/>}/>
+          <Route path='PReview2' element={<PanelBody2/>}/>
+          <Route path='PReview3' element={<PanelBody3/>}/>
+        </Route>
       </Routes>
       </UserInfoContext.Provider>
     </div>

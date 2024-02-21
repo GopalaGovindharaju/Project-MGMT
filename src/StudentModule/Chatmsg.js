@@ -16,7 +16,7 @@ function Chatmsg({setIsTabOpen}) {
         }
         else{
             setUpicon(true);
-            Openup.style.bottom = '-444px';
+            Openup.style.bottom = '-70%';
             setIsTabOpen(false);
         }
     }
