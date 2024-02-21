@@ -1,7 +1,6 @@
 import './App.css';
 import Signin from './Signup/Signin';
 import {Routes, Route} from 'react-router-dom';
-import Student from './StudentModule/Student';
 import Staff from './StaffModule/Staff';
 import Admin from './AdminModule/Admin';
 import { useState } from 'react';
@@ -26,6 +25,7 @@ import PanelBody from './PanelMember/PanelBody';
 import PanelBody1 from './PanelMember/PanelBody1';
 import PanelBody3 from './PanelMember/PanelBody3';
 import PanelBody2 from './PanelMember/PanelBody2';
+import Main from './StudentModule/Main';
 
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
       <UserInfoContext.Provider value={{ userInfo, setUserInfo }}>
       <Routes>
         <Route path='*' element={<Signin/>}></Route>
-        <Route path='/student' element={<Student/>}>
+        <Route path='/student' element={<Main/>}>
           <Route index element={<Review/>} />
           <Route path='Review0' element={<Review />} />
           <Route path='Review1' element={<Review1/>}/>

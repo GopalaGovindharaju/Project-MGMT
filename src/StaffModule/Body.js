@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import './Body.css'; // Import a separate CSS file for styling
+import './Body.css';
 import Verify from './Verify';
 import Stud from './Stud';
 import { Outlet } from 'react-router';

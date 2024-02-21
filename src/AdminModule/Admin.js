@@ -120,11 +120,6 @@ function Admin() {
  
   const isauthorized = localStorage.getItem("isauthorized");
   const navigate = useNavigate();
-  useEffect(() => {
-    if (isauthorized !== "admin") {
-      navigate("/");
-    }
-  }, []);
   const handleLogout = (event) => {
     localStorage.setItem("isSigned", "false");
     localStorage.setItem("isauthorized", "");

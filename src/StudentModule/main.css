@@ -1,253 +1,53 @@
-.btn-3 {
-	background: rgba(2,126,251,1);
-  background: linear-gradient(0deg, rgba(2,126,251,1) 0%, rgb(0,172,238) 100%);
-	width: 130px;
-	height: 40px;
-	line-height: 42px;
-	padding: 0;
-	border: none;
-	
-  }
-  .btn-3 span {
-	position: relative;
-	display: block;
-	width: 100%;
-	height: 100%;
-  }
-  .btn-3:before,
-  .btn-3:after {
-	position: absolute;
-	content: "";
-	right: 0;
-	top: 0;
-	 background: rgb(0,172,238);
-	transition: all 0.3s ease;
-  }
-  .btn-3:before {
-	height: 0%;
-	width: 2px;
-  }
-  .btn-3:after {
-	width: 0%;
-	height: 2px;
-  }
-  .btn-3:hover{
-	 background: transparent;
-	box-shadow: none;
-  }
-  .btn-3:hover:before {
-	height: 100%;
-  }
-  .btn-3:hover:after {
-	width: 100%;
-  }
-  .btn-3 span:hover{
-	 color: rgb(7, 4, 4);
-  }
-  .btn-3 span:before,
-  .btn-3 span:after {
-	position: absolute;
-	content: "";
-	left: 0;
-	bottom: 0;
-	 background: rgb(0,172,238);
-	transition: all 0.3s ease;
-  }
-  .btn-3 span:before {
-	width: 2px;
-	height: 0%;
-  }
-  .btn-3 span:after {
-	width: 0%;
-	height: 2px;
-  }
-  .btn-3 span:hover:before {
-	height: 100%;
-  }
-  .btn-3 span:hover:after {
-	width: 100%;
-  }
-
-body {
-	font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
-	background: #ffffff;
-  }
-  
-  .container {
-	margin: 30px auto;
-	margin-bottom: 40px;
-	width: 400px;
-	text-align: center;
-  }
-  
-  .container .progress {
-	margin: 0 auto;
-	width: 400px;
-  }
-  
-  .progress {
-	padding: 4px;
-	background: rgba(0, 0, 0, 0.25);
-	border-radius: 6px;
-	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
-	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
-  }
-  
-  .progress-bar {
-	padding-bottom: 5px;
-	height: 16px;
-	border-radius: 4px;
-	  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
-	background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
-	background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
-	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
-	-webkit-transition: 0.4s linear;
-	-moz-transition: 0.4s linear;
-	-o-transition: 0.4s linear;
-	transition: 0.4s linear;
-	-webkit-transition-property: width, background-color;
-	-moz-transition-property: width, background-color;
-	-o-transition-property: width, background-color;
-	transition-property: width, background-color;
-	-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
-	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
-  }
-  
-  
-  #twentyfive:checked ~ .progress > .progress-bar {
-	width: 25%;
-	background-color: #f27011;
-  }
-  
-  #fifty:checked ~ .progress > .progress-bar {
-	width: 50%;
-	background-color: #f2b01e;
-  }
-  
-  #seventyfive:checked ~ .progress > .progress-bar {
-	width: 75%;
-	background-color: #f2d31b;
-  }
-  
-  #onehundred:checked ~ .progress > .progress-bar {
-	width: 100%;
-	background-color: #86e01e;
-  }
-  
-  .radio {
-	display: none;
-  }
-  
-  .label {
-	display: inline-block;
-	margin: 0 5px 20px;
-	padding: 3px 8px;
-	color: #0b0b0b;
-	text-shadow: 0 1px black;
-	border-radius: 3px;
-	cursor: pointer;
-  }
-  
-  .radio:checked + .label {
-	color: white;
-	background: rgba(0, 0, 0, 0.25);
-  }
-.add-btn{
-	margin-left: 10px;
+form {
+  display: flex;
+  flex-direction: column;
 }
-.add-row-btn {
-	background-color: #86e01e;
-	border: solid 4px;
-	padding: 3px;
-	border-radius: 4px;
-	color: white;
+.form-container{
+    margin-top: 40px;
+    margin-left: 30px;
+}
+.label1 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #020406;
+  display: block;
+  margin-bottom: 5px;
+  text-align: left; /* Add this line to align the text to the left */
+  margin-left: 30px;
+}
+
+.student-list-container {
+margin-bottom: 20px; /* Adjust the margin for spacing */
 }
 
 
-#h3{
-	margin-left:20px;
-	text-decoration: solid;
-	color: #0b0b0b;
+.options:hover .option {
+  transform: scale(1.05);
 }
 
-#h4{
-	margin-left:20px;
-	color: #0b0b0b;
-}
-
-#l1{
-	margin-right:30px;
-}
-#l2{
-	margin-right:45px;
-	margin-left: 20px;
-}
-#l3{
-	margin-right:45px;
-	margin-left: 20px;
-}
-#l4{
-	margin-right:45px;
-}
-
-#navi{
-	background-color: #f3f6fd;
-}
-
-.status-table {
-	margin-top: 20px;
-	margin-left: 20px;
-	margin-right: 20px;
-}
+.form-container.active {
+  display: block;
+  transform: scale(1);
   
-#t3{
-	margin-right: 20px;
-}
-  /* Style for the table header */
-  #t1 th {
-	border: 1px solid #0b0b0b; /* Add a 1px solid border around each header cell */
-	padding: 2px; /* Add padding to the header cells */ /* Align text to the left in header cells */
-  }
-  
-  /* Style for the table body */
-  #t1 td {
-	border: 1px solid #111010; /* Add a 1px solid border around each data cell */
-	padding: 2px; /* Add padding to the data cells */
-  }
-  
-  /* Style for the radio buttons in the table */
-  #t1 input[type="radio"] {
-	margin-right: 5px; /* Add margin to the right of radio buttons for spacing */
-  }
-
-#cen{
-	margin-top: 20px;
-}
-#cen2{
-	margin-top: 20px;
-	margin-bottom: 20px;
 }
 
-#ac{
-	padding-left:25px;
+.small{
+  border: none;
+  border-radius: 100%;
+  background-color: #007bff; /* Change the background color as needed */
+  color: #fff; /* Change the text color as needed */
+  padding:right; /* Adjust padding as needed */
+  cursor: pointer;
+  font-size: 8px;
+  width: 5%;
+  margin: 50px;
 }
-
-
-#cen2 ol {
-	list-style-position: inside; /* Set the list item marker inside the content flow */
-	padding-left: 0; /* Remove default padding */
-  }
-  
-#cen2 ol li {
-	text-align: left; /* Align the text inside list items to the left */
-}
-#i1{
-	list-style: none;
-}
-
-#tool{
-	position: fixed;
-	right: 30px;
-	margin-top: 25px;
-	cursor: pointer;
+.abform{
+  font-size: 18px;
+  color: #020406;
+  display: block;
+  margin-bottom: 5px;
+  text-align: left; /* Add this line to align the text to the left */
+  margin-left:0px;
+  margin-top: 20px;
 }
