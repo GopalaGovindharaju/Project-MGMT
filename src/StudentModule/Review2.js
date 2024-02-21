@@ -1,14 +1,9 @@
-// App.js
 import React, { useState } from 'react';
 import './Review2.css';
 
-function App() {
-  const [sliderValue, setSliderValue] = useState(50);
-  const [answer, setAnswer] = useState('');
+function Review2() {
 
-  const updateSliderValue = (value) => {
-    setSliderValue(value);
-  };
+  const [answer, setAnswer] = useState('');
 
   const handleAnswerChange = (event) => {
     setAnswer(event.target.value);
@@ -16,7 +11,6 @@ function App() {
 
   const submitReview2Form = (event) => {
     event.preventDefault();
-    // Handle form submission for Review 2 as needed
     alert('Review 2 form submitted. Implement this function as needed.');
   };
 
@@ -83,4 +77,4 @@ function App() {
   );
 }
 
-export default App;
+export default Review2;
