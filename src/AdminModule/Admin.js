@@ -93,7 +93,7 @@ function Admin() {
     const startYear = 2022;
     const yearRange = Array.from({ length: currentYear - startYear + 1 }, (_, index) => startYear + index);
     setYears(yearRange);
-  }, []);
+  }, [currentYear]);
 
   const searchFilter = (e) => {
     setProjects(projects.filter(f => f.Title.toLowerCase().includes(e.target.value)));
@@ -179,7 +179,7 @@ function Admin() {
               />
             </button>
             <button className="profile-btn">
-              <img src={process.env.PUBLIC_URL + "/profile.png"} />
+              <img src={process.env.PUBLIC_URL + "/profile.png"} alt=''/>
               <span>Name</span>
             </button>
           </div>

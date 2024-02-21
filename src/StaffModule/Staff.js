@@ -121,7 +121,7 @@ function Staff() {
         />
       </button>
       <button className="profile-btn">
-        <img src={process.env.PUBLIC_URL + '/profile.png'} />
+        <img src={process.env.PUBLIC_URL + '/profile.png'} alt=''/>
         <span>name</span>
       </button>
     </div>
