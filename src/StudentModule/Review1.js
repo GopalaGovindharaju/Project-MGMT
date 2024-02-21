@@ -15,9 +15,9 @@ class ReviewForm extends React.Component {
           <table>
             <thead>
                 <tr>
-                    <th className="text-center">TASKS</th>
-                    <th className="text-center">ACTION</th>
-                    <th className="text-center">STATUS</th>
+                    <th className='text-center'>TASKS</th>
+                    <th className='text-center'>ACTION</th>
+                    <th className='text-center'>STATUS</th>
                 </tr>
             </thead>
             <tbody>

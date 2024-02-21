@@ -3,17 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../NewStudent/Stud.css';
 import ReviewSchedule from './ReviewSchedule';
 
-function Review({  }) {
+function Review({}) {
 
   return (
-    <div id="review0Form" className="form-container" style={{position:'relative'}}>
+    <div>
       <form>
         <table><thead><tr>
-          <th className="text-center" >TASKS</th>
-        <th className="text-center">ACTION</th>
-        <th className="text-center">STATUS </th>
-        </tr>
-        </thead>
+        <th className='text-center'>TASKS</th>
+        <th className='text-center'>ACTION</th>
+        <th className='text-center'>STATUS </th></tr></thead>
           <tbody>
             <tr>
               <td><label htmlFor="projectTitle" className='label1'>Project Title</label></td>
