@@ -22,7 +22,7 @@ function Body() {
           <Verify/>
           <Outlet/>
           <Chatmsg setIsTabOpen={setIsTabOpen}/>
-      {isTabOpen && <Chatmsg1/> }
+      {isTabOpen && <Chatmsg1 setIsTabOpen={setIsTabOpen}/> }
         </div>
       </div>
     </div>
