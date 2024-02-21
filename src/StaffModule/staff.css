@@ -830,3 +830,8 @@ button, a {
 
 
 /* Add any additional styles for your form elements as needed */
+
+.left-staff{
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+}

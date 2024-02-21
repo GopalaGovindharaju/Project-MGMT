@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import UserInfoContext from '../UsenInfoContext';
 import './staff.css'
+import ReviewDateForTeams from './ReviewDateForTeams';
 
 function Staff() {
   const [isAddingGuide, setIsAddingGuide] = useState(false);
@@ -213,6 +214,7 @@ function Staff() {
   <div className="app-content">
     <div className="app-sidebar">
     </div>
+    <div className='col-8'>
     <div className="projects-section container-fluid">
       <div className="projects-section-header">
         <p>Projects</p>
@@ -273,13 +275,15 @@ function Staff() {
                   </div>
                 </div>
               ))}
-
-
-
   </div>
-</div>{/*
-<Message/>
-*/}
+</div></div><div className='col-4' style={{backgroundColor:'white', padding:'4px', marginLeft:'10px', borderRadius:'25px'}}>
+<div className='left-staff'><h3>Review Schedule</h3>
+  <ReviewDateForTeams/>
+  <ReviewDateForTeams/>
+  <ReviewDateForTeams/>
+  <ReviewDateForTeams/>
+  </div>
+  </div>
 </div>
 </div>
     </div>
