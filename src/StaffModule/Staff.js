@@ -4,6 +4,8 @@ import axios from 'axios';
 import UserInfoContext from '../UsenInfoContext';
 import './staff.css'
 import ReviewDateForTeams from './ReviewDateForTeams';
+import Chatmsg from '../StudentModule/Chatmsg';
+import Chatmsg1 from '../StudentModule/Chatmsg1';
 
 function Staff() {
   const [isAddingGuide, setIsAddingGuide] = useState(false);
@@ -11,6 +13,7 @@ function Staff() {
   const [studentRegNo, setStudentRegNo] = useState('');
   const [guideList, setGuideList] = useState([]);
   const [selectedBatchNo, setSelectedBatchNo] = useState('');
+  const [isTabOpen, setIsTabOpen] = useState(false);
 
   const openGuidePopup = () => {
     setIsAddingGuide(true);
@@ -286,6 +289,8 @@ function Staff() {
   </div>
 </div>
 </div>
+<Chatmsg setIsTabOpen={setIsTabOpen}/>
+      {isTabOpen && <Chatmsg1 setIsTabOpen={setIsTabOpen}/> }
     </div>
   )
 }
