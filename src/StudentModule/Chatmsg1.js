@@ -6,7 +6,7 @@ import { faClose } from '@fortawesome/free-solid-svg-icons';
 function Chatmsg1({setIsTabOpen}) {
 
   const closeBtn = () => {
-     setIsTabOpen(false);
+    setIsTabOpen(false);
   }
 
   return (
