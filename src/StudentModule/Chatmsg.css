@@ -6,9 +6,17 @@
     bottom: -444px;
     background-color: rgba(208, 226, 188, 0.979);
     overflow-y: auto;
-    height: 77vh;
+    height: 70vh;
     border-radius: 8px;
     transition: bottom 0.3s ease;
+}
+
+.msgs{
+    margin-top: 10px;
+    border-radius: 8px;
+    padding: 10px;
+    height: 60px;
+    background-color: white;
 }
 
 .msg-up-icon :hover{
@@ -24,7 +32,6 @@
 
 .msg-headsticky{
     padding-top: 10px;
-    padding-bottom: 3px;
     position: sticky;
     top: 0;
     background-color: rgba(208, 226, 188, 0.979);
@@ -70,7 +77,7 @@
     z-index: 3;
     background-color: rgba(208, 226, 188, 0.979);
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 .one-msg{
