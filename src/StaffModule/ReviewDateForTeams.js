@@ -3,7 +3,7 @@ import React from 'react';
 function ReviewDateForTeams() {
   return (
     <div>
-      <div className="schedule-container" style={{ position: 'relative', width: '100%', margin: '0', padding: '10px', height: '150px', marginTop: '8px' }}>
+      <div className="schedule-container" style={{ position: 'relative', width: '100%', margin: '0', padding: '10px', height: '150px', marginTop: '8px', border:'1px solid #dee2e6', borderRadius:'20px' }}>
         <div className="datetime-info" style={{marginTop:'35px'}}>
           <p>Your upcoming project review is scheduled for:</p>
           <p>Date: <strong>February 15, 2024</strong></p>
