@@ -9,6 +9,7 @@ class ReviewForm extends React.Component {
 
   render() {
     return (
+      <div style={{ maxHeight: '100vh', overflowY: 'scroll' }}>
       <div>
         <form className="form-container" onSubmit={this.submitReview1Form}>
           <table>
@@ -60,6 +61,7 @@ class ReviewForm extends React.Component {
           
         </form>
         
+      </div>
       </div>
     );
   }

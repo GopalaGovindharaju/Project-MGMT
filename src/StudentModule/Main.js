@@ -359,6 +359,7 @@ function Main() {
 
     
   return (
+    
     <div style={{ overflowY: 'hidden', height: '100vh', position:'relative' }}>
       <Banner handleLogout={handleLogout} batchNo={"A-01"} moduleName={"Student Page"}/>
       <Navb/>
