@@ -4,6 +4,8 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from .models import SignUp_Table
 from .serializers import SignUp_TableSerializer
+from administrator.models import Guide_Info
+from guide.models import Student_Info
 
 
 @api_view(['POST'])
@@ -29,9 +31,33 @@ def create_user(request):
                 )
                 user_data.set_password(Password)
                 user_data.save()
-                return Response('User created')
+                return Response('Admin created')
         elif Role == 'Guide':
-            
+            if Guide_Info.filter(ID = Id).exists():
+                user_data = SignUp_Table(
+                    ID = Id,
+                    Name = Name,
+                    Role = Role,
+                )
+                user_data.set_password(Password)
+                user_data.save()
+                return Response('Guide Created')
+            else:
+                return Response("Please Contact Admin!")
+        elif Role == 'Student':
+            if Student_Info.filter(Id = Id).exists():
+                user_data = SignUp_Table(
+                    ID = Id,
+                    Name = Name,
+                    Role = Role,
+                )
+                user_data.set_password(Password)
+                user_data.save()
+                return Response('Student Created')
+            else:
+                return Response("You Are Yet To Be Added By Your Guide!")
+
+
 
 
 
