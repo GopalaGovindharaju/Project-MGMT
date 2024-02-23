@@ -28,15 +28,16 @@ const handleUpdate=(e)=>{
         batch:studentBatch,
         year:studentYear,
         department:'cse',
-        guideid:'002'
+        guide_id:'002'
    }
    axios.post('',data)
    .then((response)=>{
-
-
-
-   }
+        console.log("you are added")
+        console.log(response)   }
    )
+   .catch((error) => {
+    console.log(error)
+  })
 }
   return (
     <div>
@@ -72,7 +73,7 @@ const handleUpdate=(e)=>{
         </div>
       </div>
 
-      <button type="button" class="btn btn-secondary btn-lg" style={{width:'30%'}}disabled>Update Student</button>
+      <button type="button" class="btn btn-secondary btn-lg"onClick={handleUpdate} style={{width:'30%'}}disabled>Update Student</button>
     </form>
   </div>
     </div>
