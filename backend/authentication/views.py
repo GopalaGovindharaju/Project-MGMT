@@ -56,6 +56,9 @@ def create_user(request):
                 return Response('Student Created')
             else:
                 return Response("You Are Yet To Be Added By Your Guide!")
+    else:
+        return Response("Can't Sign'Up")
+
 
 
 
