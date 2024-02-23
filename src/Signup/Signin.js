@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './signin.css';
+import axios from 'axios';
+import { error } from 'jquery';
 
 function Signin() {
   const [userFormsClass, setUserFormsClass] = useState('');
@@ -53,6 +55,28 @@ function Signin() {
 
   const handleSignup = (event) => {
     event.preventDefault();
+    if (newPassword === newConfirmPassword){
+      const data = {
+        id: newUserId,
+        name: newUserName,
+        password: newPassword,
+        role: selectedRole,
+        department: selectedDepartment
+      }
+
+      axios.post('http://127.0.0.1:8000/signup/', data)
+      .then((response) => {
+        console.log("Sign uped")
+        console.log(response)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    }
+    else{
+      alert("Password Mismatch!")
+    }
+    
   }
 
   return (

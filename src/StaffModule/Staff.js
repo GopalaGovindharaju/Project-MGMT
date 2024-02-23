@@ -3,12 +3,15 @@ import './staff.css'
 import ReviewDateForTeams from './ReviewDateForTeams';
 import Chatmsg from '../StudentModule/Chatmsg';
 import Chatmsg1 from '../StudentModule/Chatmsg1';
+import StaffStudentAdd from './StaffStudentAdd';
 
 function Staff() {
   const [isTabOpen, setIsTabOpen] = useState(false);
   const [projects, setProjects] = useState([]);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [currentDate, setCurrentDate] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
+
   
 
   const handleTheme = () => {
@@ -81,6 +84,9 @@ function Staff() {
     ]
     setProjects(data);
   }, []);
+  const handleOpen = () => {
+    setIsOpen(true);
+  }
   return (
     <div>
       <div className="app-container">
@@ -98,7 +104,7 @@ function Staff() {
 </select>
     </div>
     <div className="app-header-right">
-    <button className="add-btn" title="New Student" value="New Guide">
+    <button className="add-btn" title="New Student" value="New Guide"onClick={handleOpen}>
       <img
           src={process.env.PUBLIC_URL + '/add.png'}
           alt="External Icon"
@@ -106,13 +112,23 @@ function Staff() {
           height="22"
         />
       </button>
+      {isOpen && (
+              <div className="staff-student-add-overlay">
+              <div className="staff-student-add-modal">
+                <StaffStudentAdd />
+              </div>
+            </div>
+            )}
       <button title="Switch Theme" className={`mode-switch ${isDarkMode ? 'active' : ''}`} onClick={handleTheme}>
         <svg className="moon" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" width="24" height="24" viewBox="0 0 24 24">
           <defs></defs>
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
         </svg>
       </button>
-      <button className="add-btn" title="Log Out" value="Log Out">
+      <button className="add-btn" 
+      title="Log Out" 
+      value="Log Out"
+       >
       <img
           src={process.env.PUBLIC_URL + '/power.png'}
           alt="External Icon"
