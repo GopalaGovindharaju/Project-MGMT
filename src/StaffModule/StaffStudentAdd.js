@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './StaffStudentAdd.css'
+import axios from 'axios';
 function StaffStudentAdd() {
     const[studentId,setStudentId]=useState('')
     const[studentName,setStudentName]=useState('')
@@ -20,7 +21,22 @@ const handleYear=(e)=>{
     setStudentYear(e.target.value)
 }
 const handleUpdate=(e)=>{
-   
+   e.preventDefault();
+   const data = {
+        id:studentId,
+        name:studentName,
+        batch:studentBatch,
+        year:studentYear,
+        department:'cse',
+        guideid:'002'
+   }
+   axios.post('',data)
+   .then((response)=>{
+
+
+
+   }
+   )
 }
   return (
     <div>
@@ -56,7 +72,7 @@ const handleUpdate=(e)=>{
         </div>
       </div>
 
-      <button type="button" class="btn btn-secondary btn-lg" onChange={handleUpdate}style={{width:'30%'}}disabled>Update Student</button>
+      <button type="button" class="btn btn-secondary btn-lg" style={{width:'30%'}}disabled>Update Student</button>
     </form>
   </div>
     </div>
