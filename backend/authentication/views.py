@@ -20,7 +20,7 @@ def create_user(request):
         Department = data.get('department')
 
         if Role == 'Admin':
-            if SignUp_Table.filter(Role = 'Admin', Department = Department).exists():
+            if SignUp_Table.objects.filter(Role = 'Admin', Department = Department).exists():
                 return Response({'error':'Admin Already Exists'}, status=status.HTTP_400_BAD_REQUEST)
             else:
                 user_data = SignUp_Table(
@@ -31,9 +31,9 @@ def create_user(request):
                 )
                 user_data.set_password(Password)
                 user_data.save()
-                return Response('Admin created')
+                return Response("Admin Created")
         elif Role == 'Guide':
-            if Guide_Info.filter(ID = Id).exists():
+            if Guide_Info.objects.filter(ID = Id).exists():
                 user_data = SignUp_Table(
                     ID = Id,
                     Name = Name,
@@ -45,7 +45,7 @@ def create_user(request):
             else:
                 return Response("Please Contact Admin!")
         elif Role == 'Student':
-            if Student_Info.filter(Id = Id).exists():
+            if Student_Info.objects.filter(Id = Id).exists():
                 user_data = SignUp_Table(
                     ID = Id,
                     Name = Name,
