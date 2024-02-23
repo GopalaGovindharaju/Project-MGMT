@@ -2,7 +2,7 @@ from django.db import models
 
 class Review_0(models.Model):
     ID = models.CharField(primary_key = True, unique = True, max_length = 50)
-    Title = models.CharField(max_length = 50, default = None)
+    Title = models.CharField(max_length = 50)
     Abstract = models.FileField(upload_to='review_0_docs/', null = True, blank = True)
     Base_Paper = models.FileField(upload_to='review_0_docs/', null = True, blank = True)
     PPT = models.FileField(upload_to='review_0_docs/', null = True, blank = True)

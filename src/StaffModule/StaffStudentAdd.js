@@ -80,7 +80,7 @@ function StaffStudentAdd({setIsOpen}) {
             </div>
           </div>
 
-          <button type="button" className="btn btn-secondary btn-lg submit-button " id='buttonn' onClick={handleUpdate} style={{ width: '30%' }} disabled>Update Student</button>
+          <button type="button" className="btn btn-secondary btn-lg submit-button " id='buttonn' onClick={handleUpdate} style={{ width: '30%' }}>Update Student</button>
         </form>
       </div>
    
