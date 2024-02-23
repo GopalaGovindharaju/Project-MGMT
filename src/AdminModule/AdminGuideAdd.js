@@ -33,7 +33,7 @@ function AdminGuideAdd() {
       department: "CSE",
       panelmember: gPanelmember
     }
-    axios.post('', data)
+    axios.post('http://127.0.0.1:8000/addGuide/', data)
     .then((response) => {
       console.log(response.data);
     })
