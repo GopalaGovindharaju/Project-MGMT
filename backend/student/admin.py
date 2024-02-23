@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Review_0
 
-# Register your models here.
+class Review_0_Admin(admin.ModelAdmin):
+    list_display = ('ID', 'Title', 'Abstract', 'Base_Paper', 'PPT', 'Title_Status', 'Abstract_Status', 'Base_Paper_Status', 'PPt_Status', 'Guide_Status', 'Hod_Status', )
+    
+admin.site.register(Review_0, Review_0_Admin)

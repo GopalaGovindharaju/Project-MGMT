@@ -30,7 +30,7 @@ const handleUpdate=(e)=>{
         department:'cse',
         guide_id:'002'
    }
-   axios.post('',data)
+   axios.post('http://localhost:8000/addStudent/',data)
    .then((response)=>{
         console.log("you are added")
         console.log(response)   }
@@ -73,7 +73,7 @@ const handleUpdate=(e)=>{
         </div>
       </div>
 
-      <button type="button" class="btn btn-secondary btn-lg"onClick={handleUpdate} style={{width:'30%'}}disabled>Update Student</button>
+      <button type="button" class="btn btn-secondary btn-lg" onClick={handleUpdate} style={{width:'30%'}}>Update Student</button>
     </form>
   </div>
     </div>
