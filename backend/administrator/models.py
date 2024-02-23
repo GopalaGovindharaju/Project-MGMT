@@ -5,6 +5,7 @@ class Guide_Info(models.Model):
     Name = models.CharField(max_length = 50, default = None)
     Designation = models.CharField(max_length = 50, default = None)
     Department = models.CharField(max_length = 50, default = None)
+    PanelMember=models.BooleanField(default=False)
     
     def __str__(self):
         return f"{self.ID} {self.Name} {self.Department}"

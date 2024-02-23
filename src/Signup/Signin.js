@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './signin.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import UserInfoContext from '../UsenInfoContext';
+import { error } from 'jquery';
 
 
 function Signin() {
@@ -10,7 +9,9 @@ function Signin() {
   const [newUserId, setNewUserId] = useState('');
   const [newUserName, setNewUserName] = useState('');
   const [newPassword, setNewPassword] = useState('');
+  const [newConfirmPassword, setNewConfirmPassword] = useState('');
   const [selectedRole, setSelectedRole] = useState('');
+  const [selectedDepartment,setSelectedDepartment] = useState('');
 
   const [exPassword, setExPassword] = useState('');
   const [exUserId, setExUserId] = useState('');
@@ -39,9 +40,46 @@ function Signin() {
   const handlePassword = (event) => {
     setNewPassword(event.target.value);
   }
+  const handleConfirmPassword = (event) => {
+    setNewConfirmPassword(event.target.value);
+  }
   const handleRoleChange = (event) => {
     setSelectedRole(event.target.value);
   }
+  const handleSelectDepartment = (event) => {
+    setSelectedDepartment(event.target.value);
+  }
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+  }
+
+  const handleSignup = (event) => {
+    event.preventDefault();
+    if (newPassword === newConfirmPassword){
+      const data = {
+        id: newUserId,
+        name: newUserName,
+        password: newPassword,
+        role: selectedRole,
+        department: selectedDepartment
+      }
+
+      axios.post('http://127.0.0.1:8000/signup/', data)
+      .then((response) => {
+        console.log("Sign uped")
+        console.log(response)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    }
+    else{
+      alert("Password Mismatch!")
+    }
+    
+  }
+
   return (
     <div>
       <section className="user">
@@ -100,51 +138,38 @@ function Signin() {
                 <div className='row'>
                 <div className='col'>
                   <div className="forms_field">
-                    <input type="text" placeholder="Full Name" value={newUserName} onChange={handleUsernameChange} className="forms_field-input" required />
+                    <input type="text" placeholder="Id" value={newUserId} onChange={handleUserIdChange} className="forms_field-input" required />
                   </div>
                   <div className="forms_field">
-                    <input type="text" placeholder="Register No" value={newUserId} onChange={handleUserIdChange} className="forms_field-input" required />
+                    <input type="text" placeholder="Name" value={newUserName} onChange={handleUsernameChange} className="forms_field-input" required />
                   </div>
                   <div className="forms_field">
                     <input type="password" placeholder="Password" value={newPassword} onChange={handlePassword} className="forms_field-input" required />
                   </div>
                   <div className="forms_field">
-                    <input type="email" placeholder="Email" value={newEmail} onChange={handleEmail} className="forms_field-input" required />
-                  </div></div>
+                    <input type="password" placeholder="Confirm-Password" value={newConfirmPassword} onChange={handleConfirmPassword} className="forms_field-input" required />
+                  </div>
+                  </div>
                   <div className='col'>
                   <div className="forms_field">
                      <select className="forms_field-select" value={selectedRole} style={{width:'230px', marginTop:'13px'}} onChange={handleRoleChange} required>
                         <option value="" disabled>Select Role</option>
-                        <option value="admin">Admin</option>
-                        <option value="student">Student</option>
-                        <option value="staff">Staff</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Staff">Staff</option>
+                        <option value="Student">Student</option>
                      </select>
                     </div>
-                    {selectedRole === 'student' && (<>
+                    {selectedRole === 'Admin' && (<>
                       <div className="forms_field">
-                      <select className="forms_field-select" value={selectedStaffIncharge} style={{width:'230px', marginTop:'13px'}} onChange={handleStaffInchargeChange} required>
-                         <option value="" disabled>Select Staff Incharge</option>
-                         {guideList.map((guide, index) => (
-    <option key={index} value={guide}>
-      {guide}
-    </option>
-  ))}
-                      </select>
-                     </div>
-                     <div className="forms_field">
-                      <select className="forms_field-select" value={selectedBatchNo} style={{width:'230px', marginTop:'13px'}} onChange={handleBatchNoChange} required>
-                         <option value="" disabled>Select Batch No</option>
-                         <option value="A01">A01</option>
-                         <option value="A02">A02</option>
-                         <option value="A03">A03</option>
-                      </select>
-                     </div>
-                     <div className="forms_field">
-                      <select className="forms_field-select" value={selectedYear} style={{width:'230px', marginTop:'13px'}} onChange={handleYearChange} required>
-                         <option value="" disabled>Select Year</option>
-                         <option value="2020-2024">2020-2024</option>
-                         <option value="2021-2025">2021-2025</option>
-                         <option value="2022-2026">2022-2026</option>
+                      <select className="forms_field-select" value={selectedDepartment} style={{width:'230px', marginTop:'13px'}} onChange={handleSelectDepartment} required>
+                         <option value="" disabled>Select Department</option>
+                         <option value="CSE">CSE</option>
+                         <option value="IT">IT</option>
+                         <option value="MECH">MECH</option>
+                         <option value="CIVIL">CIVIL</option>
+                         <option value="AERO">AERO</option>
+                         <option value="ECE">ECE</option>
+                         <option value="EEE">EEE</option>
                       </select>
                      </div>
                      </>)}

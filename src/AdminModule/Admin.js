@@ -4,12 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Chatmsg from '../StudentModule/Chatmsg';
 import Chatmsg1 from '../StudentModule/Chatmsg1';
+import AdminGuideAdd from './AdminGuideAdd';
 
 function Admin() {
 
   const [currentDate, setCurrentDate] = useState('');
   const [projects, setProjects] = useState([]);
   const [isTabOpen, setIsTabOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [years, setYears] = useState([]);
@@ -99,8 +101,10 @@ function Admin() {
     setProjects(projects.filter(f => f.Title.toLowerCase().includes(e.target.value)));
   }
 
+  const handleOpen = () => {
+    setIsOpen(true);
+  }
 
-  
   return (
     <div>
       <div className="app-container">
@@ -136,6 +140,7 @@ function Admin() {
               className="add-btn"
               title="New Guide"
               value="New Guide"
+              onClick={handleOpen}
             >
               <img
                 src={process.env.PUBLIC_URL + "/add.png"}
@@ -144,6 +149,13 @@ function Admin() {
                 height="22"
               />
             </button>
+            {isOpen &&  (
+              <div className="admin-guide-add-overlay">
+              <div className="admin-guide-add-modal">
+                <AdminGuideAdd setIsOpen = {setIsOpen}  />
+              </div>
+            </div>
+            )}
            
             <button
               title="Switch Theme"
