@@ -31,8 +31,27 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
+
+  .guide-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
   
-  #guideaddform{
+  .guide-add-form{
+    width: 80%;
+    background-color:blanchedalmond;
+    height: 60%;
+  }
+
+  .guide-inp{
+    border: 2px solid black;
+    margin: 20px
+  }
+
+  .g-field{
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    
+    background-color: blue;
   }
