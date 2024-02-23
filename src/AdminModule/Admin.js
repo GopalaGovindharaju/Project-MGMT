@@ -104,7 +104,6 @@ function Admin() {
   const handleOpen = () => {
     setIsOpen(true);
   }
- 
 
   return (
     <div>
@@ -150,10 +149,10 @@ function Admin() {
                 height="22"
               />
             </button>
-            {isOpen && (
+            {isOpen &&  (
               <div className="admin-guide-add-overlay">
               <div className="admin-guide-add-modal">
-                <AdminGuideAdd />
+                <AdminGuideAdd setIsOpen = {setIsOpen}  />
               </div>
             </div>
             )}

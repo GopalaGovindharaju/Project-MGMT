@@ -13,7 +13,7 @@ function Staff() {
   const [isOpen, setIsOpen] = useState(false);
 
   
-
+  
   const handleTheme = () => {
     document.documentElement.classList.toggle('dark');
     setIsDarkMode((prevMode) => !prevMode);
@@ -115,7 +115,7 @@ function Staff() {
       {isOpen && (
               <div className="staff-student-add-overlay">
               <div className="staff-student-add-modal">
-                <StaffStudentAdd />
+                <StaffStudentAdd setIsOpen={setIsOpen} />
               </div>
             </div>
             )}
