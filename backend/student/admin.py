@@ -9,3 +9,7 @@ class Review_3_Admin(admin.ModelAdmin):
     list_display = ('ID', 'Project_Demo', 'Project_Screenshot', 'Report', 'PPT', 'Project_Demo_Status', 'Project_Screenshot_Status', 'Report_Status', 'PPt_Status', 'Guide_Status', 'Hod_Status', )
     
 admin.site.register(Review_0, Review_0_Admin, Review_3, Review_3_Admin)
+class Review_2_Admin(admin.ModuleAdmin):
+    list_display = ('ID', 'Implementation_80P', 'Report_RoughCopy', 'PPT', 'Project_Publish', 'Implement_Status', 'Report_Status', 'PPt_Status', 'Guide_Status', 'Hod_Status',) 
+
+admin.site.register(Review_0, Review_0_Admin)
