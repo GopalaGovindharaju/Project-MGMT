@@ -49,27 +49,27 @@ function AdminGuideAdd({setIsOpen}) {
     <div>
       <div className='guide-head'>
         <div className='guide-title'><h4>Add Guide</h4></div>
-        <div className='close-btn'><FontAwesomeIcon onClick={handleCloseBtn} icon={faClose}/></div>
+        <div className='close-btn'><FontAwesomeIcon onClick={handleCloseBtn} required icon={faClose}/></div>
       </div>
       <div className='guide-add-form'>
         <div className='g-field'>
           <div className='guide-inp'>
           <label className='label-field'>Guide-ID</label>
-            <input type='text' className='inp-field' value={gId} onChange={handleGId} placeholder='Guide-ID'/>
+            <input type='text' className='inp-field' value={gId} onChange={handleGId} placeholder='Guide-ID' required/>
           </div>
         </div>
         
         <div className='g-field'>
           <div className='guide-inp'>
             <label className='label-field'>Guide-Name</label>
-            <input type='text' className='inp-field' value={gName} onChange={handleGName} placeholder='Guide-Name'/>
+            <input type='text' className='inp-field' value={gName} onChange={handleGName} placeholder='Guide-Name' required/>
           </div>
         </div>
 
         <div className='g-field'>
           <div className='guide-inp'>
             <label className='label-field'>Guide-Designation</label>
-            <input type='text' className='inp-field' value={gDesignation} onChange={handleGDesignation} placeholder='Guide-Designation'/>
+            <input type='text' className='inp-field' value={gDesignation} onChange={handleGDesignation} placeholder='Guide-Designation' required/>
           </div>
         </div>
         
@@ -80,7 +80,6 @@ function AdminGuideAdd({setIsOpen}) {
           </label>
           <input class="form-check-input inp-field" type="checkbox" value={gPanelmember} onChange={handlePannelMember} id="flexCheckDefault"/>
           </div>
-
         </div>
       
       </div>
