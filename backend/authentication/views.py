@@ -6,7 +6,7 @@ from .models import SignUp_Table
 from .serializers import SignUp_TableSerializer
 from administrator.models import Guide_Info
 from guide.models import Student_Info
-from student.models import Review_0
+from student.models import Review_0, Review_1, Review_2, Review_3
 
 
 @api_view(['POST'])
@@ -58,6 +58,18 @@ def create_user(request):
                     ID = Id,
                 )
                 review_0_data.save()
+                review_1_data = Review_1(
+                    ID = Id,
+                )
+                review_1_data.save()
+                review_2_data = Review_2(
+                    ID = Id,
+                )
+                review_2_data.save()
+                review_3_data = Review_3(
+                    ID = Id,
+                )
+                review_3_data.save()
                 return Response('Student Created')
             else:
                 return Response("You Are Yet To Be Added By Your Guide!")
