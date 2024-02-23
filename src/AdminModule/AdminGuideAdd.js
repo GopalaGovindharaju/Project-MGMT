@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClose } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 
-function AdminGuideAdd() {
+function AdminGuideAdd({setIsOpen}) {
   const [gId, setGId ] = useState('');
   const [gName, setGName] = useState('');
   const [gDesignation, setGDesignation] = useState('');
@@ -23,6 +23,9 @@ function AdminGuideAdd() {
     setgPanelmember(!gPanelmember)
   } 
   
+  const handleCloseBtn = () => {
+    setIsOpen(false);
+  }
 
   const handleAddGuide = (e) => {
     e.preventDefault();
@@ -39,37 +42,47 @@ function AdminGuideAdd() {
     })
     .catch((error) => {
       console.log(error);
-    })
-    
+    })   
   }
 
   return (
     <div>
       <div className='guide-head'>
         <div className='guide-title'><h4>Add Guide</h4></div>
-        <div className='close-btn'><FontAwesomeIcon icon={faClose}/></div>
+        <div className='close-btn'><FontAwesomeIcon onClick={handleCloseBtn} icon={faClose}/></div>
       </div>
       <div className='guide-add-form'>
         <div className='g-field'>
-          <label>Guide-ID</label>
           <div className='guide-inp'>
-            <input type='text' value={gId} onChange={handleGId} placeholder='Guide-ID'/>
+          <label className='label-field'>Guide-ID</label>
+            <input type='text' className='inp-field' value={gId} onChange={handleGId} placeholder='Guide-ID'/>
           </div>
         </div>
         
-        <div className='guide-inp'>
-          <input type='text' value={gName} onChange={handleGName} placeholder='Guide-Name'/>
-        </div>
-        <div className='guide-inp'>
-          <input type='text' value={gDesignation} onChange={handleGDesignation} placeholder='Guide-Designation'/>
+        <div className='g-field'>
+          <div className='guide-inp'>
+            <label className='label-field'>Guide-Name</label>
+            <input type='text' className='inp-field' value={gName} onChange={handleGName} placeholder='Guide-Name'/>
+          </div>
         </div>
 
-        <div class="form-check">
-          <label class="form-check-label" for="flexCheckDefault">
+        <div className='g-field'>
+          <div className='guide-inp'>
+            <label className='label-field'>Guide-Designation</label>
+            <input type='text' className='inp-field' value={gDesignation} onChange={handleGDesignation} placeholder='Guide-Designation'/>
+          </div>
+        </div>
+        
+        <div className='g-field'>
+          <div className='guide-inp'>
+          <label class="form-check-label label-field">
             Pannel Member
           </label>
-          <input class="form-check-input" type="checkbox" value={gPanelmember} onChange={handlePannelMember} id="flexCheckDefault"/>
+          <input class="form-check-input inp-field" type="checkbox" value={gPanelmember} onChange={handlePannelMember} id="flexCheckDefault"/>
+          </div>
+
         </div>
+      
       </div>
 
       <div>
