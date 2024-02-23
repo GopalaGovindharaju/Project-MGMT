@@ -86,7 +86,7 @@ function AdminGuideAdd({setIsOpen}) {
       </div>
 
       <div>
-        <button className='btn btn-success' onClick={handleAddGuide} type='submit'>Add Guide</button>
+        <button className='addguide-btn' onClick={handleAddGuide} type='submit'>Add Guide</button>
       </div>
     </div>
   )
