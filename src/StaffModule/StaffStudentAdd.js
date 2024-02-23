@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import './StaffStudentAdd.css'
 import axios from 'axios';
 
-function StaffStudentAdd() {
+
+function StaffStudentAdd({setIsOpen}) {
   const [studentId, setStudentId] = useState('');
   const [studentName, setStudentName] = useState('');
   const [studentBatch, setStudentBatch] = useState('');
   const [studentYear, setStudentYear] = useState('');
+  
 
   const handleId = (e) => {
     setStudentId(e.target.value);
@@ -21,7 +23,7 @@ function StaffStudentAdd() {
     setStudentYear(e.target.value);
   }
   const handleCancel=()=>{
-
+    setIsOpen(false)
   }
   const handleUpdate = (e) => {
     e.preventDefault();
