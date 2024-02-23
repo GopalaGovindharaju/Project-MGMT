@@ -24,7 +24,7 @@
   }
   
   .admin-guide-add-modal {
-    width: 60%;
+    width: 50%;
     height: 70%;
     background-color: white;
     padding: 20px;
@@ -39,19 +39,33 @@
   }
   
   .guide-add-form{
-    width: 80%;
-    background-color:blanchedalmond;
+    width: 100%;
     height: 60%;
   }
 
   .guide-inp{
-    border: 2px solid black;
-    margin: 20px
+    background-color: #fff;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
   }
 
   .g-field{
     display: flex;
     flex-direction: row;
     width: 100%;
-    background-color: blue;
+  }
+
+  .inp-field{
+    margin-left: 10px;
+    box-shadow: 0 0 1px black;
+    border-radius: 8px;
+    padding: 10px;
+    width: 50%
+  }
+
+  .label-field{
+    text-align: left;
+    width: 25%;
   }
