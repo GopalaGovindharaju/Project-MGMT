@@ -1,5 +1,5 @@
 #buttonn{
-    background-color: #2bc130;
+    background-color: #199c10;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -8,6 +8,7 @@
     font-size: 16px;
     width: 100%;
 }
+
 .input-tex{
     width: 100%;
     padding: 10px;
@@ -30,3 +31,17 @@ font-size: 24px;
 .covering{
     margin-top: 50px;
 }
+.labelss{
+    font-weight: bold;
+    color: #555;
+}
+.cancel-buttonn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #ff6347; /* Tomato color */
+    font-size: 16px;
+    font-weight: bold;
+  }
+  

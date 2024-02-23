@@ -20,6 +20,9 @@ function StaffStudentAdd() {
   const handleYear = (e) => {
     setStudentYear(e.target.value);
   }
+  const handleCancel=()=>{
+
+  }
   const handleUpdate = (e) => {
     e.preventDefault();
     const data = {
@@ -41,29 +44,31 @@ function StaffStudentAdd() {
   }
 
   return (
-    <div>
-      <div className="container covering">
+    
+      <div className="container covering" style={{position: 'relative '}}>
+      <div className="cancel-buttonn" onClick={handleCancel}>X</div>
+
         <center><h3 className="headings">Student Addition</h3></center>
         <form className="form-container contain">
           <div className="row">
             <div className="col-md-6">
               <div className="form-group">
-                <label className="label-bold" htmlFor="id">ID:</label>
+                <label className="labelss" htmlFor="id">ID:</label>
                 <input type="text" className="form-control input-tex" value={studentId} onChange={handleId} id="id" name="id" placeholder="Enter your ID" />
               </div>
 
               <div className="form-group">
-                <label className="label-bold" htmlFor="name">Name:</label>
+                <label className="labelss" htmlFor="name">Name:</label>
                 <input type="text" className="form-control input-tex" value={studentName} onChange={handleName} id="name" name="name" placeholder="Enter your name" />
               </div>
 
               <div className="form-group">
-                <label className="label-bold" htmlFor="batchYear">Batch Year:</label>
+                <label className="labelss" htmlFor="batchYear">Batch Year:</label>
                 <input type="text" className="form-control input-tex" value={studentBatch} onChange={handleBatch} id="batchYear" name="batchYear" placeholder="Enter your batch year" />
               </div>
 
               <div className="form-group">
-                <label className="label-bold" htmlFor="Year">Academic Year:</label>
+                <label className="labelss" htmlFor="Year">Academic Year:</label>
                 <input type="text" className="form-control input-tex" value={studentYear} onChange={handleYear} id="Year" name="Year" placeholder="Enter your year" />
               </div>
             </div>
@@ -73,10 +78,10 @@ function StaffStudentAdd() {
             </div>
           </div>
 
-          <button type="button" className="btn btn-secondary btn-lg submit-button" id='buttonn' onClick={handleUpdate} style={{ width: '30%' }} disabled>Update Student</button>
+          <button type="button" className="btn btn-secondary btn-lg submit-button " id='buttonn' onClick={handleUpdate} style={{ width: '30%' }} disabled>Update Student</button>
         </form>
       </div>
-    </div>
+   
   );
 }
 

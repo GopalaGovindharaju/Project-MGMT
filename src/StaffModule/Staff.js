@@ -115,7 +115,7 @@ function Staff() {
       {isOpen && (
               <div className="staff-student-add-overlay">
               <div className="staff-student-add-modal">
-                <StaffStudentAdd />
+                <StaffStudentAdd setIsOpen={setIsOpen} />
               </div>
             </div>
             )}
