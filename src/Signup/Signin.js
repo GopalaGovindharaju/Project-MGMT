@@ -7,163 +7,21 @@ import UserInfoContext from '../UsenInfoContext';
 
 function Signin() {
   const [userFormsClass, setUserFormsClass] = useState('');
-  const [newUserName, setNewUserName] = useState('');
-  const [selectedRole, setSelectedRole] = useState('');
   const [newUserId, setNewUserId] = useState('');
+  const [newUserName, setNewUserName] = useState('');
   const [newPassword, setNewPassword] = useState('');
-  const [newEmail, setNewEmail] = useState('');
-  const [selectedStaffIncharge, setSelectedStaffIncharge] = useState('');
-  const [selectedBatchNo, setSelectedBatchNo] = useState('');
-  const [selectedYear, setSelectedYear] = useState('');
+  const [selectedRole, setSelectedRole] = useState('');
+
   const [exPassword, setExPassword] = useState('');
   const [exUserId, setExUserId] = useState('');
-  const navigate = useNavigate();
-  const { setUserInfo } = useContext(UserInfoContext);
-  const [guideList, setGuideList] = useState([]);
 
-  useEffect(() => {
-    axios.get('http://localhost:8000/guide/getlist/')
-      .then(response => {
-        setGuideList(response.data.Names);
-        console.log(response.data.Names)
-      })
-      .catch(error => {
-        console.error('Error fetching guide list:', error);
-      });
-  }, []);
-  
-
-  const [isauthorized, setIsAuthorized] = useState(
-    localStorage.getItem("isauthorized") || ""
-  );
-  const [isSigned, setIsSigned] = useState(
-    localStorage.getItem("isSigned") === "true" ? true : false
-  );
-  
-
-  useEffect(() => {
-    localStorage.setItem("isauthorized", isauthorized);
-  }, [isauthorized]);
-
-  useEffect(() => {
-    localStorage.setItem("isSigned", isSigned.toString());
-  }, [isSigned]);
-  
 
   const handleSignupClick = () => {
     setUserFormsClass('bounceLeft');
   };
-
   const handleLoginClick = () => {
     setUserFormsClass('bounceRight');
-  };
-
-  useEffect(() => {
-    // Load user information from local storage on component mount
-    const storedUserInfo = JSON.parse(localStorage.getItem('userInfo'));
-    const storedIsAuthorized = localStorage.getItem('isauthorized');
-    const storedIsSigned = localStorage.getItem('isSigned') === 'true';
-
-    if (storedIsSigned && storedIsAuthorized && storedUserInfo) {
-      setIsSigned(true);
-      setIsAuthorized(storedIsAuthorized);
-      setUserInfo(storedUserInfo);
-      navigate('/'); // Redirect to the appropriate route after login
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const handleNavigation = () => {
-    switch (isauthorized) {
-      case 'admin':
-        navigate('/admin');
-        break;
-      case 'student':
-        navigate('/student');
-        break;
-      case 'staff':
-        navigate('/staff');
-        break;
-      default:
-        alert("not an valid Role")
-    }
-  }
-  useEffect(() => {
-    if (isSigned && isauthorized) {
-      handleNavigation();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSigned, isauthorized]);
-
-  const handleLogin = (event) => {
-	event.preventDefault();
-  const data = {
-    ExUserId : exUserId,
-    ExPassword : exPassword,
-  }
-  console.log(data)
-  axios
-    .post("http://127.0.0.1:8000/login/",data)
-    .then((response) => {
-      if (!response.data) {
-        alert("User Can't Found");
-      } else {
-        setIsSigned(true);
-        setIsAuthorized(response.data.Role);
-        setUserInfo(response.data);
-        console.log(response.data)
-        localStorage.setItem('userInfo', JSON.stringify(response.data));
-      }
-      setExPassword('');
-      setExUserId('');
-    })
-    .catch((error) => {
-      console.log("Failed to send request",error)
-    })
-
-  }
-
-  const handleSignup = (event) => {
-	event.preventDefault();
-	const data = {
-    User_Name : newUserName,
-    User_Id : newUserId,
-    Role : selectedRole,
-    Password : newPassword,
-    Email : newEmail,
-    Batch_No : selectedBatchNo,
-    Year : selectedYear,
-    Staff_Incharge : selectedStaffIncharge,
-  };
-  axios
-    .post("http://127.0.0.1:8000/login/signin/", data)
-    .then((response) => {
-      console.log(response.data);
-      setUserFormsClass('bounceRight');
-      if (!response.data) {
-        alert("User Can't Found or not Registered");
-      } else {
-        console.log(response.data)
-        setIsSigned(true);
-        setIsAuthorized(response.data.Role);
-        setUserInfo(response.data);
-        localStorage.setItem('userInfo', JSON.stringify(response.data));
-      }
-      setNewUserName('');
-      setNewUserId('');
-      setNewPassword('');
-      setNewEmail('');
-      setSelectedRole('');
-      setSelectedStaffIncharge('');
-      setSelectedBatchNo('');
-      setSelectedYear('');
-    })
-    .catch((error) => {
-      console.log("failed");
-    })
-
-  }
-   
+  }; 
   const handleExPassword = (event) => {
     setExPassword(event.target.value);
   };
@@ -181,23 +39,9 @@ function Signin() {
   const handlePassword = (event) => {
     setNewPassword(event.target.value);
   }
-  const handleEmail = (event) => {
-    setNewEmail(event.target.value);
-  }
   const handleRoleChange = (event) => {
     setSelectedRole(event.target.value);
   }
-
-  const handleStaffInchargeChange = (event) => {
-    setSelectedStaffIncharge(event.target.value);
-  }
-  const handleBatchNoChange = (event) => {
-    setSelectedBatchNo(event.target.value);
-  }
-  const handleYearChange = (event) => {
-    setSelectedYear(event.target.value);
-  }
-
   return (
     <div>
       <section className="user">
