@@ -7,8 +7,7 @@ class Review_0_Admin(admin.ModelAdmin):
     list_display = ('ID', 'Title', 'Abstract', 'Base_Paper', 'PPT', 'Title_Status', 'Abstract_Status', 'Base_Paper_Status', 'PPt_Status', 'Guide_Status', 'Hod_Status', )
 
 class Review_1_Admin(admin.ModelAdmin):
-    list_display = ('ID', 'Architecture', 'Modules', 'Modules_Description', 'Litrature_survey', 'Outcome_Images', 'PPT', 'Architecture', 'Modules', 'Modules_Description', 'Litrature_survey', 'Outcome_Images', 'PPt_Status', 'Guide_Status', 'Hod_Status', )
-    
+    list_display = ('ID', 'Architecture', 'Modules', 'Modules_Description', 'Litrature_survey', 'Outcome_Images', 'PPT', 'Architecture_Status', 'Modules_Status', 'Modules_Description_Status', 'Litrature_survey_Status', 'Outcome_Images_Status', 'PPt_Status', 'Guide_Status', 'Hod_Status', )
     
 admin.site.register(Review_0, Review_0_Admin)
 admin.site.register(Review_1,Review_1_Admin)

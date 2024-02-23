@@ -11,10 +11,11 @@ class Review_0_Serializer(serializers.ModelSerializer):
 class Review_1_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Review_1
-        feilds = ('ID', 'Architecture', 'Modules', 'Modules_Description', 'Litrature_survey', 'Outcome_Images', 'PPT', 'Architecture', 'Modules', 'Modules_Description', 'Litrature_survey', 'Outcome_Images', 'PPt_Status', 'Guide_Status', 'Hod_Status', )
+        feilds = ('ID', 'Architecture', 'Modules', 'Modules_Description', 'Litrature_survey', 'Outcome_Images', 'PPT', 'Architecture_Status', 'Modules_Status', 'Modules_Description_Status', 'Litrature_survey_Status', 'Outcome_Images_Status', 'PPt_Status', 'Guide_Status', 'Hod_Status', )
 class Review_3_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Review_3
         fields = ('ID', 'Project_Demo', 'Project_Screenshot', 'Report', 'PPT', 'Project_Demo_Status', 'Project_Screenshot_Status', 'Report_Status', 'PPt_Status', 'Guide_Status', 'Hod_Status', )
+        
         model = Review_2
         fields = ('ID', 'Implementation_80P', 'Report_RoughCopy', 'PPT', 'Project_Publish', 'Implement_Status', 'Report_Status', 'PPt_Status', 'Guide_Status', 'Hod_Status',)
