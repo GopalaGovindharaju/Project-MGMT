@@ -1,6 +1,7 @@
 import React from 'react'
 
 function SReview3() {
+  
   return (
     <div>
        <div class="container mt-5">
@@ -14,9 +15,9 @@ function SReview3() {
           </thead>
           <tbody >
             <tr>
-              <td>Upload Project Demo (Video)</td>
+              <td>Project Demo Verification</td>
               <td>
-              <input type="file" class=""accept="video/*" disabled />
+              <input type="file" class=""accept="video/*" readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -28,41 +29,44 @@ function SReview3() {
               </td>
             </tr>
             <tr>
-              <td>Upload Project Screenshots</td>
+              <td>Project Screenshots Verification</td>
               <td>
-                <input type="file" class="" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" class="" accept=".pdf, .doc, .docx" readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >Reject
+                <button type="button" className="negative btn btn-danger ml-2" >
+                  Reject
                 </button>
               </td>
             </tr>
             <tr>
-              <td>Documentation</td>
+              <td>Documentation Verification</td>
               <td>
-                <input type="file" class="" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" class="" accept=".pdf, .doc, .docx" readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" > Reject
+                <button type="button" className="negative btn btn-danger ml-2" > 
+                  Reject
                 </button>
               </td>
             </tr>
             <tr>
-              <td>PPT Document Submission</td>
+              <td>PPT Verification</td>
               <td>
-                <input type="file" class="" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" class="" accept=".pdf, .doc, .docx" readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >  Reject
+                <button type="button" className="negative btn btn-danger ml-2" >  
+                  Reject
                 </button>
               </td>
             </tr>

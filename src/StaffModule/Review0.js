@@ -2,6 +2,7 @@ import React from 'react';
 import './Review0.css';
 
 function Review0() {
+  
   return (
     <div>
       <div className="container mt-5">
@@ -15,35 +16,9 @@ function Review0() {
           </thead>
           <tbody>
             <tr>
-              <td>Project Title</td>
+              <td>Project Title Verification</td>
               <td>
-                <input type="text" className="form-control reduced-size" disabled />
-              </td>
-              <td>
-                <button type="button" className="btn btn-success">
-                  Approve
-                </button>
-                <button type="button" className="negative btn btn-danger ml-2" >Reject
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>Abstract Document Submission</td>
-              <td>
-                <input type="file" className="formss" accept=".pdf, .doc, .docx" disabled />
-              </td>
-              <td>
-                <button type="button" className="btn btn-success">
-                  Approve
-                </button>
-                <button type="button" className="negative btn btn-danger ml-2" >Reject
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>Base Paper Document Submission</td>
-              <td>
-                <input type="file" className="formss" accept=".pdf, .doc, .docx" disabled />
+                <input type="text" className="form-control reduced-size" readOnly={true} />
               </td>
               <td>
                 <button type="button" className="btn btn-success">
@@ -55,15 +30,44 @@ function Review0() {
               </td>
             </tr>
             <tr>
-              <td>PPT Document Submission</td>
+              <td>Abstract Document Verification</td>
               <td>
-                <input type="file" className="formss" accept=".ppt, .pptx" disabled />
+                <input type="file" className="formss" accept=".pdf, .doc, .docx" readOnly={true} />
               </td>
               <td>
                 <button type="button" className="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >Reject
+                <button type="button" className="negative btn btn-danger ml-2" >
+                  Reject
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>Base Paper Document Verification</td>
+              <td>
+                <input type="file" className="formss" accept=".pdf, .doc, .docx" readOnly={true}/>
+              </td>
+              <td>
+                <button type="button" className="btn btn-success">
+                  Approve
+                </button>
+                <button type="button" className="negative btn btn-danger ml-2" >
+                  Reject
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>PPT Document Verification</td>
+              <td>
+                <input type="file" className="formss" accept=".ppt, .pptx" readOnly={true} />
+              </td>
+              <td>
+                <button type="button" className="btn btn-success">
+                  Approve
+                </button>
+                <button type="button" className="negative btn btn-danger ml-2" >
+                  Reject
                 </button>
               </td>
             </tr>
