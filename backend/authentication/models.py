@@ -6,7 +6,7 @@ class SignUp_Table(models.Model):
     Name = models.CharField(max_length = 50, default = None)
     Password = models.CharField(max_length = 50)
     Role = models.CharField(max_length = 30)
-    Department = models.CharField(max_length = 50, unique = True)
+    Department = models.CharField(max_length = 50, unique = True, null = True)
 
     def __str__(self):
         return f"{self.ID} {self.Name} {self.Department}"

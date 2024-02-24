@@ -4,7 +4,7 @@ import {Routes, Route} from 'react-router-dom';
 import Staff from './StaffModule/Staff';
 import Admin from './AdminModule/Admin';
 import { useState } from 'react';
-import UserInfoContext from './UsenInfoContext';
+import UserInfoContext from './Helper/UsenInfoContext';
 import Review from './StudentModule/Review';
 import Review1 from './StudentModule/Review1';
 import Review2 from './StudentModule/Review2';
@@ -31,7 +31,6 @@ import Main from './StudentModule/Main';
 function App() {
 
   const [userInfo, setUserInfo] = useState(() => {
-    // Try to get user info from localStorage on initial load
     const storedUserInfo = localStorage.getItem('userInfo');
     return storedUserInfo ? JSON.parse(storedUserInfo) : null;
   });
