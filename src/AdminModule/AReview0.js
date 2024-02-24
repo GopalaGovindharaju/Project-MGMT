@@ -16,55 +16,74 @@ function AReview0() {
           </thead>
           <tbody >
             <tr>
-              <td>Project Title</td>
+              <td>Project Title Verification</td>
               <td>
-                <input type="text" class="form-control reduced-size" disabled />
+                <input type="text" 
+                class="form-control reduced-size" 
+                readOnly={true} />
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button"
+                 class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >
+                <button type="button" 
+                className="negative btn btn-danger ml-2" >
                   Reject
                 </button>
               </td>
             </tr>
             <tr>
-              <td>Abstract Document Submission</td>
+              <td>Abstract Document Verification</td>
               <td>
-                <input type="file" class="" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" 
+                class=""
+                accept=".pdf, .doc, .docx"
+                readOnly={true} />
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" 
+                class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >Reject
+                <button type="button" 
+                className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
             <tr>
-              <td>Base Paper Document Submission</td>
+              <td>Base Paper Document Verification</td>
               <td>
-                <input type="file" class="" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" 
+                class="" 
+                accept=".pdf, .doc, .docx"
+                 readOnly={true} />
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button"
+                 class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >Reject
+                <button type="button"
+                 className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
             <tr>
-              <td>PPT Document Submission</td>
+              <td>PPT Document Verification</td>
               <td>
-                <input type="file" class="" accept=".ppt, .pptx" disabled />
+                <input type="file"
+                 class="" 
+                 accept=".pdf, .doc, .docx"
+                  readOnly={true} />
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button"
+                 class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >Reject
+                <button type="button" 
+                className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>

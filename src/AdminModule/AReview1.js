@@ -15,9 +15,12 @@ function AReview1() {
           </thead>
           <tbody>
             <tr>
-              <td>Abstract Document Submission</td>
+              <td>Abstract Document Verification</td>
               <td>
-              <input type="file" class="formss" accept=".pdf, .doc, .docx" disabled />
+              <input type="file" 
+              class="formss" 
+              accept=".pdf, .doc, .docx" 
+              readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -28,9 +31,12 @@ function AReview1() {
               </td>
             </tr>
             <tr>
-              <td>System Architecture Submission</td>
+              <td>System Architecture Verification</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" 
+                class="formss" 
+                accept=".pdf, .doc, .docx"
+                readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -41,9 +47,12 @@ function AReview1() {
               </td>
             </tr>
             <tr>
-              <td>Module Types Submission</td>
+              <td>Module Types Verification</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" 
+                class="formss" 
+                accept=".pdf, .doc, .docx"
+                readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -54,9 +63,12 @@ function AReview1() {
               </td>
             </tr>
             <tr>
-              <td>Module Techniques Submission</td>
+              <td>Module Techniques Verification</td>
               <td>
-                <input type="file" class="formss" accept=".ppt, .pptx" disabled />
+                <input type="file"
+                 class="formss" 
+                 accept=".pdf, .doc, .docx" 
+                 readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -67,9 +79,12 @@ function AReview1() {
               </td>
             </tr>
             <tr>
-              <td>Literature Survey Submission</td>
+              <td>Literature Survey Verification</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" 
+                class="formss" 
+                accept=".pdf, .doc, .docx" 
+                readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -80,15 +95,19 @@ function AReview1() {
               </td>
             </tr>
             <tr>
-              <td>Expected Outcomes (Screenshot)</td>
+              <td>Expected Outcomes (Screenshot) Verification</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" disabled />
+                <input type="file"
+                 class="formss" 
+                 accept=".pdf, .doc, .docx" 
+                 readOnly={true} />
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button"  class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" > Reject
+                <button type="button" 
+                className="negative btn btn-danger ml-2"> Reject
                 </button>
               </td>
             </tr>
@@ -96,7 +115,9 @@ function AReview1() {
             <tr>
               <td colspan="2"></td>
               <td>
-                <button type="submit" class="btn btn-success" style={{ width: "100%" }}>
+                <button type="submit" 
+                class="btn btn-success" 
+                style={{ width: "100%" }}>
                 Permission Granted
                 </button>
               </td>
