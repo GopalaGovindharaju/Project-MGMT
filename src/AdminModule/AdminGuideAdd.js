@@ -28,7 +28,22 @@ function AdminGuideAdd({setIsOpen}) {
   }
 
   const handleAddGuide = (e) => {
-    e.preventDefault();
+    e.preventDefault();   
+    if (gId === '' || gName === '' || gDesignation === ''){
+      let errormsg = '';
+      if (gId === ''){
+        errormsg += 'Please enter Guide ID!.\n';
+      }
+      if (gName === ''){
+        errormsg += 'Please enter Guide Name!.\n';
+      }
+      if (gDesignation === ''){
+        errormsg += 'Please enter Guide Designation!.\n';
+      }
+      alert(errormsg);
+    }
+    else{
+      setIsOpen(false);
     const data = {
       id: gId,
       name: gName,
@@ -39,10 +54,13 @@ function AdminGuideAdd({setIsOpen}) {
     axios.post('http://127.0.0.1:8000/addGuide/', data)
     .then((response) => {
       console.log(response.data);
+      alert('Guide Added Successfully!');
     })
     .catch((error) => {
       console.log(error);
-    })   
+      alert('Error occurred!');
+    })  
+    }   
   }
 
   return (
@@ -55,21 +73,21 @@ function AdminGuideAdd({setIsOpen}) {
         <div className='g-field'>
           <div className='guide-inp'>
           <label className='label-field'>Guide-ID</label>
-            <input type='text' className='inp-field' value={gId} onChange={handleGId} placeholder='Guide-ID' required/>
+            <input type='text' className='inp-field' value={gId} onChange={handleGId} placeholder='Guide-ID'/>
           </div>
         </div>
         
         <div className='g-field'>
           <div className='guide-inp'>
             <label className='label-field'>Guide-Name</label>
-            <input type='text' className='inp-field' value={gName} onChange={handleGName} placeholder='Guide-Name' required/>
+            <input type='text' className='inp-field' value={gName} onChange={handleGName} placeholder='Guide-Name'/>
           </div>
         </div>
 
         <div className='g-field'>
           <div className='guide-inp'>
             <label className='label-field'>Guide-Designation</label>
-            <input type='text' className='inp-field' value={gDesignation} onChange={handleGDesignation} placeholder='Guide-Designation' required/>
+            <input type='text' className='inp-field' value={gDesignation} onChange={handleGDesignation} placeholder='Guide-Designation'/>
           </div>
         </div>
         
