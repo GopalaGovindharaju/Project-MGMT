@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Review0.css';
+import axios from 'axios';
 
 function Review0() {
+
+  const [fileData, setFileData] = useState([]);
+
+  useEffect(() => {
+    const data = {
+      id: 3,
+    }
+    axios.post('http://127.0.0.1:8000/addStudent/get_review_0_files/',data)
+    .then((response) => {
+      console.log(response.data)
+      setFileData(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  },[])
   
   return (
     <div>
@@ -18,7 +35,7 @@ function Review0() {
             <tr>
               <td>Project Title Verification</td>
               <td>
-                <input type="text" className="form-control reduced-size" readOnly={true} />
+                <input type="text" value={fileData.title} className="form-control reduced-size" readOnly={true} />
               </td>
               <td>
                 <button type="button" className="btn btn-success">
@@ -32,7 +49,7 @@ function Review0() {
             <tr>
               <td>Abstract Document Verification</td>
               <td>
-                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Abstract</a>
+                <a href={fileData.abstract_url} target="_blank" rel="noopener noreferrer">Click here to view Abstract</a>
               </td>
               <td>
                 <button type="button" className="btn btn-success">
@@ -46,7 +63,7 @@ function Review0() {
             <tr>
               <td>Base Paper Document Verification</td>
               <td>
-                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Base Paper Document</a>
+                <a href={fileData.base_paper_url} target="_blank" rel="noopener noreferrer">Click here to view Base Paper Document</a>
               </td>
               <td>
                 <button type="button" className="btn btn-success">
@@ -60,7 +77,7 @@ function Review0() {
             <tr>
               <td>PPT Document Verification</td>
               <td>
-                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view PPT</a>
+                <a href={fileData.ppt_url} target="_blank" rel="noopener noreferrer">Click here to view PPT</a>
               </td>
               <td>
                 <button type="button" className="btn btn-success">

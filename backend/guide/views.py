@@ -32,20 +32,21 @@ def add_student(request):
     else:
         return Response("Student Can't Added")
     
-@api_view(['GET'])
-def get_review_0_files(request, student_id):
-    if request.method == 'GET':
+@api_view(['POST'])
+def get_review_0_files(request):
+    if request.method == 'POST':
         data = request.data
         Id = data.get('id')
         try:
             review0_info = Review_0.objects.get(ID = Id)
+            current_site = request.build_absolute_uri('/')
 
             response_data = {
-                'title': review0_info.Title,
-                'abstract_url': review0_info.Abstract.url if review0_info.Abstract else None,
-                'base_paper_url': review0_info.Base_Paper.url if review0_info.Base_Paper else None,
-                'ppt_url': review0_info.PPT.url if review0_info.PPT else None,
-            }
+            'title': review0_info.Title,
+            'abstract_url': current_site + review0_info.Abstract.url if review0_info.Abstract else None,
+            'base_paper_url': current_site + review0_info.Base_Paper.url if review0_info.Base_Paper else None,
+            'ppt_url': current_site + review0_info.PPT.url if review0_info.PPT else None,
+        }
 
             return Response(response_data, status=status.HTTP_200_OK)
 
