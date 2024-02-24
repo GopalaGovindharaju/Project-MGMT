@@ -9,74 +9,97 @@ function AReview0() {
         <table class="table">
           <thead>
             <tr>
-              <th className='col-3'>TASKS</th>
-              <th  className="table-column">ACTION</th>
-              <th className='col-3'>STATUS</th>
+              <th className="col-3">TASKS</th>
+              <th className="table-column">ACTION</th>
+              <th className="col-3">STATUS</th>
             </tr>
           </thead>
-          <tbody >
+          <tbody>
             <tr>
-              <td>Project Title</td>
+              <td>Project Title Verification</td>
               <td>
-                <input type="text" class="form-control reduced-size" disabled />
+                <input type="text" 
+                class="form-control reduced-size" 
+                readOnly={true} />
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button"
+                 class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >
+                <button type="button" 
+                className="negative btn btn-danger ml-2" >
                   Reject
                 </button>
               </td>
             </tr>
             <tr>
-              <td>Abstract Document Submission</td>
+              <td>Abstract Document Verification</td>
               <td>
-                <input type="file" class="" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" 
+                class=""
+                accept=".pdf, .doc, .docx"
+                readOnly={true} />
+                
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" 
+                class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >Reject
+                <button type="button" 
+                className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
             <tr>
-              <td>Base Paper Document Submission</td>
+              <td>Base Paper Document Verification</td>
               <td>
-                <input type="file" class="" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" 
+                class="" 
+                accept=".pdf, .doc, .docx"
+                 readOnly={true} />
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button"
+                 class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >Reject
+                <button type="button"
+                 className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
             <tr>
-              <td>PPT Document Submission</td>
+              <td>PPT Document Verification</td>
               <td>
-                <input type="file" class="" accept=".ppt, .pptx" disabled />
+                <input type="file"
+                 class="" 
+                 accept=".pdf, .doc, .docx"
+                  readOnly={true} />
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button"
+                 class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >Reject
+                <button type="button" 
+                className="negative btn btn-danger ml-2" >Reject
                 </button>
               </td>
             </tr>
             <tr>
               <td colspan="2"></td>
               <td>
-                <button type="submit" class="btn btn-success" style={{ width: "100%" }}>
-                Permission Granted
+                <button
+                  type="submit"
+                  class="btn btn-success"
+                  style={{ width: "100%" }}
+                >
+                  Permission Granted
                 </button>
               </td>
             </tr>
-            
           </tbody>
         </table>
 
@@ -87,7 +110,7 @@ function AReview0() {
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </div>
-  )
+  );
 }
 
 export default AReview0

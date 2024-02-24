@@ -16,9 +16,12 @@ function AReview3() {
           </thead>
           <tbody>
             <tr>
-              <td>Upload Project Demo (Video)</td>
+              <td>Project Demo (Video) Verification</td>
               <td>
-              <input type="file" class=""accept="video/*" disabled />
+              <input type="file" 
+              class="" 
+              accept="video"
+               readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -29,9 +32,12 @@ function AReview3() {
               </td>
             </tr>
             <tr>
-              <td>Upload Project Screenshots</td>
+              <td>Project Screenshots Verification</td>
               <td>
-                <input type="file" class="" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" 
+                class=""
+                accept=".pdf, .doc, .docx" 
+                readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -42,9 +48,12 @@ function AReview3() {
               </td>
             </tr>
             <tr>
-              <td>Documentation</td>
+              <td>Documentation Verification</td>
               <td>
-                <input type="file" class="" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" 
+                class=""
+                accept=".pdf, .doc, .docx" 
+                readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -55,9 +64,12 @@ function AReview3() {
               </td>
             </tr>
             <tr>
-              <td>PPT Document Submission</td>
+              <td>PPT Document Verification</td>
               <td>
-                <input type="file" class="" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" 
+                class="" 
+                accept=".pdf, .doc, .docx" 
+                readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">

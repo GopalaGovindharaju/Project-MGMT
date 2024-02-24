@@ -1,6 +1,7 @@
 import React from 'react'
 
 function StaffReview1() {
+  
   return (
     <div>
        <div class="container mt-5">
@@ -14,9 +15,9 @@ function StaffReview1() {
           </thead>
           <tbody >
             <tr>
-              <td>Abstract Document Submission</td>
+              <td>Abstract Document Verification</td>
               <td>
-              <input type="file" class="formss" accept=".pdf, .doc, .docx" disabled />
+              <input type="file" class="formss" accept=".pdf, .doc, .docx" readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -28,9 +29,9 @@ function StaffReview1() {
               </td>
             </tr>
             <tr>
-              <td>System Architecture Submission</td>
+              <td>System Architecture Verification</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" class="formss" accept=".pdf, .doc, .docx" readOnly={true}/>
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -42,9 +43,9 @@ function StaffReview1() {
               </td>
             </tr>
             <tr>
-              <td>Module Types Submission</td>
+              <td>Module Types Verification</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" class="formss" accept=".pdf, .doc, .docx" readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -56,9 +57,9 @@ function StaffReview1() {
               </td>
             </tr>
             <tr>
-              <td>Module Techniques Submission</td>
+              <td>Module Techniques Verification</td>
               <td>
-                <input type="file" class="formss" accept=".ppt, .pptx" disabled />
+                <input type="file" class="formss" accept=".pdf, .doc, .docx" readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -70,9 +71,9 @@ function StaffReview1() {
               </td>
             </tr>
             <tr>
-              <td>Literature Survey Submission</td>
+              <td>Literature Survey Verification</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" class="formss" accept=".pdf, .doc, .docx" readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -84,9 +85,9 @@ function StaffReview1() {
               </td>
             </tr>
             <tr>
-              <td>Expected Outcomes (Screenshot)</td>
+              <td>Expected Outcomes Verification</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" class="formss" accept=".pdf, .doc, .docx" readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">

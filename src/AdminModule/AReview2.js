@@ -21,9 +21,12 @@ function AReview2() {
           </thead>
           <tbody>
             <tr>
-              <td >Upload Project Screenshots</td>
+              <td >Project Screenshots Verification</td>
               <td>
-              <input type="file" class="formss" accept=".pdf, .doc, .docx" disabled />
+              <input type="file" 
+              class="formss"
+              accept=".pdf, .doc, .docx"
+              readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -34,9 +37,12 @@ function AReview2() {
               </td>
             </tr>
             <tr>
-              <td>Upload Your Rough Report Of The Project</td>
+              <td>Rough Report Of The Project Verification</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" 
+                class="formss" 
+                accept=".pdf, .doc, .docx" 
+                readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -47,9 +53,12 @@ function AReview2() {
               </td>
             </tr>
             <tr>
-              <td>Upload Your PPT</td>
+              <td>PPT Verification</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" disabled />
+                <input type="file" 
+                class="formss" 
+                accept=".pdf, .doc, .docx" 
+                readOnly={true} />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -60,21 +69,16 @@ function AReview2() {
               </td>
             </tr>
             <tr>
-              <td>Do You Publish Your Project</td>
+              <td>Project Publishing</td>
               <td>
-              <select  className='chitra'       id="yesNoQuestion" value={answer} onChange={handleAnswerChange} required>
+              <select  className='chitra' id="yesNoQuestion" value={answer} onChange={handleAnswerChange} readOnly={true}>
             <option value="">Please select</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
           </select>
               </td>
-              <td>
-                <button type="button" class="btn btn-success">
-                  Approve
-                </button>
-                <button type="button" className="negative btn btn-danger ml-2" >Reject
-                </button>
-              </td>
+              <div>?</div>
+              
             </tr>
             <tr>
               <td colspan="2"></td>
