@@ -49,11 +49,11 @@ function StaffStudentAdd({setIsOpen}) {
 
   return (
     
-      <div className="container covering" style={{position: 'relative '}}>
+      <div className=" covering" style={{position: 'relative '}}>
       <div className="cancel-buttonn" onClick={handleCancel}>X</div>
 
         <center><h3 className="headings">Student Addition</h3></center>
-        <form className="form-container contain">
+        <form className="contain">
           <div className="row">
             <div className="col-md-6">
               <div className="form-group">
@@ -82,7 +82,7 @@ function StaffStudentAdd({setIsOpen}) {
             </div>
           </div>
 
-          <button type="button" className="btn btn-secondary btn-lg submit-button " id='buttonn' onClick={handleUpdate} style={{ width: '30%' }} required>Update Student</button>
+          <button type="button" className="btn btn-secondary btn-lg submit-button " id='buttonn' onClick={handleUpdate} style={{ width: '30%' }}>Update Student</button>
         </form>
       </div>
    

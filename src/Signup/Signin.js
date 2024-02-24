@@ -13,8 +13,14 @@ function Signin() {
   const [selectedRole, setSelectedRole] = useState('');
   const [selectedDepartment,setSelectedDepartment] = useState('');
 
-  const [exPassword, setExPassword] = useState('');
-  const [exUserId, setExUserId] = useState('');
+  const ressetForm = () => {
+    setNewUserId('');
+    setNewUserName('');
+    setNewPassword('');
+    setNewConfirmPassword('');
+    setSelectedRole('');
+    setSelectedDepartment('');
+  }
 
 
   const handleSignupClick = () => {
@@ -23,14 +29,6 @@ function Signin() {
   const handleLoginClick = () => {
     setUserFormsClass('bounceRight');
   }; 
-  const handleExPassword = (event) => {
-    setExPassword(event.target.value);
-  };
-
-  const handleExUserId = (event) => {
-    setExUserId(event.target.value);
-  };
-
   const handleUsernameChange = (event) => {
     setNewUserName(event.target.value);
   }
@@ -69,6 +67,7 @@ function Signin() {
       .then((response) => {
         console.log("Sign uped")
         console.log(response)
+        ressetForm();
       })
       .catch((error) => {
         console.log(error)
@@ -112,10 +111,10 @@ function Signin() {
               <form onSubmit={handleLogin} className="forms_form">
                 <fieldset className="forms_fieldset">
                   <div className="forms_field">
-                    <input type="text" placeholder="User Id" value={exUserId} onChange={handleExUserId} className="forms_field-input" required autoFocus />
+                    <input type="text" placeholder="User Id" value={newUserId} onChange={handleUserIdChange} className="forms_field-input" required autoFocus />
                   </div>
                   <div className="forms_field">
-                    <input type="password" placeholder="Password" value={exPassword} onChange={handleExPassword} className="forms_field-input" required />
+                    <input type="password" placeholder="Password" value={newUserName} onChange={handleUsernameChange} className="forms_field-input" required />
                   </div>
                 </fieldset>
                 <div className="forms_buttons">
