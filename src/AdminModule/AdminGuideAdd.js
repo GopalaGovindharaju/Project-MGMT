@@ -28,7 +28,6 @@ function AdminGuideAdd({setIsOpen}) {
     setIsOpen(false);
   }
 
-  const {userInfo} = useContext(UserInfoContext)
   const handleAddGuide = (e) => {
     e.preventDefault();   
     if (gId === '' || gName === '' || gDesignation === ''){
@@ -50,9 +49,10 @@ function AdminGuideAdd({setIsOpen}) {
       id: gId,
       name: gName,
       designation: gDesignation,
-      department: userInfo.Department,
+      department: 'cse',
       panelmember: gPanelmember
     }
+    console.log(data)
     axios.post('http://127.0.0.1:8000/addGuide/', data)
     .then((response) => {
       console.log(response.data);

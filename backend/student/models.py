@@ -54,7 +54,7 @@ class Review_2(models.Model):
 
 class Review_3(models.Model):
     ID = models.CharField(primary_key = True, unique = True, max_length = 50)
-    Project_Demo = models.FileField(upload_to='review_3_docs/', null = True, blank = True)
+    Project_Demo = models.FileField(upload_to='review_3_docs/video/', null = True, blank = True)
     Project_Screenshot = models.FileField(upload_to='review_3_docs/', null = True, blank = True)
     Report = models.FileField(upload_to='review_3_docs/', null = True, blank = True)
     PPT = models.FileField(upload_to='review_3_docs/', null = True, blank = True)

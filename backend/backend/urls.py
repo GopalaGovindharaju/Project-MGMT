@@ -22,4 +22,5 @@ urlpatterns = [
     path('signup/', include('authentication.urls')),
     path('addGuide/', include('administrator.urls')),
     path('addStudent/', include('guide.urls')),
+    path('reviewupload/', include('student.urls')),
 ]
