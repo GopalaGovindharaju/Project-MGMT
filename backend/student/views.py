@@ -21,7 +21,8 @@ def review_0_upload_files(request):
         if Student_Info.objects.filter(ID = Id).exists():
             student_data = Student_Info.objects.get(ID = Id)
             student_batch = student_data.Batch
-            team_members = Student_Info.objects.get(Batch = student_batch, many = True)
+            team_members = Student_Info.objects.filter(Batch = student_batch)
+            
 
 
         for team_member in team_members:
@@ -56,7 +57,7 @@ def review_1_upload_files(request):
         if Student_Info.objects.filter(ID = Id).exists():
             student_data = Student_Info.objects.get(ID = Id)
             student_batch = student_data.Batch
-            team_members = Student_Info.objects.get(Batch = student_batch, many = True)
+            team_members = Student_Info.objects.filter(Batch = student_batch)
 
         for team_member in team_members:
             review1_info = Review_1(
@@ -94,7 +95,7 @@ def review_2_upload_files(request):
         if Student_Info.objects.filter(ID = Id).exists():
             student_data = Student_Info.objects.get(ID = Id)
             student_batch = student_data.Batch
-            team_members = Student_Info.objects.get(Batch = student_batch, many = True)
+            team_members = Student_Info.objects.filter(Batch = student_batch)
 
         for team_member in team_members:
             review2_info = Review_2(
@@ -128,7 +129,7 @@ def review_3_upload_files(request):
         if Student_Info.objects.filter(ID = Id).exists():
             student_data = Student_Info.objects.get(ID = Id)
             student_batch = student_data.Batch
-            team_members = Student_Info.objects.get(Batch = student_batch, many = True)
+            team_members = Student_Info.objects.filter(Batch = student_batch)
 
         for team_member in team_members:
             review3_info = Review_3(
