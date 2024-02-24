@@ -28,7 +28,22 @@ function AdminGuideAdd({setIsOpen}) {
   }
 
   const handleAddGuide = (e) => {
-    e.preventDefault();
+    e.preventDefault();   
+    if (gId === '' || gName === '' || gDesignation === ''){
+      let errormsg = '';
+      if (gId === ''){
+        errormsg += 'Please enter Guide ID!.\n';
+      }
+      if (gName === ''){
+        errormsg += 'Please enter Guide Name!.\n';
+      }
+      if (gDesignation === ''){
+        errormsg += 'Please enter Guide Designation!.\n';
+      }
+      alert(errormsg);
+    }
+    else{
+      setIsOpen(false);
     const data = {
       id: gId,
       name: gName,
@@ -39,17 +54,20 @@ function AdminGuideAdd({setIsOpen}) {
     axios.post('http://127.0.0.1:8000/addGuide/', data)
     .then((response) => {
       console.log(response.data);
+      alert('Guide Added Successfully!');
     })
     .catch((error) => {
       console.log(error);
-    })   
+      alert('Error occurred!');
+    })  
+    }   
   }
 
   return (
     <div>
       <div className='guide-head'>
         <div className='guide-title'><h4>Add Guide</h4></div>
-        <div className='close-btn'><FontAwesomeIcon onClick={handleCloseBtn} icon={faClose}/></div>
+        <div className='close-btn'><FontAwesomeIcon onClick={handleCloseBtn} required icon={faClose}/></div>
       </div>
       <div className='guide-add-form'>
         <div className='g-field'>
@@ -80,7 +98,6 @@ function AdminGuideAdd({setIsOpen}) {
           </label>
           <input class="form-check-input inp-field" type="checkbox" value={gPanelmember} onChange={handlePannelMember} id="flexCheckDefault"/>
           </div>
-
         </div>
       
       </div>
