@@ -78,7 +78,6 @@ function Review() {
                   name="projectTitle"
                   className="form-control reduced-size"
                   onChange={handleTitleChange}
-                  required
                 />
               </td>
               <td>
@@ -99,7 +98,6 @@ function Review() {
                   className="abform"
                   accept=".pdf, .doc, .docx"
                   onChange={(event) => handleFileChange(event, 'abstract')}
-                  required
                 />
               </td>
               <td>
@@ -120,7 +118,6 @@ function Review() {
                   className="abform"
                   accept=".pdf, .doc, .docx"
                   onChange={(event) => handleFileChange(event, 'basePaper')}
-                  required
                 />
               </td>
               <td>
@@ -141,7 +138,6 @@ function Review() {
                   className="abform"
                   accept=".ppt, .pptx"
                   onChange={(event) => handleFileChange(event, 'ppt')}
-                  required
                 />
               </td>
               <td>
