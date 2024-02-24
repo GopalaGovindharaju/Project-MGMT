@@ -75,6 +75,28 @@ def create_user(request):
                 return Response("You Are Yet To Be Added By Your Guide!")
     else:
         return Response("Can't Sign'Up")
+    
+@api_view(['POST'])
+def verify_user(request):
+    if request.method == 'POST':
+        data = request.data
+
+        Id = data.get('id')
+        Password = data.get('password')
+
+        if SignUp_Table.objects.filter(ID = Id).exists():
+            user_info = SignUp_Table.objects.get(ID = Id)
+            if user_info.check_password(Password):
+                serializer = SignUp_TableSerializer(user_info)
+                return Response(serializer.data)
+            else:
+                return Response("Incorrect Password")
+        else:
+            return Response("User not Exist! Sign Up First")
+    else:
+        return Response("Invalid Request Check Forntend Method")
+
+
 
 
 
