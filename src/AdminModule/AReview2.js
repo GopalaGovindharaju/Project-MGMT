@@ -23,26 +23,22 @@ function AReview2() {
             <tr>
               <td >Project Screenshots Verification</td>
               <td>
-              <input type="file" 
-              class="formss"
-              accept=".pdf, .doc, .docx"
-              readOnly={true} />
+              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View Project Screenshots </a>
+
               </td>
               <td>
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >  Reject
+                <button type="button" className="negative btn btn-danger ml-2" > Reject
                 </button>
               </td>
             </tr>
             <tr>
               <td>Rough Report Of The Project Verification</td>
               <td>
-                <input type="file" 
-                class="formss" 
-                accept=".pdf, .doc, .docx" 
-                readOnly={true} />
+              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View Rough Report </a>
+
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -55,10 +51,8 @@ function AReview2() {
             <tr>
               <td>PPT Verification</td>
               <td>
-                <input type="file" 
-                class="formss" 
-                accept=".pdf, .doc, .docx" 
-                readOnly={true} />
+              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View PPT </a>
+
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -77,7 +71,7 @@ function AReview2() {
             <option value="no">No</option>
           </select>
               </td>
-              <div>?</div>
+              
               
             </tr>
             <tr>

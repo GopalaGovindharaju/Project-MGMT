@@ -13,6 +13,7 @@ function Stud() {
   return (
     <div className="full-width">
       <h2>Student Details</h2>
+      <div className="table-container">
       <table className="custom-table">
         <thead>
           <tr>
@@ -31,6 +32,7 @@ function Stud() {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

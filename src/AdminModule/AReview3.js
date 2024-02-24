@@ -18,10 +18,8 @@ function AReview3() {
             <tr>
               <td>Project Demo (Video) Verification</td>
               <td>
-              <input type="file" 
-              class="" 
-              accept="video"
-               readOnly={true} />
+              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View Project Demo (Video) </a>
+
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -34,10 +32,8 @@ function AReview3() {
             <tr>
               <td>Project Screenshots Verification</td>
               <td>
-                <input type="file" 
-                class=""
-                accept=".pdf, .doc, .docx" 
-                readOnly={true} />
+              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View Project Screenshots </a>
+
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -50,10 +46,8 @@ function AReview3() {
             <tr>
               <td>Documentation Verification</td>
               <td>
-                <input type="file" 
-                class=""
-                accept=".pdf, .doc, .docx" 
-                readOnly={true} />
+              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View Documentation </a>
+
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -66,10 +60,8 @@ function AReview3() {
             <tr>
               <td>PPT Document Verification</td>
               <td>
-                <input type="file" 
-                class="" 
-                accept=".pdf, .doc, .docx" 
-                readOnly={true} />
+              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View PPT Document </a>
+
               </td>
               <td>
                 <button type="button" class="btn btn-success">
