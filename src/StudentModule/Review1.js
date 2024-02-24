@@ -22,8 +22,8 @@ class ReviewForm extends React.Component {
             </thead>
             <tbody>
               <tr>
-                <td><label htmlFor="abstract" className='labletd'>Abstract Document Submission</label></td>
-                <td><input type="file" id="abstract" name="abstract" className="label4" accept=".pdf, .doc, .docx" required /></td>
+                <td><label htmlFor="ppt" className='labletd'>PPT</label></td>
+                <td><input type="file" id="ppt" name="ppt" className="label4" accept=".pdf, .doc, .docx" required /></td>
                 <td><label className='labeltd'>To be confirmed by Guide or HOD</label></td>
               </tr>
               <tr>

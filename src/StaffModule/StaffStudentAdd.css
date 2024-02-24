@@ -17,19 +17,24 @@
     box-sizing: border-box;
 }
 .contain{
-    background-color: #fff;
-  padding: 20px;
+  background-color: #fff;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 0%;
+  height:80%;
+  width:100%;
 }
 .headings{
-font-size: 24px;
+  font-size: 24px;
   color: #333;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 0%;
 }
 .covering{
-    margin-top: 50px;
+    margin-top: 5%;
+    height:100%;
+    width:100%;
 }
 .labelss{
     font-weight: bold;

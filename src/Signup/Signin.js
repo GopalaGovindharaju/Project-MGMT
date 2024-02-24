@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import './signin.css';
 import axios from 'axios';
-import { error } from 'jquery';
-
 
 function Signin() {
   const [userFormsClass, setUserFormsClass] = useState('');
@@ -50,6 +48,18 @@ function Signin() {
 
   const handleLogin = (event) => {
     event.preventDefault();
+    const data = {
+      id: newUserId,
+      password: newPassword
+    }
+    axios.post('http://127.0.0.1:8000/signup/login/', data)
+    .then((response) => {
+      console.log(response.data)
+      ressetForm()
+    })
+    .catch((error) => {
+      console.log(error)
+    })
   }
 
   const handleSignup = (event) => {
@@ -114,7 +124,7 @@ function Signin() {
                     <input type="text" placeholder="User Id" value={newUserId} onChange={handleUserIdChange} className="forms_field-input" required autoFocus />
                   </div>
                   <div className="forms_field">
-                    <input type="password" placeholder="Password" value={newUserName} onChange={handleUsernameChange} className="forms_field-input" required />
+                    <input type="password" placeholder="Password" value={newPassword} onChange={handlePassword} className="forms_field-input" required />
                   </div>
                 </fieldset>
                 <div className="forms_buttons">
@@ -154,7 +164,7 @@ function Signin() {
                      <select className="forms_field-select" value={selectedRole} style={{width:'230px', marginTop:'13px'}} onChange={handleRoleChange} required>
                         <option value="" disabled>Select Role</option>
                         <option value="Admin">Admin</option>
-                        <option value="Staff">Staff</option>
+                        <option value="Guide">Staff</option>
                         <option value="Student">Student</option>
                      </select>
                     </div>

@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './AdminBody.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClose } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
+import UserInfoContext from '../Helper/UsenInfoContext';
 
 function AdminGuideAdd({setIsOpen}) {
   const [gId, setGId ] = useState('');
@@ -27,6 +28,7 @@ function AdminGuideAdd({setIsOpen}) {
     setIsOpen(false);
   }
 
+  const {userInfo} = useContext(UserInfoContext)
   const handleAddGuide = (e) => {
     e.preventDefault();   
     if (gId === '' || gName === '' || gDesignation === ''){
@@ -48,7 +50,7 @@ function AdminGuideAdd({setIsOpen}) {
       id: gId,
       name: gName,
       designation: gDesignation,
-      department: "CSE",
+      department: userInfo.Department,
       panelmember: gPanelmember
     }
     axios.post('http://127.0.0.1:8000/addGuide/', data)

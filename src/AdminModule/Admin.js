@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Chatmsg from '../StudentModule/Chatmsg';
 import Chatmsg1 from '../StudentModule/Chatmsg1';
 import AdminGuideAdd from './AdminGuideAdd';
+import UserInfoContext from '../Helper/UsenInfoContext';
+import { useNavigate } from 'react-router-dom';
 
 function Admin() {
 
@@ -52,37 +54,37 @@ function Admin() {
       Project_Guide:"indu"
     },
     {
-      Lead_RegNo:'23',
+      Lead_RegNo:'24',
       Title: "hello",
       Project_Guide:"indu"
     },
     {
-      Lead_RegNo:'23',
+      Lead_RegNo:'25',
       Title: "hello",
       Project_Guide:"indu"
     },
     {
-      Lead_RegNo:'23',
+      Lead_RegNo:'26',
       Title: "hello",
       Project_Guide:"indu"
     },
     {
-      Lead_RegNo:'23',
+      Lead_RegNo:'27',
       Title: "hello",
       Project_Guide:"indu"
     },
     {
-      Lead_RegNo:'23',
+      Lead_RegNo:'28',
       Title: "hello",
       Project_Guide:"indu"
     },
     {
-      Lead_RegNo:'23',
+      Lead_RegNo:'29',
       Title: "hello",
       Project_Guide:"indu"
     },
     {
-      Lead_RegNo:'23',
+      Lead_RegNo:'20',
       Title: "hello",
       Project_Guide:"indu"
     }
@@ -327,8 +329,8 @@ function Admin() {
             </div>
             <div style={{ marginBottom: "30px" }}>
               <p className="filter-admin-p">Review Shedule</p>
-              <div class="p-2">
-                <input class="form-control" type="file" id="formFile" />
+              <div className="p-2">
+                <input className="form-control" type="file" id="formFile" />
               </div>
             </div>
           </div>
