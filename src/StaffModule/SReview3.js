@@ -17,7 +17,7 @@ function SReview3() {
             <tr>
               <td>Project Demo Verification</td>
               <td>
-              <input type="file" class=""accept="video/*" readOnly={true} />
+                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Project Demo</a>
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -31,7 +31,7 @@ function SReview3() {
             <tr>
               <td>Project Screenshots Verification</td>
               <td>
-                <input type="file" class="" accept=".pdf, .doc, .docx" readOnly={true} />
+                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Project Screenshots</a>
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -45,7 +45,7 @@ function SReview3() {
             <tr>
               <td>Documentation Verification</td>
               <td>
-                <input type="file" class="" accept=".pdf, .doc, .docx" readOnly={true} />
+                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Report Documentation</a>
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -59,7 +59,7 @@ function SReview3() {
             <tr>
               <td>PPT Verification</td>
               <td>
-                <input type="file" class="" accept=".pdf, .doc, .docx" readOnly={true} />
+              <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view PPT</a>
               </td>
               <td>
                 <button type="button" class="btn btn-success">

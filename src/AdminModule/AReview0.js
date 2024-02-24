@@ -36,10 +36,7 @@ function AReview0() {
             <tr>
               <td>Abstract Document Verification</td>
               <td>
-                <input type="file" 
-                class=""
-                accept=".pdf, .doc, .docx"
-                readOnly={true} />
+              <a href={''} target="_blank" rel="noopener noreferrer" >Click Here to View Abstract </a>
                 
               </td>
               <td>
@@ -55,10 +52,8 @@ function AReview0() {
             <tr>
               <td>Base Paper Document Verification</td>
               <td>
-                <input type="file" 
-                class="" 
-                accept=".pdf, .doc, .docx"
-                 readOnly={true} />
+              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View Base Paper Document </a>
+
               </td>
               <td>
                 <button type="button"
@@ -73,10 +68,8 @@ function AReview0() {
             <tr>
               <td>PPT Document Verification</td>
               <td>
-                <input type="file"
-                 class="" 
-                 accept=".pdf, .doc, .docx"
-                  readOnly={true} />
+              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View PPT</a>
+
               </td>
               <td>
                 <button type="button"
