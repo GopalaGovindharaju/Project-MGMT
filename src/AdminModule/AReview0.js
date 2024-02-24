@@ -9,12 +9,12 @@ function AReview0() {
         <table class="table">
           <thead>
             <tr>
-              <th className='col-3'>TASKS</th>
-              <th  className="table-column">ACTION</th>
-              <th className='col-3'>STATUS</th>
+              <th className="col-3">TASKS</th>
+              <th className="table-column">ACTION</th>
+              <th className="col-3">STATUS</th>
             </tr>
           </thead>
-          <tbody >
+          <tbody>
             <tr>
               <td>Project Title</td>
               <td>
@@ -24,7 +24,7 @@ function AReview0() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >
+                <button type="button" className="negative btn btn-danger ml-2">
                   Reject
                 </button>
               </td>
@@ -32,26 +32,38 @@ function AReview0() {
             <tr>
               <td>Abstract Document Submission</td>
               <td>
-                <input type="file" class="" accept=".pdf, .doc, .docx" disabled />
+                <input
+                  type="file"
+                  class=""
+                  accept=".pdf, .doc, .docx"
+                  disabled
+                />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >Reject
+                <button type="button" className="negative btn btn-danger ml-2">
+                  Reject
                 </button>
               </td>
             </tr>
             <tr>
               <td>Base Paper Document Submission</td>
               <td>
-                <input type="file" class="" accept=".pdf, .doc, .docx" disabled />
+                <input
+                  type="file"
+                  class=""
+                  accept=".pdf, .doc, .docx"
+                  disabled
+                />
               </td>
               <td>
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >Reject
+                <button type="button" className="negative btn btn-danger ml-2">
+                  Reject
                 </button>
               </td>
             </tr>
@@ -64,19 +76,23 @@ function AReview0() {
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >Reject
+                <button type="button" className="negative btn btn-danger ml-2">
+                  Reject
                 </button>
               </td>
             </tr>
             <tr>
               <td colspan="2"></td>
               <td>
-                <button type="submit" class="btn btn-success" style={{ width: "100%" }}>
-                Permission Granted
+                <button
+                  type="submit"
+                  class="btn btn-success"
+                  style={{ width: "100%" }}
+                >
+                  Permission Granted
                 </button>
               </td>
             </tr>
-            
           </tbody>
         </table>
 
@@ -87,7 +103,7 @@ function AReview0() {
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </div>
-  )
+  );
 }
 
 export default AReview0
