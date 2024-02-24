@@ -78,7 +78,7 @@ const Review3 = () => {
                     className=""
                     accept="video/*"
                     onChange={(event) => handleFileChange(event, 'project_demo')}
-                    required
+                    
                   />
                 </div>
               </td>
@@ -103,7 +103,6 @@ const Review3 = () => {
                     className=""
                     accept=".pdf, .doc, .docx"
                     onChange={(event) => handleFileChange(event, 'project_screenshot')}
-                    required
                   />
                 </div>
               </td>
@@ -128,7 +127,6 @@ const Review3 = () => {
                     className=""
                     accept=".pdf, .doc, .docx"
                     onChange={(event) => handleFileChange(event, 'report')}
-                    required
                   />
                 </div>
               </td>
@@ -153,7 +151,6 @@ const Review3 = () => {
                     className=""
                     accept=".ppt, .pptx"
                     onChange={(event) => handleFileChange(event, 'ppt')}
-                    required
                   />
                 </div>
               </td>

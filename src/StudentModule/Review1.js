@@ -74,7 +74,6 @@ function Review1() {
                     className="label4"
                     accept=".ppt, .pptx"
                     onChange={(event) => handleFileChange(event, 'ppt')}
-                    required
                   />
                 </td>
                 <td>
@@ -97,7 +96,6 @@ function Review1() {
                     className="label4"
                     accept=".pdf, .doc, .docx"
                     onChange={(event) => handleFileChange(event, 'architecture')}
-                    required
                   />
                 </td>
                 <td>
@@ -120,7 +118,6 @@ function Review1() {
                     className="label4"
                     accept=".pdf, .doc, .docx"
                     onChange={(event) => handleFileChange(event, 'modules')}
-                    required
                   />
                 </td>
                 <td>
@@ -143,7 +140,6 @@ function Review1() {
                     className="label4"
                     accept=".pdf, .doc, .docx"
                     onChange={(event) => handleFileChange(event, 'modules_description')}
-                    required
                   />
                 </td>
                 <td>
@@ -166,7 +162,6 @@ function Review1() {
                     className="label4"
                     accept=".pdf, .doc, .docx"
                     onChange={(event) => handleFileChange(event, 'litrature_survey')}
-                    required
                   />
                 </td>
                 <td>
@@ -189,7 +184,6 @@ function Review1() {
                     className="label4"
                     accept=".pdf, .doc, .docx"
                     onChange={(event) => handleFileChange(event, 'outcome_images')}
-                    required
                   />
                 </td>
                 <td>
