@@ -17,10 +17,8 @@ function AReview1() {
             <tr>
               <td>Abstract Document Verification</td>
               <td>
-              <input type="file" 
-              class="formss" 
-              accept=".pdf, .doc, .docx" 
-              readOnly={true} />
+              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View Abstract Document</a>
+
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -33,10 +31,8 @@ function AReview1() {
             <tr>
               <td>System Architecture Verification</td>
               <td>
-                <input type="file" 
-                class="formss" 
-                accept=".pdf, .doc, .docx"
-                readOnly={true} />
+              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View System Architecture </a>
+
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -49,10 +45,8 @@ function AReview1() {
             <tr>
               <td>Module Types Verification</td>
               <td>
-                <input type="file" 
-                class="formss" 
-                accept=".pdf, .doc, .docx"
-                readOnly={true} />
+              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View Module Types </a>
+
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -65,10 +59,8 @@ function AReview1() {
             <tr>
               <td>Module Techniques Verification</td>
               <td>
-                <input type="file"
-                 class="formss" 
-                 accept=".pdf, .doc, .docx" 
-                 readOnly={true} />
+              <a href={''} target="_blank" rel="noopener noreferrer" > Click Here to View Module Techniques </a>
+
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -81,10 +73,8 @@ function AReview1() {
             <tr>
               <td>Literature Survey Verification</td>
               <td>
-                <input type="file" 
-                class="formss" 
-                accept=".pdf, .doc, .docx" 
-                readOnly={true} />
+              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View Literature Survey </a>
+
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -97,10 +87,8 @@ function AReview1() {
             <tr>
               <td>Expected Outcomes (Screenshot) Verification</td>
               <td>
-                <input type="file"
-                 class="formss" 
-                 accept=".pdf, .doc, .docx" 
-                 readOnly={true} />
+              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View Outcomes (Screenshot) </a>
+
               </td>
               <td>
                 <button type="button"  class="btn btn-success">
