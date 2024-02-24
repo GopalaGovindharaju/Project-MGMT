@@ -7,6 +7,9 @@ from .serializers import SignUp_TableSerializer
 from administrator.models import Guide_Info
 from guide.models import Student_Info
 from student.models import Review_0, Review_1, Review_2, Review_3
+from guide.serializers import Student_InfoSerializer
+from administrator.serializers import Guide_Info_Serializer
+from .serializers import SignUp_TableSerializer
 
 
 @api_view(['POST'])
@@ -87,8 +90,21 @@ def verify_user(request):
         if SignUp_Table.objects.filter(ID = Id).exists():
             user_info = SignUp_Table.objects.get(ID = Id)
             if user_info.check_password(Password):
-                serializer = SignUp_TableSerializer(user_info)
-                return Response(serializer.data)
+                if user_info.Role == 'Student':
+                    student_info = Student_Info.objects.get(ID = Id)
+                    serializer = Student_InfoSerializer(student_info)
+                    additional_data = {'Role': user_info.Role}
+                    response_data = {**serializer.data, **additional_data}
+                    return Response(response_data)
+                elif user_info.Role == 'Guide':
+                    guide_info = Guide_Info.objects.get(ID = Id)
+                    serializer = Guide_Info_Serializer(guide_info)
+                    additional_data = {'Role': user_info.Role}
+                    response_data = {**serializer.data, **additional_data}
+                    return Response(response_data)
+                elif user_info.Role == 'Admin':
+                    serializer = SignUp_TableSerializer(user_info)
+                    return Response(serializer.data)
             else:
                 return Response("Incorrect Password")
         else:
