@@ -17,7 +17,7 @@ function StaffReview1() {
             <tr>
               <td>Abstract Document Verification</td>
               <td>
-              <input type="file" class="formss" accept=".pdf, .doc, .docx" readOnly={true} />
+                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Abstract</a>
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -31,7 +31,7 @@ function StaffReview1() {
             <tr>
               <td>System Architecture Verification</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" readOnly={true}/>
+                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view System Architecture</a>
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -45,7 +45,7 @@ function StaffReview1() {
             <tr>
               <td>Module Types Verification</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" readOnly={true} />
+                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Module Types</a>
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -59,7 +59,7 @@ function StaffReview1() {
             <tr>
               <td>Module Techniques Verification</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" readOnly={true} />
+                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Module Techniques</a>
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -73,7 +73,7 @@ function StaffReview1() {
             <tr>
               <td>Literature Survey Verification</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" readOnly={true} />
+                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Literature Survey</a>
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -87,7 +87,7 @@ function StaffReview1() {
             <tr>
               <td>Expected Outcomes Verification</td>
               <td>
-                <input type="file" class="formss" accept=".pdf, .doc, .docx" readOnly={true} />
+                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Expected Outcomes (40%)</a>
               </td>
               <td>
                 <button type="button" class="btn btn-success">
