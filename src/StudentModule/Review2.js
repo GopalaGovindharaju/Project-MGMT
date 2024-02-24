@@ -88,7 +88,6 @@ function Review2() {
                     className="arrange"
                     accept=".pdf, .doc, .docx"
                     onChange={(event) => handleFileChange(event, 'implementation_80p')}
-                    required
                   />
                 </td>
                 <td>
@@ -109,7 +108,6 @@ function Review2() {
                     className="arrange"
                     accept=".pdf, .doc, .docx"
                     onChange={(event) => handleFileChange(event, 'report_roughcopy')}
-                    required
                   />
                 </td>
                 <td>
@@ -130,7 +128,6 @@ function Review2() {
                     className="arrange"
                     accept=".ppt, .pptx"
                     onChange={(event) => handleFileChange(event, 'ppt')}
-                    required
                   />
                 </td>
                 <td>
@@ -149,7 +146,6 @@ function Review2() {
               id="yesNoQuestion"
               value={publishChoice}
               onChange={handleChoiceChange}
-              required
             >
               <option value="">Please select</option>
               <option value="yes">Yes</option>
