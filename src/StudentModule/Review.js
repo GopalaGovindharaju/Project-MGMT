@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
 function Review() {
+  const [submitEnable, setSubmitEnable] = useState(false)
+  const [fileData, setFileData] = useState([]);
   const [formData, setFormData] = useState({
     projectTitle: '',
     abstract: null,
     basePaper: null,
     ppt: null,
   });
-
-
   const handleTitleChange = (event) => {
     const title = event.target.value;
     setFormData({
@@ -18,6 +18,30 @@ function Review() {
       projectTitle: title,
     });
   };
+
+  useEffect(() => {
+    const data = {
+      id: 3,
+    }
+    axios.post('http://127.0.0.1:8000/addStudent/get_review_0_files/',data)
+    .then((response) => {
+      console.log(response.data)
+      setFileData(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  },[])
+
+  useEffect(() => {
+    for(const key in fileData){
+      if(fileData.hasOwnProperty(key)){
+        if(fileData[key] === null || fileData[key] === ''){
+          setSubmitEnable(true)
+        }
+      }
+    }
+  },[fileData])
 
   const handleFileChange = (event, fieldName) => {
     const file = event.target.files[0];
@@ -146,13 +170,13 @@ function Review() {
             </tr>
             <tr>
               <td>
-                <button
+                {submitEnable && <button
                   type="submit"
                   className="btn btn-success"
                   style={{ width: "35%", marginLeft: "20%" }}
                 >
                   Submit
-                </button>
+                </button>}
               </td>
               <td></td>
               <td>

@@ -1,6 +1,22 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 function SReview3() {
+  const [fileData, setFileData] = useState([]);
+
+  useEffect(() => {
+    const data = {
+      id: 3,
+    }
+    axios.post('http://127.0.0.1:8000/addStudent/get_review_3_files/',data)
+    .then((response) => {
+      console.log(response.data)
+      setFileData(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  },[])
   
   return (
     <div>
@@ -17,7 +33,17 @@ function SReview3() {
             <tr>
               <td>Project Demo Verification</td>
               <td>
-                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Project Demo</a>
+              {fileData.project_demo_video_url ? (
+                  <a
+                    href={fileData.project_demo_video_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view Project Demo
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -31,7 +57,17 @@ function SReview3() {
             <tr>
               <td>Project Screenshots Verification</td>
               <td>
-                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Project Screenshots</a>
+              {fileData.project_screenshot_url ? (
+                  <a
+                    href={fileData.project_screenshot_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view Project Screenshots
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -45,7 +81,17 @@ function SReview3() {
             <tr>
               <td>Documentation Verification</td>
               <td>
-                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Report Documentation</a>
+              {fileData.report_url ? (
+                  <a
+                    href={fileData.report_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view Report Documentation
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
                 <button type="button" class="btn btn-success">
@@ -59,7 +105,17 @@ function SReview3() {
             <tr>
               <td>PPT Verification</td>
               <td>
-              <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view PPT</a>
+              {fileData.ppt_url ? (
+                  <a
+                    href={fileData.ppt_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view PPT
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
                 <button type="button" class="btn btn-success">

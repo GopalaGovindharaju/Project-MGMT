@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../StaffModule/Review0.css';
 import './AdminBody.css';
+import axios from 'axios';
 
 function AReview0() {
+  const [fileData, setFileData] = useState([]);
+
+  useEffect(() => {
+    const data = {
+      id: 3,
+    }
+    axios.post('http://127.0.0.1:8000/addStudent/get_review_0_files/',data)
+    .then((response) => {
+      console.log(response.data)
+      setFileData(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  },[])
   return (
     <div>
       <div class="container mt-5">
@@ -18,17 +34,22 @@ function AReview0() {
             <tr>
               <td>Project Title Verification</td>
               <td>
-                <input type="text" 
-                class="form-control reduced-size" 
-                readOnly={true} />
+                {fileData.title ? (
+                  <input
+                    type="text"
+                    value={fileData.title}
+                    className="form-control reduced-size"
+                    readOnly={true}
+                  />
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
-                <button type="button"
-                 class="btn btn-success">
+                <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" 
-                className="negative btn btn-danger ml-2" >
+                <button type="button" className="negative btn btn-danger ml-2">
                   Reject
                 </button>
               </td>
@@ -36,48 +57,72 @@ function AReview0() {
             <tr>
               <td>Abstract Document Verification</td>
               <td>
-              <a href={''} target="_blank" rel="noopener noreferrer" >Click Here to View Abstract </a>
-                
+                {fileData.abstract_url ? (
+                  <a
+                    href={fileData.abstract_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view Abstract
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
-                <button type="button" 
-                class="btn btn-success">
+                <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" 
-                className="negative btn btn-danger ml-2" >Reject
+                <button type="button" className="negative btn btn-danger ml-2">
+                  Reject
                 </button>
               </td>
             </tr>
             <tr>
               <td>Base Paper Document Verification</td>
               <td>
-              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View Base Paper Document </a>
-
+                {fileData.base_paper_url ? (
+                  <a
+                    href={fileData.base_paper_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view Base Paper Document
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
-                <button type="button"
-                 class="btn btn-success">
+                <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button"
-                 className="negative btn btn-danger ml-2" >Reject
+                <button type="button" className="negative btn btn-danger ml-2">
+                  Reject
                 </button>
               </td>
             </tr>
             <tr>
               <td>PPT Document Verification</td>
               <td>
-              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View PPT</a>
-
+                {fileData.ppt_url ? (
+                  <a
+                    href={fileData.ppt_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view PPT
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
-                <button type="button"
-                 class="btn btn-success">
+                <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" 
-                className="negative btn btn-danger ml-2" >Reject
+                <button type="button" className="negative btn btn-danger ml-2">
+                  Reject
                 </button>
               </td>
             </tr>
@@ -95,7 +140,6 @@ function AReview0() {
             </tr>
           </tbody>
         </table>
-
         <div id="reviewSchedule" style={{ display: "none" }}></div>
       </div>
 

@@ -97,7 +97,7 @@ def get_review_2_files(request):
             'ppt_url': current_site + review2_info.PPT.url if review2_info.PPT else None,
             'rough_report_url': current_site+review2_info.Report_RoughCopy.url if review2_info.Report_RoughCopy else None,
             'project_screenshot_url': current_site + review2_info.Implementation_80P.url if review2_info.Implementation_80P else None,
-           
+            'project_publish_state':review2_info.Project_Publish,
         }
 
             return Response(response_data, status=status.HTTP_200_OK)

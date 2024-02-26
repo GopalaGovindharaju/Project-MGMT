@@ -35,7 +35,16 @@ function Review0() {
             <tr>
               <td>Project Title Verification</td>
               <td>
-                <input type="text" value={fileData.title} className="form-control reduced-size" readOnly={true} />
+              {fileData.title ? (
+                  <input
+                    type="text"
+                    value={fileData.title}
+                    className="form-control reduced-size"
+                    readOnly={true}
+                  />
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
                 <button type="button" className="btn btn-success">
@@ -49,7 +58,17 @@ function Review0() {
             <tr>
               <td>Abstract Document Verification</td>
               <td>
-                <a href={fileData.abstract_url} target="_blank" rel="noopener noreferrer">Click here to view Abstract</a>
+              {fileData.abstract_url ? (
+                  <a
+                    href={fileData.abstract_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view Abstract
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
                 <button type="button" className="btn btn-success">
@@ -63,7 +82,17 @@ function Review0() {
             <tr>
               <td>Base Paper Document Verification</td>
               <td>
-                <a href={fileData.base_paper_url} target="_blank" rel="noopener noreferrer">Click here to view Base Paper Document</a>
+              {fileData.base_paper_url ? (
+                  <a
+                    href={fileData.base_paper_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view Base Paper Document
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
                 <button type="button" className="btn btn-success">
@@ -77,7 +106,17 @@ function Review0() {
             <tr>
               <td>PPT Document Verification</td>
               <td>
-                <a href={fileData.ppt_url} target="_blank" rel="noopener noreferrer">Click here to view PPT</a>
+              {fileData.ppt_url ? (
+                  <a
+                    href={fileData.ppt_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view PPT
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
                 <button type="button" className="btn btn-success">

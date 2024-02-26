@@ -1,43 +1,55 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 function StaffReview1() {
+  const [fileData, setFileData] = useState([]);
+
+  useEffect(() => {
+    const data = {
+      id: 3,
+    }
+    axios.post('http://127.0.0.1:8000/addStudent/get_review_1_files/',data)
+    .then((response) => {
+      console.log(response.data)
+      setFileData(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  },[])
   
   return (
     <div>
-       <div class="container mt-5">
+      <div class="container mt-5">
         <table class="table">
           <thead>
             <tr>
               <th>TASKS</th>
-              <th >ACTION</th>
+              <th>ACTION</th>
               <th>STATUS</th>
             </tr>
           </thead>
-          <tbody >
-            <tr>
-              <td>Abstract Document Verification</td>
-              <td>
-                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Abstract</a>
-              </td>
-              <td>
-                <button type="button" class="btn btn-success">
-                  Approve
-                </button>
-                <button type="button" className="negative btn btn-danger ml-2" >       
-                  Reject
-                </button>
-              </td>
-            </tr>
+          <tbody>
             <tr>
               <td>System Architecture Verification</td>
               <td>
-                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view System Architecture</a>
+                {fileData.system_architecture_url ? (
+                  <a
+                    href={fileData.system_architecture_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view System Architecture
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >    
+                <button type="button" className="negative btn btn-danger ml-2">
                   Reject
                 </button>
               </td>
@@ -45,13 +57,23 @@ function StaffReview1() {
             <tr>
               <td>Module Types Verification</td>
               <td>
-                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Module Types</a>
+                {fileData.module_types_url ? (
+                  <a
+                    href={fileData.module_types_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view Module Types
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" > 
+                <button type="button" className="negative btn btn-danger ml-2">
                   Reject
                 </button>
               </td>
@@ -59,13 +81,23 @@ function StaffReview1() {
             <tr>
               <td>Module Techniques Verification</td>
               <td>
-                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Module Techniques</a>
+                {fileData.module_techniques_url ? (
+                  <a
+                    href={fileData.module_techniques_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view Module Techniques
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" > 
+                <button type="button" className="negative btn btn-danger ml-2">
                   Reject
                 </button>
               </td>
@@ -73,13 +105,23 @@ function StaffReview1() {
             <tr>
               <td>Literature Survey Verification</td>
               <td>
-                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Literature Survey</a>
+                {fileData.literature_survey_url ? (
+                  <a
+                    href={fileData.literature_survey_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view Literature Survey
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" > 
+                <button type="button" className="negative btn btn-danger ml-2">
                   Reject
                 </button>
               </td>
@@ -87,27 +129,63 @@ function StaffReview1() {
             <tr>
               <td>Expected Outcomes Verification</td>
               <td>
-                <a href={"https://drive.google.com/file/d/1jFIBn5Z82vwFHINrc27nLlSOIJwkV2qp/view?usp=drive_link"} target="_blank" rel="noopener noreferrer">Click here to view Expected Outcomes (40%)</a>
+                {fileData.expected_outcome_url ? (
+                  <a
+                    href={fileData.expected_outcome_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view Expected Outcomes (40%)
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >
+                <button type="button" className="negative btn btn-danger ml-2">
                   Reject
                 </button>
               </td>
             </tr>
-     
             <tr>
-              <td colspan="2"></td>
+              <td>PPt Document Verification</td>
               <td>
-                <button type="submit" class="btn btn-success" style={{ width: "100%" }}>
-                Forward To HOD
+                {fileData.ppt_url ? (
+                  <a
+                    href={fileData.ppt_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view PPT Document
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
+              </td>
+              <td>
+                <button type="button" class="btn btn-success">
+                  Approve
+                </button>
+                <button type="button" className="negative btn btn-danger ml-2">
+                  Reject
                 </button>
               </td>
             </tr>
-           
+            <tr>
+              <td colspan="2"></td>
+              <td>
+                <button
+                  type="submit"
+                  class="btn btn-success"
+                  style={{ width: "100%" }}
+                >
+                  Forward To HOD
+                </button>
+              </td>
+            </tr>
           </tbody>
         </table>
 
@@ -117,7 +195,7 @@ function StaffReview1() {
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </div>
-  )
+  );
 }
 
 export default StaffReview1

@@ -1,13 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './AdminBody.css';
+import axios from 'axios';
 
 
 function AReview2() {
-    const [answer, setAnswer] = useState('');
-  
-    const handleAnswerChange = (event) => {
-      setAnswer(event.target.value);
-    };
+  const [fileData, setFileData] = useState([]);
+
+  useEffect(() => {
+    const data = {
+      id: 3,
+    }
+    axios.post('http://127.0.0.1:8000/addStudent/get_review_2_files/',data)
+    .then((response) => {
+      console.log(response.data)
+      setFileData(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  },[])
   return (
     <div>
       <div class="container mt-5">
@@ -21,68 +32,95 @@ function AReview2() {
           </thead>
           <tbody>
             <tr>
-              <td >Project Screenshots Verification</td>
+              <td>Project Screenshots Verification</td>
               <td>
-              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View Project Screenshots </a>
-
+                {fileData.project_screenshot_url ? (
+                  <a
+                    href={fileData.project_screenshot_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view Project Screenshots
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" > Reject
+                <button type="button" className="negative btn btn-danger ml-2">
+                  Reject
                 </button>
               </td>
             </tr>
             <tr>
               <td>Rough Report Of The Project Verification</td>
               <td>
-              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View Rough Report </a>
-
+                {fileData.rough_report_url ? (
+                  <a
+                    href={fileData.rough_report_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view Rough Report
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >Reject
+                <button type="button" className="negative btn btn-danger ml-2">
+                  Reject
                 </button>
               </td>
             </tr>
             <tr>
               <td>PPT Verification</td>
               <td>
-              <a href={''} target="_blank" rel="noopener noreferrer"> Click Here to View PPT </a>
-
+                {fileData.ppt_url ? (
+                  <a
+                    href={fileData.ppt_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view PPT
+                  </a>
+                ) : (
+                  <td>Yet To Be Upload</td>
+                )}
               </td>
               <td>
                 <button type="button" class="btn btn-success">
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >Reject
+                <button type="button" className="negative btn btn-danger ml-2">
+                  Reject
                 </button>
               </td>
             </tr>
             <tr>
-              <td>Project Publishing</td>
+              <td>Publishing Paper?</td>
               <td>
-              <select  className='chitra' id="yesNoQuestion" value={answer} onChange={handleAnswerChange} readOnly={true}>
-            <option value="">Please select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
+                {fileData.project_publish_state ? <td>Yes</td> : <td>No</td>}
               </td>
-              
-              
             </tr>
             <tr>
               <td colspan="2"></td>
               <td>
-                <button type="submit" class="btn btn-success" style={{ width: "100%" }}>
-                Permission Granted
-              </button>
+                <button
+                  type="submit"
+                  class="btn btn-success"
+                  style={{ width: "100%" }}
+                >
+                  Permission Granted
+                </button>
               </td>
             </tr>
-      
           </tbody>
         </table>
 
@@ -93,7 +131,7 @@ function AReview2() {
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </div>
-  )
+  );
 }
 
 export default AReview2
