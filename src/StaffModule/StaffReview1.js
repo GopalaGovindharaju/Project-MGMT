@@ -11,7 +11,7 @@ function StaffReview1() {
   const [allrowsApproved,setAllrowsApproved] = useState(false);
   const [fileData, setFileData] = useState([]);
   const [approveAll, setApproveAll] = useState('');
-
+  const[initialAxiosPreventer,setInitialAxiosPreventer]=useState(true)
 
   useEffect(() => {
     const data = {
@@ -21,6 +21,16 @@ function StaffReview1() {
     .then((response) => {
       console.log(response.data)
       setFileData(response.data)
+      setApproveSysArchitecture(response.data.system_architecture_status ? 'approve ' : 'reject')
+      setApproveModTypes(response.data.modules_status ? 'approve':'reject')
+      setApproveModTech(response.data.modules_description_status ? 'approve ' : 'reject')
+      setApproveLiteratureSurvey(response.data.literature_survey_status ? 'approve ' : 'reject')
+      setApproveOutcome(response.data.expected_outcome_status ? 'approve ' : 'reject')
+      setApprovePpt(response.data.ppt_status ? 'approve ' : 'reject')
+
+
+
+
     })
     .catch((error) => {
       console.log(error)
@@ -30,21 +40,27 @@ function StaffReview1() {
   const handleApprove = (status) => {
     if (status === 'sysarchitecture_status'){
       setApproveSysArchitecture('approve');
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'moduletypes_status'){
       setApproveModTypes('approve');
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'moduletech_status'){
       setApproveModTech('approve');
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'literature_status'){
       setApproveLiteratureSurvey('approve');
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'outcome_status'){
-      setApproveOutcome('approve')
+      setApproveOutcome('approve');
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'ppt_status'){
-      setApprovePpt('approve')
+      setApprovePpt('approve');
+      setInitialAxiosPreventer(false);
     }
   }
 
@@ -60,33 +76,49 @@ function StaffReview1() {
       'all_status': approveAll,
 
     }
-    axios.post('http://127.0.0.1:8000/reviewupload/status1/' ,data)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
+    if(initialAxiosPreventer){
+
+
+
+    }
+    else{
+      axios.post('http://127.0.0.1:8000/reviewupload/status1/' ,data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+
+
+    }
+    
   },[approveSysArchitecture, approveModTypes, approveModTech, approveLiteratureSurvey, approveOutcome, approvePpt,approveAll])
 
   const handleReject = (status) => {
     if (status === 'sysarchitecture_status'){
       setApproveSysArchitecture('Reject');
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'moduletypes_status'){
       setApproveModTypes('Reject');
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'moduletech_status'){
       setApproveModTech('Reject');
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'literature_status'){
       setApproveLiteratureSurvey('Reject');
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'outcome_status'){
       setApproveOutcome('Reject')
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'ppt_status'){
       setApprovePpt('Reject')
+      setInitialAxiosPreventer(false);
     }
   }
 
@@ -101,6 +133,7 @@ function StaffReview1() {
   const handleForward = (e) => {
     e.preventDefault();
     setApproveAll('approve');
+    setInitialAxiosPreventer(false);
   }
 
   return (
@@ -131,10 +164,10 @@ function StaffReview1() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success" onClick={() => handleApprove('sysarchitecture_status')}>
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('sysarchitecture_status')} disabled={approveSysArchitecture==='approve' ? true : false}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('sysarchitecture_status')}>
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('sysarchitecture_status')} disabled={approveSysArchitecture==='reject' ? true : false}>
                   Reject
                 </button>
               </td>
@@ -155,10 +188,10 @@ function StaffReview1() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success" onClick={() => handleApprove('moduletypes_status')}>
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('moduletypes_status')} disabled={approveModTypes ==='approve' ? true : false}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('moduletypes_status')}>
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('moduletypes_status')} disabled={approveModTypes ==='reject' ? true : false}>
                   Reject
                 </button>
               </td>
@@ -179,10 +212,10 @@ function StaffReview1() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success" onClick={() => handleApprove('moduletech_status')}>
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('moduletech_status')} disabled={approveModTech ==='approve' ? true : false}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('moduletech_status')} >
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('moduletech_status')} disabled={approveModTech ==='reject' ? true : false}>
                   Reject
                 </button>
               </td>
@@ -203,10 +236,10 @@ function StaffReview1() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success" onClick={() => handleApprove('literature_status')}>
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('literature_status')} disabled={approveLiteratureSurvey ==='approve' ? true : false}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('literature_status')}>
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('literature_status')} disabled={approveLiteratureSurvey ==='reject' ? true : false}>
                   Reject
                 </button>
               </td>
@@ -227,10 +260,10 @@ function StaffReview1() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success" onClick={() => handleApprove('outcome_status')}>
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('outcome_status')} disabled={approveOutcome ==='approve' ? true : false}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('outcome_status')}>
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('outcome_status')} disabled={approveOutcome ==='reject' ? true : false}>
                   Reject
                 </button>
               </td>
@@ -251,10 +284,10 @@ function StaffReview1() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success" onClick={() => handleApprove('ppt_status')}>
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('ppt_status')} disabled={approvePpt ==='approve' ? true : false}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('ppt_status')}>
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('ppt_status')} disabled={approvePpt ==='reject' ? true : false}>
                   Reject
                 </button>
               </td>
@@ -269,6 +302,7 @@ function StaffReview1() {
                   class="btn btn-success"
                   style={{ width: "100%" }}
                   onClick={handleForward}
+
                 >
                   Forward To HOD
                 </button>
