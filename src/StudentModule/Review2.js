@@ -132,7 +132,7 @@ function Review2() {
                     rel="noopener noreferrer"
                   >
                     Click here to view Project Screenshots
-                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('implementation_80p')}>Re-Upload</button> </> : <input
+                  </a> <button className="btn btn-success" style={{ width: "20%", marginRight:'5%' }} onClick={() => handleEdit('implementation_80p')}>Re-Upload</button> </> : <input
                     type="file"
                     id="abstract"
                     name="abstract"
@@ -158,7 +158,7 @@ function Review2() {
                     rel="noopener noreferrer"
                   >
                     Click here to view Rough Report
-                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('report_roughcopy')}>Re-Upload</button> </> : <input
+                  </a> <button className="btn btn-success" style={{ width: "20%", marginRight:'5%' }} onClick={() => handleEdit('report_roughcopy')}>Re-Upload</button> </> : <input
                     type="file"
                     id="basePaper"
                     name="basePaper"
@@ -184,7 +184,7 @@ function Review2() {
                     rel="noopener noreferrer"
                   >
                     Click here to view PPT
-                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('ppt')}>Re-Upload</button> </> : <input
+                  </a> <button className="btn btn-success" style={{ width: "20%", marginRight:'5%' }} onClick={() => handleEdit('ppt')}>Re-Upload</button> </> : <input
                     type="file"
                     id="ppt"
                     name="ppt"

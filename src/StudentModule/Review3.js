@@ -114,7 +114,7 @@ const Review3 = () => {
                   </label>
                 </div>
               </td>
-              <td>
+              <td style={{display:'flex', justifyContent:'space-between'}}>
                 <div className="form-group">
                   {formData.project_demo ? <> <a
                     href={formData.project_demo}
@@ -122,7 +122,7 @@ const Review3 = () => {
                     rel="noopener noreferrer"
                   >
                     Click here to view Project Demo
-                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('project_demo')}>Re-Upload</button> </> : <input
+                  </a> <button className="btn btn-success" style={{ width: "20%", marginRight:'5%' }} onClick={() => handleEdit('project_demo')}>Re-Upload</button> </> : <input
                     type="file"
                     id="video"
                     name="video"
@@ -144,7 +144,7 @@ const Review3 = () => {
                   </label>
                 </div>
               </td>
-              <td>
+              <td style={{display:'flex',justifyContent:'space-between'}}>
                 <div className="form-group">
                   {formData.project_screenshot ? <> <a
                     href={formData.project_screenshot}
@@ -152,7 +152,7 @@ const Review3 = () => {
                     rel="noopener noreferrer"
                   >
                     Click here to view Project Screenshot
-                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('project_screenshot')}>Re-Upload</button> </> : <input
+                  </a> <button className="btn btn-success" style={{ width: "20%", marginRight:'5%' }} onClick={() => handleEdit('project_screenshot')}>Re-Upload</button> </> : <input
                     type="file"
                     id="screenshots"
                     name="screenshots[]"
@@ -174,7 +174,7 @@ const Review3 = () => {
                   </label>
                 </div>
               </td>
-              <td>
+              <td style={{display:'flex',justifyContent:'space-between'}}>
                 <div className="form-group">
                   {formData.report ? <> <a
                     href={formData.report}
@@ -182,7 +182,7 @@ const Review3 = () => {
                     rel="noopener noreferrer"
                   >
                     Click here to view Project Report
-                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('report')}>Re-Upload</button> </> : <input
+                  </a> <button className="btn btn-success" style={{ width: "20%", marginRight:'5%' }} onClick={() => handleEdit('report')}>Re-Upload</button> </> : <input
                     type="file"
                     id="documentation"
                     name="documentation"
@@ -204,7 +204,7 @@ const Review3 = () => {
                   </label>
                 </div>
               </td>
-              <td>
+              <td style={{display:'flex',justifyContent:'space-between'}}>
                 <div className="form-group">
                   {formData.ppt ? <> <a
                     href={formData.ppt}
@@ -212,7 +212,7 @@ const Review3 = () => {
                     rel="noopener noreferrer"
                   >
                     Click here to view PPT
-                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('ppt')}>Re-Upload</button> </> : <input
+                  </a> <button className="btn btn-success" style={{ width: "20%", marginRight:'5%' }} onClick={() => handleEdit('ppt')}>Re-Upload</button> </> : <input
                     type="file"
                     id="ppt"
                     name="ppt"
