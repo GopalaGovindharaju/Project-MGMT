@@ -114,8 +114,8 @@ const Review3 = () => {
                   </label>
                 </div>
               </td>
-              <td style={{display:'flex', justifyContent:'space-between'}}>
-                <div className="form-group">
+              <td>
+                <div className="form-group" style={{display:'flex', justifyContent:'space-between'}}>
                   {formData.project_demo ? <> <a
                     href={formData.project_demo}
                     target="_blank"
@@ -144,8 +144,8 @@ const Review3 = () => {
                   </label>
                 </div>
               </td>
-              <td style={{display:'flex',justifyContent:'space-between'}}>
-                <div className="form-group">
+              <td>
+                <div className="form-group" style={{display:'flex', justifyContent:'space-between'}}>
                   {formData.project_screenshot ? <> <a
                     href={formData.project_screenshot}
                     target="_blank"
@@ -174,8 +174,8 @@ const Review3 = () => {
                   </label>
                 </div>
               </td>
-              <td style={{display:'flex',justifyContent:'space-between'}}>
-                <div className="form-group">
+              <td>
+                <div className="form-group" style={{display:'flex', justifyContent:'space-between'}}>
                   {formData.report ? <> <a
                     href={formData.report}
                     target="_blank"
@@ -204,8 +204,8 @@ const Review3 = () => {
                   </label>
                 </div>
               </td>
-              <td style={{display:'flex',justifyContent:'space-between'}}>
-                <div className="form-group">
+              <td>
+                <div className="form-group" style={{display:'flex', justifyContent:'space-between'}}>
                   {formData.ppt ? <> <a
                     href={formData.ppt}
                     target="_blank"
@@ -219,8 +219,7 @@ const Review3 = () => {
                     className=""
                     accept=".ppt, .pptx"
                     onChange={(event) => handleFileChange(event, 'ppt')}
-                  />}
-                  
+                  />}    
                 </div>
               </td>
               <td>
