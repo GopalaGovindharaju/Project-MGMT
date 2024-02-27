@@ -2,13 +2,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
 function StaffReview1() {
-  const [approveSysArchitecture, setApproveSysArchitecture] = 'reject';
-  const [approveModTypes, setApproveModTypes] = 'reject';
-  const [approveModTech, setApproveModTech] = 'reject';
-  const [approveLiteratureSurvey, setApproveLiteratureSurvey] = 'reject';
-  const [approveOutcome, setApproveOutcome] = 'reject';
-  const [approvePpt, setApprovePpt] = 'reject';
-  const [allrowsApproved,setAllrowsApproved] = 'false';
+  const [approveSysArchitecture, setApproveSysArchitecture] = useState('reject');
+  const [approveModTypes, setApproveModTypes] = useState('reject');;
+  const [approveModTech, setApproveModTech] = useState('reject');;
+  const [approveLiteratureSurvey, setApproveLiteratureSurvey] = useState('reject');;
+  const [approveOutcome, setApproveOutcome] = useState('reject');;
+  const [approvePpt, setApprovePpt] = useState('reject');
+  const [allrowsApproved,setAllrowsApproved] = useState(false);
   const [fileData, setFileData] = useState([]);
 
   useEffect(() => {
@@ -86,11 +86,10 @@ function StaffReview1() {
   useEffect( () => {
     if (approveSysArchitecture === 'approve' && approveModTypes === 'approve' && approveModTech === 'approve' && approveLiteratureSurvey === 'approve' && approveOutcome === 'approve' && approvePpt === 'approve'){
       setAllrowsApproved(true);
-    }
-    else{
+    }else{
       setAllrowsApproved(false);
     }
-  })
+  },[approveSysArchitecture, approveModTypes, approveModTech, approveLiteratureSurvey, approveOutcome, approvePpt]);
   
   return (
     <div>

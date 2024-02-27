@@ -3,6 +3,11 @@ import React, { useEffect, useState } from 'react'
 
 function SReview3() {
   const [fileData, setFileData] = useState([]);
+  const [approveScreenshot, setApproveScreenshot] = useState('reject');
+  const [approveDemo, setApproveDemo] = useState('reject');
+  const [approveDocumentation, setApproveDocumentation] = useState('reject');
+  const [approvePpt, setApprovePpt] = useState('reject');
+  const [allrowsApproved, setAllrowsApproved] = useState(false);
 
   useEffect(() => {
     const data = {
@@ -17,6 +22,59 @@ function SReview3() {
       console.log(error)
     })
   },[])
+
+  const handleApprove = (status) => {
+    if (status === 'demo_status'){
+      setApproveDemo('accept');
+    }
+    else if (status === 'screenshot_status'){
+      setApproveScreenshot('accept');
+    }
+    else if (status === 'documentation_status'){
+      setApproveDocumentation('accept')
+    }
+    else if (status === 'ppt_status'){
+      setApprovePpt('accept')
+    }
+    const data = {
+      'id':3,
+      'demo_status' : approveDemo,
+      'screenshot_status' : approveScreenshot,
+      'documentation_status' : approveDocumentation,
+      'ppt_status' : approvePpt,
+    }
+    axios.post( '',data)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
+
+  const handleReject = (status) => {
+    if (status === 'demo_status'){
+      setApproveDemo('reject');
+    }
+    else if (status === 'screenshot_status'){
+      setApproveScreenshot('reject');
+    }
+    else if (status === 'documentation_status'){
+      setApproveDocumentation('reject')
+    }
+    else if (status === 'ppt_status'){
+      setApprovePpt('reject')
+    }
+  }
+
+  useEffect (() => {
+    if (approveDemo === 'accept' && approveScreenshot === 'accept' && approveDocumentation === 'accept' && approvePpt === 'accept'){
+      setAllrowsApproved(true);
+    }
+    else{
+      setAllrowsApproved(false);
+    }
+  },[approveDemo, approveScreenshot, approveDocumentation, approvePpt]);
   
   return (
     <div>
@@ -46,10 +104,10 @@ function SReview3() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('demo_status')}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('demo_status')}>
                   Reject
                 </button>
               </td>
@@ -70,10 +128,10 @@ function SReview3() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('screenshot_status')}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('screenshot_status')}>
                   Reject
                 </button>
               </td>
@@ -94,10 +152,10 @@ function SReview3() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('documentation_status')}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" > 
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('documentation_status')}> 
                   Reject
                 </button>
               </td>
@@ -118,15 +176,17 @@ function SReview3() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('ppt_status')}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >  
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('ppt_status')}>  
                   Reject
                 </button>
               </td>
             </tr>
-            <tr>
+            
+            {allrowsApproved && (
+              <tr>
               <td colspan="2"></td>
               <td>
                 <button type="submit" class="btn btn-success" style={{ width: "100%" }}>
@@ -134,7 +194,8 @@ function SReview3() {
                 </button>
               </td>
             </tr>
-      
+            )}
+            
           </tbody>
         </table>
 
