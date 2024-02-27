@@ -3,10 +3,10 @@ import './Review0.css';
 import axios from 'axios';
 
 function Review0() {
-  const [approveTitle, setApproveTitle] = useState('reject')
-  const [approveAbstract, setApproveAbstract] = useState('reject');
-  const [approveBasepaper, setApproveBasepaper] = useState('reject');
-  const [approvePPT, setApprovePPT] = useState('reject');
+  const [approveTitle, setApproveTitle] = useState('')
+  const [approveAbstract, setApproveAbstract] = useState('');
+  const [approveBasepaper, setApproveBasepaper] = useState('');
+  const [approvePPT, setApprovePPT] = useState('');
   const [allrowsApproved, setAllrowsApproved] = useState(false);
   const [fileData, setFileData] = useState([]);
 
@@ -24,6 +24,24 @@ function Review0() {
     })
   },[])
 
+  useEffect(() => {
+    const data = {
+      'id':3,
+      'title_status' : approveTitle,
+      'abstract_status' : approveAbstract,
+      'basepaper_status' : approveBasepaper,
+      'ppt_status' : approvePPT,
+    }
+    console.log(data)
+    axios.post( 'http://127.0.0.1:8000/reviewupload/status/',data)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }, [approveTitle, approveAbstract, approveBasepaper, approvePPT])
+
   const handleApprove = (status) => {
     if (status === 'title_status'){
       setApproveTitle('approve')
@@ -37,21 +55,6 @@ function Review0() {
     else if(status === 'ppt_status'){
       setApprovePPT('approve')
     }
-
-    const data = {
-      'id':3,
-      'title_status' : approveTitle,
-      'abstract_status' : approveAbstract,
-      'basepaper_status' : approveBasepaper,
-      'ppt_status' : approvePPT,
-    }
-    axios.post( 'http://127.0.0.1:8000/reviewupload/status/',data)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
   } 
   
   const handleReject = (status) => {

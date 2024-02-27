@@ -100,11 +100,11 @@ function Review() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <table style={{ margin: "20px" }}>
+        <table style={{ margin: "20px", height:'50vh' }}>
           <thead>
             <tr>
-              <th className="text-center">TASKS</th>
-              <th className="text-center">ACTION</th>
+              <th className="text-center col-3">TASKS</th>
+              <th className="text-center col-6 m-6">ACTION</th>
               <th className="text-center">STATUS </th>
             </tr>
           </thead>
