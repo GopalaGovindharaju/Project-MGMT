@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Review0.css';
-import axios, { all } from 'axios';
+import axios from 'axios';
 
 
 function SReview2() {
