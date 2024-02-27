@@ -125,7 +125,7 @@ function Review2() {
                     Upload Project Screenshots
                   </label>
                 </td>
-                <td>
+                <td style={{display:'flex',justifyContent:'space-between'}}>
                   {formData.implementation_80p ? <> <a
                     href={formData.implementation_80p}
                     target="_blank"
@@ -151,7 +151,7 @@ function Review2() {
                     Upload Your Rough Report Of The Project
                   </label>
                 </td>
-                <td>
+                <td style={{display:'flex',justifyContent:'space-between'}}>
                   {formData.report_roughcopy ? <> <a
                     href={formData.report_roughcopy}
                     target="_blank"
@@ -177,7 +177,7 @@ function Review2() {
                     Upload Your PPT
                   </label>
                 </td>
-                <td>
+                <td style={{display:'flex',justifyContent:'space-between'}}>
                   {formData.ppt ? <> <a
                     href={formData.ppt}
                     target="_blank"
