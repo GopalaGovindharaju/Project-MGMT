@@ -49,6 +49,10 @@ def get_review_0_files(request):
             'abstract_url': current_site + review0_info.Abstract.url if review0_info.Abstract else None,
             'base_paper_url': current_site + review0_info.Base_Paper.url if review0_info.Base_Paper else None,
             'ppt_url': current_site + review0_info.PPT.url if review0_info.PPT else None,
+            'title_status': review0_info.Title_Status,
+            'abstract_status': review0_info.Abstract_Status,
+            'base_paper_status': review0_info.Base_Paper_Status,
+            'ppt_status': review0_info.PPt_Status,
         }
 
             return Response(response_data, status=status.HTTP_200_OK)

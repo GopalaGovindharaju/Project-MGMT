@@ -7,6 +7,7 @@ function Review0() {
   const [approveAbstract, setApproveAbstract] = useState('');
   const [approveBasepaper, setApproveBasepaper] = useState('');
   const [approvePPT, setApprovePPT] = useState('');
+  const [approveAll, setApproveAll] = useState('');
   const [allrowsApproved, setAllrowsApproved] = useState(false);
   const [fileData, setFileData] = useState([]);
 
@@ -31,6 +32,7 @@ function Review0() {
       'abstract_status' : approveAbstract,
       'basepaper_status' : approveBasepaper,
       'ppt_status' : approvePPT,
+      'all_status': approveAll,
     }
     console.log(data)
     axios.post( 'http://127.0.0.1:8000/reviewupload/status/',data)
@@ -40,7 +42,7 @@ function Review0() {
     .catch((error) => {
       console.log(error);
     })
-  }, [approveTitle, approveAbstract, approveBasepaper, approvePPT])
+  }, [approveTitle, approveAbstract, approveBasepaper, approvePPT, approveAll])
 
   const handleApprove = (status) => {
     if (status === 'title_status'){
@@ -70,20 +72,6 @@ function Review0() {
     else if(status === 'ppt_status'){
       setApprovePPT('reject')
     }
-    const data = {
-      'id':3,
-      'title_status' : approveTitle,
-      'abstract_status' : approveAbstract,
-      'basepaper_status' : approveBasepaper,
-      'ppt_status' : approvePPT,
-    }
-    axios.post( 'http://127.0.0.1:8000/reviewupload/status/',data)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
   }
 
   useEffect(() => {
@@ -93,6 +81,11 @@ function Review0() {
       setAllrowsApproved(false);
     }
   }, [approveTitle, approveAbstract, approveBasepaper, approvePPT]);
+
+  const handleForward = (e) => {
+    e.preventDefault();
+    setApproveAll('approve');
+  }
 
   
   return (
@@ -206,7 +199,7 @@ function Review0() {
               <tr>
               <td colSpan="2"></td>
               <td>
-                <button type="submit" className="btn btn-success" style={{ width: "100%" }}> 
+                <button type="submit" className="btn btn-success" style={{ width: "100%" }} onClick={handleForward}> 
                   Forward To HOD
                 </button>
               </td>
