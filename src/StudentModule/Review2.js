@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Review2.css';
 import axios from 'axios';
 
@@ -6,20 +6,56 @@ function Review2() {
 
   const [publishChoice, setPublishChoice] = useState('')
   const [answer, setAnswer] = useState(false);
-
-  const handleChoiceChange = (event) => {
-    const bool = event.target.value;
-    setPublishChoice(bool);
-    setAnswer(bool === 'yes');
-  };
-
+  const [submitEnable, setSubmitEnable] = useState(false)
+  const [fileData, setFileData] = useState([]);
   const [formData, setFormData] = useState({
     implementation_80p: null,
     report_roughcopy: null,
     ppt: null,
   });
 
+  const handleChoiceChange = (event) => {
+    setSubmitEnable(true)
+    const bool = event.target.value;
+    setPublishChoice(bool);
+    setAnswer(bool === 'yes');
+  };
+
+  useEffect(() => {
+    const data = {
+      id: 3,
+    }
+    axios.post('http://127.0.0.1:8000/addStudent/get_review_2_files/',data)
+    .then((response) => {
+      console.log(response.data)
+      setFileData(response.data)
+      setPublishChoice(response.data.project_publish_state ? 'yes' : 'no')
+      setAnswer(response.data.project_publish_state ? 'yes' : 'no')
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        implementation_80p: response.data.project_screenshot_url || '',
+        report_roughcopy: response.data.rough_report_url || '',
+        ppt: response.data.ppt_url || '',
+      }));
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  },[])
+
+  useEffect(() => {
+    for(const key in fileData){
+      if(fileData.hasOwnProperty(key)){
+        if(fileData[key] === null || fileData[key] === ''){
+          setSubmitEnable(true)
+        }
+      }
+    }
+    
+  },[fileData])
+
   const handleFileChange = (event, fieldName) => {
+    setSubmitEnable(true)
     const file = event.target.files[0];
     setFormData({
       ...formData,
@@ -30,12 +66,14 @@ function Review2() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    console.log(formData.abstract)
     const data = new FormData();
     data.append('id', 3);
     data.append('implementation_80p', formData.implementation_80p);
     data.append('report_roughcopy', formData.report_roughcopy);
     data.append('ppt', formData.ppt);
     data.append('publish_project', answer);
+    console.log(data)
 
     try {
       for (var pair of data.entries()) {
@@ -51,6 +89,13 @@ function Review2() {
     } catch (error) {
       console.error('Error uploading files:', error);
     }
+  };
+
+  const handleEdit = (param) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [param]: '',
+    }));
   };
 
   return (
@@ -81,14 +126,20 @@ function Review2() {
                   </label>
                 </td>
                 <td>
-                  <input
+                  {formData.implementation_80p ? <> <a
+                    href={formData.implementation_80p}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view Project Screenshots
+                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('implementation_80p')}>Re-Upload</button> </> : <input
                     type="file"
                     id="abstract"
                     name="abstract"
                     className="arrange"
                     accept=".pdf, .doc, .docx"
                     onChange={(event) => handleFileChange(event, 'implementation_80p')}
-                  />
+                  />}
                 </td>
                 <td>
                   <div> to be confirmed by guide and HOD</div>
@@ -101,14 +152,20 @@ function Review2() {
                   </label>
                 </td>
                 <td>
-                  <input
+                  {formData.report_roughcopy ? <> <a
+                    href={formData.report_roughcopy}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view Rough Report
+                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('report_roughcopy')}>Re-Upload</button> </> : <input
                     type="file"
                     id="basePaper"
                     name="basePaper"
                     className="arrange"
                     accept=".pdf, .doc, .docx"
                     onChange={(event) => handleFileChange(event, 'report_roughcopy')}
-                  />
+                  />}
                 </td>
                 <td>
                   <div> to be confirmed by guide and HOD</div>
@@ -121,14 +178,20 @@ function Review2() {
                   </label>
                 </td>
                 <td>
-                  <input
+                  {formData.ppt ? <> <a
+                    href={formData.ppt}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view PPT
+                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('ppt')}>Re-Upload</button> </> : <input
                     type="file"
                     id="ppt"
                     name="ppt"
                     className="arrange"
                     accept=".ppt, .pptx"
                     onChange={(event) => handleFileChange(event, 'ppt')}
-                  />
+                  />}
                 </td>
                 <td>
                   <div> to be confirmed by guide and HOD</div>
@@ -153,15 +216,18 @@ function Review2() {
             </select>
           </div>
           <table>
+            <thead>
             <tr>
               <td>
-                <button
-                  type="submit"
-                  className="btn btn-success"
-                  style={{ width: "31%", marginLeft: "20%" }}
-                >
-                  Submit
-                </button>
+              {submitEnable && (
+                    <button
+                      type="submit"
+                      className="btn btn-success"
+                      style={{ width: "35%", marginLeft: "20%" }}
+                    >
+                      Submit
+                    </button>
+                  )}
               </td>
               <td></td>
               <td>
@@ -173,6 +239,7 @@ function Review2() {
                 </button>
               </td>
             </tr>
+            </thead>
           </table>
         </form>
       </div>

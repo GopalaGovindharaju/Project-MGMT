@@ -13,6 +13,7 @@ function Review() {
   });
   const handleTitleChange = (event) => {
     const title = event.target.value;
+    setSubmitEnable(true)
     setFormData({
       ...formData,
       projectTitle: title,
@@ -27,6 +28,13 @@ function Review() {
     .then((response) => {
       console.log(response.data)
       setFileData(response.data)
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        projectTitle: response.data.title || '',
+        abstract: response.data.abstract_url || '',
+        basePaper: response.data.base_paper_url || '',
+        ppt: response.data.ppt_url || '',
+      }));
     })
     .catch((error) => {
       console.log(error)
@@ -41,9 +49,11 @@ function Review() {
         }
       }
     }
+    
   },[fileData])
 
   const handleFileChange = (event, fieldName) => {
+    setSubmitEnable(true)
     const file = event.target.files[0];
     setFormData({
       ...formData,
@@ -54,12 +64,14 @@ function Review() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    console.log(formData.abstract)
     const data = new FormData();
     data.append('id', 3);
     data.append('title', formData.projectTitle);
     data.append('abstract', formData.abstract);
     data.append('basePaper', formData.basePaper);
     data.append('ppt', formData.ppt);
+    console.log(data)
 
     try {
       for (var pair of data.entries()) {
@@ -76,6 +88,14 @@ function Review() {
       console.error('Error uploading files:', error);
     }
   };
+
+  const handleEdit = (param) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [param]: '',
+    }));
+  };
+  
 
   return (
     <div>
@@ -101,6 +121,7 @@ function Review() {
                   id="projectTitle"
                   name="projectTitle"
                   className="form-control reduced-size"
+                  value={formData.projectTitle}
                   onChange={handleTitleChange}
                 />
               </td>
@@ -115,14 +136,21 @@ function Review() {
                 </label>
               </td>
               <td>
-                <input
+                {formData.abstract ? <> <a
+                    href={formData.abstract}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view Abstract
+                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('abstract')}>Re-Upload</button> </> : <input
                   type="file"
                   id="abstract"
                   name="abstract"
                   className="abform"
                   accept=".pdf, .doc, .docx"
                   onChange={(event) => handleFileChange(event, 'abstract')}
-                />
+                />}
+                
               </td>
               <td>
                 <div> to be confirmed by guide and HOD</div>
@@ -135,14 +163,21 @@ function Review() {
                 </label>
               </td>
               <td>
-                <input
+                {formData.basePaper ?  <> <a
+                    href={formData.basePaper}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view Base Paper
+                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('basePaper')}>Re-Upload</button> </> : <input
                   type="file"
                   id="basePaper"
                   name="basePaper"
                   className="abform"
                   accept=".pdf, .doc, .docx"
                   onChange={(event) => handleFileChange(event, 'basePaper')}
-                />
+                />}
+                
               </td>
               <td>
                 <div> to be confirmed by guide and HOD</div>
@@ -155,14 +190,21 @@ function Review() {
                 </label>
               </td>
               <td>
-                <input
+                {formData.ppt ?  <> <a
+                    href={formData.ppt}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Click here to view PPT
+                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('ppt')}>Re-Upload</button> </> : <input
                   type="file"
                   id="ppt"
                   name="ppt"
                   className="abform"
                   accept=".ppt, .pptx"
                   onChange={(event) => handleFileChange(event, 'ppt')}
-                />
+                />}
+                
               </td>
               <td>
                 <div> to be confirmed by guide and HOD</div>
