@@ -7,7 +7,7 @@ function Review0() {
   const [approveAbstract, setApproveAbstract] = useState('reject');
   const [approveBasepaper, setApproveBasepaper] = useState('reject');
   const [approvePPT, setApprovePPT] = useState('reject');
-
+  const [allrowsApproved, setAllrowsApproved] = useState(false);
   const [fileData, setFileData] = useState([]);
 
   useEffect(() => {
@@ -23,10 +23,6 @@ function Review0() {
       console.log(error)
     })
   },[])
-
-  const handleForward = () => {
-
-  }
 
   const handleApprove = (status) => {
     if (status === 'title_status'){
@@ -48,7 +44,7 @@ function Review0() {
       'basepaper_status' : approveBasepaper,
       'ppt_status' : approvePPT,
     }
-    axios.post( ,data)
+    axios.post('' ,data)
     .then((response) => {
       console.log(response);
     })
@@ -56,6 +52,7 @@ function Review0() {
       console.log(error);
     })
   } 
+  
   const handleReject = (status) => {
     if (status === 'title_status'){
       setApproveTitle('reject')
@@ -70,6 +67,15 @@ function Review0() {
       setApprovePPT('reject')
     }
   }
+
+  useEffect(() => {
+    if (approveTitle === 'approve' && approveAbstract === 'approve' && approveBasepaper === 'approve' && approvePPT === 'approve') {
+      setAllrowsApproved(true);
+    } else {
+      setAllrowsApproved(false);
+    }
+  }, [approveTitle, approveAbstract, approveBasepaper, approvePPT]);
+
   
   return (
     <div>
@@ -178,14 +184,17 @@ function Review0() {
                 </button>
               </td>
             </tr>
-            <tr>
+            {allrowsApproved && (
+              <tr>
               <td colSpan="2"></td>
               <td>
-                <button type="submit" className="btn btn-success" style={{ width: "100%" }} onClick={handleForward}>
+                <button type="submit" className="btn btn-success" style={{ width: "100%" }}> 
                   Forward To HOD
                 </button>
               </td>
             </tr>
+            )}
+            
           </tbody>
         </table>
 
