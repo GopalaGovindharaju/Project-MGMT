@@ -74,6 +74,8 @@ function Review0() {
     }
   }
 
+
+
   useEffect(() => {
     if (approveTitle === 'approve' && approveAbstract === 'approve' && approveBasepaper === 'approve' && approvePPT === 'approve') {
       setAllrowsApproved(true);

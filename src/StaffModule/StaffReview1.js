@@ -10,6 +10,8 @@ function StaffReview1() {
   const [approvePpt, setApprovePpt] = useState('reject');
   const [allrowsApproved,setAllrowsApproved] = useState(false);
   const [fileData, setFileData] = useState([]);
+  const [approveAll, setApproveAll] = useState('');
+
 
   useEffect(() => {
     const data = {
@@ -55,6 +57,8 @@ function StaffReview1() {
       'literature_status' : approveLiteratureSurvey,
       'outcome_status' : approveOutcome,
       'ppt_status' : approvePpt,
+      'all_status': approveAll,
+
     }
     axios.post('http://127.0.0.1:8000/reviewupload/status1/' ,data)
     .then((response) => {
@@ -63,7 +67,7 @@ function StaffReview1() {
     .catch((error) => {
       console.log(error);
     })
-  },[approveSysArchitecture, approveModTypes, approveModTech, approveLiteratureSurvey, approveOutcome, approvePpt])
+  },[approveSysArchitecture, approveModTypes, approveModTech, approveLiteratureSurvey, approveOutcome, approvePpt,approveAll])
 
   const handleReject = (status) => {
     if (status === 'sysarchitecture_status'){
@@ -92,8 +96,13 @@ function StaffReview1() {
     }else{
       setAllrowsApproved(false);
     }
-  },[approveSysArchitecture, approveModTypes, approveModTech, approveLiteratureSurvey, approveOutcome, approvePpt]);
+  },[approveSysArchitecture, approveModTypes, approveModTech, approveLiteratureSurvey, approveOutcome]);
   
+  const handleForward = (e) => {
+    e.preventDefault();
+    setApproveAll('approve');
+  }
+
   return (
     <div>
       <div class="container mt-5">
@@ -259,6 +268,7 @@ function StaffReview1() {
                   type="submit"
                   class="btn btn-success"
                   style={{ width: "100%" }}
+                  onClick={handleForward}
                 >
                   Forward To HOD
                 </button>
