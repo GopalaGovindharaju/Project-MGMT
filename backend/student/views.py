@@ -206,6 +206,7 @@ def get_review_1_files_status(request):
         Litrature_survey_Status=data.get('literature_status')
         Outcome_Images_Status=data.get('outcome_status')
         PPt_Status=data.get('ppt_status')
+        Guide_Status=data.get('all_status')
 
         if Student_Info.objects.filter(ID = review_id).exists():
             student_data = Student_Info.objects.get(ID = review_id)
@@ -244,6 +245,11 @@ def get_review_1_files_status(request):
                 review_info.PPt_Status = True
             else :
                 review_info.PPt_Status=False
+
+            if (Architecture_Status == 'approve' and Modules_Status == 'approve' and Modules_Description_Status == 'approve' and Litrature_survey_Status == 'approve' and Outcome_Images_Status == 'approve' and PPt_Status == 'approve'):
+                review_info.Guide_Status = True 
+            else:
+                review_info.Guide_Status = False
 
             review_info.save()
         return Response('saved')
