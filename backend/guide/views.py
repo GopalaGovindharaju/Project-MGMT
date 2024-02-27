@@ -53,6 +53,8 @@ def get_review_0_files(request):
             'abstract_status': review0_info.Abstract_Status,
             'base_paper_status': review0_info.Base_Paper_Status,
             'ppt_status': review0_info.PPt_Status,
+            'guide_status': review0_info.Guide_Status,
+            'hod_status': review0_info.Hod_Status,
         }
 
             return Response(response_data, status=status.HTTP_200_OK)
@@ -79,6 +81,14 @@ def get_review_1_files(request):
             'module_techniques_url': current_site + review1_info.Modules_Description.url if review1_info.Modules_Description else None,
             'literature_survey_url': current_site + review1_info.Litrature_survey.url if review1_info.Litrature_survey else None,
             'expected_outcome_url': current_site + review1_info.Outcome_Images.url if review1_info.Outcome_Images else None,
+            'system_architecture_status': review1_info.Architecture_Status,
+            'modules_status': review1_info.Modules_Status,
+            'modules_description_status': review1_info.Modules_Description_Status,
+            'literature_survey_status': review1_info.Litrature_survey_Status,
+            'expected_outcome_status': review1_info.Outcome_Images_Status,
+            'ppt_status': review1_info.PPt_Status,
+            'guide_status': review1_info.Guide_Status,
+            'hod_status': review1_info.Hod_Status,
         }
 
             return Response(response_data, status=status.HTTP_200_OK)
@@ -101,7 +111,12 @@ def get_review_2_files(request):
             'ppt_url': current_site + review2_info.PPT.url if review2_info.PPT else None,
             'rough_report_url': current_site+review2_info.Report_RoughCopy.url if review2_info.Report_RoughCopy else None,
             'project_screenshot_url': current_site + review2_info.Implementation_80P.url if review2_info.Implementation_80P else None,
-            'project_publish_state':review2_info.Project_Publish,
+            'project_publish_state': review2_info.Project_Publish,
+            'implement_status': review2_info.Implement_Status,
+            'report_status': review2_info.Report_Status,
+            'ppt_status': review2_info.PPt_Status,
+            'guide_status': review2_info.Guide_Status,
+            'hod_status': review2_info.Hod_Status,
         }
 
             return Response(response_data, status=status.HTTP_200_OK)
@@ -124,7 +139,13 @@ def get_review_3_files(request):
                 'project_demo_video_url':current_site + review3_info.Project_Demo.url if review3_info.Project_Demo else None,
                 'project_screenshot_url':current_site+review3_info.Project_Screenshot.url  if review3_info.Project_Screenshot else None,
                 'report_url':current_site+review3_info.Report.url if review3_info .Report else None,
-                'ppt_url':current_site+review3_info.PPT.url if review3_info. PPT else None,          
+                'ppt_url':current_site+review3_info.PPT.url if review3_info. PPT else None,  
+                'project_demo_status': review3_info.Project_Demo_Status,
+                'project_screenshot_status': review3_info.Project_Screenshot_Status,
+                'report_status': review3_info.Report_Status,
+                'ppt_status': review3_info.PPT_Status,
+                'guide_status': review3_info.Guide_Status,
+                'hod_status': review3_info.Hod_Status,        
             }
             
             return Response(response_data,status=status.HTTP_200_OK)
