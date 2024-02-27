@@ -43,12 +43,13 @@ function Review0() {
     }
 
     const data = {
+      'id':3,
       'title_status' : approveTitle,
       'abstract_status' : approveAbstract,
       'basepaper_status' : approveBasepaper,
       'ppt_status' : approvePPT,
     }
-    axios.post( ,data)
+    axios.post( 'http://127.0.0.1:8000/reviewupload/status/',data)
     .then((response) => {
       console.log(response);
     })
