@@ -2,13 +2,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
 function StaffReview1() {
-  const [approveSysArchitecture, setApproveSysArchitecture] = 'reject';
-  const [approveModTypes, setApproveModTypes] = 'reject';
-  const [approveModTech, setApproveModTech] = 'reject';
-  const [approveLiteratureSurvey, setApproveLiteratureSurvey] = 'reject';
-  const [approveOutcome, setApproveOutcome] = 'reject';
-  const [approvePpt, setApprovePpt] = 'reject';
-  const [allrowsApproved,setAllrowsApproved] = 'false';
+  const [approveSysArchitecture, setApproveSysArchitecture] = useState('reject')
+  const [approveModTypes, setApproveModTypes] = useState('reject')
+  const [approveModTech, setApproveModTech] = useState('reject')
+  const [approveLiteratureSurvey, setApproveLiteratureSurvey] = useState('reject')
+  const [approveOutcome, setApproveOutcome] = useState('reject')
+  const [approvePpt, setApprovePpt] = useState('reject')
+  const [allrowsApproved,setAllrowsApproved] = useState(false);
   const [fileData, setFileData] = useState([]);
 
   useEffect(() => {
@@ -46,6 +46,7 @@ function StaffReview1() {
     }
 
     const data = {
+      'id':3,
       'sysarchitecture_status' : approveSysArchitecture,
       'moduletypes_status' : approveModTypes,
       'moduletech_status' : approveModTech,
@@ -53,7 +54,7 @@ function StaffReview1() {
       'outcome_status' : approveOutcome,
       'ppt_status' : approvePpt,
     }
-    axios.post('' ,data)
+    axios.post('http://127.0.0.1:8000/reviewupload/status1/' ,data)
     .then((response) => {
       console.log(response);
     })

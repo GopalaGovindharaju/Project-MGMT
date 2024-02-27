@@ -8,6 +8,7 @@ urlpatterns = [
     path('3/', views.review_3_upload_files, name = 'review_3_upload_files'),
     path('status/', views.get_review_0_files_status, name = 'get_review_0_files_status'),
     path('status1/', views.get_review_1_files_status, name = 'get_review_1_files_status'),
+    path('status2/', views.get_review_2_files_status, name = 'get_review_2_files_status'),
 
 
 ]

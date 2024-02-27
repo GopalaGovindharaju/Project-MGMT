@@ -186,12 +186,12 @@ def get_review_1_files_status(request):
     if request.method == 'POST':
         data = request.data
         review_id = data.get('id')
-        Architecture_Status=data.get('title_status')
-        Modules_Status=data.get('basepaper_status')
-        Modules_Description_Status=data.get('ppt_status')
-        Litrature_survey_Status=data.get('abstract_status')
-        Outcome_Images_Status=data.get('abstract_status')
-        PPt_Status=data.get('abstract_status')
+        Architecture_Status=data.get('sysarchitecture_status')
+        Modules_Status=data.get('moduletypes_status')
+        Modules_Description_Status=data.get('moduletech_status')
+        Litrature_survey_Status=data.get('literature_status')
+        Outcome_Images_Status=data.get('outcome_status')
+        PPt_Status=data.get('ppt_status')
        
         review_info = Review_1.objects.get(ID=review_id)
 
