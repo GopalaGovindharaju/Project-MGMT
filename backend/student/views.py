@@ -263,11 +263,10 @@ def get_review_3_files_status(request):
     if request.method == 'POST':
         data = request.data
         review_id = data.get('id')
-        Project_Demo_Status=data.get('title_status')
-        Project_Screenshot_Status=data.get('basepaper_status')
-        Report_Status=data.get('ppt_status')
-        Report_Status=data.get('abstract_status')
-        PPT_Status=data.get('abstract_status')
+        Project_Demo_Status=data.get('demo_status')
+        Project_Screenshot_Status=data.get('screenshot_status')
+        Report_Status=data.get('documentation_status')
+        PPT_Status=data.get('ppt_status')
        
         review_info = Review_3.objects.get(ID=review_id)
 

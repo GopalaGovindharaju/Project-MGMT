@@ -43,7 +43,7 @@ function SReview3() {
       'documentation_status' : approveDocumentation,
       'ppt_status' : approvePpt,
     }
-    axios.post( '',data)
+    axios.post( 'http://127.0.0.1:8000/reviewupload/status3/',data)
     .then((response) => {
       console.log(response);
     })
@@ -65,6 +65,20 @@ function SReview3() {
     else if (status === 'ppt_status'){
       setApprovePpt('reject')
     }
+    const data = {
+      'id':3,
+      'demo_status' : approveDemo,
+      'screenshot_status' : approveScreenshot,
+      'documentation_status' : approveDocumentation,
+      'ppt_status' : approvePpt,
+    }
+    axios.post( 'http://127.0.0.1:8000/reviewupload/status3/',data)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
   }
 
   useEffect (() => {
