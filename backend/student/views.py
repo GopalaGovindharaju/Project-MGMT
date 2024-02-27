@@ -162,30 +162,38 @@ def get_review_0_files_status(request):
         Base_Paper_Status=data.get('basepaper_status')
         PPt_Status=data.get('ppt_status')
        
-        review_info = Review_0.objects.get(ID=review_id)
+        if Student_Info.objects.filter(ID = review_id).exists():
+            student_data = Student_Info.objects.get(ID = review_id)
+            student_batch = student_data.Batch
+            team_members = Student_Info.objects.filter(Batch = student_batch)
 
-        if Title_Status == 'approve':
-            review_info.Title_Status = True
-        else :
-            review_info.Title_Status= False
-            
-        if Abstract_Status == 'approve':
-            review_info.Abstract_Status = True
-        else :
-            review_info.Abstract_Status=False
-      
-        if Base_Paper_Status == 'approve':
-            review_info.Base_Paper_Status = True
-        else :
-            review_info.Base_Paper_Status=False
-            
-        if PPt_Status == 'approve':
-            review_info.PPt_Status = True
-        else :
-            review_info.PPt_Status=False
+        for team_member in team_members:
+            review_info = Review_0.objects.get(ID=team_member.ID)
 
-        review_info.save()
+            if Title_Status == 'approve':
+                review_info.Title_Status = True
+            else :
+                review_info.Title_Status= False
+                
+            if Abstract_Status == 'approve':
+                review_info.Abstract_Status = True
+            else :
+                review_info.Abstract_Status=False
+        
+            if Base_Paper_Status == 'approve':
+                review_info.Base_Paper_Status = True
+            else :
+                review_info.Base_Paper_Status=False
+                
+            if PPt_Status == 'approve':
+                review_info.PPt_Status = True
+            else :
+                review_info.PPt_Status=False
+
+            review_info.save()
         return Response('saved')
+    else:
+        return Response("Status Upload Failed", status=status.HTTP_400_BAD_REQUEST)
     
 @api_view(['POST'])
 def get_review_1_files_status(request):
@@ -198,42 +206,49 @@ def get_review_1_files_status(request):
         Litrature_survey_Status=data.get('abstract_status')
         Outcome_Images_Status=data.get('abstract_status')
         PPt_Status=data.get('abstract_status')
-       
-        review_info = Review_1.objects.get(ID=review_id)
 
-        if Architecture_Status == 'approve':
-            review_info.Architecture_Status = True
-        else :
-            review_info.Architecture_Status= False
-            
-        if Modules_Status == 'approve':
-            review_info.Modules_Status = True
-        else :
-            review_info.Modules_Status=False
-      
-        if Modules_Description_Status == 'approve':
-            review_info.Modules_Description_Status = True
-        else :
-            review_info.Modules_Description_Status=False
-            
-        if Litrature_survey_Status == 'approve':
-            review_info.Litrature_survey_Status = True
-        else :
-            review_info.Litrature_survey_Status=False
-            
-        if Outcome_Images_Status == 'approve':
-            review_info.Outcome_Images_Status = True
-        else :
-            review_info.Outcome_Images_Status=False
-                   
-            
-        if PPt_Status == 'approve':
-            review_info.PPt_Status = True
-        else :
-            review_info.PPt_Status=False
+        if Student_Info.objects.filter(ID = review_id).exists():
+            student_data = Student_Info.objects.get(ID = review_id)
+            student_batch = student_data.Batch
+            team_members = Student_Info.objects.filter(Batch = student_batch)
 
-        review_info.save()
+        for team_member in team_members:
+            review_info = Review_1.objects.get(ID=team_member.ID)
+
+            if Architecture_Status == 'approve':
+                review_info.Architecture_Status = True
+            else :
+                review_info.Architecture_Status= False
+                
+            if Modules_Status == 'approve':
+                review_info.Modules_Status = True
+            else :
+                review_info.Modules_Status=False
+        
+            if Modules_Description_Status == 'approve':
+                review_info.Modules_Description_Status = True
+            else :
+                review_info.Modules_Description_Status=False
+                
+            if Litrature_survey_Status == 'approve':
+                review_info.Litrature_survey_Status = True
+            else :
+                review_info.Litrature_survey_Status=False
+                
+            if Outcome_Images_Status == 'approve':
+                review_info.Outcome_Images_Status = True
+            else :
+                review_info.Outcome_Images_Status=False
+                
+            if PPt_Status == 'approve':
+                review_info.PPt_Status = True
+            else :
+                review_info.PPt_Status=False
+
+            review_info.save()
         return Response('saved')
+    else:
+        return Response("Status Upload Failed", status=status.HTTP_400_BAD_REQUEST)
     
 @api_view(['POST'])
 def get_review_2_files_status(request):
@@ -243,26 +258,34 @@ def get_review_2_files_status(request):
         Implement_Status=data.get('abstract_status')
         Report_Status=data.get('abstract_status')
         PPt_Status=data.get('abstract_status')
-       
-        review_info = Review_2.objects.get(ID=review_id)
 
-        if Implement_Status == 'approve':
-            review_info.Implement_Status = True
-        else :
-            review_info.Implement_Status= False
-            
-        if Report_Status == 'approve':
-            review_info.Report_Status = True
-        else :
-            review_info.Report_Status=False
-            
-        if PPt_Status == 'approve':
-            review_info.PPt_Status = True
-        else :
-            review_info.PPt_Status=False
+        if Student_Info.objects.filter(ID = review_id).exists():
+            student_data = Student_Info.objects.get(ID = review_id)
+            student_batch = student_data.Batch
+            team_members = Student_Info.objects.filter(Batch = student_batch)
 
-        review_info.save()
+        for team_member in team_members:
+            review_info = Review_2.objects.get(ID=team_member.ID)
+
+            if Implement_Status == 'approve':
+                review_info.Implement_Status = True
+            else :
+                review_info.Implement_Status= False
+                
+            if Report_Status == 'approve':
+                review_info.Report_Status = True
+            else :
+                review_info.Report_Status=False
+                
+            if PPt_Status == 'approve':
+                review_info.PPt_Status = True
+            else :
+                review_info.PPt_Status=False
+
+            review_info.save()
         return Response('saved')
+    else:
+        return Response("Status Upload Failed", status=status.HTTP_400_BAD_REQUEST)
     
 @api_view(['POST'])
 def get_review_3_files_status(request):
@@ -274,28 +297,36 @@ def get_review_3_files_status(request):
         Report_Status=data.get('ppt_status')
         Report_Status=data.get('abstract_status')
         PPT_Status=data.get('abstract_status')
-       
-        review_info = Review_3.objects.get(ID=review_id)
 
-        if Project_Demo_Status == 'approve':
-            review_info.Project_Demo_Status = True
-        else :
-            review_info.Project_Demo_Status= False
-            
-        if Project_Screenshot_Status == 'approve':
-            review_info.Project_Screenshot_Status = True
-        else :
-            review_info.Project_Screenshot_Status=False
-      
-        if Report_Status == 'approve':
-            review_info.Report_Status = True
-        else :
-            review_info.Report_Status=False
-                   
-        if PPT_Status == 'approve':
-            review_info.PPT_Status = True
-        else :
-            review_info.PPT_Status=False
+        if Student_Info.objects.filter(ID = review_id).exists():
+            student_data = Student_Info.objects.get(ID = review_id)
+            student_batch = student_data.Batch
+            team_members = Student_Info.objects.filter(Batch = student_batch)
 
-        review_info.save()
+        for team_member in team_members:
+            review_info = Review_3.objects.get(ID=team_member.ID)
+
+            if Project_Demo_Status == 'approve':
+                review_info.Project_Demo_Status = True
+            else :
+                review_info.Project_Demo_Status= False
+                
+            if Project_Screenshot_Status == 'approve':
+                review_info.Project_Screenshot_Status = True
+            else :
+                review_info.Project_Screenshot_Status=False
+        
+            if Report_Status == 'approve':
+                review_info.Report_Status = True
+            else :
+                review_info.Report_Status=False
+                    
+            if PPT_Status == 'approve':
+                review_info.PPT_Status = True
+            else :
+                review_info.PPT_Status=False
+
+            review_info.save()
         return Response('saved')
+    else:
+        return Response("Status Upload Failed", status=status.HTTP_400_BAD_REQUEST)

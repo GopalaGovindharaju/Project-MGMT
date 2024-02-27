@@ -41,7 +41,7 @@ function SReview2() {
       'roughreport_status' : approveRoughReport,
       'ppt_status' : approvePPT, 
     }
-    axios.post('' ,data)
+    axios.post('http://127.0.0.1:8000/reviewupload/status2/' ,data)
     .then((response) => {
       console.log(response);
     })
@@ -60,6 +60,19 @@ function SReview2() {
     else if (status === 'ppt_status'){
       setApprovePPT('reject')
     }
+    const data = {
+      'id' : 3,
+      'screenshot_status' : approveScreenshot,
+      'roughreport_status' : approveRoughReport,
+      'ppt_status' : approvePPT, 
+    }
+    axios.post('http://127.0.0.1:8000/reviewupload/status2/' ,data)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
   }
 
   useEffect(() => {

@@ -46,6 +46,7 @@ function StaffReview1() {
     }
 
     const data = {
+      'id':3,
       'sysarchitecture_status' : approveSysArchitecture,
       'moduletypes_status' : approveModTypes,
       'moduletech_status' : approveModTech,
@@ -53,7 +54,7 @@ function StaffReview1() {
       'outcome_status' : approveOutcome,
       'ppt_status' : approvePpt,
     }
-    axios.post('' ,data)
+    axios.post('http://127.0.0.1:8000/reviewupload/status1/' ,data)
     .then((response) => {
       console.log(response);
     })
@@ -81,6 +82,22 @@ function StaffReview1() {
     else if (status === 'ppt_status'){
       setApprovePpt('Reject')
     }
+    const data = {
+      'id':3,
+      'sysarchitecture_status' : approveSysArchitecture,
+      'moduletypes_status' : approveModTypes,
+      'moduletech_status' : approveModTech,
+      'literature_status' : approveLiteratureSurvey,
+      'outcome_status' : approveOutcome,
+      'ppt_status' : approvePpt,
+    }
+    axios.post('http://127.0.0.1:8000/reviewupload/status1/' ,data)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
   }
 
   useEffect( () => {
