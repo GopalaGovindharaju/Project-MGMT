@@ -41,7 +41,7 @@ function SReview2() {
       'roughreport_status' : approveRoughReport,
       'ppt_status' : approvePPT, 
     }
-    axios.post('http://127.0.0.1:8000/reviewupload/status1/' ,data)
+    axios.post('http://127.0.0.1:8000/reviewupload/status2/' ,data)
     .then((response) => {
       console.log(response);
     })

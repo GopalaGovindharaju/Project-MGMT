@@ -234,9 +234,9 @@ def get_review_2_files_status(request):
     if request.method == 'POST':
         data = request.data
         review_id = data.get('id')
-        Implement_Status=data.get('abstract_status')
-        Report_Status=data.get('abstract_status')
-        PPt_Status=data.get('abstract_status')
+        Implement_Status=data.get('screenshot_status')
+        Report_Status=data.get('roughreport_status')
+        PPt_Status=data.get('ppt_status')
        
         review_info = Review_2.objects.get(ID=review_id)
 
