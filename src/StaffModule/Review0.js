@@ -3,6 +3,10 @@ import './Review0.css';
 import axios from 'axios';
 
 function Review0() {
+  const [approveTitle, setApproveTitle] = useState('reject')
+  const [approveAbstract, setApproveAbstract] = useState('reject');
+  const [approveBasepaper, setApproveBasepaper] = useState('reject');
+  const [approvePPT, setApprovePPT] = useState('reject');
 
   const [fileData, setFileData] = useState([]);
 
@@ -19,6 +23,53 @@ function Review0() {
       console.log(error)
     })
   },[])
+
+  const handleForward = () => {
+
+  }
+
+  const handleApprove = (status) => {
+    if (status === 'title_status'){
+      setApproveTitle('approve')
+    }
+    else if (status === 'abstract_status'){
+      setApproveAbstract('approve')
+    }
+    else if (status === 'basepaper_status'){
+      setApproveBasepaper('approve')
+    }
+    else if(status === 'ppt_status'){
+      setApprovePPT('approve')
+    }
+
+/*    const data = {
+      'title_status' : approveTitle,
+      'abstract_status' : approveAbstract,
+      'basepaper_status' : approveBasepaper,
+      'ppt_status' : approvePPT,
+    }
+    axios.post( ,data)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  } */
+  const handleReject = (status) => {
+    if (status === 'title_status'){
+      setApproveTitle('reject')
+    }
+    else if (status === 'abstract_status'){
+      setApproveAbstract('reject')
+    }
+    else if (status === 'basepaper_status'){
+      setApproveBasepaper('reject')
+    }
+    else if(status === 'ppt_status'){
+      setApprovePPT('reject')
+    }
+  }
   
   return (
     <div>
@@ -47,10 +98,10 @@ function Review0() {
                 )}
               </td>
               <td>
-                <button type="button" className="btn btn-success">
+                <button type="button" className="btn btn-success" onClick={() => handleApprove('title_status')}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('title_status')}>
                   Reject
                 </button>
               </td>
@@ -71,10 +122,10 @@ function Review0() {
                 )}
               </td>
               <td>
-                <button type="button" className="btn btn-success">
+                <button type="button" className="btn btn-success" onClick={() => handleApprove('abstract_status')}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('abstract_status')} >
                   Reject
                 </button>
               </td>
@@ -95,10 +146,10 @@ function Review0() {
                 )}
               </td>
               <td>
-                <button type="button" className="btn btn-success">
+                <button type="button" className="btn btn-success" onClick={() => handleApprove('basepaper_status')}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('basepaper_status')} >
                   Reject
                 </button>
               </td>
@@ -119,10 +170,10 @@ function Review0() {
                 )}
               </td>
               <td>
-                <button type="button" className="btn btn-success">
+                <button type="button" className="btn btn-success" onClick={() => handleApprove('ppt_status')}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" >
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('ppt_status')}>
                   Reject
                 </button>
               </td>
@@ -130,7 +181,7 @@ function Review0() {
             <tr>
               <td colSpan="2"></td>
               <td>
-                <button type="submit" className="btn btn-success" style={{ width: "100%" }}>
+                <button type="submit" className="btn btn-success" style={{ width: "100%" }} onClick={handleForward}>
                   Forward To HOD
                 </button>
               </td>
