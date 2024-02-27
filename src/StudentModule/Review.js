@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
 function Review() {
-  const [submitEnable, setSubmitEnable] = useState(false)
+  const [submitEnable, setSubmitEnable] = useState(true)
   const [fileData, setFileData] = useState([]);
   const [formData, setFormData] = useState({
     projectTitle: '',
