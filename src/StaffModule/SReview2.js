@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import './Review0.css';
-import axios from 'axios';
+import axios, { all } from 'axios';
 
 
 function SReview2() {
   const [fileData, setFileData] = useState([]);
+  const [approveScreenshot, setApproveScreenshot] = useState('reject');
+  const [approveRoughReport, setApproveRoughReport] = useState('reject');
+  const [approvePPT, setApprovePPT] = useState('reject');
+  const [allrowsApproved,setAllrowsApproved] = useState(false);
 
   useEffect(() => {
     const data = {
@@ -19,6 +23,52 @@ function SReview2() {
       console.log(error)
     })
   },[])
+
+  const handleApprove = (status) => {
+    if(status === 'screenshot_status'){
+      setApproveScreenshot('approve')
+    }
+    else if (status === 'roughreport_status'){
+      setApproveRoughReport('approve')
+    }
+    else if (status === 'ppt_status'){
+      setApprovePPT('approve')
+    }
+
+    const data = {
+      'id' : 3,
+      'screenshot_status' : approveScreenshot,
+      'roughreport_status' : approveRoughReport,
+      'ppt_status' : approvePPT, 
+    }
+    axios.post('' ,data)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
+
+  const handleReject = (status) => {
+    if(status === 'screenshot_status'){
+      setApproveScreenshot('reject')
+    }
+    else if (status === 'roughreport_status'){
+      setApproveRoughReport('reject')
+    }
+    else if (status === 'ppt_status'){
+      setApprovePPT('reject')
+    }
+  }
+
+  useEffect(() => {
+    if (approveScreenshot === 'approve' && approveRoughReport === 'approve' && approvePPT === 'approve') {
+      setAllrowsApproved(true);
+    } else {
+      setAllrowsApproved(false);
+    }
+  }, [approveScreenshot, approveRoughReport, approvePPT]);
   
   return (
     <div>
@@ -48,10 +98,10 @@ function SReview2() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('screenshot_status')}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('screenshot_status')}>
                   Reject
                 </button>
               </td>
@@ -72,10 +122,10 @@ function SReview2() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('roughreport_status')}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('roughreport_status')}>
                   Reject
                 </button>
               </td>
@@ -96,10 +146,10 @@ function SReview2() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('ppt_status')}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('ppt_status')}>
                   Reject
                 </button>
               </td>
@@ -110,9 +160,11 @@ function SReview2() {
                 {fileData.project_publish_state ? <td>Yes</td> : <td>No</td>}
               </td>
             </tr>
-            <tr>
+
+            {allrowsApproved && (
+              <tr>
               <td colspan="2"></td>
-              <td>
+                <td>
                 <button
                   type="submit"
                   class="btn btn-success"
@@ -120,8 +172,10 @@ function SReview2() {
                 >
                   Forward To HOD
                 </button>
-              </td>
+              </td>              
             </tr>
+            )}
+            
           </tbody>
         </table>
 

@@ -2,6 +2,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
 function StaffReview1() {
+  const [approveSysArchitecture, setApproveSysArchitecture] = useState('reject');
+  const [approveModTypes, setApproveModTypes] = useState('reject');;
+  const [approveModTech, setApproveModTech] = useState('reject');;
+  const [approveLiteratureSurvey, setApproveLiteratureSurvey] = useState('reject');;
+  const [approveOutcome, setApproveOutcome] = useState('reject');;
+  const [approvePpt, setApprovePpt] = useState('reject');
+  const [allrowsApproved,setAllrowsApproved] = useState(false);
   const [fileData, setFileData] = useState([]);
 
   useEffect(() => {
@@ -17,6 +24,72 @@ function StaffReview1() {
       console.log(error)
     })
   },[])
+
+  const handleApprove = (status) => {
+    if (status === 'sysarchitecture_status'){
+      setApproveSysArchitecture('approve');
+    }
+    else if (status === 'moduletypes_status'){
+      setApproveModTypes('approve');
+    }
+    else if (status === 'moduletech_status'){
+      setApproveModTech('approve');
+    }
+    else if (status === 'literature_status'){
+      setApproveLiteratureSurvey('approve');
+    }
+    else if (status === 'outcome_status'){
+      setApproveOutcome('approve')
+    }
+    else if (status === 'ppt_status'){
+      setApprovePpt('approve')
+    }
+
+    const data = {
+      'sysarchitecture_status' : approveSysArchitecture,
+      'moduletypes_status' : approveModTypes,
+      'moduletech_status' : approveModTech,
+      'literature_status' : approveLiteratureSurvey,
+      'outcome_status' : approveOutcome,
+      'ppt_status' : approvePpt,
+    }
+    axios.post('' ,data)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
+
+  const handleReject = (status) => {
+    if (status === 'sysarchitecture_status'){
+      setApproveSysArchitecture('Reject');
+    }
+    else if (status === 'moduletypes_status'){
+      setApproveModTypes('Reject');
+    }
+    else if (status === 'moduletech_status'){
+      setApproveModTech('Reject');
+    }
+    else if (status === 'literature_status'){
+      setApproveLiteratureSurvey('Reject');
+    }
+    else if (status === 'outcome_status'){
+      setApproveOutcome('Reject')
+    }
+    else if (status === 'ppt_status'){
+      setApprovePpt('Reject')
+    }
+  }
+
+  useEffect( () => {
+    if (approveSysArchitecture === 'approve' && approveModTypes === 'approve' && approveModTech === 'approve' && approveLiteratureSurvey === 'approve' && approveOutcome === 'approve' && approvePpt === 'approve'){
+      setAllrowsApproved(true);
+    }else{
+      setAllrowsApproved(false);
+    }
+  },[approveSysArchitecture, approveModTypes, approveModTech, approveLiteratureSurvey, approveOutcome, approvePpt]);
   
   return (
     <div>
@@ -46,10 +119,10 @@ function StaffReview1() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('sysarchitecture_status')}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('sysarchitecture_status')}>
                   Reject
                 </button>
               </td>
@@ -70,10 +143,10 @@ function StaffReview1() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('moduletypes_status')}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('moduletypes_status')}>
                   Reject
                 </button>
               </td>
@@ -94,10 +167,10 @@ function StaffReview1() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('moduletech_status')}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('moduletech_status')} >
                   Reject
                 </button>
               </td>
@@ -118,10 +191,10 @@ function StaffReview1() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('literature_status')}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('literature_status')}>
                   Reject
                 </button>
               </td>
@@ -142,10 +215,10 @@ function StaffReview1() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('outcome_status')}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('outcome_status')}>
                   Reject
                 </button>
               </td>
@@ -166,15 +239,17 @@ function StaffReview1() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('ppt_status')}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2">
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('ppt_status')}>
                   Reject
                 </button>
               </td>
             </tr>
-            <tr>
+            
+            {allrowsApproved && (
+              <tr>
               <td colspan="2"></td>
               <td>
                 <button
@@ -186,6 +261,8 @@ function StaffReview1() {
                 </button>
               </td>
             </tr>
+            )}
+            
           </tbody>
         </table>
 
