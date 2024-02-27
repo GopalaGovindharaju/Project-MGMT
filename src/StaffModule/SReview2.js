@@ -10,6 +10,7 @@ function SReview2() {
   const [approvePPT, setApprovePPT] = useState('reject');
   const [allrowsApproved,setAllrowsApproved] = useState(false);
   const [approveAll, setApproveAll] = useState('');
+  const [initialAxiosPreventer, setInitialAxiosPreventer] = useState(true);
 
 
   useEffect(() => {
@@ -20,11 +21,15 @@ function SReview2() {
     .then((response) => {
       console.log(response.data)
       setFileData(response.data)
+      setApproveScreenshot(response.data.implement_status ? 'approve' : 'reject')
+      setApproveRoughReport(response.data.report_status ? 'approve' : 'reject')
+      setApprovePPT(response.data.ppt_status ? 'approve' : 'reject')
     })
     .catch((error) => {
       console.log(error)
     })
   },[])
+
 useEffect(()=>{
   const data = {
     'id' : 3,
@@ -33,37 +38,48 @@ useEffect(()=>{
     'ppt_status' : approvePPT, 
     'all_status':approveAll,
   }
-  axios.post('http://127.0.0.1:8000/reviewupload/status2/' ,data)
+  if(initialAxiosPreventer){
+
+  }
+  else{
+    axios.post('http://127.0.0.1:8000/reviewupload/status2/' ,data)
   .then((response) => {
     console.log(response);
   })
   .catch((error) => {
     console.log(error);
   })
+  }
+},[approveScreenshot, approveRoughReport, approvePPT, approveAll,initialAxiosPreventer]);
 
-},[approveScreenshot, approveRoughReport, approvePPT]);
   const handleApprove = (status) => {
     if(status === 'screenshot_status'){
-      setApproveScreenshot('approve')
+      setApproveScreenshot('approve');
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'roughreport_status'){
-      setApproveRoughReport('approve')
+      setApproveRoughReport('approve');
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'ppt_status'){
-      setApprovePPT('approve')
+      setApprovePPT('approve');
+      setInitialAxiosPreventer(false);
     }
 
   }
 
   const handleReject = (status) => {
     if(status === 'screenshot_status'){
-      setApproveScreenshot('reject')
+      setApproveScreenshot('reject');
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'roughreport_status'){
-      setApproveRoughReport('reject')
+      setApproveRoughReport('reject');
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'ppt_status'){
-      setApprovePPT('reject')
+      setApprovePPT('reject');
+      setInitialAxiosPreventer(false);
     }
     
   }
@@ -109,10 +125,10 @@ useEffect(()=>{
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success" onClick={() => handleApprove('screenshot_status')}>
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('screenshot_status')} disabled={approveScreenshot === 'approve' ? true : false}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('screenshot_status')}>
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('screenshot_status')} disabled={approveScreenshot === 'reject' ? true : false}>
                   Reject
                 </button>
               </td>
@@ -133,10 +149,10 @@ useEffect(()=>{
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success" onClick={() => handleApprove('roughreport_status')}>
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('roughreport_status')} disabled={approveRoughReport === 'approve' ? true : false}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('roughreport_status')}>
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('roughreport_status')} disabled={approveRoughReport === 'reject' ? true : false}>
                   Reject
                 </button>
               </td>
@@ -157,10 +173,10 @@ useEffect(()=>{
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success" onClick={() => handleApprove('ppt_status')}>
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('ppt_status')} disabled={approvePPT === 'approve' ? true : false}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('ppt_status')}>
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('ppt_status')} disabled={approveScreenshot === 'reject' ? true : false}>
                   Reject
                 </button>
               </td>
