@@ -25,16 +25,16 @@ function SReview3() {
 
   const handleApprove = (status) => {
     if (status === 'demo_status'){
-      setApproveDemo('accept');
+      setApproveDemo('approve');
     }
     else if (status === 'screenshot_status'){
-      setApproveScreenshot('accept');
+      setApproveScreenshot('approve');
     }
     else if (status === 'documentation_status'){
-      setApproveDocumentation('accept')
+      setApproveDocumentation('approve')
     }
     else if (status === 'ppt_status'){
-      setApprovePpt('accept')
+      setApprovePpt('approve')
     }
     const data = {
       'id':3,
