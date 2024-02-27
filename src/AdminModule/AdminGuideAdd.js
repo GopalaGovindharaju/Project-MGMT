@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './AdminBody.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClose } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
-import UserInfoContext from '../Helper/UsenInfoContext';
 
 function AdminGuideAdd({setIsOpen}) {
   const [gId, setGId ] = useState('');

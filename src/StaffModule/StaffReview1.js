@@ -2,12 +2,12 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
 function StaffReview1() {
-  const [approveSysArchitecture, setApproveSysArchitecture] = useState('reject');
-  const [approveModTypes, setApproveModTypes] = useState('reject');;
-  const [approveModTech, setApproveModTech] = useState('reject');;
-  const [approveLiteratureSurvey, setApproveLiteratureSurvey] = useState('reject');;
-  const [approveOutcome, setApproveOutcome] = useState('reject');;
-  const [approvePpt, setApprovePpt] = useState('reject');
+  const [approveSysArchitecture, setApproveSysArchitecture] = useState('');
+  const [approveModTypes, setApproveModTypes] = useState('');;
+  const [approveModTech, setApproveModTech] = useState('');;
+  const [approveLiteratureSurvey, setApproveLiteratureSurvey] = useState('');;
+  const [approveOutcome, setApproveOutcome] = useState('');;
+  const [approvePpt, setApprovePpt] = useState('');
   const [allrowsApproved,setAllrowsApproved] = useState(false);
   const [fileData, setFileData] = useState([]);
   const [approveAll, setApproveAll] = useState('');
@@ -93,7 +93,7 @@ function StaffReview1() {
 
     }
     
-  },[approveSysArchitecture, approveModTypes, approveModTech, approveLiteratureSurvey, approveOutcome, approvePpt,approveAll])
+  },[approveSysArchitecture, approveModTypes, approveModTech, approveLiteratureSurvey, approveOutcome, approvePpt,approveAll,initialAxiosPreventer])
 
   const handleReject = (status) => {
     if (status === 'sysarchitecture_status'){
@@ -128,7 +128,7 @@ function StaffReview1() {
     }else{
       setAllrowsApproved(false);
     }
-  },[approveSysArchitecture, approveModTypes, approveModTech, approveLiteratureSurvey, approveOutcome]);
+  },[approveSysArchitecture, approveModTypes, approveModTech, approveLiteratureSurvey, approveOutcome, approvePpt]);
   
   const handleForward = (e) => {
     e.preventDefault();

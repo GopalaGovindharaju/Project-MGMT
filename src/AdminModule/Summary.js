@@ -52,9 +52,9 @@ function Summary() {
         
         <div className='summ-abstract'>
           <h5 className='summ-content-title'>EXPECTED OUTCOMES</h5>
-            <img src={Outcome1} className='exp-outcome-images'/><hr/>
-            <img src={Outcome2} className='exp-outcome-images'/><hr/>
-            <img src={Outcome3} className='exp-outcome-images'/><hr/>    
+            <img src={Outcome1} className='exp-outcome-images' alt=''/><hr/>
+            <img src={Outcome2} className='exp-outcome-images' alt=''/><hr/>
+            <img src={Outcome3} className='exp-outcome-images' alt=''/><hr/>    
         </div>  
 
         <div className='summ-abstract'>

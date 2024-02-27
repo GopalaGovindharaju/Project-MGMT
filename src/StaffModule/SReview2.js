@@ -5,9 +5,9 @@ import axios from 'axios';
 
 function SReview2() {
   const [fileData, setFileData] = useState([]);
-  const [approveScreenshot, setApproveScreenshot] = useState('reject');
-  const [approveRoughReport, setApproveRoughReport] = useState('reject');
-  const [approvePPT, setApprovePPT] = useState('reject');
+  const [approveScreenshot, setApproveScreenshot] = useState('');
+  const [approveRoughReport, setApproveRoughReport] = useState('');
+  const [approvePPT, setApprovePPT] = useState('');
   const [allrowsApproved,setAllrowsApproved] = useState(false);
   const [approveAll, setApproveAll] = useState('');
   const [initialAxiosPreventer, setInitialAxiosPreventer] = useState(true);
@@ -95,6 +95,7 @@ useEffect(()=>{
   const handleForward = (e) => {
     e.preventDefault();
     setApproveAll('approve');
+    setInitialAxiosPreventer(false);
   }
 
   return (
@@ -176,7 +177,7 @@ useEffect(()=>{
                 <button type="button" class="btn btn-success" onClick={() => handleApprove('ppt_status')} disabled={approvePPT === 'approve' ? true : false}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('ppt_status')} disabled={approveScreenshot === 'reject' ? true : false}>
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('ppt_status')} disabled={approvePPT === 'reject' ? true : false}>
                   Reject
                 </button>
               </td>

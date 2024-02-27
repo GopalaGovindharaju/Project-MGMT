@@ -10,6 +10,7 @@ function Review0() {
   const [approveAll, setApproveAll] = useState('');
   const [allrowsApproved, setAllrowsApproved] = useState(false);
   const [fileData, setFileData] = useState([]);
+  const [initialAxiosPreventer, setInitialAxiosPreventer] = useState(true);
 
   useEffect(() => {
     const data = {
@@ -19,6 +20,10 @@ function Review0() {
     .then((response) => {
       console.log(response.data)
       setFileData(response.data)
+      setApproveTitle(response.data.title_status ? 'approve' : 'reject')
+      setApproveAbstract(response.data.abstract_status ? 'approve' : 'reject')
+      setApproveBasepaper(response.data.base_paper_status ? 'approve' : 'reject')
+      setApprovePPT(response.data.ppt_status ? 'approve' : 'reject')
     })
     .catch((error) => {
       console.log(error)
@@ -35,42 +40,56 @@ function Review0() {
       'all_status': approveAll,
     }
     console.log(data)
-    axios.post( 'http://127.0.0.1:8000/reviewupload/status/',data)
+    if(initialAxiosPreventer){
+
+    }
+    else{
+      axios.post( 'http://127.0.0.1:8000/reviewupload/status/',data)
     .then((response) => {
       console.log(response);
     })
     .catch((error) => {
       console.log(error);
     })
-  }, [approveTitle, approveAbstract, approveBasepaper, approvePPT, approveAll])
+    }
+    
+  }, [approveTitle, approveAbstract, approveBasepaper, approvePPT, approveAll,initialAxiosPreventer])
 
   const handleApprove = (status) => {
     if (status === 'title_status'){
       setApproveTitle('approve')
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'abstract_status'){
       setApproveAbstract('approve')
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'basepaper_status'){
       setApproveBasepaper('approve')
+      setInitialAxiosPreventer(false);
     }
     else if(status === 'ppt_status'){
       setApprovePPT('approve')
+      setInitialAxiosPreventer(false);
     }
   } 
   
   const handleReject = (status) => {
     if (status === 'title_status'){
       setApproveTitle('reject')
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'abstract_status'){
       setApproveAbstract('reject')
+      setInitialAxiosPreventer(false);
     }
     else if (status === 'basepaper_status'){
       setApproveBasepaper('reject')
+      setInitialAxiosPreventer(false);
     }
     else if(status === 'ppt_status'){
       setApprovePPT('reject')
+      setInitialAxiosPreventer(false);
     }
   }
 
@@ -117,10 +136,10 @@ function Review0() {
                 )}
               </td>
               <td>
-                <button type="button" className="btn btn-success" onClick={() => handleApprove('title_status')}>
+                <button type="button" className="btn btn-success" onClick={() => handleApprove('title_status')} disabled={approveTitle==='approve' ? true : false}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('title_status')}>
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('title_status')} disabled={approveTitle==='reject' ? true : false}>
                   Reject
                 </button>
               </td>
@@ -141,10 +160,10 @@ function Review0() {
                 )}
               </td>
               <td>
-                <button type="button" className="btn btn-success" onClick={() => handleApprove('abstract_status')}>
+                <button type="button" className="btn btn-success" onClick={() => handleApprove('abstract_status')} disabled={approveAbstract==='approve' ? true : false}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('abstract_status')} >
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('abstract_status')} disabled={approveAbstract==='reject' ? true : false}>
                   Reject
                 </button>
               </td>
@@ -165,10 +184,10 @@ function Review0() {
                 )}
               </td>
               <td>
-                <button type="button" className="btn btn-success" onClick={() => handleApprove('basepaper_status')}>
+                <button type="button" className="btn btn-success" onClick={() => handleApprove('basepaper_status')} disabled={approveBasepaper==='approve' ? true : false}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('basepaper_status')} >
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('basepaper_status')} disabled={approveBasepaper==='reject' ? true : false}>
                   Reject
                 </button>
               </td>
@@ -189,10 +208,10 @@ function Review0() {
                 )}
               </td>
               <td>
-                <button type="button" className="btn btn-success" onClick={() => handleApprove('ppt_status')}>
+                <button type="button" className="btn btn-success" onClick={() => handleApprove('ppt_status')} disabled={approvePPT==='approve' ? true : false}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('ppt_status')}>
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('ppt_status')} disabled={approvePPT==='reject' ? true : false}>
                   Reject
                 </button>
               </td>

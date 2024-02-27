@@ -1,12 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Chatmsg from '../StudentModule/Chatmsg';
 import Chatmsg1 from '../StudentModule/Chatmsg1';
 import AdminGuideAdd from './AdminGuideAdd';
-import UserInfoContext from '../Helper/UsenInfoContext';
-import { useNavigate } from 'react-router-dom';
 
 function Admin() {
 
