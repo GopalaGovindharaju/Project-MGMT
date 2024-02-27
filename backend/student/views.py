@@ -295,7 +295,7 @@ def get_review_3_files_status(request):
         Project_Demo_Status=data.get('demo_status')
         Project_Screenshot_Status=data.get('project_screenshot')
         Report_Status=data.get('report')
-        PPT_Status=data.get('abstract_status')
+        PPT_Status=data.get('ppt_status')
 
         if Student_Info.objects.filter(ID = review_id).exists():
             student_data = Student_Info.objects.get(ID = review_id)
