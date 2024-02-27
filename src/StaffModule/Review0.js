@@ -42,7 +42,7 @@ function Review0() {
       setApprovePPT('approve')
     }
 
-/*    const data = {
+    const data = {
       'title_status' : approveTitle,
       'abstract_status' : approveAbstract,
       'basepaper_status' : approveBasepaper,
@@ -55,7 +55,7 @@ function Review0() {
     .catch((error) => {
       console.log(error);
     })
-  } */
+  } 
   const handleReject = (status) => {
     if (status === 'title_status'){
       setApproveTitle('reject')

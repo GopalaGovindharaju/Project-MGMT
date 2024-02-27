@@ -145,3 +145,22 @@ def review_3_upload_files(request):
 
     else:
         return Response("File Upload Failed", status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(['POST'])
+def get_review_0_files_status(request):
+    if request.method == 'POST':
+        data = request.data
+        review_id = data.get('id')
+        Title=data.get('title')
+
+       
+        review_info = Review_0.objects.get(ID=review_id)
+
+        if Title == 'approve':
+            review_info.Title = True
+        elif Title == 'reject':
+            review_info.Title= False
+        else:
+            return Response("Invalid action. Use 'approve' or 'reject'", status=status.HTTP_400_BAD_REQUEST)
+
+        review_info.save()
