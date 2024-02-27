@@ -115,14 +115,14 @@ const Review3 = () => {
                 </div>
               </td>
               <td>
-                <div className="form-group">
+                <div className="form-group" style={{display:'flex', justifyContent:'space-between'}}>
                   {formData.project_demo ? <> <a
                     href={formData.project_demo}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Click here to view Project Demo
-                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('project_demo')}>Re-Upload</button> </> : <input
+                  </a> <button className="btn btn-success" style={{ width: "20%", marginRight:'5%' }} onClick={() => handleEdit('project_demo')}>Re-Upload</button> </> : <input
                     type="file"
                     id="video"
                     name="video"
@@ -145,14 +145,14 @@ const Review3 = () => {
                 </div>
               </td>
               <td>
-                <div className="form-group">
+                <div className="form-group" style={{display:'flex', justifyContent:'space-between'}}>
                   {formData.project_screenshot ? <> <a
                     href={formData.project_screenshot}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Click here to view Project Screenshot
-                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('project_screenshot')}>Re-Upload</button> </> : <input
+                  </a> <button className="btn btn-success" style={{ width: "20%", marginRight:'5%' }} onClick={() => handleEdit('project_screenshot')}>Re-Upload</button> </> : <input
                     type="file"
                     id="screenshots"
                     name="screenshots[]"
@@ -175,14 +175,14 @@ const Review3 = () => {
                 </div>
               </td>
               <td>
-                <div className="form-group">
+                <div className="form-group" style={{display:'flex', justifyContent:'space-between'}}>
                   {formData.report ? <> <a
                     href={formData.report}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Click here to view Project Report
-                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('report')}>Re-Upload</button> </> : <input
+                  </a> <button className="btn btn-success" style={{ width: "20%", marginRight:'5%' }} onClick={() => handleEdit('report')}>Re-Upload</button> </> : <input
                     type="file"
                     id="documentation"
                     name="documentation"
@@ -205,22 +205,21 @@ const Review3 = () => {
                 </div>
               </td>
               <td>
-                <div className="form-group">
+                <div className="form-group" style={{display:'flex', justifyContent:'space-between'}}>
                   {formData.ppt ? <> <a
                     href={formData.ppt}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Click here to view PPT
-                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('ppt')}>Re-Upload</button> </> : <input
+                  </a> <button className="btn btn-success" style={{ width: "20%", marginRight:'5%' }} onClick={() => handleEdit('ppt')}>Re-Upload</button> </> : <input
                     type="file"
                     id="ppt"
                     name="ppt"
                     className=""
                     accept=".ppt, .pptx"
                     onChange={(event) => handleFileChange(event, 'ppt')}
-                  />}
-                  
+                  />}    
                 </div>
               </td>
               <td>
