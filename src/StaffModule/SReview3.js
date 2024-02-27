@@ -82,7 +82,7 @@ function SReview3() {
   }
 
   useEffect (() => {
-    if (approveDemo === 'accept' && approveScreenshot === 'accept' && approveDocumentation === 'accept' && approvePpt === 'accept'){
+    if (approveDemo === 'approve' && approveScreenshot === 'approve' && approveDocumentation === 'approve' && approvePpt === 'approve'){
       setAllrowsApproved(true);
     }
     else{
