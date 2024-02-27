@@ -8,6 +8,8 @@ function SReview3() {
   const [approveDocumentation, setApproveDocumentation] = useState('reject');
   const [approvePpt, setApprovePpt] = useState('reject');
   const [allrowsApproved, setAllrowsApproved] = useState(false);
+  const [approveAll, setApproveAll] = useState('');
+
 
   useEffect(() => {
     const data = {
@@ -30,6 +32,7 @@ function SReview3() {
       'screenshot_status' : approveScreenshot,
       'documentation_status' : approveDocumentation,
       'ppt_status' : approvePpt,
+      'all_status':approveAll,
     }
     axios.post( 'http://127.0.0.1:8000/reviewupload/status3/',data)
     .then((response) => {
@@ -38,7 +41,7 @@ function SReview3() {
     .catch((error) => {
       console.log(error);
     })
-  },[approveDemo, approveScreenshot, approveDocumentation, approvePpt])
+  },[approveDemo, approveScreenshot, approveDocumentation, approvePpt,approveAll])
 
   const handleApprove = (status) => {
     if (status === 'demo_status'){
@@ -80,6 +83,12 @@ function SReview3() {
       setAllrowsApproved(false);
     }
   },[approveDemo, approveScreenshot, approveDocumentation, approvePpt]);
+
+  const handleForward = (e) => {
+    e.preventDefault();
+    setApproveAll('approve');
+  }
+
   
   return (
     <div>
@@ -194,7 +203,7 @@ function SReview3() {
               <tr>
               <td colspan="2"></td>
               <td>
-                <button type="submit" class="btn btn-success" style={{ width: "100%" }}>
+                <button type="submit" class="btn btn-success" style={{ width: "100%" }} onClick={handleForward}>
                 Forward To HOD
                 </button>
               </td>

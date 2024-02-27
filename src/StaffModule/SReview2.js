@@ -9,6 +9,8 @@ function SReview2() {
   const [approveRoughReport, setApproveRoughReport] = useState('reject');
   const [approvePPT, setApprovePPT] = useState('reject');
   const [allrowsApproved,setAllrowsApproved] = useState(false);
+  const [approveAll, setApproveAll] = useState('');
+
 
   useEffect(() => {
     const data = {
@@ -29,6 +31,7 @@ useEffect(()=>{
     'screenshot_status' : approveScreenshot,
     'roughreport_status' : approveRoughReport,
     'ppt_status' : approvePPT, 
+    'all_status':approveAll,
   }
   axios.post('http://127.0.0.1:8000/reviewupload/status2/' ,data)
   .then((response) => {
@@ -38,7 +41,7 @@ useEffect(()=>{
     console.log(error);
   })
 
-},[approveScreenshot, approveRoughReport, approvePPT])
+},[approveScreenshot, approveRoughReport, approvePPT]);
   const handleApprove = (status) => {
     if(status === 'screenshot_status'){
       setApproveScreenshot('approve')
@@ -50,19 +53,6 @@ useEffect(()=>{
       setApprovePPT('approve')
     }
 
-    const data = {
-      'id' : 3,
-      'screenshot_status' : approveScreenshot,
-      'roughreport_status' : approveRoughReport,
-      'ppt_status' : approvePPT, 
-    }
-    axios.post('http://127.0.0.1:8000/reviewupload/status2/' ,data)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
   }
 
   const handleReject = (status) => {
@@ -84,8 +74,13 @@ useEffect(()=>{
     } else {
       setAllrowsApproved(false);
     }
-  }, [approveScreenshot, approveRoughReport, approvePPT]);
+  }, [approveScreenshot, approveRoughReport, approvePPT,approveAll]);
   
+  const handleForward = (e) => {
+    e.preventDefault();
+    setApproveAll('approve');
+  }
+
   return (
     <div>
       <div class="container mt-5">
@@ -185,6 +180,7 @@ useEffect(()=>{
                   type="submit"
                   class="btn btn-success"
                   style={{ width: "100%" }}
+                  onClick={handleForward}
                 >
                   Forward To HOD
                 </button>
