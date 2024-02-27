@@ -23,19 +23,7 @@ function SReview3() {
     })
   },[])
 
-  const handleApprove = (status) => {
-    if (status === 'demo_status'){
-      setApproveDemo('approve');
-    }
-    else if (status === 'screenshot_status'){
-      setApproveScreenshot('approve');
-    }
-    else if (status === 'documentation_status'){
-      setApproveDocumentation('approve')
-    }
-    else if (status === 'ppt_status'){
-      setApprovePpt('approve')
-    }
+  useEffect(() =>{
     const data = {
       'id':3,
       'demo_status' : approveDemo,
@@ -50,6 +38,22 @@ function SReview3() {
     .catch((error) => {
       console.log(error);
     })
+  },[approveDemo, approveScreenshot, approveDocumentation, approvePpt])
+
+  const handleApprove = (status) => {
+    if (status === 'demo_status'){
+      setApproveDemo('approve');
+    }
+    else if (status === 'screenshot_status'){
+      setApproveScreenshot('approve');
+    }
+    else if (status === 'documentation_status'){
+      setApproveDocumentation('approve')
+    }
+    else if (status === 'ppt_status'){
+      setApprovePpt('approve')
+    }
+    
   }
 
   const handleReject = (status) => {
@@ -65,20 +69,7 @@ function SReview3() {
     else if (status === 'ppt_status'){
       setApprovePpt('reject')
     }
-    const data = {
-      'id':3,
-      'demo_status' : approveDemo,
-      'screenshot_status' : approveScreenshot,
-      'documentation_status' : approveDocumentation,
-      'ppt_status' : approvePpt,
-    }
-    axios.post( 'http://127.0.0.1:8000/reviewupload/status3/',data)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
+    
   }
 
   useEffect (() => {

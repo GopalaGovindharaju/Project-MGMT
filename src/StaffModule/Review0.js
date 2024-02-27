@@ -31,6 +31,7 @@ function Review0() {
       'abstract_status' : approveAbstract,
       'basepaper_status' : approveBasepaper,
       'ppt_status' : approvePPT,
+      'approveall':approveAll,
     }
     console.log(data)
     axios.post( 'http://127.0.0.1:8000/reviewupload/status/',data)
@@ -70,21 +71,10 @@ function Review0() {
     else if(status === 'ppt_status'){
       setApprovePPT('reject')
     }
-    const data = {
-      'id':3,
-      'title_status' : approveTitle,
-      'abstract_status' : approveAbstract,
-      'basepaper_status' : approveBasepaper,
-      'ppt_status' : approvePPT,
-    }
-    axios.post( 'http://127.0.0.1:8000/reviewupload/status/',data)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
+    
   }
+
+
 
   useEffect(() => {
     if (approveTitle === 'approve' && approveAbstract === 'approve' && approveBasepaper === 'approve' && approvePPT === 'approve') {
@@ -206,7 +196,7 @@ function Review0() {
               <tr>
               <td colSpan="2"></td>
               <td>
-                <button type="submit" className="btn btn-success" style={{ width: "100%" }}> 
+                <button type="submit" className="btn btn-success" style={{ width: "100%" }} > 
                   Forward To HOD
                 </button>
               </td>

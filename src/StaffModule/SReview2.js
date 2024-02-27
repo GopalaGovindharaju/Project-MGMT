@@ -23,7 +23,22 @@ function SReview2() {
       console.log(error)
     })
   },[])
+useEffect(()=>{
+  const data = {
+    'id' : 3,
+    'screenshot_status' : approveScreenshot,
+    'roughreport_status' : approveRoughReport,
+    'ppt_status' : approvePPT, 
+  }
+  axios.post('http://127.0.0.1:8000/reviewupload/status2/' ,data)
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
 
+},[approveScreenshot, approveRoughReport, approvePPT])
   const handleApprove = (status) => {
     if(status === 'screenshot_status'){
       setApproveScreenshot('approve')
@@ -60,19 +75,7 @@ function SReview2() {
     else if (status === 'ppt_status'){
       setApprovePPT('reject')
     }
-    const data = {
-      'id' : 3,
-      'screenshot_status' : approveScreenshot,
-      'roughreport_status' : approveRoughReport,
-      'ppt_status' : approvePPT, 
-    }
-    axios.post('http://127.0.0.1:8000/reviewupload/status2/' ,data)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
+    
   }
 
   useEffect(() => {
