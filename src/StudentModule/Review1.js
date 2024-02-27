@@ -113,7 +113,7 @@ function Review1() {
                     PPT
                   </label>
                 </td>
-                <td>
+                <td style={{display:'flex',justifyContent:'space-between'}}>
                   {formData.ppt ? (
                     <>
                       {" "}
@@ -126,7 +126,7 @@ function Review1() {
                       </a>{" "}
                       <button
                         className="btn btn-success"
-                        style={{ width: "20%" }}
+                        style={{ width: "20%", marginRight:'5%' }}
                         onClick={() => handleEdit("ppt")}
                       >
                         Re-Upload
@@ -155,7 +155,7 @@ function Review1() {
                     System Architecture Submission
                   </label>
                 </td>
-                <td>
+                <td style={{display:'flex',justifyContent:'space-between'}}>
                   {formData.architecture ? (
                     <>
                       {" "}
@@ -168,7 +168,7 @@ function Review1() {
                       </a>{" "}
                       <button
                         className="btn btn-success"
-                        style={{ width: "20%" }}
+                        style={{ width: "20%", marginRight:'5%' }}
                         onClick={() => handleEdit("architecture")}
                       >
                         Re-Upload
@@ -199,7 +199,7 @@ function Review1() {
                     Module Types Submission
                   </label>
                 </td>
-                <td>
+                <td style={{display:'flex',justifyContent:'space-between'}}>
                   {formData.modules ? (
                     <>
                       {" "}
@@ -212,7 +212,7 @@ function Review1() {
                       </a>{" "}
                       <button
                         className="btn btn-success"
-                        style={{ width: "20%" }}
+                        style={{ width: "20%", marginRight:'5%' }}
                         onClick={() => handleEdit("modules")}
                       >
                         Re-Upload
@@ -241,7 +241,7 @@ function Review1() {
                     Module Techniques Submission
                   </label>
                 </td>
-                <td>
+                <td style={{display:'flex',justifyContent:'space-between'}}>
                   {formData.modules_description ? (
                     <>
                       {" "}
@@ -254,7 +254,7 @@ function Review1() {
                       </a>{" "}
                       <button
                         className="btn btn-success"
-                        style={{ width: "20%" }}
+                        style={{ width: "20%", marginRight:'5%' }}
                         onClick={() => handleEdit("modules_description")}
                       >
                         Re-Upload
@@ -285,7 +285,7 @@ function Review1() {
                     Literature Survey Submission
                   </label>
                 </td>
-                <td>
+                <td style={{display:'flex',justifyContent:'space-between'}}>
                   {formData.litrature_survey ? (
                     <>
                       {" "}
@@ -298,7 +298,7 @@ function Review1() {
                       </a>{" "}
                       <button
                         className="btn btn-success"
-                        style={{ width: "20%" }}
+                        style={{ width: "20%", marginRight:'5%' }}
                         onClick={() => handleEdit("litrature_survey")}
                       >
                         Re-Upload
@@ -329,7 +329,7 @@ function Review1() {
                     Expected Outcomes (Screenshot)
                   </label>
                 </td>
-                <td>
+                <td style={{display:'flex',justifyContent:'space-between'}}>
                   {formData.outcome_images ? (
                     <>
                       {" "}
@@ -342,7 +342,7 @@ function Review1() {
                       </a>{" "}
                       <button
                         className="btn btn-success"
-                        style={{ width: "20%" }}
+                        style={{ width: "20%", marginRight:'5%' }}
                         onClick={() => handleEdit("outcome_images")}
                       >
                         Re-Upload

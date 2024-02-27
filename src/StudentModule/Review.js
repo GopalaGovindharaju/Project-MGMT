@@ -135,14 +135,14 @@ function Review() {
                   Abstract Document Submission
                 </label>
               </td>
-              <td>
+              <td style={{display:'flex',justifyContent:'space-between'}}>
                 {formData.abstract ? <> <a
                     href={formData.abstract}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Click here to view Abstract
-                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('abstract')}>Re-Upload</button> </> : <input
+                  </a> <button className="btn btn-success" style={{ width: "20%", marginRight:"10px" }} onClick={() => handleEdit('abstract')}>Re-Upload</button> </> : <input
                   type="file"
                   id="abstract"
                   name="abstract"
@@ -162,14 +162,14 @@ function Review() {
                   Base Paper Document Submission
                 </label>
               </td>
-              <td>
+              <td style={{display:'flex',justifyContent:'space-between'}}>
                 {formData.basePaper ?  <> <a
                     href={formData.basePaper}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Click here to view Base Paper
-                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('basePaper')}>Re-Upload</button> </> : <input
+                  </a> <button className="btn btn-success" style={{ width: "20%", marginRight:"10px" }} onClick={() => handleEdit('basePaper')}>Re-Upload</button> </> : <input
                   type="file"
                   id="basePaper"
                   name="basePaper"
@@ -189,14 +189,14 @@ function Review() {
                   PPT Document Submission
                 </label>
               </td>
-              <td>
+              <td style={{display:'flex',justifyContent:'space-between'}}>
                 {formData.ppt ?  <> <a
                     href={formData.ppt}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Click here to view PPT
-                  </a> <button className="btn btn-success" style={{ width: "20%" }} onClick={() => handleEdit('ppt')}>Re-Upload</button> </> : <input
+                  </a> <button className="btn btn-success" style={{ width: "20%", marginRight:"10px" }} onClick={() => handleEdit('ppt')}>Re-Upload</button> </> : <input
                   type="file"
                   id="ppt"
                   name="ppt"
