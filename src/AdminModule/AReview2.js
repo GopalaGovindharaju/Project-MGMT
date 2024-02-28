@@ -36,7 +36,8 @@ function AReview2() {
       'screenshot_status' : approveScreenshot,
       'roughreport_status' : approveRoughReport,
       'ppt_status' : approvePPT, 
-      'all_status':approveAll,
+      'all_status': fileData.guide_status ? 'approve' : 'reject',
+      'hod_status': approveAll,
     }
     if(initialAxiosPreventer){
   
@@ -196,6 +197,7 @@ function AReview2() {
                   type="submit"
                   class="btn btn-success"
                   style={{ width: "100%" }}
+                  onClick={handleForward}
                 >
                   Permission Granted
                 </button>
