@@ -25,7 +25,7 @@ function SReview3() {
       setApproveDocumentation(response.data.report_status ? 'approve' : 'reject')
       setApprovePpt(response.data.ppt_status ? 'approve' : 'reject')
     })
-    .catch((error) => {
+    .catch((error) => {1
       console.log(error)
     })
   },[])
