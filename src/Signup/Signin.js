@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './signin.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import UserInfoContext from '../Helper/UsenInfoContext';
 
 function Signin() {
   const [userFormsClass, setUserFormsClass] = useState('');
@@ -10,6 +12,60 @@ function Signin() {
   const [newConfirmPassword, setNewConfirmPassword] = useState('');
   const [selectedRole, setSelectedRole] = useState('');
   const [selectedDepartment,setSelectedDepartment] = useState('');
+  const [isauthorized, setIsAuthorized] = useState(
+    localStorage.getItem("isauthorized") || ""
+  );
+  const [isSigned, setIsSigned] = useState(
+    localStorage.getItem("isSigned") === "true" ? true : false
+  );
+  const navigate = useNavigate();
+  const { setUserInfo } = useContext(UserInfoContext);
+  
+  useEffect(() => {
+    localStorage.setItem("isauthorized", isauthorized);
+  }, [isauthorized]);
+
+  useEffect(() => {
+    localStorage.setItem("isSigned", isSigned.toString());
+  }, [isSigned]);
+
+  useEffect(() => {
+    // Load user information from local storage on component mount
+    const storedUserInfo = JSON.parse(localStorage.getItem('userInfo'));
+    const storedIsAuthorized = localStorage.getItem('isauthorized');
+    const storedIsSigned = localStorage.getItem('isSigned') === 'true';
+
+    if (storedIsSigned && storedIsAuthorized && storedUserInfo) {
+      setIsSigned(true);
+      setIsAuthorized(storedIsAuthorized);
+      setUserInfo(storedUserInfo);
+      navigate('/'); // Redirect to the appropriate route after login
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleNavigation = () => {
+    switch (isauthorized) {
+      case 'Admin':
+        navigate('/admin');
+        break;
+      case 'Student':
+        navigate('/student');
+        break;
+      case 'Guide':
+        navigate('/staff');
+        break;
+      default:
+        break;
+    }
+  }
+
+  useEffect(() => {
+    if (isSigned && isauthorized) {
+      handleNavigation();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSigned, isauthorized]);
 
   const ressetForm = () => {
     setNewUserId('');
@@ -55,6 +111,15 @@ function Signin() {
     axios.post('http://127.0.0.1:8000/signup/login/', data)
     .then((response) => {
       console.log(response.data)
+      if (!response.data) {
+        alert("User Can't Found");
+      } else {
+        setIsSigned(true);
+        setIsAuthorized(response.data.Role);
+        setUserInfo(response.data);
+        console.log(response.data)
+        localStorage.setItem('userInfo', JSON.stringify(response.data));
+      }
       ressetForm()
     })
     .catch((error) => {
@@ -77,6 +142,12 @@ function Signin() {
       .then((response) => {
         console.log("Sign uped")
         console.log(response)
+        setUserFormsClass('bounceRight');
+      if (!response.data) {
+        alert("User Can't Found or not Registered");
+      } else {
+        console.log(response.data)
+      }
         ressetForm();
       })
       .catch((error) => {
