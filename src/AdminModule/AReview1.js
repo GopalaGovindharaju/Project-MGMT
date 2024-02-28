@@ -22,12 +22,12 @@ function AReview1() {
     .then((response) => {
       console.log(response.data)
       setFileData(response.data)
-      setApproveSysArchitecture(response.data.system_architecture_status ? 'approve ' : 'reject')
+      setApproveSysArchitecture(response.data.system_architecture_status ? 'approve' : 'reject')
       setApproveModTypes(response.data.modules_status ? 'approve':'reject')
-      setApproveModTech(response.data.modules_description_status ? 'approve ' : 'reject')
-      setApproveLiteratureSurvey(response.data.literature_survey_status ? 'approve ' : 'reject')
-      setApproveOutcome(response.data.expected_outcome_status ? 'approve ' : 'reject')
-      setApprovePpt(response.data.ppt_status ? 'approve ' : 'reject')
+      setApproveModTech(response.data.modules_description_status ? 'approve' : 'reject')
+      setApproveLiteratureSurvey(response.data.literature_survey_status ? 'approve' : 'reject')
+      setApproveOutcome(response.data.expected_outcome_status ? 'approve' : 'reject')
+      setApprovePpt(response.data.ppt_status ? 'approve' : 'reject')
     })
     .catch((error) => {
       console.log(error)
@@ -93,27 +93,27 @@ function AReview1() {
 
   const handleReject = (status) => {
     if (status === 'sysarchitecture_status'){
-      setApproveSysArchitecture('Reject');
+      setApproveSysArchitecture('reject');
       setInitialAxiosPreventer(false);
     }
     else if (status === 'moduletypes_status'){
-      setApproveModTypes('Reject');
+      setApproveModTypes('reject');
       setInitialAxiosPreventer(false);
     }
     else if (status === 'moduletech_status'){
-      setApproveModTech('Reject');
+      setApproveModTech('reject');
       setInitialAxiosPreventer(false);
     }
     else if (status === 'literature_status'){
-      setApproveLiteratureSurvey('Reject');
+      setApproveLiteratureSurvey('reject');
       setInitialAxiosPreventer(false);
     }
     else if (status === 'outcome_status'){
-      setApproveOutcome('Reject')
+      setApproveOutcome('reject')
       setInitialAxiosPreventer(false);
     }
     else if (status === 'ppt_status'){
-      setApprovePpt('Reject')
+      setApprovePpt('reject')
       setInitialAxiosPreventer(false);
     }
   }
@@ -300,7 +300,7 @@ function AReview1() {
                   onClick={handleForward}
 
                 >
-                  Forward To HOD
+                  Permission Granted
                 </button>
               </td>
             </tr>
