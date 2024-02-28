@@ -33,8 +33,8 @@ function StaffStudentAdd({setIsOpen}) {
       name: studentName,
       batch: studentBatch,
       year: studentYear,
-      department: userInfo.department,
-      guide_id: userInfo.ID,
+      department: 'cse',
+      guide_id: '002',
     };
     axios.post('http://localhost:8000/addStudent/', data)
       .then((response) => {

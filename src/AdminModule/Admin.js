@@ -192,7 +192,7 @@ function Admin() {
             </button>
             <button className="profile-btn">
               <img src={process.env.PUBLIC_URL + "/profile.png"} alt=''/>
-              <span>{userInfo.Name}</span>
+              <span>Name</span>
             </button>
           </div>
   
@@ -259,8 +259,8 @@ function Admin() {
                     </div>
                     <h5  style={{marginBottom:'-2px'}}>Reviews</h5>
 
-                    <div style={{display:'flex', flexDirection:'row', padding :'10px',justifyContent:'space-between'}}>
-                    <div className="box-progress-wrapper">
+                    <div style={{display:'flex', flexDirection:'row', justifyContent:'space-evenly'}}>
+                    <div className="box-progress-wrapper" >
                       <p className="box-progress-header"style={{width:'100%'}}></p>
                       <div className="box-progress-bar">
                         <span
