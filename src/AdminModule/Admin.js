@@ -268,7 +268,7 @@ function Admin() {
                           style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
                         ></span>
                       </div>
-                      <div className="box-progress-footer"> <p>0</p>  </div>
+                      <div className="box-progress-footer"style={{marginTop:'20px'}}> <p>0</p>  </div>
                     </div>
 
                     <div className="box-progress-wrapper">
@@ -279,7 +279,7 @@ function Admin() {
                           style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
                         ></span>
                       </div>
-                      <div className="box-progress-footer"> <p>1</p>  </div>
+                      <div className="box-progress-footer"style={{marginTop:'20px'}}> <p>1</p>  </div>
 
                     </div>
 
@@ -291,7 +291,7 @@ function Admin() {
                           style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
                         ></span>
                       </div>
-                      <div className="box-progress-footer"> <p>2</p>  </div>
+                      <div className="box-progress-footer"style={{marginTop:'20px'}}> <p>2</p>  </div>
 
                     </div>
 
@@ -303,7 +303,7 @@ function Admin() {
                           style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
                         ></span>
                       </div>
-                      <div className="box-progress-footer"> <p>3</p>  </div>
+                      <div className="box-progress-footer"style={{marginTop:'20px'}}> <p>3</p>  </div>
                     </div>     
                     </div>
 
