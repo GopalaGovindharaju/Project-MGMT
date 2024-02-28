@@ -4,6 +4,7 @@ import axios from 'axios';
 
 
 function StaffStudentAdd({setIsOpen}) {
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
   const [studentId, setStudentId] = useState('');
   const [studentName, setStudentName] = useState('');
   const [studentBatch, setStudentBatch] = useState('');
@@ -32,8 +33,8 @@ function StaffStudentAdd({setIsOpen}) {
       name: studentName,
       batch: studentBatch,
       year: studentYear,
-      department: 'cse',
-      guide_id: '002'
+      department: userInfo.department,
+      guide_id: userInfo.ID,
     };
     axios.post('http://localhost:8000/addStudent/', data)
       .then((response) => {
