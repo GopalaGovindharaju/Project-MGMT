@@ -9,6 +9,7 @@ function AdminGuideAdd({setIsOpen}) {
   const [gName, setGName] = useState('');
   const [gDesignation, setGDesignation] = useState('');
   const [gPanelmember, setgPanelmember] = useState(false);
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
 
   const handleGId = (event) => {
     setGId(event.target.value)
@@ -48,7 +49,7 @@ function AdminGuideAdd({setIsOpen}) {
       id: gId,
       name: gName,
       designation: gDesignation,
-      department: 'cse',
+      department: userInfo.Department,
       panelmember: gPanelmember
     }
     console.log(data)

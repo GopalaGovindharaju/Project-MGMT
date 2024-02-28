@@ -7,7 +7,7 @@ import Chatmsg1 from '../StudentModule/Chatmsg1';
 import AdminGuideAdd from './AdminGuideAdd';
 
 function Admin() {
-
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
   const [currentDate, setCurrentDate] = useState('');
   const [projects, setProjects] = useState([]);
   const [isTabOpen, setIsTabOpen] = useState(false);
@@ -192,7 +192,7 @@ function Admin() {
             </button>
             <button className="profile-btn">
               <img src={process.env.PUBLIC_URL + "/profile.png"} alt=''/>
-              <span>Name</span>
+              <span>{userInfo.Name}</span>
             </button>
           </div>
   
