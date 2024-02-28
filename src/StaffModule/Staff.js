@@ -195,16 +195,46 @@ function Staff() {
                     <div className="project-box-content-header">
                       <p className="box-content-header">{project.Title}</p>
                     </div>
+                    <div style={{display:'flex', flexDirection:'row'}}>
                     <div className="box-progress-wrapper">
-                      <p className="box-progress-header">Progress</p>
+                      <p className="box-progress-header">Review 0</p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
                           style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
                         ></span>
                       </div>
-                      <p className="box-progress-percentage">{Math.round(project.Review)}%</p>
                     </div>
+
+                    <div className="box-progress-wrapper">
+                      <div className="box-progress-bar">
+                        <span
+                          className="box-progress"
+                          style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
+                        ></span>
+                      </div>
+                    </div>
+
+                    <div className="box-progress-wrapper">
+                      <div className="box-progress-bar">
+                        <span
+                          className="box-progress"
+                          style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
+                        ></span>
+                      </div>
+                    </div>
+
+                    <div className="box-progress-wrapper">
+                      <div className="box-progress-bar">
+                        <span
+                          className="box-progress"
+                          style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
+                        ></span>
+                      </div>
+                    </div>
+
+                    </div>
+                    
                     <div className="project-box-footer">
                       <div className="participants">
                       <p className="box-content-subheader">{project.Project_Guide}</p>

@@ -728,5 +728,8 @@ button, a {
 
 #guideaddform{
   width: 100%;
-  
+}
+
+.progress-bar{
+  background-color: #7c7c7c;
 }
