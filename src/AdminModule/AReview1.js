@@ -95,15 +95,15 @@ function AReview1() {
 
   const handleReject = (status) => {
     if (status === 'sysarchitecture_status'){
-      setApproveSysArchitecture('Reject');
+      setApproveSysArchitecture('reject');
       setInitialAxiosPreventer(false);
     }
     else if (status === 'moduletypes_status'){
-      setApproveModTypes('Reject');
+      setApproveModTypes('reject');
       setInitialAxiosPreventer(false);
     }
     else if (status === 'moduletech_status'){
-      setApproveModTech('Reject');
+      setApproveModTech('reject');
       setInitialAxiosPreventer(false);
     }
     else if (status === 'literature_status'){
@@ -111,11 +111,11 @@ function AReview1() {
       setInitialAxiosPreventer(false);
     }
     else if (status === 'outcome_status'){
-      setApproveOutcome('Reject')
+      setApproveOutcome('reject')
       setInitialAxiosPreventer(false);
     }
     else if (status === 'ppt_status'){
-      setApprovePpt('Reject')
+      setApprovePpt('reject')
       setInitialAxiosPreventer(false);
     }
   }
