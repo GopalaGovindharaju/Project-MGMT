@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './staff.css'
 import ReviewDateForTeams from './ReviewDateForTeams';
 import Chatmsg from '../StudentModule/Chatmsg';
 import Chatmsg1 from '../StudentModule/Chatmsg1';
 import StaffStudentAdd from './StaffStudentAdd';
 import { useNavigate } from 'react-router-dom';
-import UserInfoContext from '../Helper/UsenInfoContext';
 
 function Staff() {
   const [isTabOpen, setIsTabOpen] = useState(false);
@@ -148,7 +147,7 @@ function Staff() {
       </button>
       <button className="profile-btn">
         <img src={process.env.PUBLIC_URL + '/profile.png'} alt=''/>
-        <span>Name</span>
+        <span>{userInfo.Name}</span>
       </button>
     </div>
   
