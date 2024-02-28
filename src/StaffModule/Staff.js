@@ -195,44 +195,19 @@ function Staff() {
                     <div className="project-box-content-header">
                       <p className="box-content-header">{project.Title}</p>
                     </div>
-                    <div style={{display:'flex', flexDirection:'row'}}>
-                    <div className="box-progress-wrapper">
-                      <p className="box-progress-header">Review 0</p>
-                      <div className="box-progress-bar">
-                        <span
-                          className="box-progress"
-                          style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
-                        ></span>
+                    <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
+                      <div class="w3-light-grey">
+                        <div class="w3-container w3-green w3-center" style={{width:'25%'}}>25%</div>
                       </div>
-                    </div>
-
-                    <div className="box-progress-wrapper">
-                      <div className="box-progress-bar">
-                        <span
-                          className="box-progress"
-                          style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
-                        ></span>
+                      <div class="w3-light-grey">
+                        <div class="w3-container w3-green w3-center" style={{width:'25%'}}>25%</div>
                       </div>
-                    </div>
-
-                    <div className="box-progress-wrapper">
-                      <div className="box-progress-bar">
-                        <span
-                          className="box-progress"
-                          style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
-                        ></span>
+                      <div class="w3-light-grey">
+                        <div class="w3-container w3-green w3-center" style={{width:'25%'}}>25%</div>
                       </div>
-                    </div>
-
-                    <div className="box-progress-wrapper">
-                      <div className="box-progress-bar">
-                        <span
-                          className="box-progress"
-                          style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
-                        ></span>
+                      <div class="w3-light-grey">
+                        <div class="w3-container w3-green w3-center" style={{width:'25%'}}>25%</div>
                       </div>
-                    </div>
-
                     </div>
                     
                     <div className="project-box-footer">
