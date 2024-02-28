@@ -1,9 +1,11 @@
-import React, {useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './staff.css'
 import ReviewDateForTeams from './ReviewDateForTeams';
 import Chatmsg from '../StudentModule/Chatmsg';
 import Chatmsg1 from '../StudentModule/Chatmsg1';
 import StaffStudentAdd from './StaffStudentAdd';
+import { useNavigate } from 'react-router-dom';
+import UserInfoContext from '../Helper/UsenInfoContext';
 
 function Staff() {
   const [isTabOpen, setIsTabOpen] = useState(false);
@@ -11,7 +13,8 @@ function Staff() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [currentDate, setCurrentDate] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-
+  const navigate = useNavigate();
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
   
   
   const handleTheme = () => {
@@ -33,6 +36,7 @@ function Staff() {
   });
 
   useEffect(() => {
+    console.log(userInfo)
     const formatDate = (date) => {
       const options = { month: 'long', day: 'numeric' };
       return new Intl.DateTimeFormat('en-US', options).format(date);
@@ -87,6 +91,11 @@ function Staff() {
   const handleOpen = () => {
     setIsOpen(true);
   }
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate('/');
+  }
   return (
     <div>
       <div className="app-container">
@@ -128,6 +137,7 @@ function Staff() {
       <button className="add-btn" 
       title="Log Out" 
       value="Log Out"
+      onClick={handleLogout}
        >
       <img
           src={process.env.PUBLIC_URL + '/power.png'}
