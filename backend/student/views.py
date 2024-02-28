@@ -265,7 +265,7 @@ def get_review_1_files_status(request):
                 review_info.Guide_Status = False
                 
             if (Architecture_Status == 'approve' and Modules_Status == 'approve' and Modules_Description_Status == 'approve' and Litrature_survey_Status == 'approve' and Outcome_Images_Status == 'approve' and PPt_Status == 'approve'  and Guide_Status == 'approve' and Hod_Status == 'approve'):
-                    review_info.Hod_Status = True
+                review_info.Hod_Status = True
             else:
                 review_info.Hod_Status = False
 

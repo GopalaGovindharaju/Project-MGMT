@@ -196,6 +196,8 @@ function AReview2() {
                   type="submit"
                   class="btn btn-success"
                   style={{ width: "100%" }}
+                  onClick={handleForward}
+
                 >
                   Permission Granted
                 </button>
