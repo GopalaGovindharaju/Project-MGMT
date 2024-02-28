@@ -107,7 +107,7 @@ function AReview1() {
       setInitialAxiosPreventer(false);
     }
     else if (status === 'literature_status'){
-      setApproveLiteratureSurvey('Reject');
+      setApproveLiteratureSurvey('reject');
       setInitialAxiosPreventer(false);
     }
     else if (status === 'outcome_status'){
@@ -302,7 +302,7 @@ function AReview1() {
                   onClick={handleForward}
 
                 >
-                  Permitted
+                  Permission Granted
                 </button>
               </td>
             </tr>
