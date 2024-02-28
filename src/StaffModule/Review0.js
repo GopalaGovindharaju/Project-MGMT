@@ -106,6 +106,7 @@ function Review0() {
   const handleForward = (e) => {
     e.preventDefault();
     setApproveAll('approve');
+    setInitialAxiosPreventer(false);
   }
 
   
