@@ -2,14 +2,45 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
+from django.db.models import Subquery, OuterRef
 from .models import Student_Info 
+from .serializers import Student_InfoSerializer
 from student.models import Review_0
 from student.models import Review_1
 from student.models import Review_2
 from student.models import Review_3
 
 
-@api_view(['Post'])
+@api_view(['POST'])
+def get_teams(request):
+    if request.method == 'POST':
+        data = request.data
+        Id = data.get('id')
+
+        if Student_Info.objects.filter(Guide_ID=Id).exists():
+            subquery = Student_Info.objects.filter(Guide_ID=Id, Batch=OuterRef('Batch')).values('ID')[:1]
+            teams = Student_Info.objects.filter(ID__in=Subquery(subquery))
+            serializer = Student_InfoSerializer(teams, many=True)
+
+            result_data = []
+            for project_detail in serializer.data:
+                team_details = Review_0.objects.get(ID=project_detail['ID'])
+                result_data.append({
+                    'ID': project_detail['ID'],
+                    'Name': project_detail['Name'],
+                    'Guide_ID': project_detail['Guide_ID'],
+                    'Year': project_detail['Year'],
+                    'Department': project_detail['Department'],
+                    'Batch': project_detail['Batch'],
+                    'Title': team_details.Title if team_details.Title else "Not Yet Approved",
+                })
+
+            return Response(result_data)
+        else:
+            return Response("You Don't Have Teams")
+    else:
+        return Response('Invalid request')
+
 
 @api_view(['POST'])
 def add_student(request):

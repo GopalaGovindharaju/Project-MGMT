@@ -5,6 +5,7 @@ import Chatmsg from '../StudentModule/Chatmsg';
 import Chatmsg1 from '../StudentModule/Chatmsg1';
 import StaffStudentAdd from './StaffStudentAdd';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Staff() {
   const [isTabOpen, setIsTabOpen] = useState(false);
@@ -43,49 +44,6 @@ function Staff() {
     const today = new Date();
     const formattedDate = formatDate(today);
     setCurrentDate(formattedDate);
-    const data = [{
-      Lead_RegNo:'23',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'23',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'23',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'23',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'23',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'23',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'23',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'23',
-      Title: "hello",
-      Project_Guide:"indu"
-    }
-      
-    ]
-    setProjects(data);
   }, []);
   const handleOpen = () => {
     setIsOpen(true);
@@ -95,6 +53,22 @@ function Staff() {
     localStorage.clear();
     navigate('/');
   }
+
+  useEffect(() => {
+    const data = {
+      'id': '002',
+    }
+    axios.post('http://127.0.0.1:8000/addStudent/getTeams/',data)
+    .then((response) => {
+      console.log(response.data)
+      setProjects(response.data);
+    })
+    .catch((error) => {
+      console.log(error.data)
+    })
+  },[])
+
+
   return (
     <div>
       <div className="app-container">
@@ -147,7 +121,7 @@ function Staff() {
       </button>
       <button className="profile-btn">
         <img src={process.env.PUBLIC_URL + '/profile.png'} alt=''/>
-        <span>{userInfo.Name}</span>
+        <span>name</span>
       </button>
     </div>
   
@@ -179,8 +153,9 @@ function Staff() {
       </div>
       <div className="overflow-auto" id='project-boxes'>
       {colorLoop.map((project) => (
-            <div className="project-box-wrapper" key={project.lead_RegNo}>
+            <div className="project-box-wrapper" key={project.ID}>
               <div className="project-box" style={{ backgroundColor: project.backgroundColor }}>
+                <div style={{height:'100%'}}>
                     <div className="project-box-header">
                       <span>{currentDate}</span>
                       <div className="more-wrapper">
@@ -210,8 +185,9 @@ function Staff() {
                       <p className="box-content-subheader">{project.Project_Guide}</p>
                       </div>
                       <div className="days-left" style={{color: project.textColor }}>
-                        {project.Batch_No}
+                        {project.Batch}
                       </div>
+                    </div>
                     </div>
                   </div>
                 </div>
