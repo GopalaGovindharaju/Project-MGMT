@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
 function Review() {
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
   const [submitEnable, setSubmitEnable] = useState(false)
   const [fileData, setFileData] = useState([]);
   const [formData, setFormData] = useState({
@@ -22,7 +23,7 @@ function Review() {
 
   useEffect(() => {
     const data = {
-      id: 3,
+      id: userInfo.ID,
     }
     axios.post('http://127.0.0.1:8000/addStudent/get_review_0_files/',data)
     .then((response) => {
@@ -66,7 +67,7 @@ function Review() {
 
     console.log(formData.abstract)
     const data = new FormData();
-    data.append('id', 3);
+    data.append('id', userInfo.ID);
     data.append('title', formData.projectTitle);
     data.append('abstract', formData.abstract);
     data.append('basePaper', formData.basePaper);

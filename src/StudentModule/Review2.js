@@ -3,7 +3,7 @@ import './Review2.css';
 import axios from 'axios';
 
 function Review2() {
-
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
   const [publishChoice, setPublishChoice] = useState('')
   const [answer, setAnswer] = useState(false);
   const [submitEnable, setSubmitEnable] = useState(false)
@@ -23,7 +23,7 @@ function Review2() {
 
   useEffect(() => {
     const data = {
-      id: 3,
+      id: userInfo.ID,
     }
     axios.post('http://127.0.0.1:8000/addStudent/get_review_2_files/',data)
     .then((response) => {
@@ -68,7 +68,7 @@ function Review2() {
 
     console.log(formData.abstract)
     const data = new FormData();
-    data.append('id', 3);
+    data.append('id', userInfo.ID);
     data.append('implementation_80p', formData.implementation_80p);
     data.append('report_roughcopy', formData.report_roughcopy);
     data.append('ppt', formData.ppt);
