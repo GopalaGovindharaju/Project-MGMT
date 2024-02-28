@@ -4,15 +4,15 @@ import axios from 'axios';
 
 function AReview1() {
   const [approveSysArchitecture, setApproveSysArchitecture] = useState('');
-  const [approveModTypes, setApproveModTypes] = useState('');
-  const [approveModTech, setApproveModTech] = useState('');
-  const [approveLiteratureSurvey, setApproveLiteratureSurvey] = useState('');
-  const [approveOutcome, setApproveOutcome] = useState('');
+  const [approveModTypes, setApproveModTypes] = useState('');;
+  const [approveModTech, setApproveModTech] = useState('');;
+  const [approveLiteratureSurvey, setApproveLiteratureSurvey] = useState('');;
+  const [approveOutcome, setApproveOutcome] = useState('');;
   const [approvePpt, setApprovePpt] = useState('');
   const [allrowsApproved,setAllrowsApproved] = useState(false);
   const [fileData, setFileData] = useState([]);
   const [approveAll, setApproveAll] = useState('');
-  const[initialAxiosPreventer,setInitialAxiosPreventer]=useState(true);
+  const[initialAxiosPreventer,setInitialAxiosPreventer]=useState(true)
 
   useEffect(() => {
     const data = {
@@ -22,45 +22,17 @@ function AReview1() {
     .then((response) => {
       console.log(response.data)
       setFileData(response.data)
-      setApproveSysArchitecture(response.data.system_architecture_status ? 'approve ' : 'reject')
+      setApproveSysArchitecture(response.data.system_architecture_status ? 'approve' : 'reject')
       setApproveModTypes(response.data.modules_status ? 'approve':'reject')
-      setApproveModTech(response.data.modules_description_status ? 'approve ' : 'reject')
-      setApproveLiteratureSurvey(response.data.literature_survey_status ? 'approve ' : 'reject')
-      setApproveOutcome(response.data.expected_outcome_status ? 'approve ' : 'reject')
-      setApprovePpt(response.data.ppt_status ? 'approve ' : 'reject')
+      setApproveModTech(response.data.modules_description_status ? 'approve' : 'reject')
+      setApproveLiteratureSurvey(response.data.literature_survey_status ? 'approve' : 'reject')
+      setApproveOutcome(response.data.expected_outcome_status ? 'approve' : 'reject')
+      setApprovePpt(response.data.ppt_status ? 'approve' : 'reject')
     })
     .catch((error) => {
       console.log(error)
     })
   },[])
-  useEffect (() => {
-    const data = {
-      'id':3,
-      'sysarchitecture_status' : approveSysArchitecture,
-      'moduletypes_status' : approveModTypes,
-      'moduletech_status' : approveModTech,
-      'literature_status' : approveLiteratureSurvey,
-      'outcome_status' : approveOutcome,
-      'ppt_status' : approvePpt,
-      'all_status': fileData.guide_status ? 'approve' : 'reject',
-      'hod_status': approveAll,
-
-    }
-    console.log(data)
-    if(initialAxiosPreventer){
-
-    }
-    else{
-      axios.post('http://127.0.0.1:8000/reviewupload/status1/' ,data)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-    }
-    
-  },[approveSysArchitecture, approveModTypes, approveModTech, approveLiteratureSurvey, approveOutcome, approvePpt,approveAll,initialAxiosPreventer])
 
   const handleApprove = (status) => {
     if (status === 'sysarchitecture_status'){
@@ -89,7 +61,37 @@ function AReview1() {
     }
   }
 
- 
+  useEffect (() => {
+    const data = {
+      'id':3,
+      'sysarchitecture_status' : approveSysArchitecture,
+      'moduletypes_status' : approveModTypes,
+      'moduletech_status' : approveModTech,
+      'literature_status' : approveLiteratureSurvey,
+      'outcome_status' : approveOutcome,
+      'ppt_status' : approvePpt,
+      'all_status': approveAll,
+      'hod_status': fileData.guide_status ? 'approve' : 'reject',
+
+    }
+    if(initialAxiosPreventer){
+
+
+
+    }
+    else{
+      axios.post('http://127.0.0.1:8000/reviewupload/status1/' ,data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+
+
+    }
+    
+  },[approveSysArchitecture, approveModTypes, approveModTech, approveLiteratureSurvey, approveOutcome, approvePpt,approveAll,initialAxiosPreventer])
 
   const handleReject = (status) => {
     if (status === 'sysarchitecture_status'){
@@ -131,7 +133,6 @@ function AReview1() {
     setApproveAll('approve');
     setInitialAxiosPreventer(false);
   }
-
 
   return (
     <div>
@@ -242,7 +243,7 @@ function AReview1() {
               </td>
             </tr>
             <tr>
-              <td>Expected Outcomes (Screenshot) Verification</td>
+              <td>Expected Outcomes Verification</td>
               <td>
                 {fileData.expected_outcome_url ? (
                   <a
@@ -289,6 +290,7 @@ function AReview1() {
                 </button>
               </td>
             </tr>
+            
             {allrowsApproved && (
               <tr>
               <td colspan="2"></td>
@@ -300,11 +302,12 @@ function AReview1() {
                   onClick={handleForward}
 
                 >
-                  Forward To HOD
+                  Permitted
                 </button>
               </td>
             </tr>
             )}
+            
           </tbody>
         </table>
 

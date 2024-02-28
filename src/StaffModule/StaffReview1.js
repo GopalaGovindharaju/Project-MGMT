@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react'
 
 function StaffReview1() {
   const [approveSysArchitecture, setApproveSysArchitecture] = useState('');
-  const [approveModTypes, setApproveModTypes] = useState('');;
-  const [approveModTech, setApproveModTech] = useState('');;
-  const [approveLiteratureSurvey, setApproveLiteratureSurvey] = useState('');;
-  const [approveOutcome, setApproveOutcome] = useState('');;
+  const [approveModTypes, setApproveModTypes] = useState('');
+  const [approveModTech, setApproveModTech] = useState('');
+  const [approveLiteratureSurvey, setApproveLiteratureSurvey] = useState('');
+  const [approveOutcome, setApproveOutcome] = useState('');
   const [approvePpt, setApprovePpt] = useState('');
   const [allrowsApproved,setAllrowsApproved] = useState(false);
   const [fileData, setFileData] = useState([]);
@@ -21,16 +21,12 @@ function StaffReview1() {
     .then((response) => {
       console.log(response.data)
       setFileData(response.data)
-      setApproveSysArchitecture(response.data.system_architecture_status ? 'approve ' : 'reject')
+      setApproveSysArchitecture(response.data.system_architecture_status ? 'approve' : 'reject')
       setApproveModTypes(response.data.modules_status ? 'approve':'reject')
-      setApproveModTech(response.data.modules_description_status ? 'approve ' : 'reject')
-      setApproveLiteratureSurvey(response.data.literature_survey_status ? 'approve ' : 'reject')
-      setApproveOutcome(response.data.expected_outcome_status ? 'approve ' : 'reject')
-      setApprovePpt(response.data.ppt_status ? 'approve ' : 'reject')
-
-
-
-
+      setApproveModTech(response.data.modules_description_status ? 'approve' : 'reject')
+      setApproveLiteratureSurvey(response.data.literature_survey_status ? 'approve' : 'reject')
+      setApproveOutcome(response.data.expected_outcome_status ? 'approve' : 'reject')
+      setApprovePpt(response.data.ppt_status ? 'approve' : 'reject')
     })
     .catch((error) => {
       console.log(error)
@@ -97,27 +93,27 @@ function StaffReview1() {
 
   const handleReject = (status) => {
     if (status === 'sysarchitecture_status'){
-      setApproveSysArchitecture('Reject');
+      setApproveSysArchitecture('reject');
       setInitialAxiosPreventer(false);
     }
     else if (status === 'moduletypes_status'){
-      setApproveModTypes('Reject');
+      setApproveModTypes('reject');
       setInitialAxiosPreventer(false);
     }
     else if (status === 'moduletech_status'){
-      setApproveModTech('Reject');
+      setApproveModTech('reject');
       setInitialAxiosPreventer(false);
     }
     else if (status === 'literature_status'){
-      setApproveLiteratureSurvey('Reject');
+      setApproveLiteratureSurvey('reject');
       setInitialAxiosPreventer(false);
     }
     else if (status === 'outcome_status'){
-      setApproveOutcome('Reject')
+      setApproveOutcome('reject')
       setInitialAxiosPreventer(false);
     }
     else if (status === 'ppt_status'){
-      setApprovePpt('Reject')
+      setApprovePpt('reject')
       setInitialAxiosPreventer(false);
     }
   }
@@ -164,10 +160,10 @@ function StaffReview1() {
                 )}
               </td>
               <td>
-                <button type="button" class="btn btn-success" onClick={() => handleApprove('sysarchitecture_status')} disabled={approveSysArchitecture==='approve' ? true : false}>
+                <button type="button" class="btn btn-success" onClick={() => handleApprove('sysarchitecture_status')} disabled={approveSysArchitecture ==='approve' ? true : false}>
                   Approve
                 </button>
-                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('sysarchitecture_status')} disabled={approveSysArchitecture==='reject' ? true : false}>
+                <button type="button" className="negative btn btn-danger ml-2" onClick={() => handleReject('sysarchitecture_status')} disabled={approveSysArchitecture ==='reject' ? true : false}>
                   Reject
                 </button>
               </td>
