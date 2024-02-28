@@ -192,7 +192,7 @@ function Admin() {
             </button>
             <button className="profile-btn">
               <img src={process.env.PUBLIC_URL + "/profile.png"} alt=''/>
-              <span>{userInfo.Name}</span>
+              <span>Name</span>
             </button>
           </div>
   
@@ -257,22 +257,58 @@ function Admin() {
                     <div className="project-box-content-header">
                       <p className="box-content-header">{project.Title}</p>
                     </div>
-                    <div className="box-progress-wrapper">
-                      <p className="box-progress-header">Progress</p>
+                    <h5  style={{marginBottom:'-2px'}}>Reviews</h5>
+
+                    <div style={{display:'flex', flexDirection:'row', justifyContent:'space-evenly'}}>
+                    <div className="box-progress-wrapper" >
+                      <p className="box-progress-header"style={{width:'100%'}}></p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
-                          style={{
-                            width: `${Math.round(project.Review)}%`,
-                            backgroundColor: project.textColor,
-                          }}
+                          style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
                         ></span>
                       </div>
-                      <p className="box-progress-percentage">
-                        {Math.round(project.Review)}%
-                      </p>
+                      <div className="box-progress-footer"style={{marginTop:'10px'}}> <p>0</p>  </div>
                     </div>
-                    <div className="project-box-footer">
+
+                    <div className="box-progress-wrapper">
+                    <p className="box-progress-header"style={{width:'100%'}}></p>
+                      <div className="box-progress-bar">
+                        <span
+                          className="box-progress"
+                          style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
+                        ></span>
+                      </div>
+                      <div className="box-progress-footer"style={{marginTop:'10px'}}> <p>1</p>  </div>
+
+                    </div>
+
+                    <div className="box-progress-wrapper">
+                    <p className="box-progress-header" style={{width:'100%'}}></p>
+                      <div className="box-progress-bar">
+                        <span
+                          className="box-progress"
+                          style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
+                        ></span>
+                      </div>
+                      <div className="box-progress-footer"style={{marginTop:'10px'}}> <p>2</p>  </div>
+
+                    </div>
+
+                    <div className="box-progress-wrapper">
+                    <p className="box-progress-header"style={{width:'100%'}}></p>
+                      <div className="box-progress-bar">
+                        <span
+                          className="box-progress"
+                          style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
+                        ></span>
+                      </div>
+                      <div className="box-progress-footer"style={{marginTop:'10px'}}> <p>3</p>  </div>
+                    </div>     
+                    </div>
+
+                    
+                    <div className="project-box-footer"> 
                       <div className="participants">
                         <p className="box-content-subheader">
                           {project.Project_Guide}
