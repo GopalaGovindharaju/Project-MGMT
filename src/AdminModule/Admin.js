@@ -257,8 +257,8 @@ function Admin() {
                     <div className="project-box-content-header">
                       <p className="box-content-header">{project.Title}</p>
                     </div>
-                    <h6  style={{marginBottom:'-10px'}}>Reviews Completion</h6>
 
+                    <h6  style={{marginBottom:'-10px'}}>Reviews Completion</h6>
                     <div style={{display:'flex', flexDirection:'row', padding :'10px',justifyContent:'space-between'}}>
                     <div className="box-progress-wrapper">
                       <p className="box-progress-header"style={{width:'65px'}}></p>
@@ -268,7 +268,7 @@ function Admin() {
                           style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
                         ></span>
                       </div>
-                      <div className="box-progress-footer"style={{marginTop:'20px'}}> <p>0</p>  </div>
+                      <div className="box-progress-footer"style={{marginTop:'8px'}}> <p>0</p>  </div>
                     </div>
 
                     <div className="box-progress-wrapper">
