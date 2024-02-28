@@ -261,7 +261,7 @@ function Admin() {
 
                     <div style={{display:'flex', flexDirection:'row', padding :'10px',justifyContent:'space-between'}}>
                     <div className="box-progress-wrapper">
-                      <p className="box-progress-header"style={{width:'65px'}}></p>
+                      <p className="box-progress-header"style={{width:'100%'}}></p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
@@ -272,7 +272,7 @@ function Admin() {
                     </div>
 
                     <div className="box-progress-wrapper">
-                    <p className="box-progress-header"style={{width:'65px'}}></p>
+                    <p className="box-progress-header"style={{width:'100%'}}></p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
@@ -284,7 +284,7 @@ function Admin() {
                     </div>
 
                     <div className="box-progress-wrapper">
-                    <p className="box-progress-header" style={{width:'65px'}}></p>
+                    <p className="box-progress-header" style={{width:'100%'}}></p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
@@ -296,7 +296,7 @@ function Admin() {
                     </div>
 
                     <div className="box-progress-wrapper">
-                    <p className="box-progress-header"style={{width:'65px'}}></p>
+                    <p className="box-progress-header"style={{width:'100%'}}></p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
