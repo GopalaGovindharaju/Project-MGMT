@@ -8,6 +8,9 @@ from student.models import Review_1
 from student.models import Review_2
 from student.models import Review_3
 
+
+@api_view(['Post'])
+
 @api_view(['POST'])
 def add_student(request):
     if request.method == 'POST':
