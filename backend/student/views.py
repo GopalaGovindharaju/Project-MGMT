@@ -161,6 +161,7 @@ def get_review_0_files_status(request):
         Base_Paper_Status=data.get('basepaper_status')
         PPt_Status=data.get('ppt_status')
         Guide_Status = data.get('all_status')
+        Hod_Status = data.get('hod_status')
        
         if Student_Info.objects.filter(ID = review_id).exists():
             student_data = Student_Info.objects.get(ID = review_id)
@@ -193,6 +194,10 @@ def get_review_0_files_status(request):
                 review_info.Guide_Status = True
             else:
                 review_info.Guide_Status = False
+            if (Title_Status == 'approve' and Abstract_Status == 'approve' and Base_Paper_Status == 'approve' and PPt_Status == 'approve' and Guide_Status == 'approve' and Hod_Status == 'approve'):
+                review_info.Hod_Status = True
+            else:
+                review_info.Hod_Status = False
 
             review_info.save()
         return Response('saved')
