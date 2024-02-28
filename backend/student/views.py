@@ -14,7 +14,6 @@ def review_0_upload_files(request):
 
         Id = data.get('id')
         Title = data.get('title')
-
         Abstract = request.FILES.get('abstract', None)
         Base_Paper = request.FILES.get('basePaper', None)
         PPt = request.FILES.get('ppt', None)
