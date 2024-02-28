@@ -153,7 +153,7 @@ function Staff() {
       </div>
       <div className="overflow-auto" id='project-boxes'>
       {colorLoop.map((project) => (
-            <div className="project-box-wrapper" key={project.ID}>
+            <div className="project-box-wrapper" key={project.ID} onClick={() => navigate(`/guide/${project.ID}`)}>
               <div className="project-box" style={{ backgroundColor: project.backgroundColor }}>
                 <div style={{height:'100%'}}>
                     <div className="project-box-header">
@@ -182,6 +182,7 @@ function Staff() {
                     </div>
 
                     <div className="box-progress-wrapper">
+                    <p className="box-progress-header">Review 0</p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
@@ -191,6 +192,7 @@ function Staff() {
                     </div>
 
                     <div className="box-progress-wrapper">
+                    <p className="box-progress-header">Review 0</p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
@@ -200,6 +202,7 @@ function Staff() {
                     </div>
 
                     <div className="box-progress-wrapper">
+                    <p className="box-progress-header">Review 0</p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
@@ -212,7 +215,7 @@ function Staff() {
                     
                     <div className="project-box-footer">
                       <div className="participants">
-                      <p className="box-content-subheader">{project.Project_Guide}</p>
+                      <p className="box-content-subheader">{project.Guide_Name}</p>
                       </div>
                       <div className="days-left" style={{color: project.textColor }}>
                         {project.Batch}

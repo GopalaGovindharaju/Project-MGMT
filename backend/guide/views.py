@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from django.db.models import Subquery, OuterRef
 from .models import Student_Info 
+from administrator.models import Guide_Info
 from .serializers import Student_InfoSerializer
 from student.models import Review_0
 from student.models import Review_1
@@ -25,6 +26,7 @@ def get_teams(request):
             result_data = []
             for project_detail in serializer.data:
                 team_details = Review_0.objects.get(ID=project_detail['ID'])
+                guide_details = Guide_Info.objects.get(ID='2')
                 result_data.append({
                     'ID': project_detail['ID'],
                     'Name': project_detail['Name'],
@@ -33,6 +35,7 @@ def get_teams(request):
                     'Department': project_detail['Department'],
                     'Batch': project_detail['Batch'],
                     'Title': team_details.Title if team_details.Title else "Not Yet Approved",
+                    'Guide_Name': guide_details.Name if guide_details.Name else "name",
                 })
 
             return Response(result_data)

@@ -47,7 +47,7 @@ function App() {
           <Route path='Review2' element={<Review2/>}/>
           <Route path='Review3' element={<Review3/>}/>
         </Route>
-        <Route path='/guide' element={<Guide/>}>
+        <Route path="/guide/:Id" element={<Guide />} >
         <Route index element={<Summary/>} />
         <Route path='Summary' element={<Summary/>}/>
           <Route path='SReview0' element={<Review0/>} />
