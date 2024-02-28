@@ -1,14 +1,17 @@
-import React, { useContext } from 'react'
 import Banner from '../StudentModule/Banner'
 import AdminVerificationBody from './AdminVerificationBody'
-import UserInfoContext from '../Helper/UsenInfoContext'
+import { useNavigate } from 'react-router-dom';
 
 function AdminVerification() {
-  const {userInfo} = useContext(UserInfoContext)
-  console.log(userInfo)
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate('/')
+  }
   return (
     <div>
-      <Banner batchNo={userInfo.Department} moduleName={"Verification Page"}/>
+      <Banner batchNo={userInfo.Department} moduleName={"Verification Page"} handleLogout={handleLogout}/>
       <AdminVerificationBody/>
     </div>
   )
