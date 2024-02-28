@@ -13,6 +13,7 @@ function Staff() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [currentDate, setCurrentDate] = useState('');
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedBatch, setSelectedBatch] = useState('');
   const navigate = useNavigate();
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
   
@@ -68,6 +69,13 @@ function Staff() {
     })
   },[])
 
+  const handleBatchChange = (event) => {
+    const batchValue = event.target.value;
+    setSelectedBatch(batchValue);
+  }
+  const filteredProjects = selectedBatch
+    ? colorLoop.filter((project) => project.Batch === selectedBatch)
+    : colorLoop;
 
   return (
     <div>
@@ -79,10 +87,15 @@ function Staff() {
       <select
   className="form-select"
   aria-label="Default select example"
+  value={selectedBatch}
+  onChange={handleBatchChange}
 >
   <option value="" defaultValue>
     Filter By Batch Number
   </option>
+  {colorLoop.map((batches) => (
+    <option key={batches.Batch} value={batches.Batch}>{batches.Batch}</option>
+  ))}
 </select>
     </div>
     <div className="app-header-right">
@@ -152,7 +165,7 @@ function Staff() {
         </div>
       </div>
       <div className="overflow-auto" id='project-boxes'>
-      {colorLoop.map((project) => (
+      {filteredProjects.map((project) => (
             <div className="project-box-wrapper" key={project.ID} onClick={() => navigate(`/guide/${project.ID}`)}>
               <div className="project-box" style={{ backgroundColor: project.backgroundColor }}>
                 <div style={{height:'100%'}}>

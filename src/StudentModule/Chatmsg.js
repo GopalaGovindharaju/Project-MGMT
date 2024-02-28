@@ -35,18 +35,18 @@ function Chatmsg({setIsTabOpen}) {
                 <div>{upIcon ? <FontAwesomeIcon onClick={messageToggle} icon={faChevronUp}/> : <FontAwesomeIcon onClick={messageToggle} icon={faChevronDown}/>} </div>  
             </div>
 
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Search Messages"/>
-                <div class="input-group-append">
+            <div className="input-group mb-3">
+                <input type="text" className="form-control" placeholder="Search Messages"/>
+                <div className="input-group-append">
                     <button className='btn btn-success' style={{marginLeft:'8px'}}>Search</button>
                 </div>
             </div>
         </div>
         
         <div className='msgs'>
-            <div class="input-group">
-               <div class="input-group-prepend">
-                    <button class="btn btn-success" onClick={handleButtonClick} id='stud-logo1'>I</button>
+            <div className="input-group">
+               <div className="input-group-prepend">
+                    <button className="btn btn-success" onClick={handleButtonClick} id='stud-logo1'>I</button>
                 </div>
                 <h6 className='stud-name'>Guide - Indhulekha</h6>
             </div>
