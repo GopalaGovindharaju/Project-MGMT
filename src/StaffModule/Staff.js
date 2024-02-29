@@ -196,10 +196,11 @@ function Staff() {
                       <p className="box-content-header">{project.Title}</p>
                     </div>
                     
-                    <h6  style={{marginBottom:'-8px'}}>Reviews Completion</h6>
-                    <div style={{display:'flex', flexDirection:'row', padding :'10px',justifyContent:'space-between'}}>
+                    <h5>Reviews</h5>
+                    <div style={{display:'flex', flexDirection:'row',justifyContent:'space-evenly'}}>
+
                     <div className="box-progress-wrapper">
-                      <p className="box-progress-header"style={{width:'65px'}}></p>
+                      <p className="box-progress-header"style={{width:'40px'}}></p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
@@ -208,9 +209,8 @@ function Staff() {
                       </div>
                       <div className="box-progress-footer"> <p>0</p>  </div>
                     </div>
-
                     <div className="box-progress-wrapper">
-                    <p className="box-progress-header"style={{width:'65px'}}></p>
+                    <p className="box-progress-header"style={{width:'40px'}}></p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
@@ -218,11 +218,9 @@ function Staff() {
                         ></span>
                       </div>
                       <div className="box-progress-footer"> <p>1</p>  </div>
-
                     </div>
-
                     <div className="box-progress-wrapper">
-                    <p className="box-progress-header" style={{width:'65px'}}></p>
+                    <p className="box-progress-header" style={{width:'40px'}}></p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
@@ -230,11 +228,9 @@ function Staff() {
                         ></span>
                       </div>
                       <div className="box-progress-footer"> <p>2</p>  </div>
-
                     </div>
-
                     <div className="box-progress-wrapper">
-                    <p className="box-progress-header"style={{width:'65px'}}></p>
+                    <p className="box-progress-header"style={{width:'40px'}}></p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
