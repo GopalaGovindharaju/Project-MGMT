@@ -56,7 +56,7 @@ function App() {
           <Route path='SReview3' element={<SReview3/>}/>
         </Route>
         <Route path='/staff' element={<Staff/>}></Route>
-        <Route path='/adminVerification' element={<AdminVerification/>}>
+        <Route path='/adminVerification/:Id' element={<AdminVerification/>}>
         <Route index element={<Summary/>} />
           <Route path='Summary' element={<Summary/>}/>
           <Route path='AReview0' element={<AReview0/>} />

@@ -5,6 +5,8 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Chatmsg from '../StudentModule/Chatmsg';
 import Chatmsg1 from '../StudentModule/Chatmsg1';
 import AdminGuideAdd from './AdminGuideAdd';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Admin() {
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
@@ -13,9 +15,16 @@ function Admin() {
   const [isTabOpen, setIsTabOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-  const [years, setYears] = useState([]);
-  
+  const [currentYear, setCurrentYear] = useState('');
+  const [projectForFilter, setProjectForFilter] = useState([]);
+  const [selectedGuide, setSelectedGuide] = useState('');
+  const [review0Data, setReview0Data] = useState([]);
+  const [review1Data, setReview1Data] = useState([]);
+  const [review2Data, setReview2Data] = useState([]);
+  const [review3Data, setReview3Data] = useState([]);
+  const [varForGetRequstedTeams, setVarForGetRequestedTeam] = useState(false);
+  const navigate = useNavigate();
+
 
 
 
@@ -39,6 +48,7 @@ function Admin() {
   });
 
   useEffect(() => {
+    console.log(userInfo)
     const formatDate = (date) => {
       const options = { month: 'long', day: 'numeric' };
       return new Intl.DateTimeFormat('en-US', options).format(date);
@@ -46,63 +56,83 @@ function Admin() {
     const today = new Date();
     const formattedDate = formatDate(today);
     setCurrentDate(formattedDate);
-    const data = [{
-      Lead_RegNo:'23',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'24',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'25',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'26',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'27',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'28',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'29',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'20',
-      Title: "hello",
-      Project_Guide:"indu"
-    }
-      
-    ]
-    setProjects(data);
   }, []);
 
-  useEffect(() => {
-    const startYear = 2022;
-    const yearRange = Array.from({ length: currentYear - startYear + 1 }, (_, index) => startYear + index);
-    setYears(yearRange);
-  }, [currentYear]);
-
-  const searchFilter = (e) => {
-    setProjects(projects.filter(f => f.Title.toLowerCase().includes(e.target.value)));
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate('/');
   }
 
+  useEffect(() => {
+    axios.get('http://localhost:8000/addGuide/getAllTeams/')
+    .then((response) => {
+      console.log(response.data);
+      setProjects(response.data);
+      setProjectForFilter(response.data);
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  },[])
+
+  const searchFilter = (e) => {
+    const search = e.target.value.toLowerCase()
+    const filteredProjects = projectForFilter.filter((project) => project.Title.toLowerCase().includes(search))
+    setProjects(filteredProjects);
+  };
+  
+  const handleGuideChange = (e) => {
+    const selectedValue = e.target.value;
+    setSelectedGuide(selectedValue);
+    const filteredProjects = projectForFilter.filter(
+      (project) => selectedValue === '' || project.Guide_ID === selectedValue
+    );
+    setProjects(filteredProjects);
+  };
+  
   const handleOpen = () => {
     setIsOpen(true);
+  }
+
+  const handleYearFilter = (e) => {
+    const selectedYear = e.target.value;
+    setCurrentYear(selectedYear);
+    const filteredProjects = projectForFilter.filter((project) => selectedYear === '' || project.Year === selectedYear);
+    setProjects(filteredProjects);
+  }
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/addGuide/getRequestedTeams/')
+    .then((response) => {
+      console.log(response.data);
+      setReview0Data(response.data.review_0_data)
+      setReview1Data(response.data.review_1_data)
+      setReview2Data(response.data.review_2_data)
+      setReview3Data(response.data.review_3_data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  },[varForGetRequstedTeams])
+
+  const handleBatchClick = (batch) =>{
+    const filteredProjects = projectForFilter.filter(
+      (project) => project.Batch === batch);
+    setProjects(filteredProjects);
+  }
+
+  const handleAcceptAll = (review) => {
+    const data = {
+      'review':review,
+    }
+    axios.post('http://localhost:8000/addGuide/acceptAll/', data)
+    .then((response) => {
+      console.log(response.data)
+      setVarForGetRequestedTeam(true);
+    })
+    .catch((error) => {
+      console.log(error)
+    })
   }
 
   return (
@@ -116,7 +146,7 @@ function Admin() {
               <input
                 className="search-bar"
                 type="text"
-                onChange={searchFilter}
+                onChange={(e) => searchFilter(e)}
                 placeholder="Search By Projects"
               />
               <FontAwesomeIcon
@@ -126,13 +156,18 @@ function Admin() {
             </div>
             <select
               className="form-select"
-          
+              value={selectedGuide}
+              onChange={handleGuideChange}
               aria-label="Default select example"
             >
               <option value="" defaultValue>
                 Filter By Guide
               </option>
-              
+              {Array.from(new Set(projectForFilter.map((guide) => guide.Guide_ID))).map((uniqueGuideID) => (
+    <option key={uniqueGuideID} value={uniqueGuideID}>
+      {projectForFilter.find((guide) => guide.Guide_ID === uniqueGuideID).Guide_Name} - {uniqueGuideID}
+    </option>
+  ))}
             </select>
           </div>
           <div className="app-header-right">
@@ -181,7 +216,7 @@ function Admin() {
               className="add-btn"
               title="Log Out"
               value="Log Out"
-             
+              onClick={handleLogout}
             >
               <img
                 src={process.env.PUBLIC_URL + "/power.png"}
@@ -224,8 +259,8 @@ function Admin() {
               {colorLoop.map((project) => (
                 <div
                   className="project-box-wrapper"
-                  key={project.lead_RegNo}
-                 
+                  key={project.ID}
+                  onClick={() => navigate(`/adminVerification/${project.ID}`)}
                 >
                   <div
                     className="project-box"
@@ -311,14 +346,14 @@ function Admin() {
                     <div className="project-box-footer"> 
                       <div className="participants">
                         <p className="box-content-subheader">
-                          {project.Project_Guide}
+                          {project.Guide_Name}
                         </p>
                       </div>
                       <div
                         className="days-left"
                         style={{ color: project.textColor }}
                       >
-                        {project.Batch_No}
+                        {project.Batch}
                       </div>
                     </div>
                   </div>
@@ -327,38 +362,97 @@ function Admin() {
             </div>
           </div>
           <div className="admin-filters">
-            <div style={{ marginBottom: "30px" }}>
+            {review0Data.length > 0 && <div style={{ marginBottom: "30px" }}>
               <div className="admin-notification">
                 <p className="admin-notification-p">
-                  5 batches need a approval for their review
+                  5 batches need a approval for their <b>review 0</b>
                 </p>
-                {Array.from({ length: 5 }).map((no, index) => (
+                {review0Data.map((batch) => (
                   <p
                     id="a-n-b"
                     className="admin-notification-batches"
-                    key={index}
+                    key={batch.ID}
+                    onClick={() => handleBatchClick(batch.Batch)}
                   >
-                    BNo:{index + 1}
+                    BNo:{batch.Batch}
                   </p>
                 ))}
                 <div style={{display:'flex', flexDirection:'row', justifyContent:'right', paddingTop:'10px'}}>
-                <button className='admin-notification-buttons'>View all</button>
-                <button className='admin-notification-buttons1'>Accept all</button>
+                <button className='admin-notification-buttons1' onClick={() => handleAcceptAll('0')}>Accept all</button>
                 </div>
               </div>
-            </div>
+            </div>}
+            {review1Data.length > 0 && <div style={{ marginBottom: "30px" }}>
+              <div className="admin-notification">
+                <p className="admin-notification-p">
+                  5 batches need a approval for their <b>review 1</b>
+                </p>
+                {review1Data.map((batch) => (
+                  <p
+                    id="a-n-b"
+                    className="admin-notification-batches"
+                    key={batch.ID}
+                    
+                  >
+                    BNo:{batch.Batch}
+                  </p>
+                ))}
+                <div style={{display:'flex', flexDirection:'row', justifyContent:'right', paddingTop:'10px'}}>
+                <button className='admin-notification-buttons1' onClick={() => handleAcceptAll('1')}>Accept all</button>
+                </div>
+              </div>
+            </div>}
+            {review2Data.length > 0 && <div style={{ marginBottom: "30px" }}>
+              <div className="admin-notification">
+                <p className="admin-notification-p">
+                  5 batches need a approval for their <b>review 2</b>
+                </p>
+                {review2Data.map((batch) => (
+                  <p
+                    id="a-n-b"
+                    className="admin-notification-batches"
+                    key={batch.ID}
+                  >
+                    BNo:{batch.Batch}
+                  </p>
+                ))}
+                <div style={{display:'flex', flexDirection:'row', justifyContent:'right', paddingTop:'10px'}}>
+                <button className='admin-notification-buttons1' onClick={() => handleAcceptAll('2')}>Accept all</button>
+                </div>
+              </div>
+            </div>}
+            {review3Data.length > 0 && <div style={{ marginBottom: "30px" }}>
+              <div className="admin-notification">
+                <p className="admin-notification-p">
+                  5 batches need a approval for their <b>review 3</b>
+                </p>
+                {review3Data.map((batch) => (
+                  <p
+                    id="a-n-b"
+                    className="admin-notification-batches"
+                    key={batch.ID}
+                  >
+                    BNo:{batch.Batch}
+                  </p>
+                ))}
+                <div style={{display:'flex', flexDirection:'row', justifyContent:'right', paddingTop:'10px'}}>
+                <button className='admin-notification-buttons1' onClick={() => handleAcceptAll('3')}>Accept all</button>
+                </div>
+              </div>
+            </div>}
             <div style={{ marginBottom: "30px" }}>
               <p className="filter-admin-p">Choose Year to filter</p>
                 <select
                   value={currentYear}
-                  onChange={(e) => setCurrentYear(parseInt(e.target.value))}
+                  onChange={handleYearFilter}
                   className="form-select"
                 >
-                  {years.map((year) => (
-                    <option key={year} value={year}>
-                      {year}
-                    </option>
-                  ))}
+                  <option value='' defaultValue>Choose Year</option>
+                  {Array.from(new Set(projectForFilter.map((year) => year.Year))).map((uniqueYear) => (
+    <option key={uniqueYear} value={uniqueYear}>
+      {uniqueYear}
+    </option>
+  ))}
                 </select>
             </div>
             <div style={{ marginBottom: "30px" }}>
