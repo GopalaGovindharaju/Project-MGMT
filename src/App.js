@@ -65,7 +65,7 @@ function App() {
           <Route path='AReview3' element={<AReview3/>}/>
         </Route>
         <Route path='/admin' element={<Admin/>}></Route>
-        <Route path='/panel' element={<PanelMember/>}>
+        <Route path='/panel/:Id' element={<PanelMember/>}>
           <Route index element={<PanelBody/>} />
           <Route path='PReview0' element={<PanelBody/>} />
           <Route path='PReview1' element={<PanelBody1/>}/>

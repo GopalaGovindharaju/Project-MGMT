@@ -221,7 +221,7 @@ function Review0() {
               <tr>
               <td colSpan="2"></td>
               <td>
-                <button type="submit" className="btn btn-success" style={{ width: "100%" }} onClick={handleForward} disabled={fileData.guide_status==='approve' ? true : false}> 
+                <button type="submit" className="btn btn-success" style={{ width: "100%" }} onClick={handleForward} disabled={fileData.guide_status ? true : false}> 
                   Forward To HOD
                 </button>
               </td>

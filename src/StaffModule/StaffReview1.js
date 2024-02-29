@@ -23,12 +23,12 @@ function StaffReview1() {
     .then((response) => {
       console.log(response.data)
       setFileData(response.data)
-      setApproveSysArchitecture(response.data.system_architecture_status ? 'approve ' : 'reject')
+      setApproveSysArchitecture(response.data.system_architecture_status ? 'approve' : 'reject')
       setApproveModTypes(response.data.modules_status ? 'approve':'reject')
-      setApproveModTech(response.data.modules_description_status ? 'approve ' : 'reject')
-      setApproveLiteratureSurvey(response.data.literature_survey_status ? 'approve ' : 'reject')
-      setApproveOutcome(response.data.expected_outcome_status ? 'approve ' : 'reject')
-      setApprovePpt(response.data.ppt_status ? 'approve ' : 'reject')
+      setApproveModTech(response.data.modules_description_status ? 'approve' : 'reject')
+      setApproveLiteratureSurvey(response.data.literature_survey_status ? 'approve' : 'reject')
+      setApproveOutcome(response.data.expected_outcome_status ? 'approve' : 'reject')
+      setApprovePpt(response.data.ppt_status ? 'approve' : 'reject')
 
 
 
@@ -331,7 +331,7 @@ function StaffReview1() {
                   class="btn btn-success"
                   style={{ width: "100%" }}
                   onClick={handleForward} 
-                  disabled={fileData.guide_status==='approve' ? true : false}
+                  disabled={fileData.guide_status ? true : false}
                 >
                   Forward To HOD
                 </button>

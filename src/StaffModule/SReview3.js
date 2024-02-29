@@ -224,7 +224,7 @@ function SReview3() {
               <tr>
               <td colspan="2"></td>
               <td>
-                <button type="submit" class="btn btn-success" style={{ width: "100%" }} onClick={handleForward}>
+                <button type="submit" class="btn btn-success" style={{ width: "100%" }} onClick={handleForward}> disabled={fileData.guide_status ? true : false}
                 Forward To HOD
                 </button>
               </td>

@@ -85,6 +85,10 @@ function Staff() {
       setYears(yearRange);
     }, [currentYear]);
 
+  const handleSwitchPanel = () => {
+    navigate(`/panel/${userInfo.ID}`)
+  }
+
   return (
     <div>
       <div className="app-container">
@@ -173,7 +177,7 @@ function Staff() {
                 </select>
         </div>
         <div className='panel-mem-btn'>
-            <button className='pannel-mem-btn'>Switch PanelMember</button>
+            <button className='pannel-mem-btn' onClick={handleSwitchPanel}>Switch PanelMember</button>
         </div>
       </div>
 

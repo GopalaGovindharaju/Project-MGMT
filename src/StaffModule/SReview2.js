@@ -200,6 +200,7 @@ useEffect(()=>{
                   class="btn btn-success"
                   style={{ width: "100%" }}
                   onClick={handleForward}
+                  disabled={fileData.guide_status ? true : false}
                 >
                   Forward To HOD
                 </button>

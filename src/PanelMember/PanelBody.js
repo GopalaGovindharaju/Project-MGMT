@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import BatchSelect from './BatchSelect';
+import { useOutletContext } from 'react-router-dom';
 
 function PanelBody() {
-    // State to hold the selected marks and remarks for each person
+
+  const id = useOutletContext();
+  
   const [marks, setMarks] = useState({
     'Abishake D': '',
     'Chitra Lakshmi SR': '',
