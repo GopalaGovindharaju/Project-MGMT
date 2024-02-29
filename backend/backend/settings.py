@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'authentication',
     'administrator',
     'guide',
+    'panel',
 ]
 
 MIDDLEWARE = [
