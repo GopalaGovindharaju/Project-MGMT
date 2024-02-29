@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import BatchSelect from './BatchSelect';
 import { useOutletContext } from 'react-router-dom';
 import axios from 'axios';
 
 function PanelBody() {
 
   const id = useOutletContext();
+  const [batchNo, setBatchNo] = useState('');
+  const [listOfBatches, setListOfBatches] = useState([]);
 
   const [marks, setMarks] = useState({
     'Abishake D': '',
@@ -48,6 +49,8 @@ function PanelBody() {
     axios.post('http://127.0.0.1:8000/panel/get_batches/', data)
     .then((response) => {
       console.log(response.data);
+      setListOfBatches(response.data);
+
     })
     .catch((error) => {
       console.log(error.data);
@@ -69,9 +72,29 @@ function PanelBody() {
     alert('Successfully saved!');
     setError('');
   };
+
+  const handleBatchSelect = (e) => {
+    setBatchNo(e.target.value)
+  }
   return (
     <div className="table-container" style={{ padding: '10px 10px 10px 30px' }}>
-      <BatchSelect/>
+      <div style={{display:'flex', flexDirection:'row'}}>
+      <div className='text-select-batchno'>
+        <h6 style={{marginTop:'10px', marginRight:'10px'}}>SELECT BATCH-NO</h6>
+      </div>
+      <div className='select-batchno'>
+        <select
+        value={batchNo}
+        onChange={handleBatchSelect}
+        className="form-select"
+        >
+          {listOfBatches.map((batch) => (
+            <option key={batch.ID} value={batch.Batch}>{batch.Batch}</option>
+          ))}            
+        </select>
+      </div>
+      
+    </div>
     <h2 className="table-name" style={{ marginBottom: '1em', marginTop: '1em' }}>Review 0</h2>
     <table className="table">
       <thead style={{textAlign:'center'}}>
@@ -83,14 +106,14 @@ function PanelBody() {
         </tr>
       </thead>
       <tbody>
-        {Object.keys(marks).map(person => (
-          <tr key={person}>
-            <td>{person}</td>
-            <td>AC20UCS003</td>
+        {listOfBatches.map(person => (
+          <tr key={person.ID}>
+            <td>{person.Name}</td>
+            <td>{person.ID}</td>
             <td className='col-5'>
               <textarea
-                value={remarks[person]}
-                onChange={(e) => handleRemarksChange(person, e)}
+               // value={remarks[person]}
+                //onChange={(e) => handleRemarksChange(person, e)}
                 style={{ resize: 'vertical', width: '100%', minHeight: '50px'}}
               />
             </td>
@@ -100,8 +123,8 @@ function PanelBody() {
                 type="number"
                 min="0"
                 max="100"
-                value={marks[person]}
-                onChange={(e) => handleMarksChange(person, e)}
+                //value={marks[person]}
+                //onChange={(e) => handleMarksChange(person, e)}
                 className="form-control mt-1"
                 style={{ width: '80px', display: 'inline-block' }}
               />
