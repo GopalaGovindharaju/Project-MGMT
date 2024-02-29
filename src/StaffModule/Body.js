@@ -7,7 +7,7 @@ import ReviewDate from './ReviewDate';
 import Chatmsg from '../StudentModule/Chatmsg'
 import Chatmsg1 from '../StudentModule/Chatmsg1'
 
-function Body() {
+function Body({ID}) {
   const [isTabOpen, setIsTabOpen] = useState(false);
 
   return (
@@ -17,10 +17,11 @@ function Body() {
         
           <Stud/>
           <ReviewDate/>
+          {ID}
         </div>
         <div className="col-8" style={{ padding: '10px', height: '100%' }}>
           <Verify/>
-          <Outlet/>
+          <Outlet context={ID}/>
           <Chatmsg setIsTabOpen={setIsTabOpen}/>
       {isTabOpen && <Chatmsg1 setIsTabOpen={setIsTabOpen}/> }
         </div>

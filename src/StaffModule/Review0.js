@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './Review0.css';
 import axios from 'axios';
+import { useOutletContext } from 'react-router-dom';
 
 function Review0() {
+  const ID = useOutletContext();
   const [approveTitle, setApproveTitle] = useState('')
   const [approveAbstract, setApproveAbstract] = useState('');
   const [approveBasepaper, setApproveBasepaper] = useState('');
@@ -14,7 +16,7 @@ function Review0() {
 
   useEffect(() => {
     const data = {
-      id: 3,
+      id: ID,
     }
     axios.post('http://127.0.0.1:8000/addStudent/get_review_0_files/',data)
     .then((response) => {
@@ -32,7 +34,7 @@ function Review0() {
 
   useEffect(() => {
     const data = {
-      'id':3,
+      'id': ID,
       'title_status' : approveTitle,
       'abstract_status' : approveAbstract,
       'basepaper_status' : approveBasepaper,
@@ -114,7 +116,7 @@ function Review0() {
         <table className="table">
           <thead>
             <tr>
-              <th>TASKS</th>
+              <th>TASKS{ID}</th>
               <th className="table-column" >ACTION</th>
               <th>STATUS</th>
             </tr>
@@ -219,7 +221,7 @@ function Review0() {
               <tr>
               <td colSpan="2"></td>
               <td>
-                <button type="submit" className="btn btn-success" style={{ width: "100%" }} onClick={handleForward}> 
+                <button type="submit" className="btn btn-success" style={{ width: "100%" }} onClick={handleForward} disabled={fileData.guide_status==='approve' ? true : false}> 
                   Forward To HOD
                 </button>
               </td>

@@ -192,7 +192,7 @@ function Admin() {
             </button>
             <button className="profile-btn">
               <img src={process.env.PUBLIC_URL + "/profile.png"} alt=''/>
-              <span>{userInfo.Name}</span>
+              <span>Name</span>
             </button>
           </div>
   
@@ -257,53 +257,53 @@ function Admin() {
                     <div className="project-box-content-header">
                       <p className="box-content-header">{project.Title}</p>
                     </div>
+                    <h5  style={{marginBottom:'-2px'}}>Reviews</h5>
 
-                    <h6  style={{marginBottom:'-10px'}}>Reviews Completion</h6>
-                    <div style={{display:'flex', flexDirection:'row', padding :'10px',justifyContent:'space-between'}}>
-                    <div className="box-progress-wrapper">
-                      <p className="box-progress-header"style={{width:'65px'}}></p>
+                    <div style={{display:'flex', flexDirection:'row', justifyContent:'space-evenly'}}>
+                    <div className="box-progress-wrapper" >
+                      <p className="box-progress-header"style={{width:'100%'}}></p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
                           style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
                         ></span>
                       </div>
-                      <div className="box-progress-footer"style={{marginTop:'8px'}}> <p>0</p>  </div>
+                      <div className="box-progress-footer"style={{marginTop:'10px'}}> <p>0</p>  </div>
                     </div>
 
                     <div className="box-progress-wrapper">
-                    <p className="box-progress-header"style={{width:'65px'}}></p>
+                    <p className="box-progress-header"style={{width:'100%'}}></p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
                           style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
                         ></span>
                       </div>
-                      <div className="box-progress-footer"style={{marginTop:'20px'}}> <p>1</p>  </div>
-
-                    </div>
-
-                    <div className="box-progress-wrapper">
-                    <p className="box-progress-header" style={{width:'65px'}}></p>
-                      <div className="box-progress-bar">
-                        <span
-                          className="box-progress"
-                          style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
-                        ></span>
-                      </div>
-                      <div className="box-progress-footer"style={{marginTop:'20px'}}> <p>2</p>  </div>
+                      <div className="box-progress-footer"style={{marginTop:'10px'}}> <p>1</p>  </div>
 
                     </div>
 
                     <div className="box-progress-wrapper">
-                    <p className="box-progress-header"style={{width:'65px'}}></p>
+                    <p className="box-progress-header" style={{width:'100%'}}></p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
                           style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
                         ></span>
                       </div>
-                      <div className="box-progress-footer"style={{marginTop:'20px'}}> <p>3</p>  </div>
+                      <div className="box-progress-footer"style={{marginTop:'10px'}}> <p>2</p>  </div>
+
+                    </div>
+
+                    <div className="box-progress-wrapper">
+                    <p className="box-progress-header"style={{width:'100%'}}></p>
+                      <div className="box-progress-bar">
+                        <span
+                          className="box-progress"
+                          style={{ width: `${Math.round(project.Review)}%`, backgroundColor: project.textColor }}
+                        ></span>
+                      </div>
+                      <div className="box-progress-footer"style={{marginTop:'10px'}}> <p>3</p>  </div>
                     </div>     
                     </div>
 

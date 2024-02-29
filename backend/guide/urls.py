@@ -7,4 +7,5 @@ urlpatterns = [
     path('get_review_1_files/', views.get_review_1_files, name='get_review_1_files'),
     path('get_review_2_files/', views.get_review_2_files, name='get_review_2_files'),
     path('get_review_3_files/', views.get_review_3_files, name='get_review_3_files'),
+    path('getTeams/', views.get_teams, name='get_teams'),
 ]

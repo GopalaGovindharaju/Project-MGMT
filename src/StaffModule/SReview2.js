@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './Review0.css';
 import axios from 'axios';
+import { useOutletContext } from 'react-router-dom';
 
 
 function SReview2() {
+  const ID = useOutletContext();
   const [fileData, setFileData] = useState([]);
   const [approveScreenshot, setApproveScreenshot] = useState('');
   const [approveRoughReport, setApproveRoughReport] = useState('');
@@ -15,7 +17,7 @@ function SReview2() {
 
   useEffect(() => {
     const data = {
-      id: 3,
+      id: ID,
     }
     axios.post('http://127.0.0.1:8000/addStudent/get_review_2_files/',data)
     .then((response) => {
@@ -32,7 +34,7 @@ function SReview2() {
 
 useEffect(()=>{
   const data = {
-    'id' : 3,
+    'id' : ID,
     'screenshot_status' : approveScreenshot,
     'roughreport_status' : approveRoughReport,
     'ppt_status' : approvePPT, 

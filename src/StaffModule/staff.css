@@ -733,3 +733,38 @@ button, a {
 .progress-bar{
   background-color: #7c7c7c;
 }
+
+.bar-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.search-by-year{
+  display: flex;
+  flex-direction: row;
+  justify-content: space;
+  width: 70%;
+}
+
+.year-select-filter{
+  width: 30%;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  height: 80%;
+}
+
+.filter-guide-p{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  width: 40%;
+}
+
+.pannel-mem-btn{
+  background-color: #199c10;
+  border-radius: 8px;
+  color: white;
+  height: 80%;
+  padding: 5px;
+}

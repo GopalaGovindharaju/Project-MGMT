@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import BatchSelect from './BatchSelect';
 
 function PanelBody3() {
   // State to hold the selected marks and remarks for each person
@@ -53,6 +54,7 @@ function PanelBody3() {
   };
   return (
     <div className="table-container" style={{ padding: '10px 10px 10px 30px' }}>
+      <BatchSelect/>
     <h2 className="table-name" style={{ marginBottom: '1em', marginTop: '1em' }}>Review 3</h2>
     <table className="table">
       <thead style={{textAlign:'center'}}>

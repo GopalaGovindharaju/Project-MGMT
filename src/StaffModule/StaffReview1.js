@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { useOutletContext } from 'react-router-dom';
 
 function StaffReview1() {
+  const ID = useOutletContext();
   const [approveSysArchitecture, setApproveSysArchitecture] = useState('');
   const [approveModTypes, setApproveModTypes] = useState('');;
   const [approveModTech, setApproveModTech] = useState('');;
@@ -15,7 +17,7 @@ function StaffReview1() {
 
   useEffect(() => {
     const data = {
-      id: 3,
+      id: ID,
     }
     axios.post('http://127.0.0.1:8000/addStudent/get_review_1_files/',data)
     .then((response) => {
@@ -36,6 +38,33 @@ function StaffReview1() {
       console.log(error)
     })
   },[])
+
+  useEffect (() => {
+    const data = {
+      'id': ID,
+      'sysarchitecture_status' : approveSysArchitecture,
+      'moduletypes_status' : approveModTypes,
+      'moduletech_status' : approveModTech,
+      'literature_status' : approveLiteratureSurvey,
+      'outcome_status' : approveOutcome,
+      'ppt_status' : approvePpt,
+      'all_status': approveAll,
+
+    }
+    if(initialAxiosPreventer){
+
+    }
+    else{
+      axios.post('http://127.0.0.1:8000/reviewupload/status1/' ,data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+    }
+    
+  },[approveSysArchitecture, approveModTypes, approveModTech, approveLiteratureSurvey, approveOutcome, approvePpt,approveAll,initialAxiosPreventer])
 
   const handleApprove = (status) => {
     if (status === 'sysarchitecture_status'){
@@ -301,8 +330,8 @@ function StaffReview1() {
                   type="submit"
                   class="btn btn-success"
                   style={{ width: "100%" }}
-                  onClick={handleForward}
-
+                  onClick={handleForward} 
+                  disabled={fileData.guide_status==='approve' ? true : false}
                 >
                   Forward To HOD
                 </button>

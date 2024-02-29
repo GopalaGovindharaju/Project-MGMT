@@ -5,6 +5,7 @@ import Chatmsg from '../StudentModule/Chatmsg';
 import Chatmsg1 from '../StudentModule/Chatmsg1';
 import StaffStudentAdd from './StaffStudentAdd';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Staff() {
   const [isTabOpen, setIsTabOpen] = useState(false);
@@ -12,8 +13,11 @@ function Staff() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [currentDate, setCurrentDate] = useState('');
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedBatch, setSelectedBatch] = useState('');
   const navigate = useNavigate();
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const [years, setYears] = useState([]);
   
   
   const handleTheme = () => {
@@ -43,49 +47,6 @@ function Staff() {
     const today = new Date();
     const formattedDate = formatDate(today);
     setCurrentDate(formattedDate);
-    const data = [{
-      Lead_RegNo:'23',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'23',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'23',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'23',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'23',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'23',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'23',
-      Title: "hello",
-      Project_Guide:"indu"
-    },
-    {
-      Lead_RegNo:'23',
-      Title: "hello",
-      Project_Guide:"indu"
-    }
-      
-    ]
-    setProjects(data);
   }, []);
   const handleOpen = () => {
     setIsOpen(true);
@@ -95,6 +56,35 @@ function Staff() {
     localStorage.clear();
     navigate('/');
   }
+
+  useEffect(() => {
+    const data = {
+      'id': '002',
+    }
+    axios.post('http://127.0.0.1:8000/addStudent/getTeams/',data)
+    .then((response) => {
+      console.log(response.data)
+      setProjects(response.data);
+    })
+    .catch((error) => {
+      console.log(error.data)
+    })
+  },[])
+
+  const handleBatchChange = (event) => {
+    const batchValue = event.target.value;
+    setSelectedBatch(batchValue);
+  }
+  const filteredProjects = selectedBatch
+    ? colorLoop.filter((project) => project.Batch === selectedBatch)
+    : colorLoop;
+
+    useEffect(() => {
+      const startYear = 2022;
+      const yearRange = Array.from({ length: currentYear - startYear + 1 }, (_, index) => startYear + index);
+      setYears(yearRange);
+    }, [currentYear]);
+
   return (
     <div>
       <div className="app-container">
@@ -105,10 +95,15 @@ function Staff() {
       <select
   className="form-select"
   aria-label="Default select example"
+  value={selectedBatch}
+  onChange={handleBatchChange}
 >
   <option value="" defaultValue>
     Filter By Batch Number
   </option>
+  {colorLoop.map((batches) => (
+    <option key={batches.Batch} value={batches.Batch}>{batches.Batch}</option>
+  ))}
 </select>
     </div>
     <div className="app-header-right">
@@ -147,7 +142,7 @@ function Staff() {
       </button>
       <button className="profile-btn">
         <img src={process.env.PUBLIC_URL + '/profile.png'} alt=''/>
-        <span>{userInfo.Name}</span>
+        <span>name</span>
       </button>
     </div>
   
@@ -161,26 +156,32 @@ function Staff() {
         <p>Projects</p>
         <p className="time">{currentDate}</p>
       </div>
-      <div className="projects-section-line">
-        <div className="projects-status">
-          <div className="item-status">
-            <span className="status-number">45</span>
-            <span className="status-type">In Progress</span>
-          </div>
-          <div className="item-status">
-            <span className="status-number">24</span>
-            <span className="status-type">Upcoming</span>
-          </div>
-          <div className="item-status">
-            <span className="status-number">62</span>
-            <span className="status-type">Total Projects</span>
-          </div>
+
+      <div className='bar-box'>
+        <div className='search-by-year'>
+              <p className="filter-guide-p">Choose Year to Filter</p>
+                <select
+                  value={currentYear}
+                  onChange={(e) => setCurrentYear(parseInt(e.target.value))}
+                  className="year-select-filter"
+                >
+                  {years.map((year) => (
+                    <option key={year} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </select>
+        </div>
+        <div className='panel-mem-btn'>
+            <button className='pannel-mem-btn'>Switch PanelMember</button>
         </div>
       </div>
+
       <div className="overflow-auto" id='project-boxes'>
-      {colorLoop.map((project) => (
-            <div className="project-box-wrapper" key={project.lead_RegNo}>
+      {filteredProjects.map((project) => (
+            <div className="project-box-wrapper" key={project.ID} onClick={() => navigate(`/guide/${project.ID}`)}>
               <div className="project-box" style={{ backgroundColor: project.backgroundColor }}>
+                <div style={{height:'100%'}}>
                     <div className="project-box-header">
                       <span>{currentDate}</span>
                       <div className="more-wrapper">
@@ -200,7 +201,7 @@ function Staff() {
                     <div style={{display:'flex', flexDirection:'row',justifyContent:'space-evenly'}}>
 
                     <div className="box-progress-wrapper">
-                      <p className="box-progress-header"style={{width:'40px'}}></p>
+                      <p className="box-progress-header"style={{width:'100%'}}></p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
@@ -210,7 +211,7 @@ function Staff() {
                       <div className="box-progress-footer"> <p>0</p>  </div>
                     </div>
                     <div className="box-progress-wrapper">
-                    <p className="box-progress-header"style={{width:'40px'}}></p>
+                    <p className="box-progress-header"style={{width:'100%'}}></p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
@@ -220,7 +221,7 @@ function Staff() {
                       <div className="box-progress-footer"> <p>1</p>  </div>
                     </div>
                     <div className="box-progress-wrapper">
-                    <p className="box-progress-header" style={{width:'40px'}}></p>
+                    <p className="box-progress-header" style={{width:'100%'}}></p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
@@ -230,7 +231,7 @@ function Staff() {
                       <div className="box-progress-footer"> <p>2</p>  </div>
                     </div>
                     <div className="box-progress-wrapper">
-                    <p className="box-progress-header"style={{width:'40px'}}></p>
+                    <p className="box-progress-header"style={{width:'100%'}}></p>
                       <div className="box-progress-bar">
                         <span
                           className="box-progress"
@@ -243,11 +244,12 @@ function Staff() {
                     
                     <div className="project-box-footer">
                       <div className="participants">
-                      <p className="box-content-subheader">{project.Project_Guide}</p>
+                      <p className="box-content-subheader">{project.Guide_Name}</p>
                       </div>
                       <div className="days-left" style={{color: project.textColor }}>
-                        {project.Batch_No}
+                        {project.Batch}
                       </div>
+                    </div>
                     </div>
                   </div>
                 </div>

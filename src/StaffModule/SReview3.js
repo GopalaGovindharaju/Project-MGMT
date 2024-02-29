@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { useOutletContext } from 'react-router-dom';
 
 function SReview3() {
+  const ID = useOutletContext();
   const [fileData, setFileData] = useState([]);
   const [approveScreenshot, setApproveScreenshot] = useState('');
   const [approveDemo, setApproveDemo] = useState('');
@@ -14,7 +16,7 @@ function SReview3() {
 
   useEffect(() => {
     const data = {
-      id: 3,
+      id: ID,
     }
     axios.post('http://127.0.0.1:8000/addStudent/get_review_3_files/',data)
     .then((response) => {
@@ -32,7 +34,7 @@ function SReview3() {
 
   useEffect(() =>{
     const data = {
-      'id':3,
+      'id': ID,
       'demo_status' : approveDemo,
       'screenshot_status' : approveScreenshot,
       'documentation_status' : approveDocumentation,
