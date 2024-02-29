@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './AdminBody.css';
 import axios from 'axios';
+import { useOutletContext } from 'react-router-dom';
 
 function AReview1() {
+  const ID = useOutletContext();
   const [approveSysArchitecture, setApproveSysArchitecture] = useState('');
   const [approveModTypes, setApproveModTypes] = useState('');;
   const [approveModTech, setApproveModTech] = useState('');;
@@ -16,7 +18,7 @@ function AReview1() {
 
   useEffect(() => {
     const data = {
-      id: 3,
+      id: ID,
     }
     axios.post('http://127.0.0.1:8000/addStudent/get_review_1_files/',data)
     .then((response) => {
@@ -63,7 +65,7 @@ function AReview1() {
 
   useEffect (() => {
     const data = {
-      'id':3,
+      'id': ID,
       'sysarchitecture_status' : approveSysArchitecture,
       'moduletypes_status' : approveModTypes,
       'moduletech_status' : approveModTech,

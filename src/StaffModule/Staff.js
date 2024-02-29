@@ -16,6 +16,8 @@ function Staff() {
   const [selectedBatch, setSelectedBatch] = useState('');
   const navigate = useNavigate();
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const [years, setYears] = useState([]);
   
   
   const handleTheme = () => {
@@ -76,6 +78,12 @@ function Staff() {
   const filteredProjects = selectedBatch
     ? colorLoop.filter((project) => project.Batch === selectedBatch)
     : colorLoop;
+
+    useEffect(() => {
+      const startYear = 2022;
+      const yearRange = Array.from({ length: currentYear - startYear + 1 }, (_, index) => startYear + index);
+      setYears(yearRange);
+    }, [currentYear]);
 
   return (
     <div>
@@ -148,22 +156,27 @@ function Staff() {
         <p>Projects</p>
         <p className="time">{currentDate}</p>
       </div>
-      <div className="projects-section-line">
-        <div className="projects-status">
-          <div className="item-status">
-            <span className="status-number">45</span>
-            <span className="status-type">In Progress</span>
-          </div>
-          <div className="item-status">
-            <span className="status-number">24</span>
-            <span className="status-type">Upcoming</span>
-          </div>
-          <div className="item-status">
-            <span className="status-number">62</span>
-            <span className="status-type">Total Projects</span>
-          </div>
+
+      <div className='bar-box'>
+        <div className='search-by-year'>
+              <p className="filter-guide-p">Choose Year to Filter</p>
+                <select
+                  value={currentYear}
+                  onChange={(e) => setCurrentYear(parseInt(e.target.value))}
+                  className="year-select-filter"
+                >
+                  {years.map((year) => (
+                    <option key={year} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </select>
+        </div>
+        <div className='panel-mem-btn'>
+            <button className='pannel-mem-btn'>Switch PanelMember</button>
         </div>
       </div>
+
       <div className="overflow-auto" id='project-boxes'>
       {filteredProjects.map((project) => (
             <div className="project-box-wrapper" key={project.ID} onClick={() => navigate(`/guide/${project.ID}`)}>
@@ -184,8 +197,9 @@ function Staff() {
                       <p className="box-content-header">{project.Title}</p>
                     </div>
                     
-                    <h6  style={{marginBottom:'-8px'}}>Reviews Completion</h6>
-                    <div style={{display:'flex', flexDirection:'row', padding :'10px',justifyContent:'space-between'}}>
+                    <h5>Reviews</h5>
+                    <div style={{display:'flex', flexDirection:'row',justifyContent:'space-evenly'}}>
+
                     <div className="box-progress-wrapper">
                       <p className="box-progress-header"style={{width:'100%'}}></p>
                       <div className="box-progress-bar">
@@ -196,7 +210,6 @@ function Staff() {
                       </div>
                       <div className="box-progress-footer"> <p>0</p>  </div>
                     </div>
-
                     <div className="box-progress-wrapper">
                     <p className="box-progress-header"style={{width:'100%'}}></p>
                       <div className="box-progress-bar">
@@ -206,9 +219,7 @@ function Staff() {
                         ></span>
                       </div>
                       <div className="box-progress-footer"> <p>1</p>  </div>
-
                     </div>
-
                     <div className="box-progress-wrapper">
                     <p className="box-progress-header" style={{width:'100%'}}></p>
                       <div className="box-progress-bar">
@@ -218,9 +229,7 @@ function Staff() {
                         ></span>
                       </div>
                       <div className="box-progress-footer"> <p>2</p>  </div>
-
                     </div>
-
                     <div className="box-progress-wrapper">
                     <p className="box-progress-header"style={{width:'100%'}}></p>
                       <div className="box-progress-bar">

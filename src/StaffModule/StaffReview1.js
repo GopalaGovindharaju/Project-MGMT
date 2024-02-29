@@ -330,8 +330,8 @@ function StaffReview1() {
                   type="submit"
                   class="btn btn-success"
                   style={{ width: "100%" }}
-                  onClick={handleForward}
-
+                  onClick={handleForward} 
+                  disabled={fileData.guide_status==='approve' ? true : false}
                 >
                   Forward To HOD
                 </button>
