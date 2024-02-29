@@ -1,8 +1,9 @@
 import Banner from '../StudentModule/Banner'
 import AdminVerificationBody from './AdminVerificationBody'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function AdminVerification() {
+  const {Id} = useParams();
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -11,8 +12,8 @@ function AdminVerification() {
   }
   return (
     <div>
-      <Banner batchNo={userInfo.Department} moduleName={"Verification Page"} handleLogout={handleLogout}/>
-      <AdminVerificationBody/>
+      <Banner batchNo={'gi'} moduleName={"Verification Page"} handleLogout={handleLogout}/>
+      <AdminVerificationBody ID = {Id}/>
     </div>
   )
 }

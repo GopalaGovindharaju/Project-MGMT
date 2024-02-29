@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import '../StaffModule/Review0.css';
 import './AdminBody.css';
 import axios from 'axios';
+import { useOutletContext } from 'react-router-dom';
 
 function AReview0() {
+  const ID = useOutletContext();
   const [approveTitle, setApproveTitle] = useState('')
   const [approveAbstract, setApproveAbstract] = useState('');
   const [approveBasepaper, setApproveBasepaper] = useState('');
@@ -15,7 +17,7 @@ function AReview0() {
 
   useEffect(() => {
     const data = {
-      id: 3,
+      id: ID,
     }
     axios.post('http://127.0.0.1:8000/addStudent/get_review_0_files/',data)
     .then((response) => {
@@ -33,7 +35,7 @@ function AReview0() {
 
   useEffect(() => {
     const data = {
-      'id':3,
+      'id': ID,
       'title_status' : approveTitle,
       'abstract_status' : approveAbstract,
       'basepaper_status' : approveBasepaper,
