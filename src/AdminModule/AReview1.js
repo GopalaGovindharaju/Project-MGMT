@@ -302,6 +302,7 @@ function AReview1() {
                   class="btn btn-success"
                   style={{ width: "100%" }}
                   onClick={handleForward}
+                  disabled={fileData.hod_status ? true : false}
 
                 >
                   Permission Granted

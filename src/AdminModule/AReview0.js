@@ -223,7 +223,7 @@ function AReview0() {
               <tr>
               <td colSpan="2"></td>
               <td>
-                <button type="submit" className="btn btn-success" style={{ width: "100%" }} onClick={handleForward}> 
+                <button type="submit" className="btn btn-success" style={{ width: "100%" }} onClick={handleForward} disabled={fileData.hod_status ? true : false}> 
                   Permitted
                 </button>
               </td>
