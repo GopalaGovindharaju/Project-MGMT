@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import BatchSelect from './BatchSelect';
 import { useOutletContext } from 'react-router-dom';
+import axios from 'axios';
 
 function PanelBody() {
 
   const id = useOutletContext();
-  
+
   const [marks, setMarks] = useState({
     'Abishake D': '',
     'Chitra Lakshmi SR': '',
@@ -39,6 +40,19 @@ function PanelBody() {
       [person]: newRemarks
     }));
   };
+
+  useEffect(() => {
+    const data = {
+      'id' : id,
+    }
+    axios.post('http://127.0.0.1:8000/panel/get_batches/', data)
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error.data);
+    })
+  },[])
 
   // Function to handle the submit button click
   const handleSubmit = () => {
