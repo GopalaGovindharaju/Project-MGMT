@@ -13,7 +13,8 @@ function StaffReview1() {
   const [allrowsApproved,setAllrowsApproved] = useState(false);
   const [fileData, setFileData] = useState([]);
   const [approveAll, setApproveAll] = useState('');
-  const[initialAxiosPreventer,setInitialAxiosPreventer]=useState(true)
+  const[initialAxiosPreventer,setInitialAxiosPreventer]=useState(true);
+  const [reRenderGetFiles, setReRenderGetFiles] = useState(true);
 
   useEffect(() => {
     const data = {
@@ -37,7 +38,7 @@ function StaffReview1() {
     .catch((error) => {
       console.log(error)
     })
-  },[])
+  },[reRenderGetFiles])
 
   useEffect (() => {
     const data = {
@@ -58,6 +59,7 @@ function StaffReview1() {
       axios.post('http://127.0.0.1:8000/reviewupload/status1/' ,data)
       .then((response) => {
         console.log(response);
+        setReRenderGetFiles(reRenderGetFiles ? false : true);
       })
       .catch((error) => {
         console.log(error);
@@ -152,7 +154,7 @@ function StaffReview1() {
   }
 
   useEffect( () => {
-    if (approveSysArchitecture === 'approve' && approveModTypes === 'approve' && approveModTech === 'approve' && approveLiteratureSurvey === 'approve' && approveOutcome === 'approve' && approvePpt === 'approve'){
+    if (approveSysArchitecture === 'approve' && approveModTypes === 'approve' && approveModTech === 'approve' && approveLiteratureSurvey === 'approve' && approveOutcome === 'approve' && approvePpt === 'approve' && fileData.guide_status === false){
       setAllrowsApproved(true);
     }else{
       setAllrowsApproved(false);
@@ -163,6 +165,7 @@ function StaffReview1() {
     e.preventDefault();
     setApproveAll('approve');
     setInitialAxiosPreventer(false);
+    setAllrowsApproved(false);
   }
 
   return (
@@ -331,7 +334,6 @@ function StaffReview1() {
                   class="btn btn-success"
                   style={{ width: "100%" }}
                   onClick={handleForward} 
-                  disabled={fileData.guide_status ? true : false}
                 >
                   Forward To HOD
                 </button>

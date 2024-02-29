@@ -10,9 +10,11 @@ function AReview2() {
   const [approveScreenshot, setApproveScreenshot] = useState('');
   const [approveRoughReport, setApproveRoughReport] = useState('');
   const [approvePPT, setApprovePPT] = useState('');
+  const [guideStatus, setGuideStatus] = useState('');
   const [allrowsApproved,setAllrowsApproved] = useState(false);
   const [approveAll, setApproveAll] = useState('');
   const [initialAxiosPreventer, setInitialAxiosPreventer] = useState(true);
+  const [reRenderGetFiles, setReRenderGetFiles] = useState(true);
 
   useEffect(() => {
     const data = {
@@ -26,11 +28,12 @@ function AReview2() {
       setApproveScreenshot(response.data.implement_status ? 'approve' : 'reject')
       setApproveRoughReport(response.data.report_status ? 'approve' : 'reject')
       setApprovePPT(response.data.ppt_status ? 'approve' : 'reject')
+      setGuideStatus(response.data.guideStatus ? 'approve' : 'reject')
     })
     .catch((error) => {
       console.log(error)
     })
-  },[])
+  },[reRenderGetFiles])
 
   useEffect(()=>{
     const data = {
@@ -38,7 +41,7 @@ function AReview2() {
       'screenshot_status' : approveScreenshot,
       'roughreport_status' : approveRoughReport,
       'ppt_status' : approvePPT, 
-      'all_status': fileData.guide_status ? 'approve' : 'reject',
+      'all_status' : approveAll === 'approve' ? 'approve' : 'reject',
       'hod_status': approveAll,
     }
     if(initialAxiosPreventer){
@@ -48,12 +51,13 @@ function AReview2() {
       axios.post('http://127.0.0.1:8000/reviewupload/status2/' ,data)
     .then((response) => {
       console.log(response);
+      setReRenderGetFiles(reRenderGetFiles ? false : true);
     })
     .catch((error) => {
       console.log(error);
     })
     }
-  },[approveScreenshot, approveRoughReport, approvePPT, approveAll, initialAxiosPreventer]);
+  },[approveScreenshot, approveRoughReport, approvePPT, approveAll, initialAxiosPreventer,guideStatus]);
   
     const handleApprove = (status) => {
       if(status === 'screenshot_status'){
@@ -88,7 +92,7 @@ function AReview2() {
     }
   
     useEffect(() => {
-      if (approveScreenshot === 'approve' && approveRoughReport === 'approve' && approvePPT === 'approve') {
+      if (approveScreenshot === 'approve' && approveRoughReport === 'approve' && approvePPT === 'approve' && fileData.hod_status === false) {
         setAllrowsApproved(true);
       } else {
         setAllrowsApproved(false);
@@ -98,7 +102,9 @@ function AReview2() {
     const handleForward = (e) => {
       e.preventDefault();
       setApproveAll('approve');
+      setGuideStatus('approve');
       setInitialAxiosPreventer(false);
+      setAllrowsApproved(false);
     }
 
 
@@ -200,8 +206,6 @@ function AReview2() {
                   class="btn btn-success"
                   style={{ width: "100%" }}
                   onClick={handleForward}
-                  disabled={fileData.hod_status ? true : false}
-
                 >
                   Permission Granted
                 </button>

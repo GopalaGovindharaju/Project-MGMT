@@ -12,6 +12,7 @@ function SReview3() {
   const [allrowsApproved, setAllrowsApproved] = useState(false);
   const [approveAll, setApproveAll] = useState('');
   const [initialAxiosPreventer, setInitialAxiosPreventer] = useState(true);
+  const [reRenderGetFiles, setReRenderGetFiles] = useState(true);
 
 
   useEffect(() => {
@@ -30,7 +31,7 @@ function SReview3() {
     .catch((error) => {
       console.log(error)
     })
-  },[])
+  },[reRenderGetFiles])
 
   useEffect(() =>{
     const data = {
@@ -48,6 +49,7 @@ function SReview3() {
       axios.post( 'http://127.0.0.1:8000/reviewupload/status3/',data)
     .then((response) => {
       console.log(response);
+      setReRenderGetFiles(reRenderGetFiles ? false : true);
     })
     .catch((error) => {
       console.log(error);
@@ -96,7 +98,7 @@ function SReview3() {
   }
 
   useEffect (() => {
-    if (approveDemo === 'approve' && approveScreenshot === 'approve' && approveDocumentation === 'approve' && approvePpt === 'approve'){
+    if (approveDemo === 'approve' && approveScreenshot === 'approve' && approveDocumentation === 'approve' && approvePpt === 'approve' && fileData.guide_status === false){
       setAllrowsApproved(true);
     }
     else{
@@ -108,6 +110,7 @@ function SReview3() {
     e.preventDefault();
     setApproveAll('approve');
     setInitialAxiosPreventer(false)
+    setAllrowsApproved(false);
   }
 
   
@@ -224,7 +227,7 @@ function SReview3() {
               <tr>
               <td colspan="2"></td>
               <td>
-                <button type="submit" class="btn btn-success" style={{ width: "100%" }} onClick={handleForward}> disabled={fileData.guide_status ? true : false}
+                <button type="submit" class="btn btn-success" style={{ width: "100%" }} onClick={handleForward}>
                 Forward To HOD
                 </button>
               </td>
