@@ -2,10 +2,9 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
-from django.core.exceptions import ValidationError
-from django.core.validators import URLValidator
 from .models import Review_0, Review_1, Review_2, Review_3
 from guide.models import Student_Info
+from authentication.models import SignUp_Table
 
 @api_view(['POST'])
 def review_0_upload_files(request):
@@ -162,6 +161,8 @@ def get_review_0_files_status(request):
         PPt_Status=data.get('ppt_status')
         Guide_Status = data.get('all_status')
         Hod_Status = data.get('hod_status')
+        Admin_Data = data.get('isAdmin')
+        print(Admin_Data)
        
         if Student_Info.objects.filter(ID = review_id).exists():
             student_data = Student_Info.objects.get(ID = review_id)
@@ -191,12 +192,18 @@ def get_review_0_files_status(request):
             else :
                 review_info.PPt_Status=False
     
-            if (Title_Status == 'approve' and Abstract_Status == 'approve' and Base_Paper_Status == 'approve' and PPt_Status == 'approve' and Guide_Status == 'approve' and Hod_Status == 'approve'):
-                review_info.Hod_Status = True
+            if(Title_Status == 'approve' and Abstract_Status == 'approve' and Base_Paper_Status == 'approve' and PPt_Status == 'approve' and Guide_Status == 'approve'):
                 review_info.Guide_Status = True
             else:
-                review_info.Hod_Status = False
-                review_info.Guide_Status =False
+                review_info.Guide_Status = False
+
+            if Admin_Data :
+                if (Title_Status == 'approve' and Abstract_Status == 'approve' and Base_Paper_Status == 'approve' and PPt_Status == 'approve' and Hod_Status == 'approve'):
+                    review_info.Hod_Status = True
+                    review_info.Guide_Status = True
+                else:
+                    review_info.Hod_Status = False
+                    review_info.Guide_Status =False
 
             review_info.save()
         return Response('saved')
@@ -216,6 +223,7 @@ def get_review_1_files_status(request):
         PPt_Status=data.get('ppt_status')
         Guide_Status=data.get('all_status')
         Hod_Status = data.get('hod_status')
+        Admin_Data = data.get('isAdmin')
 
 
         if Student_Info.objects.filter(ID = review_id).exists():
@@ -256,12 +264,18 @@ def get_review_1_files_status(request):
             else :
                 review_info.PPt_Status=False
 
-            if (Architecture_Status == 'approve' and Modules_Status == 'approve' and Modules_Description_Status == 'approve' and Litrature_survey_Status == 'approve' and Outcome_Images_Status == 'approve' and PPt_Status == 'approve'  and Guide_Status == 'approve' and Hod_Status == 'approve'):
-                review_info.Hod_Status = True
+            if (Architecture_Status == 'approve' and Modules_Status == 'approve' and Modules_Description_Status == 'approve' and Litrature_survey_Status == 'approve' and Outcome_Images_Status == 'approve' and PPt_Status == 'approve'  and Guide_Status == 'approve'):
                 review_info.Guide_Status = True
             else:
-                review_info.Hod_Status = False
                 review_info.Guide_Status = False
+
+            if Admin_Data :
+                if (Architecture_Status == 'approve' and Modules_Status == 'approve' and Modules_Description_Status == 'approve' and Litrature_survey_Status == 'approve' and Outcome_Images_Status == 'approve' and PPt_Status == 'approve'  and Guide_Status == 'approve' and Hod_Status == 'approve'):
+                    review_info.Hod_Status = True
+                    review_info.Guide_Status = True
+                else:
+                    review_info.Hod_Status = False
+                    review_info.Guide_Status = False
 
             review_info.save()
         return Response('saved')
@@ -278,6 +292,7 @@ def get_review_2_files_status(request):
         PPt_Status = data.get('ppt_status')
         Guide_Status = data.get('all_status')
         Hod_Status = data.get('hod_status')
+        Admin_Data = data.get('isAdmin')
 
         if Student_Info.objects.filter(ID = review_id).exists():
             student_data = Student_Info.objects.get(ID = review_id)
@@ -302,12 +317,18 @@ def get_review_2_files_status(request):
             else :
                 review_info.PPt_Status=False
 
-            if(Implement_Status == 'approve' and Report_Status == 'approve' and PPt_Status == 'approve' and Guide_Status == 'approve' and Hod_Status == 'approve'):
-                review_info.Hod_Status = True
+            if(Implement_Status == 'approve' and Report_Status == 'approve' and PPt_Status == 'approve' and Guide_Status == 'approve'):
                 review_info.Guide_Status = True
-            else:
-                review_info.Hod_Status = False  
+            else: 
                 review_info.Guide_Status = False
+
+            if Admin_Data :
+                if(Implement_Status == 'approve' and Report_Status == 'approve' and PPt_Status == 'approve' and Guide_Status == 'approve' and Hod_Status == 'approve'):
+                    review_info.Hod_Status = True
+                    review_info.Guide_Status = True
+                else:
+                    review_info.Hod_Status = False  
+                    review_info.Guide_Status = False
 
             review_info.save()
         return Response('saved')
@@ -325,6 +346,7 @@ def get_review_3_files_status(request):
         PPT_Status=data.get('ppt_status')
         Guide_Status=data.get('all_status')
         Hod_Status=data.get('hod_status')
+        Admin_Data = data.get('isAdmin')
 
         if Student_Info.objects.filter(ID = review_id).exists():
             student_data = Student_Info.objects.get(ID = review_id)
@@ -354,12 +376,18 @@ def get_review_3_files_status(request):
             else :
                 review_info.PPT_Status=False
 
-            if (Project_Demo_Status == 'approve' and Report_Status == 'approve' and Project_Screenshot_Status == 'approve' and PPT_Status == 'approve' and Guide_Status == 'approve' and Hod_Status == 'approve'):
-                review_info.Hod_Status = True
+            if (Project_Demo_Status == 'approve' and Report_Status == 'approve' and Project_Screenshot_Status == 'approve' and PPT_Status == 'approve' and Guide_Status == 'approve'):
                 review_info.Guide_Status = True
             else:
-                review_info.Hod_Status = False
                 review_info.Guide_Status = False
+
+            if Admin_Data :
+                if (Project_Demo_Status == 'approve' and Report_Status == 'approve' and Project_Screenshot_Status == 'approve' and PPT_Status == 'approve' and Guide_Status == 'approve' and Hod_Status == 'approve'):
+                    review_info.Hod_Status = True
+                    review_info.Guide_Status = True
+                else:
+                    review_info.Hod_Status = False
+                    review_info.Guide_Status = False
 
             review_info.save()
         return Response('saved')

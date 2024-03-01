@@ -61,16 +61,21 @@ def get_all_teams(request):
 @api_view(['GET'])
 def get_requested_teams(request):
     if request.method == 'GET':
-        # Assuming Review_1, Review_2, and Review_3 are your models
-        subquery_0 = Review_0.objects.filter(Guide_Status=True, Hod_Status=False).values('ID')[:1]
-        subquery_1 = Review_1.objects.filter(Guide_Status=True, Hod_Status=False).values('ID')[:1]
-        subquery_2 = Review_2.objects.filter(Guide_Status=True, Hod_Status=False).values('ID')[:1]
-        subquery_3 = Review_3.objects.filter(Guide_Status=True, Hod_Status=False).values('ID')[:1]
+        
+        subquery_0 = Review_0.objects.filter(Guide_Status=True, Hod_Status=False).values('ID')
+        subquery_1 = Review_1.objects.filter(Guide_Status=True, Hod_Status=False).values('ID')
+        subquery_2 = Review_2.objects.filter(Guide_Status=True, Hod_Status=False).values('ID')
+        subquery_3 = Review_3.objects.filter(Guide_Status=True, Hod_Status=False).values('ID')
 
-        teams_0 = Student_Info.objects.filter(ID__in=Subquery(subquery_0))
-        teams_1 = Student_Info.objects.filter(ID__in=Subquery(subquery_1))
-        teams_2 = Student_Info.objects.filter(ID__in=Subquery(subquery_2))
-        teams_3 = Student_Info.objects.filter(ID__in=Subquery(subquery_3))
+        teams_0 = Student_Info.objects.filter(ID__in=Subquery(subquery_0)).order_by('Batch')
+        teams_1 = Student_Info.objects.filter(ID__in=Subquery(subquery_1)).order_by('Batch')
+        teams_2 = Student_Info.objects.filter(ID__in=Subquery(subquery_2)).order_by('Batch')
+        teams_3 = Student_Info.objects.filter(ID__in=Subquery(subquery_3)).order_by('Batch')
+
+        teams_0 = filter_unique_per_batch(teams_0)
+        teams_1 = filter_unique_per_batch(teams_1)
+        teams_2 = filter_unique_per_batch(teams_2)
+        teams_3 = filter_unique_per_batch(teams_3)
 
         serializer_0 = Student_InfoSerializer(teams_0, many=True)
         serializer_1 = Student_InfoSerializer(teams_1, many=True)
@@ -87,6 +92,18 @@ def get_requested_teams(request):
         return Response(response_data)
     else:
         return Response("Invalid Request")
+
+def filter_unique_per_batch(queryset):
+    unique_batches = set()
+    filtered_queryset = []
+
+    for student_info in queryset:
+        if student_info.Batch not in unique_batches:
+            unique_batches.add(student_info.Batch)
+            filtered_queryset.append(student_info)
+
+    return filtered_queryset
+
     
 @api_view(['POST'])
 def accept_all(request):

@@ -45,6 +45,7 @@ function AReview3() {
       'ppt_status' : approvePpt,
       'all_status' : approveAll === 'approve' ? 'approve' : 'reject',
       'hod_status': approveAll,
+      'isAdmin': true,
     }
     if(initialAxiosPreventer){
 

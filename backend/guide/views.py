@@ -38,7 +38,7 @@ def get_teams(request):
                     'Guide_Name': guide_details.Name if guide_details.Name else "name",
                 })
 
-            return Response(result_data)
+            return Response({'data': result_data, 'message': 'You have below team'})
         else:
             return Response({'data': [], 'message': 'You don\'t have teams'})
     else:
