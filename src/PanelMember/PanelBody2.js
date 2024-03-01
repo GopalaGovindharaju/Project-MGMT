@@ -1,60 +1,91 @@
-import React, { useState } from 'react'
-import BatchSelect from './BatchSelect';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { useOutletContext } from 'react-router-dom';
 
 function PanelBody2() {
-  // State to hold the selected marks and remarks for each person
-  const [marks, setMarks] = useState({
-    'Abishake D': '',
-    'Chitra Lakshmi SR': '',
-    'Gopala G': ''
-  });
-  const [remarks, setRemarks] = useState({
-    'Abishake D': '',
-    'Chitra Lakshmi SR': '',
-    'Gopala G': ''
-  });
-  const [error, setError] = useState('');
 
-  // Function to handle changes in the dropdown for each person
-  const handleMarksChange = (person, event) => {
-    const newMarks = parseInt(event.target.value, 10); // Convert value to integer
-    if (newMarks >= 0 && newMarks <= 100) { // Validate the selected value
-      setMarks(prevMarks => ({
-        ...prevMarks,
-        [person]: newMarks
-      }));
-    } else {
-      alert('Please select a mark between 0 and 100');
+  const id = useOutletContext();
+  const [batchNo, setBatchNo] = useState('');
+  const [listOfBatches, setListOfBatches] = useState([]);
+  const [marks, setMarks] = useState({});
+  const [remarks, setRemarks] = useState({});
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+
+
+  useEffect(() => {
+    const data = {
+      'id' : id,
+      'reviewNo': '2'
     }
-  };
+    axios.post('http://127.0.0.1:8000/panel/get_batches/', data)
+    .then((response) => {
+      console.log(response.data);
+      setListOfBatches(response.data);
 
-  // Function to handle changes in the remarks input for each person
-  const handleRemarksChange = (person, event) => {
-    const newRemarks = event.target.value;
-    setRemarks(prevRemarks => ({
-      ...prevRemarks,
-      [person]: newRemarks
-    }));
-  };
+    })
+    .catch((error) => {
+      console.log(error.data);
+    })
+  },[])
 
-  // Function to handle the submit button click
   const handleSubmit = () => {
-    // Check if remarks are entered for each student
-    const remarksEntered = Object.values(remarks).every(remark => remark.trim() !== '');
-    const marksEntered = Object.values(marks).every(mark => !isNaN(mark) && mark !== '');
-
-    if (!remarksEntered || !marksEntered) {
-      setError('Please enter remarks and marks for all students.');
-      return;
-    }
-
-    // Here you can perform any submission logic, for now, let's just display an alert
-    alert('Successfully saved!');
-    setError('');
+    const dataToSubmit = filteredStudents.map(person => ({
+      'id': person.ID,
+      'marks': marks[person.ID],
+      'remarks': remarks[person.ID],
+      'name': person.Name,
+      'batch': person.Batch,
+      'year': person.Year,
+      'panelmember_id': userInfo.ID,
+      'reviewNo': '2',
+    }));
+    console.log(dataToSubmit);
+    axios.post('http://127.0.0.1:8000/panel/updateMarks/', dataToSubmit)
+    .then((response) => {
+      console.log(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
   };
+  const handleRemarksChange = (person, e) => {
+    setRemarks({
+      ...remarks,
+      [person.ID]: e.target.value,
+    });
+  };
+  const handleMarksChange = (person, e) => {
+    setMarks({
+      ...marks,
+      [person.ID]: e.target.value,
+    });
+  };
+
+  const handleBatchSelect = (e) => {
+    setBatchNo(e.target.value)
+  }
+
+  const filteredStudents = listOfBatches.filter(person => person.Batch === batchNo);
   return (
     <div className="table-container" style={{ padding: '10px 10px 10px 30px' }}>
-      <BatchSelect/>
+      <div style={{display:'flex', flexDirection:'row'}}>
+      <div className='text-select-batchno'>
+        <h6 style={{marginTop:'10px', marginRight:'10px'}}>SELECT BATCH-NO</h6>
+      </div>
+      <div className='select-batchno'>
+        <select
+        value={batchNo}
+        onChange={handleBatchSelect}
+        className="form-select"
+        >
+          <option value='' defaultValue>Choose Batch</option>
+          {[...new Set(listOfBatches.map(batch => batch.Batch))].map((uniqueBatch, index) => (
+  <option key={index} value={uniqueBatch}>{uniqueBatch}</option>
+))}           
+        </select>
+      </div>
+      
+    </div>
     <h2 className="table-name" style={{ marginBottom: '1em', marginTop: '1em' }}>Review 2</h2>
     <table className="table">
       <thead style={{textAlign:'center'}}>
@@ -65,15 +96,15 @@ function PanelBody2() {
           <th scope="col">Marks For The Student</th>
         </tr>
       </thead>
-      <tbody>
-        {Object.keys(marks).map(person => (
-          <tr key={person}>
-            <td>{person}</td>
-            <td>AC20UCS003</td>
+      <tbody style={{textAlign:'center'}}>
+        {filteredStudents.map(person => (
+          <tr key={person.ID}>
+            <td>{person.Name}</td>
+            <td>{person.ID}</td>
             <td className='col-5'>
               <textarea
-                value={remarks[person]}
-                onChange={(e) => handleRemarksChange(person, e)}
+               value={remarks[person]}
+              onChange={(e) => handleRemarksChange(person, e)}
                 style={{ resize: 'vertical', width: '100%', minHeight: '50px'}}
               />
             </td>
@@ -93,7 +124,6 @@ function PanelBody2() {
         ))}
       </tbody>
     </table>
-    {error && <div style={{ color: 'red', textAlign: 'center', marginTop: '10px' }}>{error}</div>}
     <div style={{ textAlign: 'center', marginTop: '20px' }}>
       <button className="btn btn-success" onClick={handleSubmit}>Submit</button>
     </div>

@@ -13,6 +13,7 @@ function SReview2() {
   const [allrowsApproved,setAllrowsApproved] = useState(false);
   const [approveAll, setApproveAll] = useState('');
   const [initialAxiosPreventer, setInitialAxiosPreventer] = useState(true);
+  const [reRenderGetFiles, setReRenderGetFiles] = useState(true);
 
 
   useEffect(() => {
@@ -30,7 +31,7 @@ function SReview2() {
     .catch((error) => {
       console.log(error)
     })
-  },[])
+  },[reRenderGetFiles])
 
 useEffect(()=>{
   const data = {
@@ -47,6 +48,7 @@ useEffect(()=>{
     axios.post('http://127.0.0.1:8000/reviewupload/status2/' ,data)
   .then((response) => {
     console.log(response);
+    setReRenderGetFiles(reRenderGetFiles ? false : true);
   })
   .catch((error) => {
     console.log(error);
@@ -87,7 +89,7 @@ useEffect(()=>{
   }
 
   useEffect(() => {
-    if (approveScreenshot === 'approve' && approveRoughReport === 'approve' && approvePPT === 'approve') {
+    if (approveScreenshot === 'approve' && approveRoughReport === 'approve' && approvePPT === 'approve' && fileData.guide_status === false) {
       setAllrowsApproved(true);
     } else {
       setAllrowsApproved(false);
@@ -98,6 +100,7 @@ useEffect(()=>{
     e.preventDefault();
     setApproveAll('approve');
     setInitialAxiosPreventer(false);
+    setAllrowsApproved(false);
   }
 
   return (

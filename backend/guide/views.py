@@ -26,7 +26,7 @@ def get_teams(request):
             result_data = []
             for project_detail in serializer.data:
                 team_details = Review_0.objects.get(ID=project_detail['ID'])
-                guide_details = Guide_Info.objects.get(ID='2')
+                guide_details = Guide_Info.objects.get(ID=Id)
                 result_data.append({
                     'ID': project_detail['ID'],
                     'Name': project_detail['Name'],
@@ -40,7 +40,7 @@ def get_teams(request):
 
             return Response(result_data)
         else:
-            return Response("You Don't Have Teams")
+            return Response({'data': [], 'message': 'You don\'t have teams'})
     else:
         return Response('Invalid request')
 

@@ -42,7 +42,7 @@ def get_all_teams(request):
         result_data = []
         for project_detail in serializer.data:
                 team_details = Review_0.objects.get(ID=project_detail['ID'])
-                guide_details = Guide_Info.objects.get(ID='2')#need dynamic
+                guide_details = Guide_Info.objects.get(ID=project_detail['Guide_ID'])
                 result_data.append({
                     'ID': project_detail['ID'],
                     'Name': project_detail['Name'],
@@ -101,7 +101,6 @@ def accept_all(request):
         subquery_3 = Review_3.objects.filter(Guide_Status=True, Hod_Status=False).values('ID')
 
         teams_0 = Review_0.objects.filter(ID__in=Subquery(subquery_0))
-        print(teams_0)
         teams_1 = Review_1.objects.filter(ID__in=Subquery(subquery_1))
         teams_2 = Review_2.objects.filter(ID__in=Subquery(subquery_2))
         teams_3 = Review_3.objects.filter(ID__in=Subquery(subquery_3))

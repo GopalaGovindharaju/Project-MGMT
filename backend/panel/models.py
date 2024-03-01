@@ -7,7 +7,7 @@ class Panal_Review0(models.Model):
     Year = models.CharField(max_length = 25,null =  True)
     Review0_Marks = models.IntegerField( null =  True)
     Review0_Feedback = models.CharField(max_length = 100 , null =  True)
-    PanalMember_ID = models.CharField(max_length=25, null =  True,unique = True)
+    PanalMember_ID = models.CharField(max_length=25, null =  True)
     Review0_Status= models.BooleanField(default = False)
     
 class Panal_Review1(models.Model):

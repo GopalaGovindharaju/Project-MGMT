@@ -11,10 +11,12 @@ function AReview1() {
   const [approveLiteratureSurvey, setApproveLiteratureSurvey] = useState('');;
   const [approveOutcome, setApproveOutcome] = useState('');;
   const [approvePpt, setApprovePpt] = useState('');
+  const [guideStatus, setGuideStatus] = useState('');
   const [allrowsApproved,setAllrowsApproved] = useState(false);
   const [fileData, setFileData] = useState([]);
   const [approveAll, setApproveAll] = useState('');
-  const[initialAxiosPreventer,setInitialAxiosPreventer]=useState(true)
+  const[initialAxiosPreventer,setInitialAxiosPreventer]=useState(true);
+  const [reRenderGetFiles, setReRenderGetFiles] = useState(true);
 
   useEffect(() => {
     const data = {
@@ -30,11 +32,12 @@ function AReview1() {
       setApproveLiteratureSurvey(response.data.literature_survey_status ? 'approve' : 'reject')
       setApproveOutcome(response.data.expected_outcome_status ? 'approve' : 'reject')
       setApprovePpt(response.data.ppt_status ? 'approve' : 'reject')
+      setGuideStatus(response.data.guideStatus ? 'approve' : 'reject')
     })
     .catch((error) => {
       console.log(error)
     })
-  },[])
+  },[reRenderGetFiles])
 
   const handleApprove = (status) => {
     if (status === 'sysarchitecture_status'){
@@ -72,8 +75,8 @@ function AReview1() {
       'literature_status' : approveLiteratureSurvey,
       'outcome_status' : approveOutcome,
       'ppt_status' : approvePpt,
-      'all_status': approveAll,
-      'hod_status': fileData.guide_status ? 'approve' : 'reject',
+      'all_status' : approveAll === 'approve' ? 'approve' : 'reject',
+      'hod_status': approveAll,
 
     }
     if(initialAxiosPreventer){
@@ -85,6 +88,7 @@ function AReview1() {
       axios.post('http://127.0.0.1:8000/reviewupload/status1/' ,data)
       .then((response) => {
         console.log(response);
+        setReRenderGetFiles(reRenderGetFiles ? false : true);
       })
       .catch((error) => {
         console.log(error);
@@ -93,7 +97,7 @@ function AReview1() {
 
     }
     
-  },[approveSysArchitecture, approveModTypes, approveModTech, approveLiteratureSurvey, approveOutcome, approvePpt,approveAll,initialAxiosPreventer])
+  },[approveSysArchitecture, approveModTypes, approveModTech, approveLiteratureSurvey, approveOutcome, approvePpt,approveAll,initialAxiosPreventer,guideStatus])
 
   const handleReject = (status) => {
     if (status === 'sysarchitecture_status'){
@@ -123,7 +127,7 @@ function AReview1() {
   }
 
   useEffect( () => {
-    if (approveSysArchitecture === 'approve' && approveModTypes === 'approve' && approveModTech === 'approve' && approveLiteratureSurvey === 'approve' && approveOutcome === 'approve' && approvePpt === 'approve'){
+    if (approveSysArchitecture === 'approve' && approveModTypes === 'approve' && approveModTech === 'approve' && approveLiteratureSurvey === 'approve' && approveOutcome === 'approve' && approvePpt === 'approve' && fileData.hod_status === false){
       setAllrowsApproved(true);
     }else{
       setAllrowsApproved(false);
@@ -133,7 +137,9 @@ function AReview1() {
   const handleForward = (e) => {
     e.preventDefault();
     setApproveAll('approve');
+    setGuideStatus('approve');
     setInitialAxiosPreventer(false);
+    setAllrowsApproved(false);
   }
 
   return (
@@ -302,8 +308,6 @@ function AReview1() {
                   class="btn btn-success"
                   style={{ width: "100%" }}
                   onClick={handleForward}
-                  disabled={fileData.hod_status ? true : false}
-
                 >
                   Permission Granted
                 </button>

@@ -11,9 +11,11 @@ function AReview3() {
   const [approveDemo, setApproveDemo] = useState('');
   const [approveDocumentation, setApproveDocumentation] = useState('');
   const [approvePpt, setApprovePpt] = useState('');
+  const [guideStatus, setGuideStatus] = useState('');
   const [allrowsApproved, setAllrowsApproved] = useState(false);
   const [approveAll, setApproveAll] = useState('');
   const [initialAxiosPreventer, setInitialAxiosPreventer] = useState(true);
+  const [reRenderGetFiles, setReRenderGetFiles] = useState(true);
 
   useEffect(() => {
     const data = {
@@ -27,11 +29,12 @@ function AReview3() {
       setApproveDemo(response.data.project_demo_status ? 'approve' : 'reject')
       setApproveDocumentation(response.data.report_status ? 'approve' : 'reject')
       setApprovePpt(response.data.ppt_status ? 'approve' : 'reject')
+      setGuideStatus(response.data.guideStatus ? 'approve' : 'reject')
     })
     .catch((error) => {
       console.log(error)
     })
-  },[])
+  },[reRenderGetFiles])
 
   useEffect(() =>{
     const data = {
@@ -40,8 +43,8 @@ function AReview3() {
       'screenshot_status' : approveScreenshot,
       'documentation_status' : approveDocumentation,
       'ppt_status' : approvePpt,
-      'all_status': fileData.guide_status ? 'approve' : 'reject',
-      'hod_status': approveAll
+      'all_status' : approveAll === 'approve' ? 'approve' : 'reject',
+      'hod_status': approveAll,
     }
     if(initialAxiosPreventer){
 
@@ -50,12 +53,13 @@ function AReview3() {
       axios.post( 'http://127.0.0.1:8000/reviewupload/status3/',data)
     .then((response) => {
       console.log(response);
+      setReRenderGetFiles(reRenderGetFiles ? false : true);
     })
     .catch((error) => {
       console.log(error);
     })
     }
-  },[approveDemo, approveScreenshot, approveDocumentation, approvePpt,approveAll,initialAxiosPreventer])
+  },[approveDemo, approveScreenshot, approveDocumentation, approvePpt,approveAll,initialAxiosPreventer,guideStatus])
 
   const handleApprove = (status) => {
     if (status === 'demo_status'){
@@ -98,7 +102,7 @@ function AReview3() {
   }
 
   useEffect (() => {
-    if (approveDemo === 'approve' && approveScreenshot === 'approve' && approveDocumentation === 'approve' && approvePpt === 'approve'){
+    if (approveDemo === 'approve' && approveScreenshot === 'approve' && approveDocumentation === 'approve' && approvePpt === 'approve' && fileData.hod_status === false){
       setAllrowsApproved(true);
     }
     else{
@@ -109,7 +113,9 @@ function AReview3() {
   const handleForward = (e) => {
     e.preventDefault();
     setApproveAll('approve');
-    setInitialAxiosPreventer(false)
+    setGuideStatus('approve');
+    setInitialAxiosPreventer(false);
+    setAllrowsApproved(false);
   }
 
   return (
@@ -229,8 +235,6 @@ function AReview3() {
                   class="btn btn-success"
                   style={{ width: "100%" }}
                   onClick={handleForward}
-                  disabled={fileData.hod_status ? true : false}
-
                 >
                   Permission Granted
                 </button>

@@ -23,10 +23,21 @@ function Admin() {
   const [review2Data, setReview2Data] = useState([]);
   const [review3Data, setReview3Data] = useState([]);
   const [varForGetRequstedTeams, setVarForGetRequestedTeam] = useState(false);
+  const isauthorized = localStorage.getItem("isauthorized");
   const navigate = useNavigate();
 
 
 
+
+  useEffect(() => {
+    if (isauthorized === "Admin") {
+      console.log(userInfo);
+      console.log("user Info Details")
+    }
+    else{
+      navigate("/");
+    }
+}, []);
 
   const handleTheme = () => {
     document.documentElement.classList.toggle('dark');

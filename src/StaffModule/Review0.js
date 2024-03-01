@@ -13,6 +13,7 @@ function Review0() {
   const [allrowsApproved, setAllrowsApproved] = useState(false);
   const [fileData, setFileData] = useState([]);
   const [initialAxiosPreventer, setInitialAxiosPreventer] = useState(true);
+  const [reRenderGetFiles, setReRenderGetFiles] = useState(true);
 
   useEffect(() => {
     const data = {
@@ -30,7 +31,7 @@ function Review0() {
     .catch((error) => {
       console.log(error)
     })
-  },[])
+  },[reRenderGetFiles])
 
   useEffect(() => {
     const data = {
@@ -49,6 +50,7 @@ function Review0() {
       axios.post( 'http://127.0.0.1:8000/reviewupload/status/',data)
     .then((response) => {
       console.log(response);
+      setReRenderGetFiles(reRenderGetFiles ? false : true);
     })
     .catch((error) => {
       console.log(error);
@@ -96,7 +98,7 @@ function Review0() {
   }
 
   useEffect(() => {
-    if (approveTitle === 'approve' && approveAbstract === 'approve' && approveBasepaper === 'approve' && approvePPT === 'approve') {
+    if (approveTitle === 'approve' && approveAbstract === 'approve' && approveBasepaper === 'approve' && approvePPT === 'approve' && fileData.guide_status === false) {
       setAllrowsApproved(true);
     } else {
       setAllrowsApproved(false);
@@ -107,6 +109,7 @@ function Review0() {
     e.preventDefault();
     setApproveAll('approve');
     setInitialAxiosPreventer(false);
+    setAllrowsApproved(false);
   }
 
   
@@ -133,7 +136,7 @@ function Review0() {
                     readOnly={true}
                   />
                 ) : (
-                  <td>Yet To Be Upload</td>
+                  <p>Yet To Be Upload</p>
                 )}
               </td>
               <td>
@@ -157,7 +160,7 @@ function Review0() {
                     Click here to view Abstract
                   </a>
                 ) : (
-                  <td>Yet To Be Upload</td>
+                  <p>Yet To Be Upload</p>
                 )}
               </td>
               <td>
@@ -181,7 +184,7 @@ function Review0() {
                     Click here to view Base Paper Document
                   </a>
                 ) : (
-                  <td>Yet To Be Upload</td>
+                  <p>Yet To Be Upload</p>
                 )}
               </td>
               <td>
@@ -205,7 +208,7 @@ function Review0() {
                     Click here to view PPT
                   </a>
                 ) : (
-                  <td>Yet To Be Upload</td>
+                  <p>Yet To Be Upload</p>
                 )}
               </td>
               <td>
@@ -221,7 +224,7 @@ function Review0() {
               <tr>
               <td colSpan="2"></td>
               <td>
-                <button type="submit" className="btn btn-success" style={{ width: "100%" }} onClick={handleForward} disabled={fileData.guide_status==='approve' ? true : false}> 
+                <button type="submit" className="btn btn-success" style={{ width: "100%" }} onClick={handleForward}> 
                   Forward To HOD
                 </button>
               </td>
