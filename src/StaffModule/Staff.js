@@ -187,9 +187,9 @@ function Staff() {
                   ))}
                 </select>
         </div>
-        <div className='panel-mem-btn'>
+        {userInfo.PanelMember && <div className='panel-mem-btn'>
             <button className='pannel-mem-btn' onClick={handleSwitchPanel}>Switch PanelMember</button>
-        </div>
+        </div>}
       </div>
 
       <div className="overflow-auto" id='project-boxes'>
