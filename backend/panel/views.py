@@ -11,7 +11,7 @@ from .models import Panal_Review0, Panal_Review1, Panal_Review2, Panal_Review3
 def get_batches(request):
     if request.method == 'POST':
         data = request.data
-        GuideId = '002'
+        GuideId = data.get('id')
         Review_No = data.get('reviewNo')
 
         if Student_Info.objects.filter(Guide_ID = GuideId).exists():

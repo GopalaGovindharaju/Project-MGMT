@@ -17,7 +17,6 @@ function Body({ID}) {
         
           <Stud/>
           <ReviewDate/>
-          {ID}
         </div>
         <div className="col-8" style={{ padding: '10px', height: '100%' }}>
           <Verify/>

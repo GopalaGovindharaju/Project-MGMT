@@ -18,6 +18,17 @@ function Staff() {
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [years, setYears] = useState([]);
+  const isauthorized = localStorage.getItem("isauthorized");
+
+  useEffect(() => {
+    if (isauthorized === "Guide") {
+      console.log(userInfo);
+      console.log("user Info Details")
+    }
+    else{
+      navigate("/");
+    }
+}, []);
   
   
   const handleTheme = () => {
@@ -59,12 +70,12 @@ function Staff() {
 
   useEffect(() => {
     const data = {
-      'id': '002',
+      'id': userInfo.ID,
     }
     axios.post('http://127.0.0.1:8000/addStudent/getTeams/',data)
     .then((response) => {
-      console.log(response.data)
-      setProjects(response.data);
+      console.log(response.data, response.data.message)
+      setProjects(response.data.data);
     })
     .catch((error) => {
       console.log(error.data)
@@ -146,7 +157,7 @@ function Staff() {
       </button>
       <button className="profile-btn">
         <img src={process.env.PUBLIC_URL + '/profile.png'} alt=''/>
-        <span>name</span>
+        <span>{userInfo.Name}</span>
       </button>
     </div>
   
@@ -182,7 +193,7 @@ function Staff() {
       </div>
 
       <div className="overflow-auto" id='project-boxes'>
-      {filteredProjects.map((project) => (
+      {Array.isArray(filteredProjects) && filteredProjects.length > 0 ? (filteredProjects.map((project) => (
             <div className="project-box-wrapper" key={project.ID} onClick={() => navigate(`/guide/${project.ID}`)}>
               <div className="project-box" style={{ backgroundColor: project.backgroundColor }}>
                 <div style={{height:'100%'}}>
@@ -257,7 +268,7 @@ function Staff() {
                     </div>
                   </div>
                 </div>
-              ))}
+              ))) : (<p>No projects available</p>)}
   </div>
 </div></div><div className='col-4' style={{backgroundColor:'white', padding:'4px', marginLeft:'10px', borderRadius:'25px'}}>
 <div className='left-staff'><h3>Review Schedule</h3>

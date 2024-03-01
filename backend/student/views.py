@@ -22,7 +22,7 @@ def review_0_upload_files(request):
         if Student_Info.objects.filter(ID = Id).exists():
             student_data = Student_Info.objects.get(ID = Id)
             student_batch = student_data.Batch
-            team_members = Student_Info.objects.filter(Batch = student_batch)
+            team_members = Student_Info.objects.filter(Batch = student_batch, Year = student_data.Year)
             
         if Abstract == None and Base_Paper == None and PPt == None and Title == None:
             return Response("File Upload Skipped for URLs", status=status.HTTP_200_OK)
@@ -57,7 +57,7 @@ def review_1_upload_files(request):
         if Student_Info.objects.filter(ID = Id).exists():
             student_data = Student_Info.objects.get(ID = Id)
             student_batch = student_data.Batch
-            team_members = Student_Info.objects.filter(Batch = student_batch)
+            team_members = Student_Info.objects.filter(Batch = student_batch, Year = student_data.Year)
         
         if Architecture == None and Modules == None and Modules_Description == None and Litrature_survey == None and Outcome_Images == None and PPt == None:
             return Response("File Upload Skipped for URLs", status=status.HTTP_200_OK)
@@ -98,7 +98,7 @@ def review_2_upload_files(request):
         if Student_Info.objects.filter(ID = Id).exists():
             student_data = Student_Info.objects.get(ID = Id)
             student_batch = student_data.Batch
-            team_members = Student_Info.objects.filter(Batch = student_batch)
+            team_members = Student_Info.objects.filter(Batch = student_batch, Year = student_data.Year)
 
         if Implementation_80P == None and Report_RoughCopy == None and Project_Publish == None and PPt == None:
             return Response("File Upload Skipped for URLs", status=status.HTTP_200_OK)
@@ -133,7 +133,7 @@ def review_3_upload_files(request):
         if Student_Info.objects.filter(ID = Id).exists():
             student_data = Student_Info.objects.get(ID = Id)
             student_batch = student_data.Batch
-            team_members = Student_Info.objects.filter(Batch = student_batch)
+            team_members = Student_Info.objects.filter(Batch = student_batch, Year = student_data.Year)
 
         if Project_Demo == None and Project_Screenshot == None and Report == None and PPt == None:
             return Response("File Upload Skipped for URLs", status=status.HTTP_200_OK)
@@ -166,7 +166,7 @@ def get_review_0_files_status(request):
         if Student_Info.objects.filter(ID = review_id).exists():
             student_data = Student_Info.objects.get(ID = review_id)
             student_batch = student_data.Batch
-            team_members = Student_Info.objects.filter(Batch = student_batch)
+            team_members = Student_Info.objects.filter(Batch = student_batch, Year = student_data.Year)
 
         for team_member in team_members:
             review_info = Review_0.objects.get(ID=team_member.ID)
@@ -221,7 +221,7 @@ def get_review_1_files_status(request):
         if Student_Info.objects.filter(ID = review_id).exists():
             student_data = Student_Info.objects.get(ID = review_id)
             student_batch = student_data.Batch
-            team_members = Student_Info.objects.filter(Batch = student_batch)
+            team_members = Student_Info.objects.filter(Batch = student_batch, Year = student_data.Year)
 
         for team_member in team_members:
             review_info = Review_1.objects.get(ID=team_member.ID)
@@ -282,7 +282,7 @@ def get_review_2_files_status(request):
         if Student_Info.objects.filter(ID = review_id).exists():
             student_data = Student_Info.objects.get(ID = review_id)
             student_batch = student_data.Batch
-            team_members = Student_Info.objects.filter(Batch = student_batch)
+            team_members = Student_Info.objects.filter(Batch = student_batch, Year = student_data.Year)
 
         for team_member in team_members:
             review_info = Review_2.objects.get(ID=team_member.ID)
@@ -329,7 +329,7 @@ def get_review_3_files_status(request):
         if Student_Info.objects.filter(ID = review_id).exists():
             student_data = Student_Info.objects.get(ID = review_id)
             student_batch = student_data.Batch
-            team_members = Student_Info.objects.filter(Batch = student_batch)
+            team_members = Student_Info.objects.filter(Batch = student_batch, Year = student_data.Year)
 
         for team_member in team_members:
             review_info = Review_3.objects.get(ID=team_member.ID)

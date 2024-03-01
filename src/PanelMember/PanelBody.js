@@ -9,6 +9,7 @@ function PanelBody() {
   const [listOfBatches, setListOfBatches] = useState([]);
   const [marks, setMarks] = useState({});
   const [remarks, setRemarks] = useState({});
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
 
 
   useEffect(() => {
@@ -35,7 +36,7 @@ function PanelBody() {
       'name': person.Name,
       'batch': person.Batch,
       'year': person.Year,
-      'panelmember_id': '002',
+      'panelmember_id': userInfo.ID,
       'reviewNo': '0',
     }));
     console.log(dataToSubmit);
