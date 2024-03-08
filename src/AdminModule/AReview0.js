@@ -16,6 +16,7 @@ function AReview0() {
   const [fileData, setFileData] = useState([]);
   const [initialAxiosPreventer, setInitialAxiosPreventer] = useState(true);
   const [reRenderGetFiles, setReRenderGetFiles] = useState(true);
+  const[studentReview0,setStudentReview0]=useState('')
 
   useEffect(() => {
     const data = {
@@ -30,6 +31,7 @@ function AReview0() {
       setApproveBasepaper(response.data.base_paper_status ? 'approve' : 'reject')
       setApprovePPT(response.data.ppt_status ? 'approve' : 'reject')
       setGuideStatus(response.data.guideStatus ? 'approve' : 'reject')
+  
     })
     .catch((error) => {
       console.log(error)
@@ -116,6 +118,8 @@ function AReview0() {
     setGuideStatus('approve');
     setInitialAxiosPreventer(false);
     setAllrowsApproved(false);
+    setStudentReview0('')
+
   }
 
 
@@ -230,7 +234,7 @@ function AReview0() {
               <tr>
               <td colSpan="2"></td>
               <td>
-                <button className="btn btn-success" style={{ width: "100%" }} onClick={handleForward}> 
+                <button className="btn btn-success" style={{ width: "100%" }} onClick={handleForward} > 
                   Permitted
                 </button>
               </td>

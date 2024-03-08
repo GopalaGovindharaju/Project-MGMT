@@ -134,7 +134,7 @@ const Review3 = () => {
                 </div>
               </td>
               <td>
-                <div>to be confirmed by guide and HOD</div>
+              {fileData.project_demo_status ? fileData.hod_status ?  <div>Project Demo confirmed</div> : <div>to be confirmed by hod</div>:<div>to be confirmed by guide</div>}
               </td>
             </tr>
             <tr>
@@ -164,7 +164,7 @@ const Review3 = () => {
                 </div>
               </td>
               <td>
-                <div>to be confirmed by guide and HOD</div>
+              {fileData.project_screenshot_status ? fileData.hod_status ?  <div> Project Screenshot confirmed</div> : <div>to be confirmed by hod</div>:<div>to be confirmed by guide</div>}
               </td>
             </tr>
             <tr>
@@ -194,7 +194,7 @@ const Review3 = () => {
                 </div>
               </td>
               <td>
-                <div>to be confirmed by guide and HOD</div>
+              {fileData.report_status ? fileData.hod_status ?  <div>Project Report confirmed</div> : <div>to be confirmed by hod</div>:<div>to be confirmed by guide</div>}
               </td>
             </tr>
             <tr>
@@ -224,7 +224,7 @@ const Review3 = () => {
                 </div>
               </td>
               <td>
-                <div>to be confirmed by guide and HOD</div>
+              {fileData.ppt_status ? fileData.hod_status ?  <div>PPT confirmed</div> : <div>to be confirmed by hod</div>:<div>to be confirmed by guide</div>}
               </td>
             </tr>
             <tr>

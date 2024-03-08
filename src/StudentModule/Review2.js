@@ -142,7 +142,9 @@ function Review2() {
                   />}
                 </td>
                 <td>
-                  <div> to be confirmed by guide and HOD</div>
+                {fileData.implement_status ? fileData.hod_status ?  <div>Project Screenshots confirmed</div> : <div>to be confirmed by hod</div>:<div>to be confirmed by guide</div>}
+
+                  
                 </td>
               </tr>
               <tr>
@@ -168,7 +170,7 @@ function Review2() {
                   />}
                 </td>
                 <td>
-                  <div> to be confirmed by guide and HOD</div>
+                {fileData.report_status ? fileData.hod_status ?  <div>Rough Report confirmed</div> : <div>to be confirmed by hod</div>:<div>to be confirmed by guide</div>}
                 </td>
               </tr>
               <tr>
@@ -194,7 +196,7 @@ function Review2() {
                   />}
                 </td>
                 <td>
-                  <div> to be confirmed by guide and HOD</div>
+                {fileData.ppt_status ? fileData.hod_status ?  <div>PPT confirmed</div> : <div>to be confirmed by hod</div>:<div>to be confirmed by guide</div>}
                 </td>
               </tr>
             </tbody>

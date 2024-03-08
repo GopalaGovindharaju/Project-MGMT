@@ -127,7 +127,7 @@ function Review() {
                 />
               </td>
               <td>
-                <div> to be confirmed by guide and HOD</div>
+                {fileData.title_status ? fileData.hod_status ?  <div>title confirmed</div> : <div>to be confirmed by hod</div>:<div>to be confirmed by guide</div>}
               </td>
             </tr>
             <tr>
@@ -154,7 +154,8 @@ function Review() {
                 
               </td>
               <td>
-                <div> to be confirmed by guide and HOD</div>
+              {fileData.abstract_status ? fileData.hod_status ?  <div>Abstract confirmed</div> : <div>to be confirmed by hod</div>:<div>to be confirmed by guide</div>}
+
               </td>
             </tr>
             <tr>
@@ -181,7 +182,8 @@ function Review() {
                 
               </td>
               <td>
-                <div> to be confirmed by guide and HOD</div>
+              {fileData.base_paper_status ? fileData.hod_status ?  <div>Base Paper confirmed</div> : <div>to be confirmed by hod</div>:<div>to be confirmed by guide</div>}
+
               </td>
             </tr>
             <tr>
@@ -208,7 +210,7 @@ function Review() {
                 
               </td>
               <td>
-                <div> to be confirmed by guide and HOD</div>
+              {fileData.ppt_status ? fileData.hod_status ?  <div>PPT confirmed</div> : <div>to be confirmed by hod</div>:<div>to be confirmed by guide</div>}
               </td>
             </tr>
             <tr>

@@ -20,7 +20,7 @@ function PanelBody3() {
     axios.post('http://127.0.0.1:8000/panel/get_batches/', data)
     .then((response) => {
       console.log(response.data);
-      setListOfBatches(response.data);
+      setListOfBatches(response.data.data);
 
     })
     .catch((error) => {

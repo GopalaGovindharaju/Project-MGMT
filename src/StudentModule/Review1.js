@@ -19,6 +19,7 @@ function Review1() {
     const data = {
       id: userInfo.ID,
     }
+
     axios.post('http://127.0.0.1:8000/addStudent/get_review_1_files/',data)
     .then((response) => {
       console.log(response.data)
@@ -145,9 +146,7 @@ function Review1() {
                   )}
                 </td>
                 <td>
-                  <label className="labeltd">
-                    To be confirmed by Guide or HOD
-                  </label>
+                  {fileData.ppt_status ? fileData.hod_status ?  <div>PPT confirmed</div> : <div>to be confirmed by hod</div>:<div>to be confirmed by guide</div>}
                 </td>
               </tr>
               <tr>
@@ -189,9 +188,7 @@ function Review1() {
                   )}
                 </td>
                 <td>
-                  <label className="labeltd">
-                    To be confirmed by Guide or HOD
-                  </label>
+                  {fileData.system_architecture_status ? fileData.hod_status ?  <div> System Architecture confirmed</div> : <div>to be confirmed by hod</div>:<div>to be confirmed by guide</div>}
                 </td>
               </tr>
               <tr>
@@ -231,9 +228,7 @@ function Review1() {
                   )}
                 </td>
                 <td>
-                  <label className="labeltd">
-                    To be confirmed by Guide or HOD
-                  </label>
+                  {fileData.modules_status ? fileData.hod_status ?  <div>Module Types confirmed</div> : <div>to be confirmed by hod</div>:<div>to be confirmed by guide</div>}
                 </td>
               </tr>
               <tr>
@@ -275,9 +270,8 @@ function Review1() {
                   )}
                 </td>
                 <td>
-                  <label className="labeltd">
-                    To be confirmed by Guide or HOD
-                  </label>
+                  {fileData.modules_description_status ? fileData.hod_status ?  <div>Module Description confirmed</div> : <div>to be confirmed by hod</div>:<div>to be confirmed by guide</div>}
+                 
                 </td>
               </tr>
               <tr>
@@ -319,9 +313,9 @@ function Review1() {
                   )}
                 </td>
                 <td>
-                  <label className="labeltd">
-                    To be confirmed by Guide or HOD
-                  </label>
+                  
+                  {fileData.literature_survey_status ? fileData.hod_status ?  <div>Litrature Survey confirmed</div> : <div>to be confirmed by hod</div>:<div>to be confirmed by guide</div>}
+                 
                 </td>
               </tr>
               <tr>
@@ -363,9 +357,9 @@ function Review1() {
                   )}
                 </td>
                 <td>
-                  <label className="labeltd">
-                    To be confirmed by Guide or HOD
-                  </label>
+                  
+                  {fileData.expected_outcome_status ? fileData.hod_status ?  <div>Outcome Images confirmed</div> : <div>to be confirmed by hod</div>:<div>to be confirmed by guide</div>}
+                  
                 </td>
               </tr>
               <tr>

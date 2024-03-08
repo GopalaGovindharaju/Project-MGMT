@@ -65,9 +65,9 @@ def get_batches(request):
                             'Department': batch['Department'],
                             'Batch': batch['Batch'],
                         })
-            return Response(result)
+            return Response({'data' : result, 'message':'successfully done'})
         else:
-            return Response("panel member not found")
+            return Response({'data': [ ],'message': "panel member not found"})
     else:
         return Response('Invalid Request')
 

@@ -104,6 +104,17 @@ def filter_unique_per_batch(queryset):
 
     return filtered_queryset
 
+def filter_unique_per_year(queryset):
+    unique_year = set()
+    filtered_queryset = []
+
+    for student_info in queryset:
+        if student_info.Year not in unique_year:
+            unique_year.add(student_info.Year)
+            filtered_queryset.append(student_info)
+
+    return filtered_queryset
+
     
 @api_view(['POST'])
 def accept_all(request):
