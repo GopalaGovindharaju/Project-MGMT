@@ -97,7 +97,7 @@ def update_marks(request):
                 student = Panal_Review1(ID = Id, Name = Name, Batch = Batch, Year = Year, Review0_Marks = Review0_Marks, Review0_Feedback = Review0_Feedback, PanalMember_ID = PanalMember_ID)
                 try:
                     student.save()
-                    student.Review0_Status = True
+                    student.Review1_Status = True
                     student.save()
                 except Exception as e:
                     print(f"Error saving student {Id}: {str(e)}")
@@ -105,7 +105,7 @@ def update_marks(request):
                 student = Panal_Review2(ID = Id, Name = Name, Batch = Batch, Year = Year, Review0_Marks = Review0_Marks, Review0_Feedback = Review0_Feedback, PanalMember_ID = PanalMember_ID)
                 try:
                     student.save()
-                    student.Review0_Status = True
+                    student.Review2_Status = True
                     student.save()
                 except Exception as e:
                     print(f"Error saving student {Id}: {str(e)}")
@@ -113,7 +113,7 @@ def update_marks(request):
                 student = Panal_Review3(ID = Id, Name = Name, Batch = Batch, Year = Year, Review0_Marks = Review0_Marks, Review0_Feedback = Review0_Feedback, PanalMember_ID = PanalMember_ID)
                 try:
                     student.save()
-                    student.Review0_Status = True
+                    student.Review3_Status = True
                     student.save()
                 except Exception as e:
                     print(f"Error saving student {Id}: {str(e)}")

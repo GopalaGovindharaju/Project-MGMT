@@ -41,7 +41,9 @@ def get_all_teams(request):
 
         result_data = []
         for project_detail in serializer.data:
+                print(project_detail['ID'])
                 team_details = Review_0.objects.get(ID=project_detail['ID'])
+                print(team_details)
                 guide_details = Guide_Info.objects.get(ID=project_detail['Guide_ID'])
                 result_data.append({
                     'ID': project_detail['ID'],
@@ -53,6 +55,7 @@ def get_all_teams(request):
                     'Title': team_details.Title if team_details.Title else "Not Yet Approved",
                     'Guide_Name': guide_details.Name if guide_details.Name else "name",
                 })
+                print(result_data)
 
         return Response(result_data)
     else:
@@ -104,7 +107,7 @@ def filter_unique_per_batch(queryset):
 
     return filtered_queryset
 
-def filter_unique_per_year(queryset):
+'''def filter_unique_per_year(queryset):
     unique_year = set()
     filtered_queryset = []
 
@@ -113,7 +116,7 @@ def filter_unique_per_year(queryset):
             unique_year.add(student_info.Year)
             filtered_queryset.append(student_info)
 
-    return filtered_queryset
+    return filtered_queryset'''
 
     
 @api_view(['POST'])

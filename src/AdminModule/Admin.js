@@ -238,7 +238,7 @@ function Admin() {
             </button>
             <button className="profile-btn">
               <img src={process.env.PUBLIC_URL + "/profile.png"} alt=''/>
-              <span>Name</span>
+              <span>{userInfo.Name}</span>
             </button>
           </div>
   
