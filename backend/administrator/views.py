@@ -7,7 +7,7 @@ from .models import Guide_Info
 from guide.models import Student_Info
 from guide.serializers import Student_InfoSerializer
 from student.models import Review_0, Review_1, Review_2,Review_3
-
+from administrator.serializers import Guide_Info_Serializer
 @api_view(['POST'])
 def add_guide(request):
     if request.method == 'POST':
@@ -161,3 +161,26 @@ def accept_all(request):
     else:
         return Response("Invalid Request")
 
+@api_view(['POST'])
+def fetchingguidename(request):
+    if request.method == 'POST':
+        data = request.data
+        Id = data.get('id')
+        
+        fetch = Student_Info.objects.get(ID=Id)
+        guideId = fetch.Guide_ID
+        guide_info = Guide_Info.objects.filter(ID=guideId)
+        student_info = Student_Info.objects.filter(Batch=fetch.Batch)
+
+        # Serialize both data
+        student_serialized_data = Student_InfoSerializer(student_info, many=True).data
+        guide_serialized_data = Guide_Info_Serializer(guide_info, many=True).data
+
+        # Combine both serialized data into a dictionary
+        combined_data = {
+            'student_info': student_serialized_data,
+            'guide_info': guide_serialized_data
+        }
+
+        return Response(combined_data)
+    

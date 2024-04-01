@@ -6,4 +6,6 @@ urlpatterns = [
     path('getAllTeams/', views.get_all_teams, name = 'get_all_teams'),
     path('getRequestedTeams/', views.get_requested_teams, name = 'get_requested_teams'),
     path('acceptAll/', views.accept_all, name = 'accept_all'),
+    path('fetchingguidename/', views.fetchingguidename, name='fetchingguidename')
+
 ]

@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Stud.css'; // Import a separate CSS file for styling
+import axios from 'axios';
 
-function Stud() {
-  const students = [
-    { registerNumber: '001', name: 'Gopi', grade: 'A' },
-    { registerNumber: '002', name: 'Chinta Thomas', grade: 'B' },
-    { registerNumber: '003', name: 'Gopala', grade: 'C' },
-    { registerNumber: '004', name: 'Chitra', grade: 'D' }
-    // Add more student details as needed
-  ];
+function Stud({ID}) {
 
+ const [students ,setstudent]=useState([])
+
+
+  useEffect(() => {
+    const data = {
+      id: ID,
+    }
+    axios.post('http://localhost:8000/addStudent/fetchingstudname/',data)
+    .then((response) => {
+      console.log(response.data)
+      setstudent(response.data)
+    
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}, []);
   return (
     <div className="full-width">
       <h2>Student Details</h2>
@@ -25,9 +36,9 @@ function Stud() {
         <tbody>
           {students.map((student, index) => (
             <tr key={index}>
-              <td>{student.registerNumber}</td>
-              <td>{student.name}</td>
-              <td>{student.grade}</td>
+              <td>{student.ID}</td>
+              <td>{student.Name}</td>
+              <td>{student.Department}</td>
             </tr>
           ))}
         </tbody>

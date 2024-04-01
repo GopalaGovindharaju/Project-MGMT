@@ -192,4 +192,16 @@ def get_review_3_files(request):
     else:
         return Response("invalid request for file retrive")
     
+
+@api_view(['POST'])
+def fetchingstudname(request):
+    if request.method=='POST':
+        data=request.data
+        Id=data.get('id')
+        
+        fetch=Student_Info.objects.get(ID=Id)
+        batch=fetch.Batch
+        allfetch=Student_Info.objects.filter(Batch=batch)
+        serial=Student_InfoSerializer(allfetch,many=True)
+        return Response(serial.data)
     

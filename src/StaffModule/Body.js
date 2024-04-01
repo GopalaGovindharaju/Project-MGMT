@@ -15,7 +15,7 @@ function Body({ID}) {
       <div className="row full-height" style={{ border: '1px solid #000', height:'800px'}}>
         <div className="col-4" style={{ borderRight: '1px solid #000', padding: '10px', height: '100%' }}>
         
-          <Stud/>
+          <Stud ID={ID}/>
           <ReviewDate/>
         </div>
         <div className="col-8" style={{ padding: '10px', height: '100%' }}>

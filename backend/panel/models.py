@@ -17,7 +17,7 @@ class Panal_Review1(models.Model):
     Year = models.CharField(max_length = 25,null =  True)
     Review1_Marks = models.IntegerField( null =  True)
     Review1_Feedback = models.CharField(max_length = 100 , null =  True)
-    PanalMember_ID = models.CharField(max_length=25, null =  True,unique = True)
+    PanalMember_ID = models.CharField(max_length=25, null =  True)
     Review1_Status= models.BooleanField(default = False)
     
 class Panal_Review2(models.Model):
@@ -27,7 +27,7 @@ class Panal_Review2(models.Model):
     Year = models.CharField(max_length = 25,null =  True)
     Review2_Marks = models.IntegerField(null =  True)
     Review2_Feedback = models.CharField(max_length = 100 , null =  True)
-    PanalMember_ID = models.CharField(max_length=25, null =  True,unique = True)
+    PanalMember_ID = models.CharField(max_length=25, null =  True)
     Review2_Status= models.BooleanField(default = False)
     
     
@@ -38,6 +38,6 @@ class Panal_Review3(models.Model):
     Year = models.CharField(max_length = 25,null =  True)
     Review3_Marks = models.IntegerField( null =  True)
     Review3_Feedback = models.CharField(max_length = 100 , null =  True)
-    PanalMember_ID = models.CharField(max_length=25, null =  True,unique = True)
+    PanalMember_ID = models.CharField(max_length=25, null =  True)
     Review3_Status= models.BooleanField(default = False)
     

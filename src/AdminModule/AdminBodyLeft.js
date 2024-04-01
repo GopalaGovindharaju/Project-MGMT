@@ -1,8 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../StudentModule/Navb.css'
 import './AdminBody.css'
+import axios from 'axios';
 
-function AdminBodyLeft() {
+function AdminBodyLeft({ID})
+ {
+  const [staff ,setStaff]=useState([])
+  const [students ,setstudent]=useState([])
+
+
+
+
+  useEffect(() => {
+    const data = {
+      id: ID,
+    }
+    axios.post('http://127.0.0.1:8000/addGuide/fetchingguidename/',data)
+    .then((response) => {
+      console.log(response.data)
+      setStaff(response.data.guide_info)
+      setstudent(response.data.student_info)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}, []);
   return (
     <div className="admin-body-left">
       <div className="guide-detail">
@@ -12,26 +34,26 @@ function AdminBodyLeft() {
           </div>
         </nav>
         <div className="guide-info">
-          <table class="table">
-            <tbody>
-              <tr>
-                <th scope="row">Name</th>
-                <td className='col-7'>Mrs. R. L. Indu Lekha</td>
-              </tr>
-              <tr>
-                <th scope="row">ID</th>
-                <td className='col-7'>12345678</td>
-              </tr>
-              <tr>
-                <th scope="row">Designation</th>
-                <td className='col-7'>Assistant Professor</td>
-              </tr>
-              <tr>
-                <th scope="row">Department</th>
-                <td className='col-7'>CSE</td>
-              </tr>
-            </tbody>
-          </table>
+        <table className="custom-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          {staff.map((staff, index) => (
+            <tr key={index}>
+              <td>{staff.ID}</td>
+              <td>{staff.Name}</td>
+              <td>{staff.Designation}</td>
+              <td>{staff.Department}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
         </div>
       </div>
       <div className="student-detail">
@@ -41,43 +63,41 @@ function AdminBodyLeft() {
           </div>
         </nav>
         <div className="student-info">
+            		  
+        <table className="table">
+  <tbody>
+    {staff.map((staff, index) => (
+      <tr key={index} >
+        <tr>
+          <th scope="row" className="col-2">Department</th>
+          <td style={{ marginLeft: '0%' }}>{staff.Department}</td>
+        </tr>
+     
+      </tr>
+    ))}
+  </tbody>
+</table>
           <table class="table">
-            <tbody>
-              <tr>
-                <th scope="row">Department</th>
-                <td className='col-7'>CSE</td>
-              </tr>
-              <tr>
-                <th scope="row">Batch</th>
-                <td className='col-7'>2020 - 2024</td>
-              </tr>
-            </tbody>
-          </table>
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col" className='col-7'>Reg NO</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Gopala G</td>
-                <td className='col-7'>AC20UCS034</td>
-              </tr>
-              <tr>
-                <td>Gopal G</td>
-                <td className='col-7'>AC20UCS035</td>
-              </tr>
-              <tr>
-                <td>Gopu G</td>
-                <td className='col-7'>AC20UCS036</td>
-              </tr>
-              <tr>
-                <td>Gops G</td>
-                <td className='col-7'>AC20UCS037</td>
-              </tr>
-            </tbody>
+          <table className="custom-table">
+        <thead>
+          <tr>
+            <th>Register Number</th>
+            <th>Name</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          {students.map((student, index) => (
+            <tr key={index}>
+              <td>{student.ID}</td>
+              <td>{student.Name}</td>
+            
+            </tr>
+          ))}
+        </tbody>
+      </table>
+            
+ 
           </table>
         </div>
       </div>
